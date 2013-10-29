@@ -317,13 +317,7 @@ module.exports = function (grunt) {
       pages: {
         options: {
           remote: 'git@github.com:dcalhoun/dcalhoun.github.io.git',
-          branch: 'gh-pages'
-        }
-      },
-      local: {
-        options: {
-          remote: '../',
-          branch: 'build'
+          branch: 'master'
         }
       }
     }
