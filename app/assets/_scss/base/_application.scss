@@ -45,26 +45,3 @@ body {
   max-width: calc(800px - 1.5em);
   padding: 0;
 }
-
-.me {
-  background-image: url('../img/david.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-  min-height: 300px;
-
-  @include media($tablet) {
-    min-height: 360px;
-  }
-}
-
-.post {
-  @extend .wrap;
-}
-
-.disqus-thread {
-  @extend .wrap;
-}
-
-.last {
-  margin-bottom: 2em;
-}
