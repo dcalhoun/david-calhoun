@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% if site.posts %}
+  {% for post in site.posts %}
+    <article class="post">
+      <h1>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h1>
+
+      {{ post.content }}
+    </article>
+  {% endfor %}
+{% else %}
+  <p class="empty-text">No posts.</p>
+{% endif %}

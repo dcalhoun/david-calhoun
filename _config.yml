@@ -35,7 +35,7 @@ future: true
 
 # Compile posts in the _drafts directory.
 # _config.build.yml sets this to false on `grunt build`
-show_drafts: true
+show_drafts: false
 
 # Split posts over multiple subdirectories called “page2”, “page3”, … “pageN”
 paginate: 10
