@@ -306,6 +306,26 @@ module.exports = function (grunt) {
         'sass:dist',
         'copy:dist'
       ]
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:dcalhoun/dcalhoun.github.io.git',
+          branch: 'gh-pages'
+        }
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      }
     }
   });
 
@@ -360,4 +380,7 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  // Version control build code
+  grunt.loadNpmTasks('grunt-build-control');
 };
