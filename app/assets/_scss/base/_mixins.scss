@@ -1,3 +1,5 @@
+/**** Mixins ****/
+
 // Apply CSS animation
 @mixin animate($animation: fadeIn, $duration: .75s, $delay: .5s, $timing-function: ease, $fill-mode: both) {
   -webkit-animation-duration: $duration;
@@ -94,21 +96,6 @@
 // Mask image prefix builder
 @mixin mask-image($image) {
   @include prefixer(mask-image, url($image), webkit moz spec)
-}
-
-// More specific Neat nth-omega mixin
-@mixin nth-omega-type($nth, $display: block, $direction: right) {
-  @if $display == table {
-    &:nth-of-type(#{$nth}) {
-      padding-#{$direction}: 0;
-    }
-  }
-
-  @else {
-    &:nth-of-type(#{$nth}) {
-      margin-#{$direction}: 0;
-    }
-  }
 }
 
 // Accepts styling for placeholder content
