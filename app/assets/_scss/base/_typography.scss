@@ -1,0 +1,78 @@
+/**** Typography ****/
+a, a:visited {
+  color: $green;
+  text-decoration: none;
+  @include transition(opacity 0.2s ease-in-out);
+}
+
+a:hover, a:active {
+  opacity: 0.5;
+}
+
+blockquote {
+  border-left: 6px solid $green;
+  font-style: italic;
+  margin: 2em 0;
+  padding-left: 1em;
+
+  p {
+    color: $gray-darker;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0.75em;
+  }
+}
+
+small {
+  font-size: 0.7em;
+}
+
+p {
+  margin: 0 0 2em 0;
+}
+
+@include selection {
+  background: transparentize($green, 0.5);
+  color: $gray-darker;
+}
+
+
+
+// Headers
+h1 {
+  font-size: 1.666em;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.15em;
+
+  @include media($tablet) {
+    font-size: 1.875em;
+  }
+}
+
+h2 {}
+h3 {}
+
+
+
+// Custom classes
+.mark {
+  border: 1px solid $green;
+  border-radius: 50%;
+  color: $green;
+  display: block;
+  font-family: $sans-serif-font-family;
+  font-size: 1.65em;
+  font-weight: 200;
+  height: 2.43em;
+  line-height: 1.0;
+  margin: 0.75em auto;
+  padding: 0.7em 0;
+  text-align: center;
+  width: 2.43em;
+
+  &:visited {
+    color: $green;
+  }
+}
