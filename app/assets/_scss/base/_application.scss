@@ -34,7 +34,7 @@ body {
 .wrap {
   margin-right: auto;
   margin-left: auto;
-  max-width: 800px;
+  max-width: em(800, $base-value-tablet);
   padding-right: 0.75em;
   padding-left: 0.75em;
 }
@@ -55,6 +55,14 @@ body {
   @include media($tablet) {
     min-height: 360px;
   }
+}
+
+.post {
+  @extend .wrap;
+}
+
+.disqus-thread {
+  @extend .wrap;
 }
 
 .last {
