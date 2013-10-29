@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    David Calhoun -- Site Maker --  http://twitter.com/david_calhoun
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    Jekyll static site generator
+    Sass 
+    HTML5 ★ Boilerplate 
+

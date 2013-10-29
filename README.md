@@ -1,4 +1,3 @@
-dcalhoun.github.io
-==================
+# DavidCalhoun.me
 
-Personal site of David Calhoun
+Source code for my personal site.

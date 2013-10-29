@@ -1,0 +1,159 @@
+/*
+ * PLEASE, PLEASE, PLEASE...
+ * Organize your CSS. Do not simply throw your CSS at the end
+ * of this file. Read the table of contents and _use_ it.
+ */
+
+/*
+ * TABLE OF CONTENTS
+ * ---------------------------------------------------------------------------
+ * 1. Globals  - Default HTML element styling.
+ * 2. Template - Styling for the structure of the site.
+ * ---------------------------------------------------------------------------
+ */
+
+/* Things to place in separate files...
+ * ---------------------------------------------------------------------------
+ * _variables.scss - Sass variables.
+ * _mixins.scss    - Sass mixins.
+ * _library.scss   - Styling for custom classes used throughout the site.
+ * _page_name.scss - Styling for page/state specific elements. Name the
+ *                   file appropriately.
+ * ---------------------------------------------------------------------------
+ */
+
+
+/* GLOBALS
+ * -----------------------------------------------------------------------------
+ * Styling for default HTML elements.
+ * -----------------------------------------------------------------------------*/
+body {
+  color: $gray;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  @include media($tablet) {
+    font-size: $base-font-size-tablet;
+  }
+}
+
+a, a:visited {
+  color: $green;
+  text-decoration: none;
+  @include transition(opacity 0.2s ease-in-out);
+}
+
+a:hover, a:active {
+  opacity: 0.5;
+}
+
+blockquote {
+  border-left: 6px solid $green;
+  font-style: italic;
+  margin: 2em 0;
+  padding-left: 1em;
+
+  p {
+    color: $gray-darker;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0.75em;
+  }
+}
+
+small {
+  font-size: 0.7em;
+}
+
+h1 {
+  font-size: 1.666em;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.15em;
+
+  @include media($tablet) {
+    font-size: 1.875em;
+  }
+}
+
+h2 {}
+h3 {}
+
+p {
+  margin: 0 0 2em 0;
+}
+
+dl {
+  margin-bottom: 2em;
+}
+
+dt,
+dd {
+  line-height: $base-line-height;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 1em;
+}
+
+.dl-horizontal {
+  dt {
+    clear: left;
+    float: left;
+    text-align: right;
+    width: 120px;
+    @include text-overflow();
+  }
+
+  dd {
+    margin-left: 130px;
+  }
+}
+
+@include selection {
+  background: transparentize($green, 0.5);
+  color: $gray-darker;
+}
+
+
+
+/* TEMPLATE
+ * -----------------------------------------------------------------------------
+ * Styling for the structure of the site.
+ * -----------------------------------------------------------------------------*/
+ .wrap {
+   margin-right: auto;
+   margin-left: auto;
+   max-width: 800px;
+   padding-right: 0.75em;
+   padding-left: 0.75em;
+ }
+
+.header-primary {
+  margin: 0 auto;
+  max-width: 800px;
+  max-width: -webkit-calc(800px - 1.5em);
+  max-width: calc(800px - 1.5em);
+}
+
+.me {
+  background-image: url('../img/david.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  min-height: 300px;
+
+  @include media($tablet) {
+    min-height: 360px;
+  }
+}
+
+.last {
+  margin-bottom: 2em;
+}
