@@ -32,5 +32,9 @@
 
 		{% include scripts.html %}
 		{% include googleanalytics.html %}
+
+		{% if page.layout == 'post' %}
+			{% include disqus_init.html %}
+		{% endif %}
 	</body>
 </html>

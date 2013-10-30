@@ -1,1 +1,15 @@
 /**** Library ****/
+.me {
+  background-image: url('../img/david.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  min-height: 300px;
+
+  @include media($tablet) {
+    min-height: 360px;
+  }
+}
+
+.last {
+  margin-bottom: 2em;
+}

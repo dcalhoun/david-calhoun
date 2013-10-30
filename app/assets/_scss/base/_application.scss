@@ -34,7 +34,7 @@ body {
 .wrap {
   margin-right: auto;
   margin-left: auto;
-  max-width: 800px;
+  max-width: em(800, $base-value-tablet);
   padding-right: 0.75em;
   padding-left: 0.75em;
 }
@@ -44,19 +44,4 @@ body {
   max-width: -webkit-calc(800px - 1.5em);
   max-width: calc(800px - 1.5em);
   padding: 0;
-}
-
-.me {
-  background-image: url('../img/david.jpg');
-  background-position: 50% 50%;
-  background-size: cover;
-  min-height: 300px;
-
-  @include media($tablet) {
-    min-height: 360px;
-  }
-}
-
-.last {
-  margin-bottom: 2em;
 }

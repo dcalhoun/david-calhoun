@@ -28,8 +28,24 @@ small {
   font-size: 0.7em;
 }
 
-p {
+p,
+pre {
   margin: 0 0 2em 0;
+}
+
+pre {
+  background: $gray-lighter;
+  padding: em(10, $base-value-tablet);
+
+  code {
+    font-size: em(18, $base-value-tablet);
+    padding: 0;
+  }
+}
+
+code {
+  background: $gray-lighter;
+  padding: em(3, $base-value-tablet) em(7, $base-value-tablet);
 }
 
 @include selection {
