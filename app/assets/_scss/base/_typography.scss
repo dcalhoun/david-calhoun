@@ -35,6 +35,7 @@ pre {
 
 pre {
   background: $gray-lighter;
+  overflow: auto;
   padding: em(10, $base-value-tablet);
 
   code {

@@ -5,7 +5,7 @@ title:  "Migration to Jekyll: My Journey to Understanding Yeoman"
 
 I've been wanting to wrap my head [Yeoman](http://yeoman.io/) for awhile now. It seemed everytime I found a moment of free time to dive into understanding Yeoman, my brain was already fried from that day's job-related development work. I continued to spin up a generic "webapp" generator & failed to understand the seemingly complex ideas behind Yeoman. This process continued until now, when I decided to move my personal site to GitHub pages & Jekyll.
 
-It seems that in order for me to finally understand the beauty Yeoman, all I needed was an end goal: a Jekyll site. It turns out this is exactly why Yeoman was created — to help you quickly achieve your goal by generating a lot of the initial boilerplate code for you.
+It seems that in order for me to finally understand the beauty of Yeoman, all I needed was an end goal: a Jekyll site. It turns out this is exactly why Yeoman was created — to help you quickly achieve your goal by generating a lot of the initial boilerplate code for you.
 
 ````bash
 npm install -g yo
