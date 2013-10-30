@@ -39,14 +39,14 @@ pre {
   padding: em(10, $base-value-tablet);
 
   code {
-    font-size: em(18, $base-value-tablet);
     padding: 0;
   }
 }
 
 code {
   background: $gray-lighter;
-  padding: em(3, $base-value-tablet) em(7, $base-value-tablet);
+  font-size: em(18, $base-value-tablet);
+  padding: em(3, 18) em(7, 18);
 }
 
 @include selection {
