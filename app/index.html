@@ -33,15 +33,28 @@ title: David Calhoun, Designer &amp; Developer
   </ul>
 </section>
 
+<section class="articles wrap">
+  <h1>Blog</h1>
+
+  <ul class="list-bars">
+    {% for post in site.posts limit: 3 %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+
+    <li>
+      <a href="/blog">More posts</a>
+    </li>
+  </ul>
+</section>
+
 <section class="contact wrap last">
   <h1>Contact</h1>
 
   <ul class="list-bars">
     <li>
       <a href="mailto:dpcalhoun@gmail.com">Mail</a>
-    </li>
-    <li>
-      <a href="/blog">Blog</a>
     </li>
     <li>
       <a href="http://twitter.com/david_calhoun">Twitter</a>
