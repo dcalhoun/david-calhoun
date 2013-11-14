@@ -21,6 +21,8 @@ Thumbs.db
 *.swp
 ._*
 *~
+.ruby-version
+.ruby-gemset
 
 # Ignore packages #
 *.7z
