@@ -282,8 +282,9 @@ module.exports = function (grunt) {
         verbose: true
       },
       check: {
-       src: ['<%= yeoman.app %>/assets/css/**/*.css',
-             '<%= yeoman.app %>/assets/_scss/**/*.scss']
+        src: ['<%= yeoman.app %>/assets/css/**/*.css',
+              '<%= yeoman.app %>/assets/_scss/*/*.scss'
+        ]
       }
     },
     csslint: {
@@ -293,7 +294,7 @@ module.exports = function (grunt) {
       check: {
         src: [
           '<%= yeoman.app %>}/assets/css/**/*.css',
-          '<%= yeoman.app %>}/assets/_scss/**/*.scss'
+          '<%= yeoman.app %>}/assets/_scss/*/*.scss'
         ]
       }
     },
@@ -349,7 +350,7 @@ module.exports = function (grunt) {
     'jekyll:check',
     'sass:server',
     'jshint:all',
-    'csscss:check',
+    // 'csscss:check',
     'csslint:check'
   ]);
 
