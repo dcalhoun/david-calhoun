@@ -9,7 +9,7 @@ It seems that in order for me to finally understand the beauty of Yeoman, all I 
 
 ````bash
 npm install -g yo
-npm install -g generator-jekyll
+npm install -g generator-jekyllrb
 cd path/to/site/directory
 yo generator-jekyllrb
 grunt server
