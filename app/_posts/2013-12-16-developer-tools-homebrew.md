@@ -23,7 +23,7 @@ brew doctor
 
 The above command is Homebrew's built-in utility to check its structure &amp; heath status. The `doctor` command will let you know if your Homebrew is out of date or there are any issues with your package installations.
 
-I like to use [Yeoman](http://yeoman.io/) &amp; a generator I created called [Playbook](https://github.com/centresource/generator-playbook), so one of the first packages I install is [Node.js](http://nodejs.org/). Installing a package is a simple as running the `install` command.
+I like to use [Yeoman](http://yeoman.io/) &amp; a generator I created called [Playbook](https://github.com/centresource/generator-playbook), so one of the first packages I install is [Node.js](http://nodejs.org/). Installing a package is a simple as running the `install` command:
 
 ````bash
 brew install node
