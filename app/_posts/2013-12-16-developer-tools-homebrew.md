@@ -44,6 +44,7 @@ Homebrew's installation is, in reality, a clone of a Git repository. The `update
 
 ````bash
 brew list           # shows a list of installed packages
+brew outdated       # shows a list of out of date packages
 brew info node      # shows information about a specific package
 brew uninstall node # uninstalls a specific package
 ````
