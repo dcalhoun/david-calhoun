@@ -1,48 +1,19 @@
-/**** Variables ****/
-@import "neat/app/assets/stylesheets/neat-helpers";
+// Typography
+///////////////////////////////////////////////////////////////////////////////
+$sans-serif: $helvetica;
+$serif: 'skolar', $georgia;
 
-//**** Globals ****
-$base-value: 16;
-$base-value-tablet: 22;
+$base-font-family: $serif;
+$header-font-family: $base-font-family;
 
+// Sizes
+///////////////////////////////////////////////////////////////////////////////
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.5;
+$base-border-radius: em(3);
 
-
-//**** Typography ****
-$base-font-size:         #{$base-value + "px"};
-$base-font-size-tablet:  #{$base-value-tablet + "px"};
-$base-line-height:       1.5;
-
-// Available Typekit font styles:
-// Skolar: Regular 400 | Regular Italic 400 | Semi-Bold 600 | Bold 700 | Bold Italic 700
-$serif-font-family:      'skolar', Georgia, Times, serif;
-$sans-serif-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$base-font-family:       $serif-font-family;
-$header-font-family:     $base-font-family;
-
-
-
-//**** Breakpoints (mobile first) ****
-$desktop:     min-width 850px;
-$tablet:      min-width 700px;
-$tablet-only: min-width 700px max-width 849px;
-$mobile-only: max-width 699px; // Avoid using this
-
-
-
-//**** Neat Grid ****
-$max-width: em(1088, $base-value); // Max-width of the outer container
-// $default-feature: min-width;    // Default @media feature for the breakpoint() mixin
-// $column: golden-ratio(1em, 3);  // Column width
-// $gutter: golden-ratio(1em, 1);  // Gutter between each two columns
-// $grid-columns: 12;              // Total number of columns in the grid
-// $border-box-sizing: true;       // Makes all elements have a border-box layout
-
-// $visual-grid: true;
-// $visual-grid-color: red;
-// $visual-grid-index: front;
-// $visual-grid-opacity: 0.05;
-
-
+// Colors
+///////////////////////////////////////////////////////////////////////////////
 
 //**** Grays ****
 $black:                 #000;
@@ -54,25 +25,29 @@ $gray-lighter:          #eee;
 $white:                 #fff;
 
 
-
 //**** Colors ****
-$blue:                  #002447;
-$green:                 #8aba56;
-$red:                   #9d261d;
-$yellow:                #fe9800;
-$orange:                #f89406;
-$pink:                  #c3325f;
-$purple:                #7a43b6;
+$blue:            #477DCA;
+$red-light:       #FBE3E4;
+$yellow-light:    #FFF6BF;
+$green-light:     #E6EFC2;
+$green:           #8aba56;
 
 
+// Body Color
+$base-body-color: white;
 
-//**** Selectors ****
-$anchors-list: 'a',
-               'a:visited',
-               'a:hover',
-               'a:active';
-$anchors: ();
+//  Font Colors
+$base-font-color: $gray;
+$base-accent-color: $green;
 
-@each $anchor in $anchors-list {
-  $anchors: append($anchors, unquote($anchor), comma);
-}
+//  Text Link Colors
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 15);
+
+// Border color
+$base-border-color: $gray-light;
+
+// Flash Colors
+$error-color: $red-light;
+$notice-color: $yellow-light;
+$success-color: $green-light;

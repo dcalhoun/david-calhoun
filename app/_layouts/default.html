@@ -30,12 +30,10 @@
 
 		{{ content }}
 
-		{% include scripts.html %}
-
 		{% if page.layout == 'post' %}
 			{% include disqus_init.html %}
 		{% endif %}
 
-		{% include googleanalytics.html %}
+		{% include google-analytics.html %}
 	</body>
 </html>

@@ -1,12 +1,98 @@
-/**** Typography ****/
-a, a:visited {
-  color: $green;
-  text-decoration: none;
-  @include transition(opacity 0.2s ease-in-out);
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+  line-height: $base-line-height;
 }
 
-a:hover, a:active {
-  opacity: 0.5;
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  line-height: 1.25em;
+  margin: 0;
+  text-rendering: optimizeLegibility; // Fix the character spacing for headings
+}
+
+h1 {
+  font-size: $base-font-size * 1.6875; // 16 * 1.6875 = 27px
+  font-weight: 600;
+  margin-bottom: 0.15em;
+
+  @include media($medium) {
+    font-size: $base-font-size * 2.5625; // 16 * 2.5625 = 41px
+  }
+}
+
+h2 {
+  font-size: $base-font-size * 2; // 16 * 2 = 32px
+}
+
+h3 {
+  font-size: $base-font-size * 1.75; // 16 * 1.75 = 28px
+}
+
+h4 {
+  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+}
+
+h5 {
+  font-size: $base-font-size * 1.25; // 16 * 1.25 = 20px
+}
+
+h6 {
+  font-size: $base-font-size;
+}
+
+p,
+pre {
+  margin: 0 0 2em 0;
+}
+
+a {
+  color: $base-link-color;
+  text-decoration: none;
+  @include transition(opacity 0.2s ease-in-out);
+
+  &:hover {
+    color: $hover-link-color;
+    opacity: 0.5;
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+    outline: none;
+  }
+}
+
+hr {
+  border-bottom: 1px solid $base-border-color;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-line-height 0;
+}
+
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted $base-border-color;
+  cursor: help;
+}
+
+address {
+  display: block;
+  margin: 0 0 ($base-line-height / 2);
+}
+
+hgroup {
+  margin-bottom: $base-line-height / 2;
+}
+
+del {
+  color: lighten($base-font-color, 15);
 }
 
 blockquote {
@@ -24,19 +110,23 @@ blockquote {
   }
 }
 
-small {
-  font-size: 0.7em;
+cite {
+  color: lighten($base-font-color, 25);
+  font-style: italic;
+
+  &:before {
+    content: '\2014 \00A0';
+  }
 }
 
-p,
-pre {
-  margin: 0 0 2em 0;
+small {
+  font-size: 0.7em;
 }
 
 pre {
   background: $gray-lighter;
   overflow: auto;
-  padding: em(10, $base-value-tablet);
+  padding: em(10);
 
   code {
     padding: 0;
@@ -45,51 +135,11 @@ pre {
 
 code {
   background: $gray-lighter;
-  font-size: em(18, $base-value-tablet);
+  font-size: em(18);
   padding: em(3, 18) em(7, 18);
 }
 
 @include selection {
   background: transparentize($green, 0.5);
   color: $gray-darker;
-}
-
-
-
-// Headers
-h1 {
-  font-size: 1.666em;
-  font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 0.15em;
-
-  @include media($tablet) {
-    font-size: 1.875em;
-  }
-}
-
-h2 {}
-h3 {}
-
-
-
-// Custom classes
-.mark {
-  border: 1px solid $green;
-  border-radius: 50%;
-  color: $green;
-  display: block;
-  font-family: $sans-serif-font-family;
-  font-size: 1.65em;
-  font-weight: 200;
-  height: 2.43em;
-  line-height: 1.0;
-  margin: 0.75em auto;
-  padding: 0.7em 0;
-  text-align: center;
-  width: 2.43em;
-
-  &:visited {
-    color: $green;
-  }
 }

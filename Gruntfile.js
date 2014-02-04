@@ -1,4 +1,4 @@
-// Generated on 2013-10-28 using generator-jekyllrb 0.4.0
+// Generated on 2013-10-25 using generator-jekyllrb 0.4.0
 'use strict';
 
 // Directory reference:
@@ -105,13 +105,12 @@ module.exports = function (grunt) {
         bundleExec: true,
         debugInfo: false,
         lineNumbers: false,
-        loadPath: 'app/_bower_components'
+        loadPath: '<%= yeoman.app %>/_bower_components'
       },
       dist: {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/assets/_scss',
-          // src: '**/*.{scss,sass}',
           src: '*.{scss,sass}',
           dest: '.tmp/assets/css',
           ext: '.css'
@@ -125,7 +124,6 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/assets/_scss',
-          // src: '**/*.{scss,sass}',
           src: '*.{scss,sass}',
           dest: '.tmp/assets/css',
           ext: '.css'
@@ -140,7 +138,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          dest: '<%= yeoman.dist %>',
+          dest: '<%= yeoman.dist %>'
         }
       },
       server: {
@@ -236,11 +234,11 @@ module.exports = function (grunt) {
             'assets/img/**/*',
             'assets/fonts/**/*',
             // Like Jekyll, exclude files & folders prefixed with an underscore
-            '!**/_*{,/**}',
+            '!**/_*{,/**}'
             // Explicitly add any files your site needs for distribution here
             //'_bower_components/jquery/jquery.js',
-            'favicon.ico',
-            'apple-touch*.png'
+            // 'favicon.ico',
+            // 'apple-touch*.png'
           ],
           dest: '<%= yeoman.dist %>'
         }]
@@ -261,6 +259,18 @@ module.exports = function (grunt) {
         }
       }
     },
+    buildcontrol: {
+      dist: {
+        options: {
+          dir: 'dist',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+          remote: 'git@github.com:dcalhoun/dcalhoun.github.io.git',
+          branch: 'master'
+        }
+      }
+    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -275,16 +285,15 @@ module.exports = function (grunt) {
     csscss: {
       options: {
         bundleExec: true,
-        minMatch: 2,
+        minMatch: 4,
+        ignoreProperties: '-moz-appearance,-ms-appearance,-o-appearance,-webkit-appearance',
         ignoreSassMixins: false,
         colorize: true,
         shorthand: false,
         verbose: true
       },
       check: {
-        src: ['<%= yeoman.app %>/assets/css/**/*.css',
-              '<%= yeoman.app %>/assets/_scss/*/*.scss'
-        ]
+        src: ['.tmp/assets/css/screen.css']
       }
     },
     csslint: {
@@ -292,10 +301,7 @@ module.exports = function (grunt) {
         csslintrc: '.csslintrc'
       },
       check: {
-        src: [
-          '<%= yeoman.app %>}/assets/css/**/*.css',
-          '<%= yeoman.app %>}/assets/_scss/*/*.scss'
-        ]
+        src: ['.tmp/assets/css/screen.css']
       }
     },
     concurrent: {
@@ -307,20 +313,6 @@ module.exports = function (grunt) {
         'sass:dist',
         'copy:dist'
       ]
-    },
-    buildcontrol: {
-      options: {
-        dir: 'dist',
-        commit: true,
-        push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      pages: {
-        options: {
-          remote: 'git@github.com:dcalhoun/dcalhoun.github.io.git',
-          branch: 'master'
-        }
-      }
     }
   });
 
@@ -338,20 +330,20 @@ module.exports = function (grunt) {
     ]);
   });
 
-  // No real tests yet. Add your own.
-  grunt.registerTask('test', [
-  //   'clean:server',
-  //   'concurrent:test',
-  //   'connect:test'
-  ]);
-
   grunt.registerTask('check', [
     'clean:server',
     'jekyll:check',
-    'sass:server',
+    'sass:dist',
     'jshint:all',
-    // 'csscss:check',
+    'csscss:check',
     'csslint:check'
+  ]);
+
+  // No real tests yet. Add your own.
+  grunt.registerTask('test', [
+    // 'clean:server',
+    // 'concurrent:test',
+    // 'connect:test'
   ]);
 
   grunt.registerTask('build', [
@@ -368,14 +360,16 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin'
-    ]);
+  ]);
+
+  grunt.registerTask('deploy', [
+    'default',
+    'buildcontrol'
+  ]);
 
   grunt.registerTask('default', [
     'check',
     'test',
     'build'
   ]);
-
-  // Version control build code
-  grunt.loadNpmTasks('grunt-build-control');
 };
