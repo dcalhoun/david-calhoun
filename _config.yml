@@ -10,14 +10,11 @@ description: Personal site of David Calhoun.
 
 author:
   name: David Calhoun
-  email: hello@davidcalhoun.me
-  github: dcalhoun
-  twitter: david_calhoun
+  email: dpcalhoun@gmail.com
 
 # Exclude directories and/or files from the conversion.
 # Grunt moves image files and asset directories.
-exclude: ['assets/img', 'assets/css', 'assets/js', 'assets/fonts',
-          '**.png', '**.jpg', '**.jpeg', '**.gif', '**.webp', '**.svg', '**.ico']
+exclude: ['assets', '**.png', '**.jpg', '**.jpeg', '**.gif', '**.webp', '**.svg', '**.ico']
 
 # Force inclusion of directories and/or files in the conversion.
 # .htaccess is a good example since dotfiles are excluded by default.
@@ -35,9 +32,9 @@ future: true
 
 # Compile posts in the _drafts directory.
 # _config.build.yml sets this to false on `grunt build`
-show_drafts: true
+show_drafts: false
 
-# Split posts over multiple subdirectories called “page/2”, “page/3”, … “page/N”
+# Split posts over multiple subdirectories called “page2”, “page3”, … “pageN”
 paginate: 10
 paginate_path: 'blog/page/:num'
 

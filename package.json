@@ -1,10 +1,9 @@
 {
   "name": "dcalhoungithubio",
   "version": "0.0.0",
-  "description": "Yeoman / Grunt workflow for dcalhoun.github.io",
-  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-build-control": "~0.1.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-connect": "~0.5.0",
@@ -25,7 +24,8 @@
     "grunt-usemin": "~0.1.12",
     "load-grunt-tasks": "~0.1.0",
     "time-grunt": "~0.1.1",
-    "grunt-build-control": "~0.1.1"
+    "grunt-aws": "~0.2.5",
+    "grunt-replace": "~0.5.1"
   },
   "engines": {
     "node": ">=0.8.0"

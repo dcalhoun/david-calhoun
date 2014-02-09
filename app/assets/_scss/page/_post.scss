@@ -1,4 +1,3 @@
-// Styles for posts
 .post,
 .disqus-thread,
 .pagination {
@@ -7,24 +6,24 @@
 
 .post,
 .disqus-thread {
-  margin-bottom: em(66, $base-value-tablet);
+  margin-bottom: em(66, 22);
 }
 
 .post-meta {
-  font-size: em(18, $base-value-tablet);
+  font-size: em(18, 22);
   color: $gray-light;
   margin-bottom: em(12, 18);
 }
 
 .pagination {
-  margin-bottom: em(44, $base-value-tablet);
+  margin-bottom: em(44, 22);
   @include row;
 
   .previous,
   .next {
     background: darken($white, 3%);
     color: darken($gray-lighter, 10%);
-    padding: em(10, $base-value-tablet);
+    padding: em(10, 22);
     text-align: center;
     @include span-columns( 12 of 24, collapse );
 
