@@ -354,7 +354,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concat',
     'cssmin',
-    'uglify',
+    // 'uglify',
     'imagemin',
     'svgmin',
     'rev',
