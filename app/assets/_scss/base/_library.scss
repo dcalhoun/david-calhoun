@@ -2,6 +2,7 @@
   background-image: url('../img/david.jpg');
   background-position: 50% 50%;
   background-size: cover;
+  margin-bottom: 1.35em;
   min-height: 300px;
 
   @include media($medium) {

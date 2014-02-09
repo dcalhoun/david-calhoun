@@ -28,6 +28,10 @@
   max-width: em(800);
   padding-right: 0.75em;
   padding-left: 0.75em;
+
+  @include media($medium) {
+    max-width: em(800, 22);
+  }
 }
 
 .wrap-flush {

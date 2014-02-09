@@ -7,8 +7,7 @@
 
 // Neat Breakpoints
 ///////////////////////////////////////////////////////////////////////////////
-$small:         new-breakpoint(min-width em(540) 2);
-$small-only:    new-breakpoint(max-width em(699) 2);
-$medium:        new-breakpoint(min-width em(700) 4);
-$medium-only:   new-breakpoint(min-width em(700) max-width em(849) 4);
+$small-only:    new-breakpoint(max-width em(699) 12);
+$medium:        new-breakpoint(min-width em(700) 12);
+$medium-only:   new-breakpoint(min-width em(700) max-width em(849) 12);
 $large:         new-breakpoint(min-width em(850) 12);
