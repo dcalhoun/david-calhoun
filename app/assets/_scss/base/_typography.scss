@@ -65,11 +65,10 @@ pre {
 a {
   color: $base-link-color;
   text-decoration: none;
-  @include transition(opacity 0.2s ease-in-out);
+  @include transition(color $transition-duration ease-in-out);
 
   &:hover {
     color: $hover-link-color;
-    opacity: 0.5;
   }
 
   &:active, &:focus {
