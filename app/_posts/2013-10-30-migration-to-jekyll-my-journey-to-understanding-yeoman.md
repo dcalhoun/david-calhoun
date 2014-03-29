@@ -29,7 +29,7 @@ The above installs jQuery into the `_bower_components` directory of my project. 
 
 Grunt, as described on its home page, is a JavaScript task runner. For me, it was an easy way to automate my Sass & JavaScript compilation & concatenation as well as [deployment scripts](https://github.com/robwierzbowski/grunt-build-control) to my GitHub pages hosting. Running the task `grunt server` spins up a local server to serve my Jekyll site into my browser. With the aforementioned jekyllrb generator, the server task also comes ready to watch my asset files to compile & LiveReload my Sass & JavaScript.
 
-The Grunt tasks included with the jekyllrb generator also include support for [Usemin](https://github.com/yeoman/grunt-usemin). Usemin allows for replacing references to non-optmized scripts & stylesheets (typically found in development environments) with references to optimized scripts & stylesheets for production.
+The Grunt tasks included with the jekyllrb generator also include support for [Usemin](https://github.com/yeoman/grunt-usemin). Usemin allows for replacing references to non-optimized scripts & stylesheets (typically found in development environments) with references to optimized scripts & stylesheets for production.
 
 ````html
 <!-- The following Usemin block... -->
