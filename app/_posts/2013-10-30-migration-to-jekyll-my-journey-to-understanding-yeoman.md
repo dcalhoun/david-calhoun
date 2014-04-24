@@ -11,11 +11,11 @@ It seems that in order for me to finally understand the beauty of Yeoman, all I 
 npm install -g yo
 npm install -g generator-jekyllrb
 cd path/to/site/directory
-yo generator-jekyllrb
+yo jekyllrb
 grunt server
 ````
 
-Assuming you already have Node & npm installed (I recommend using [homebrew](http://madebyhoundstooth.com/blog/install-node-with-homebrew-on-os-x/)), that's all it takes to get a Yeoman-generated, Grunt-compiling Jekyll site running on your local machine. I am utilizing the [jekyllrb generator](https://github.com/robwierzbowski/generator-jekyllrb) that I found via the Yeoman [community generators page](http://yeoman.io/community-generators.html).
+Assuming you already have Node & npm installed (I recommend using [homebrew](http://davidcalhoun.me/2013/12/16/developer-tools-homebrew/)), that's all it takes to get a Yeoman-generated, Grunt-compiling Jekyll site running on your local machine. I am utilizing the [jekyllrb generator](https://github.com/robwierzbowski/generator-jekyllrb) that I found via the Yeoman [community generators page](http://yeoman.io/community-generators.html).
 
 A nice thing about the jekyllrb generator is that it has built-in configuration options for including/excluding Sass, Compass, Bootstrap, H5BP & CoffeeScript — as well as other tools. This step-by-step approach to generating my Jekyll site through a Yeoman generator helped me understand the benefit of Yeoman generators. Creating & configuring my Jekyll site became very easy.
 
