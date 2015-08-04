@@ -6,24 +6,24 @@
 
 .post,
 .disqus-thread {
-  margin-bottom: em(66, 22);
+  margin-bottom: em(66, 23);
 }
 
 .post-meta {
-  font-size: em(18, 22);
+  font-size: em(18, 23);
   color: $gray-light;
   margin-bottom: em(12, 18);
 }
 
 .pagination {
-  margin-bottom: em(44, 22);
+  margin-bottom: em(44, 23);
   @include row;
 
   .previous,
   .next {
     background: darken($white, 3%);
     color: darken($gray-lighter, 10%);
-    padding: em(10, 22);
+    padding: em(10, 23);
     text-align: center;
     @include span-columns( 12 of 24, collapse );
 
