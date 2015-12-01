@@ -1,14 +1,13 @@
-var React = require('react');
+import React from 'react';
+import Router, {Link} from 'react-router';
 
-var Header = React.createClass({
-  render: function () {
+export default class Header extends React.Component {
+  render() {
     return (
       <header>
-        <a href='/'>Index</a>
-        <a href='/about'>About</a>
+        <Link to='/'>Index</Link>
+        <Link to='/about'>About</Link>
       </header>
     );
   }
-});
-
-module.exports = Header;
+}

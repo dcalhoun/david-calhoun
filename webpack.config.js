@@ -1,5 +1,10 @@
-var StaticSite = require('static-site-generator-webpack-plugin');
-var data       = require('./data');
+var StaticRender = require('static-render-webpack-plugin');
+var data         = require('./data');
+
+var routes = [
+  '/',
+  '/about'
+];
 
 module.exports = {
   entry: './entry.js',
@@ -16,13 +21,13 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel',
         query: {
-          presets: ['react']
+          presets: ['es2015', 'react']
         }
       }
     ]
   },
 
   plugins: [
-    new StaticSite('bundle.js', data.routes, data)
+    new StaticRender('bundle.js', routes)
   ]
 }

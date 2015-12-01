@@ -1,13 +1,11 @@
-var React = require('react');
+import React from 'react';
 
-var Index = React.createClass({
-  render: function () {
+export default class Index extends React.Component {
+  render() {
     return (
       <main>
         Index Component
       </main>
     );
   }
-});
-
-module.exports = Index;
+}

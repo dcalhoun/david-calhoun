@@ -1,17 +1,10 @@
-var React  = require('react');
-var Router = require('react-router');
-var Routes = require('./Routes.jsx');
+import React  from 'react';
+import Router, {Route, DefaultRoute} from 'react-router';
+import Routes from './Routes.jsx';
 
-if (typeof document !== 'undefined') {
-  var initProps = JSON.parse(document.getElementById('initial-props').innerHTML);
-  Router.run(Routes, Router.HistoryLocation, function (Handler) {
-    React.render(React.createElement(Handler, initProps), document);
-  });
-}
-
-module.exports = function render(locals, callback) {
-  Router.run(Routes, locals.path, function (Handler) {
-    var html = React.renderToString(React.createElement(Handler, locals));
-    callback(null, '<!DOCTYPE html>' + html);
+module.exports = function render(path, props, callback) {
+  Router.run(Routes, path, (Root) => {
+    const html = React.renderToStaticMarkup(<Root/>);
+    callback('<!DOCTYPE html>' + html);
   });
 }
