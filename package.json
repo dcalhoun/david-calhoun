@@ -28,7 +28,7 @@
     "react": "^0.13.3",
     "react-router": "^0.13.3",
     "static-render-webpack-plugin": "^0.1.2",
-    "webpack": "^1.9.10",
-    "webpack-dev-server": "^1.9.0"
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
   }
 }
