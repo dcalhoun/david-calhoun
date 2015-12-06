@@ -23,6 +23,8 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "css-loader": "^0.23.0",
+    "cssnext-loader": "^1.0.1",
     "history": "^1.13.1",
     "node-libs-browser": "^0.5.2",
     "react": "^0.13.3",
@@ -30,5 +32,8 @@
     "static-render-webpack-plugin": "^0.1.2",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "basscss": "^7.0.4"
   }
 }
