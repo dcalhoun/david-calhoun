@@ -9,12 +9,12 @@ export default class Root extends React.Component {
       <html>
         <head>
           <title>Hello</title>
-          <style dangerouslySetInnerHTML={{ __html: css }} />
+          <link rel="stylesheet" type="text/css" href="/app.css"/>
         </head>
         <body>
           <Header/>
           <RouteHandler/>
-          <script src='bundle.js' />
+          <script src='/bundle.js' />
         </body>
       </html>
     );

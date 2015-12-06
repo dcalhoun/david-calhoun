@@ -1,4 +1,5 @@
 var data         = require('./data');
+var ExtractText  = require('extract-text-webpack-plugin');
 var StaticRender = require('static-render-webpack-plugin');
 
 var routes = [
@@ -26,12 +27,13 @@ module.exports = {
       },
       {
         test: /\.css/,
-        loader: 'css!cssnext'
+        loader: ExtractText.extract('css!cssnext')
       }
     ]
   },
 
   plugins: [
+    new ExtractText('app.css'),
     new StaticRender('bundle.js', routes)
   ],
 
