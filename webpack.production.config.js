@@ -1,3 +1,4 @@
+var ExtractText  = require('extract-text-webpack-plugin');
 var StaticRender = require('static-render-webpack-plugin');
 var webpack      = require('webpack');
 
@@ -7,24 +8,20 @@ var routes = [
 ];
 
 module.exports = {
-  entry: [
-    // 'webpack-dev-server/client?http://localhost:8080',
-    // 'webpack/hot/dev-server',
-    './src/entry.js'
-  ],
+  entry: './src/entry.js',
 
   output: {
+    path: './dist/',
     filename: 'bundle.js',
-    path: __dirname + '/dist',
     libraryTarget: 'umd'
   },
-  //
-  // devServer: {
-  //   contentBase: 'dist/',
-  //   historyApiFallback: true,
-  //   port: 8080,
-  //   hot: true
-  // },
+
+  devServer: {
+    contentBase: './build/',
+    historyApiFallback: true,
+    port: 4000,
+    hot: true
+  },
 
   module: {
     loaders: [
@@ -37,17 +34,15 @@ module.exports = {
       },
       {
         test: /\.css/,
-        // loader: ExtractText.extract('css!cssnext')
-        loader: 'style!css!cssnext'
+        loader: ExtractText.extract('css!cssnext')
       }
     ]
   },
 
   plugins: [
-    // new ExtractText('bundle.css'),
+    new ExtractText('bundle.css'),
     new StaticRender('bundle.js', routes),
-    // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin()
   ],
 
   cssnext: {

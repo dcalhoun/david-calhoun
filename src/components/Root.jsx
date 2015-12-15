@@ -9,7 +9,9 @@ export default class Root extends React.Component {
       <html>
         <head>
           <title>Hello</title>
-          <link rel="stylesheet" type="text/css" href="/bundle.css"/>
+          if (process.env.NODE_ENV === 'production') {
+            <link rel="stylesheet" type="text/css" href="/bundle.css"/>
+          }
         </head>
         <body>
           <Header/>
