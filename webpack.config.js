@@ -1,4 +1,3 @@
-var data         = require('./data');
 var ExtractText  = require('extract-text-webpack-plugin');
 var StaticRender = require('static-render-webpack-plugin');
 
@@ -8,11 +7,10 @@ var routes = [
 ];
 
 module.exports = {
-  entry: './entry.js',
-
+  entry: './src/entry.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname,
+    path: './dist/',
     libraryTarget: 'umd'
   },
 
@@ -33,7 +31,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractText('app.css'),
+    new ExtractText('bundle.css'),
     new StaticRender('bundle.js', routes)
   ],
 
@@ -45,4 +43,4 @@ module.exports = {
       colorRgba: false
     }
   }
-}
+};

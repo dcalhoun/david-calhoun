@@ -9,7 +9,7 @@ export default class Root extends React.Component {
       <html>
         <head>
           <title>Hello</title>
-          <link rel="stylesheet" type="text/css" href="/app.css"/>
+          <link rel="stylesheet" type="text/css" href="/bundle.css"/>
         </head>
         <body>
           <Header/>
