@@ -1,5 +1,5 @@
-var StaticRender = require('static-render-webpack-plugin');
-var webpack      = require('webpack');
+var StaticSite = require('static-site-generator-webpack-plugin');
+var webpack    = require('webpack');
 
 var routes = [
   '/',
@@ -7,24 +7,15 @@ var routes = [
 ];
 
 module.exports = {
-  entry: [
-    // 'webpack-dev-server/client?http://localhost:8080',
-    // 'webpack/hot/dev-server',
-    './src/entry.js'
-  ],
+  entry: {
+    'main': './src/entry.js'
+  },
 
   output: {
     filename: 'bundle.js',
     path: __dirname + '/dist',
     libraryTarget: 'umd'
   },
-  //
-  // devServer: {
-  //   contentBase: 'dist/',
-  //   historyApiFallback: true,
-  //   port: 8080,
-  //   hot: true
-  // },
 
   module: {
     loaders: [
@@ -37,17 +28,14 @@ module.exports = {
       },
       {
         test: /\.css/,
-        // loader: ExtractText.extract('css!cssnext')
         loader: 'style!css!cssnext'
       }
     ]
   },
 
   plugins: [
-    // new ExtractText('bundle.css'),
-    new StaticRender('bundle.js', routes),
-    // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin()
+    new StaticSite('main', routes),
+    new webpack.NoErrorsPlugin()
   ],
 
   cssnext: {

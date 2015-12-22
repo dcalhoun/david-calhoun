@@ -1,12 +1,12 @@
 import React  from 'react';
-import Router, {Route, DefaultRoute} from 'react-router';
-import Root from './components/Root.jsx';
-import Home from './components/Index.jsx';
+import Router, {Route, IndexRoute} from 'react-router';
+import App from './components/App.jsx';
+import Index from './components/Index.jsx';
 import About from './components/About.jsx';
 
 export default (
-  <Route path='/' handler={Root}>
-    <DefaultRoute handler={Home}/>
-    <Route path='/about' handler={About}/>
+  <Route path='/' component={App}>
+    <IndexRoute component={Index}/>
+    <Route path='/about' component={About}/>
   </Route>
 );

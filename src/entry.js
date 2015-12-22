@@ -1,17 +1,26 @@
-import React  from 'react';
-import Router, {HistoryLocation} from 'react-router';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
+import { createHistory, createMemoryHistory } from 'history';
+import { Router, RoutingContext, match } from 'react-router';
 import Routes from './Routes.jsx';
 import Root from './components/Root.jsx';
 
-module.exports = function render(path, props, callback) {
-  Router.run(Routes, path, (Root) => {
-    const html = React.renderToString(<Root/>);
-    callback('<!DOCTYPE html>' + html);
-  });
+// Client render
+if (typeof document !== 'undefined') {
+  const history = createHistory();
+  const outlet  = document.getElementById('js-outlet');
+
+  ReactDOM.render(<Router history={history} routes={Routes} />, outlet);
 }
 
-if (typeof document != 'undefined') {
-  Router.run(Routes, HistoryLocation, (Root) => {
-    React.render(<Root/>, document);
+// Exported static site render
+export default (locals, callback) => {
+  const history  = createMemoryHistory();
+  const location = history.createLocation(locals.path);
+
+  match({ Routes, location }, (error, redirectLocation, renderProps) => {
+    const html = ReactDOMServer.renderToStaticMarkup(<Root><RoutingContext {...renderProps}/></Root>);
+    callback(null, '<!doctype html>' + html);
   });
-}
+};

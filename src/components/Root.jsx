@@ -1,21 +1,16 @@
-import React, {PropTypes} from 'react';
-import {RouteHandler} from 'react-router';
-import Header from './Header.jsx';
-import css from '../app.css';
+import React from 'react';
 
 export default class Root extends React.Component {
   render() {
     return (
       <html>
         <head>
-          <title>Hello</title>
-          if (process.env.NODE_ENV === 'production') {
-            <link rel="stylesheet" type="text/css" href="/bundle.css"/>
-          }
+          <title>David Calhoun</title>
         </head>
         <body>
-          <Header/>
-          <RouteHandler/>
+          <div id="js-outlet">
+            {this.props.children}
+          </div>
           <script src='/bundle.js' />
         </body>
       </html>
