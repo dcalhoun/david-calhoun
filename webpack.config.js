@@ -37,7 +37,12 @@ module.exports = {
   plugins: [
     new ExtractText('bundle.css'),
     new StaticSite('main', routes),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'config': {
+        'env': JSON.stringify('prod')
+      }
+    })
   ],
 
   cssnext: {
