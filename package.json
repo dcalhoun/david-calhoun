@@ -4,9 +4,9 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.html",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors",
+    "dev": "webpack-dev-server --progress --colors --inline --hot --config webpack.dev.config.js",
     "start": "npm run dev",
-    "webpack": "webpack --progress --colors --config webpack.production.config.js"
+    "webpack": "webpack --progress --colors"
   },
   "repository": {
     "type": "git",

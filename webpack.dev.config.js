@@ -1,10 +1,4 @@
-var StaticSite = require('static-site-generator-webpack-plugin');
 var webpack    = require('webpack');
-
-var routes = [
-  '/',
-  '/about'
-];
 
 module.exports = {
   entry: {
@@ -34,7 +28,6 @@ module.exports = {
   },
 
   plugins: [
-    new StaticSite('main', routes),
     new webpack.NoErrorsPlugin()
   ],
 

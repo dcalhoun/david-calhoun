@@ -1,5 +1,6 @@
-var StaticSite = require('static-site-generator-webpack-plugin');
-var webpack    = require('webpack');
+var ExtractText = require('extract-text-webpack-plugin');
+var StaticSite  = require('static-site-generator-webpack-plugin');
+var webpack     = require('webpack');
 
 var routes = [
   '/',
@@ -28,12 +29,13 @@ module.exports = {
       },
       {
         test: /\.css/,
-        loader: 'style!css!cssnext'
+        loader: ExtractText.extract('style', 'css!cssnext')
       }
     ]
   },
 
   plugins: [
+    new ExtractText('bundle.css'),
     new StaticSite('main', routes),
     new webpack.NoErrorsPlugin()
   ],
