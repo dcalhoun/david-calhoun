@@ -3,15 +3,12 @@ import styles from '../app.css';
 
 export default class Root extends React.Component {
   render() {
-    if (config.env === 'prod') {
-      var link = <link rel="stylesheet" type="text/css" href="./bundle.css" media="screen" />;
-    }
 
     return (
       <html>
         <head>
-          <title>David Calhoun</title>
-          {link}
+          <title>{this.props.title}</title>
+          <link rel="stylesheet" type="text/css" href="./bundle.css" media="screen" />
         </head>
         <body>
           <div id="js-outlet">

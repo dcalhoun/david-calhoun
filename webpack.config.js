@@ -1,11 +1,7 @@
 var ExtractText = require('extract-text-webpack-plugin');
+var locals      = require('./src/data.js');
 var StaticSite  = require('static-site-generator-webpack-plugin');
 var webpack     = require('webpack');
-
-var routes = [
-  '/',
-  '/about'
-];
 
 module.exports = {
   entry: {
@@ -36,7 +32,7 @@ module.exports = {
 
   plugins: [
     new ExtractText('bundle.css'),
-    new StaticSite('main', routes),
+    new StaticSite('main', locals.paths, locals),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'config': {

@@ -20,7 +20,7 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path);
 
   match({ routes: Routes, location: location }, (error, redirectLocation, renderProps) => {
-    const html = ReactDOMServer.renderToStaticMarkup(<Root><RoutingContext {...renderProps}/></Root>);
+    const html = ReactDOMServer.renderToStaticMarkup(<Root {...locals}><RoutingContext {...renderProps}/></Root>);
     callback(null, '<!doctype html>' + html);
   });
 };
