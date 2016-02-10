@@ -1,7 +1,7 @@
 module.exports = {
-  title: 'David Calhoun, Designer &amp; Developer',
+  title: 'David Calhoun, Developer & Designer',
   paths: [
     '/',
-    '/about'
+    '/blog'
   ]
 }
