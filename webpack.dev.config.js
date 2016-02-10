@@ -1,6 +1,7 @@
-var locals     = require('./src/data.js');
-var StaticSite = require('static-site-generator-webpack-plugin');
-var webpack    = require('webpack');
+var ExtractText = require('extract-text-webpack-plugin');
+var locals      = require('./src/data.js');
+var StaticSite  = require('static-site-generator-webpack-plugin');
+var webpack     = require('webpack');
 
 module.exports = {
   entry: {
@@ -24,12 +25,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css!cssnext'
+        loader: ExtractText.extract('style', 'css!cssnext')
       }
     ]
   },
 
   plugins: [
+    new ExtractText('bundle.css'),
     new StaticSite('bundle.js', locals.paths, locals),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
