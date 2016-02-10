@@ -30,6 +30,16 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    extensions: [
+      '.jsx',
+      '.js',
+      '.web.js',
+      '.webpack.js',
+      ''
+    ]
+  },
+
   plugins: [
     new ExtractText('bundle.css'),
     new StaticSite('bundle.js', locals.paths, locals),

@@ -3,4 +3,4 @@
 Source for David Calhoun's personal site.
 
 ## TODO
-- Add server to load files locally
+- Figure out how to pass props down to children components through react-router
