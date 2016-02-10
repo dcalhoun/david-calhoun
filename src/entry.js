@@ -14,13 +14,17 @@ if (typeof document !== 'undefined') {
   ReactDOM.render(<Router history={history} routes={Routes} />, outlet);
 }
 
-// Exported static site render
+// Static site render
 export default (locals, callback) => {
   const history  = createMemoryHistory();
   const location = history.createLocation(locals.path);
 
   match({ routes: Routes, location: location }, (error, redirectLocation, renderProps) => {
-    const html = ReactDOMServer.renderToStaticMarkup(<Root {...locals}><RoutingContext {...renderProps}/></Root>);
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <Root {...locals}>
+        <RoutingContext {...renderProps}/>
+      </Root>
+    );
     callback(null, '<!doctype html>' + html);
   });
 };
