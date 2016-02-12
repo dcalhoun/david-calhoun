@@ -1,20 +1,24 @@
 import React from 'react';
-import styles from '../app.css';
+import css from '../app.css';
 
 export default class Root extends React.Component {
   render() {
+    const {assets, children, title} = this.props;
+
     return (
       <html>
         <head>
-          <title>{this.props.title}</title>
-          <link rel="stylesheet" type="text/css" href="./bundle.css" media="screen" />
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='width=device-width,initial-scale=1' />
+          <title>{title}</title>
+          <style dangerouslySetInnerHTML={{ __html: css }} />
         </head>
-        <body className="p2">
-          <div id="js-outlet">
-            {React.cloneElement(this.props.children, this.props)}
+        <body className='p2'>
+          <div id='js-outlet'>
+            {React.cloneElement(children, this.props)}
           </div>
-          {Object.keys(this.props.assets).map((chunk, index) => {
-            return <script key={index} src={this.props.assets[chunk]}/>;
+          {Object.keys(assets).map((chunk, index) => {
+            return <script key={index} src={'/' + assets[chunk]}/>;
           })}
         </body>
       </html>

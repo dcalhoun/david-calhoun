@@ -1,5 +1,9 @@
 @import 'basscss';
 
 :root {
-  --font-family: 'Avenir Next', 'Hevletica Neue', sans-serif;
+  --font-family: -apple-system, Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
 }

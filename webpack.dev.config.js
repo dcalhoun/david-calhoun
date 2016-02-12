@@ -1,7 +1,9 @@
-var ExtractText = require('extract-text-webpack-plugin');
-var locals      = require('./src/data.js');
-var StaticSite  = require('static-site-generator-webpack-plugin');
-var webpack     = require('webpack');
+var calc          = require('postcss-calc');
+var customMedia   = require('postcss-custom-media');
+var customProps   = require('postcss-custom-properties');
+var locals        = require('./src/data.js');
+var postcssImport = require('postcss-import');
+var webpack       = require('webpack');
 
 module.exports = {
   entry: {
@@ -14,49 +16,37 @@ module.exports = {
     libraryTarget: 'umd'
   },
 
+  resolve: {
+    extensions: ['.jsx', '.js', '']
+  },
+
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
+        exclude: /node_modules/,
         loader: 'babel',
         query: {
           presets: ['es2015', 'react']
         }
       },
       {
-        test: /\.css$/,
-        loader: ExtractText.extract('style', 'css!cssnext')
+        test: /\.css/,
+        loader: 'style!css!postcss'
       }
-    ]
-  },
-
-  resolve: {
-    extensions: [
-      '.jsx',
-      '.js',
-      '.web.js',
-      '.webpack.js',
-      ''
     ]
   },
 
   plugins: [
-    new ExtractText('bundle.css'),
-    new StaticSite('bundle.js', locals.paths, locals),
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'config': {
-        'env': JSON.stringify('dev')
-      }
-    })
+    new webpack.NoErrorsPlugin()
   ],
 
-  cssnext: {
-    compress: true,
-    features: {
-      rem: false,
-      pseudoElements: false,
-      colorRgba: false
-    }
+  postcss: function() {
+    return [
+      postcssImport,
+      customMedia,
+      customProps,
+      calc
+    ]
   }
 };
