@@ -1,7 +1,6 @@
 var calc          = require('postcss-calc');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');
-var locals        = require('./src/data.js');
 var path          = require('path');
 var postcssImport = require('postcss-import');
 var webpack       = require('webpack');

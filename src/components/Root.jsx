@@ -15,7 +15,7 @@ export default class Root extends React.Component {
         </head>
         <body className='p2'>
           <div id='js-outlet'>
-            {React.cloneElement(children, this.props)}
+            {children}
           </div>
           {Object.keys(assets).map((chunk, index) => {
             return <script key={index} src={'/' + assets[chunk]}/>;

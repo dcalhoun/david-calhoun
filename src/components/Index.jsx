@@ -6,7 +6,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <main>
-        <About {...this.props}/>
+        <About/>
         <Projects/>
       </main>
     );

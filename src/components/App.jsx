@@ -3,10 +3,12 @@ import Header from './Header';
 
 export default class App extends React.Component {
   render() {
+    const {children} = this.props;
+
     return (
       <div>
-        <Header {...this.props}/>
-        {React.cloneElement(this.props.children, {props: this.props})}
+        <Header/>
+        {children}
       </div>
     );
   }
