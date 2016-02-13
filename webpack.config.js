@@ -2,6 +2,7 @@ var calc          = require('postcss-calc');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');
 var locals        = require('./src/data.js');
+var path          = require('path');
 var postcssImport = require('postcss-import');
 var StaticSite    = require('static-site-generator-webpack-plugin');
 var webpack       = require('webpack');
@@ -13,7 +14,7 @@ module.exports = {
 
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/dist',
+    path: path.join(__dirname, '/dist'),
     libraryTarget: 'umd'
   },
 
