@@ -6,8 +6,8 @@ export default class Projects extends React.Component {
     const rsquo = String.fromCharCode(8217);
 
     return (
-      <section>
-        <h2>Featured Projects</h2>
+      <section className='flex flex-wrap mxn2'>
+        <h2 className='col-12 px2'>Featured Projects</h2>
         <ProjectCard
           {...this.props}
           name='GoNoodle'

@@ -6,7 +6,7 @@ export default class App extends React.Component {
     const {children} = this.props;
 
     return (
-      <div>
+      <div className='md-col-10 lg-col-8 mx-auto p2'>
         <Header/>
         {children}
       </div>

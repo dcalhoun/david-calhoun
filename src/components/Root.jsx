@@ -13,7 +13,7 @@ export default class Root extends React.Component {
           <title>{title}</title>
           <style dangerouslySetInnerHTML={{ __html: css }} />
         </head>
-        <body className='p2'>
+        <body>
           <div id='js-outlet'>
             {children}
           </div>

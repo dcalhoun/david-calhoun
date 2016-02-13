@@ -6,8 +6,10 @@ export default class Header extends React.Component {
     return (
       <header>
         <h1>David Calhoun</h1>
-        <Link to='/' className='btn'>Index</Link>
-        <Link to='/writing' className='btn'>Writing</Link>
+        <nav className='mxn1'>
+          <Link to='/' className='btn btn-link px1'>About</Link>
+          <Link to='/writing' className='btn btn-link px1'>Writing</Link>
+        </nav>
       </header>
     );
   }
