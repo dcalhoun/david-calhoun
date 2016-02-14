@@ -9,7 +9,7 @@ module.exports = {
   context: path.join(__dirname, 'src'),
 
   entry: {
-    'main': './entry.js'
+    'main': './index.js'
   },
 
   output: {
