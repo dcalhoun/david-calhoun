@@ -6,8 +6,10 @@ var postcssImport = require('postcss-import');
 var webpack       = require('webpack');
 
 module.exports = {
+  context: path.join(__dirname, 'src'),
+
   entry: {
-    'main': './src/entry.js'
+    'main': './entry.js'
   },
 
   output: {

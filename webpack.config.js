@@ -1,4 +1,5 @@
 var calc          = require('postcss-calc');
+var Copy          = require('copy-webpack-plugin');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');
 var locals        = require('./src/data.js');
@@ -8,8 +9,10 @@ var StaticSite    = require('static-site-generator-webpack-plugin');
 var webpack       = require('webpack');
 
 module.exports = {
+  context: path.join(__dirname, 'src'),
+
   entry: {
-    'main': './src/entry.js'
+    'main': './entry.js'
   },
 
   output: {
@@ -41,7 +44,13 @@ module.exports = {
 
   plugins: [
     new StaticSite('bundle.js', locals.paths, locals),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new Copy([
+      {from: '.nojekyll'},
+      {from: '*.txt'},
+      {from: '*.png'},
+      {from: 'CNAME'}
+    ])
   ],
 
   postcss: function() {
