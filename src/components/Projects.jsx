@@ -18,6 +18,11 @@ export default class Projects extends React.Component {
           name='Playbook'
           description='A Yeoman generator for prototyping and building experiences.'
           href='http://playbook.centresource.com'/>
+        <ProjectCard
+          {...this.props}
+          name='Alfred Remote Inspector'
+          description='Remotely inspect any iOS device by name via Safaris web inspector.'
+          href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'/>
       </section>
     );
   }

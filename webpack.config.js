@@ -2,7 +2,7 @@ var calc          = require('postcss-calc');
 var Copy          = require('copy-webpack-plugin');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');
-var locals        = require('./src/data.js');
+var data          = require('./src/data.js');
 var path          = require('path');
 var postcssImport = require('postcss-import');
 var StaticSite    = require('static-site-generator-webpack-plugin');
@@ -16,9 +16,9 @@ module.exports = {
   },
 
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, '/dist'),
-    libraryTarget: 'umd'
+    filename: '[name].js',
+    libraryTarget: 'umd',
+    path: path.join(__dirname, '/dist')
   },
 
   resolve: {
@@ -28,7 +28,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /(\.js$|\.jsx$)/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -43,7 +43,7 @@ module.exports = {
   },
 
   plugins: [
-    new StaticSite('bundle.js', locals.paths, locals),
+    new StaticSite('main.js', data.paths, data),
     new webpack.NoErrorsPlugin(),
     new Copy([
       {from: '.nojekyll'},

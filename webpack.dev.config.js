@@ -13,10 +13,10 @@ module.exports = {
   },
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
+    libraryTarget: 'umd',
     path: path.join(__dirname, '/dist'),
-    publicPath: '/',
-    libraryTarget: 'umd'
+    publicPath: '/'
   },
 
   resolve: {
