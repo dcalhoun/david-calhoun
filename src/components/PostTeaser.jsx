@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 export default class PostTeaser extends React.Component {
   render() {
     const {slug, title, body} = this.props;
-    const path = `/writing/${slug}`;
+    const path = `/posts/${slug}`;
 
     return (
       <article className='border-top mb2 pb2'>

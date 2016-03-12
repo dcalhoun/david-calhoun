@@ -1,4 +1,5 @@
 import React from 'react';
+import Markdown from 'react-remarkable';
 
 export default class Post extends React.Component {
   render() {
@@ -6,8 +7,8 @@ export default class Post extends React.Component {
 
     return (
       <article>
-        <h1>{this.props.params.slug}</h1>
-        {body}
+        <h1>{title}</h1>
+        <Markdown source={body}/>
       </article>
     );
   }

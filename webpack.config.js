@@ -1,3 +1,5 @@
+require('babel-register');
+
 var calc          = require('postcss-calc');
 var Copy          = require('copy-webpack-plugin');
 var customMedia   = require('postcss-custom-media');
@@ -32,7 +34,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         }
       },
       {
@@ -43,7 +45,7 @@ module.exports = {
   },
 
   plugins: [
-    new StaticSite('main.js', data.paths, data),
+    new StaticSite('main.js', data.routes, data),
     new webpack.NoErrorsPlugin(),
     new Copy([
       {from: '.nojekyll'},
