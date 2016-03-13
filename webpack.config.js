@@ -34,7 +34,7 @@ module.exports = {
         loader: 'css!postcss'
       },
       {
-        test: /(\.js$|\.jsx$)/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
