@@ -1,15 +1,20 @@
+import Markdown from 'react-markdown';
+import Paths from './PathsMixin';
 import React from 'react';
-import Markdown from 'react-remarkable';
 
-export default class Post extends React.Component {
+const Post = React.createClass({
+  mixins: [Paths],
+
   render() {
-    const {title, body} = this.props;
+    const post = this.getPost();
 
     return (
       <article>
-        <h1>{title}</h1>
-        <Markdown source={body}/>
+        <h1>{post.attributes.title}</h1>
+        <Markdown source={post.body}/>
       </article>
     );
   }
-}
+});
+
+export default Post;

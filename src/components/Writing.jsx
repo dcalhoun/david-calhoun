@@ -1,22 +1,30 @@
 import React from 'react';
+import Paths from './PathsMixin';
 import PostTeaser from './PostTeaser.jsx';
 
-export default class Writing extends React.Component {
-  render() {
-    let posts = [];
-    for (let item in [1,2,3]) {
-      let slug = `foo-${item}`;
-      let title = `Foo ${item}`;
-      let body = `Body foo ${item}.`;
+const Writing = React.createClass({
+  mixins: [Paths],
 
-      posts.push(<PostTeaser key={item} slug={slug} title={title} body={body}/>);
-    };
+  render() {
+    const self = this;
+    const postPaths = this.getAllPosts();
+
+    const postNodes = postPaths.map(function (path, i) {
+      let slug = path.split('/').pop();
+      let post = self.getPost(slug);
+
+      return (
+        <PostTeaser key={i} slug={slug} path={path} title={post.attributes.title} body={post.body} />
+      );
+    });
 
     return (
       <main>
         <h2>Writing</h2>
-        {posts}
+        {postNodes}
       </main>
     );
   }
-}
+});
+
+export default Writing;

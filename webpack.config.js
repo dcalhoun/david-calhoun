@@ -30,6 +30,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.css/,
+        loader: 'css!postcss'
+      },
+      {
         test: /(\.js$|\.jsx$)/,
         exclude: /node_modules/,
         loader: 'babel',
@@ -38,8 +42,12 @@ module.exports = {
         }
       },
       {
-        test: /\.css/,
-        loader: 'css!postcss'
+        test: /\.json/,
+        loader: 'json'
+      },
+      {
+        test: /\.md$/,
+        loader: 'json!front-matter'
       }
     ]
   },
