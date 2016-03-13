@@ -7,12 +7,12 @@ import Routes from './Routes';
 import Root from './components/Root';
 
 // Client render
-// if (typeof document !== 'undefined') {
-//   const history = createHistory();
-//   const outlet  = document.getElementById('js-outlet');
-//
-//   ReactDOM.render(<Router history={history} routes={Routes} />, outlet);
-// }
+if (typeof document !== 'undefined') {
+  const history = createHistory();
+  const outlet  = document.getElementById('js-outlet');
+
+  ReactDOM.render(<Router history={history} routes={Routes} />, outlet);
+}
 
 // Static site render
 export default (locals, callback) => {

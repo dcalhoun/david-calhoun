@@ -11,7 +11,7 @@ const Root = React.createClass({
           <meta charSet='utf-8' />
           <meta name='viewport' content='width=device-width,initial-scale=1' />
           <title>{title}</title>
-          <link rel='shortcut icon' type='image/png' href='/favicon.png'/>
+          <link rel='shortcut icon' type='image/png' href='/favicon.png' />
           <style dangerouslySetInnerHTML={{ __html: css }} />
         </head>
         <body>
@@ -19,7 +19,7 @@ const Root = React.createClass({
             {children}
           </div>
           {Object.keys(assets).map((chunk, index) => {
-            return <script key={index} src={'/' + assets[chunk]}/>;
+            return <script key={index} src={'/' + assets[chunk]} />;
           })}
         </body>
       </html>
