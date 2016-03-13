@@ -4,7 +4,8 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.html",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --hot --inline --colors --content-base dist/ --config webpack.dev.config.js",
+    "dev": "NODE_ENV=development webpack-dev-server --colors --content-base dist/",
+    "hot": "NODE_ENV=hot webpack-dev-server --hot --inline --colors --content-base dist/ --config webpack.dev.config.js",
     "start": "npm run build && npm run dev",
     "build": "NODE_ENV=production webpack --colors"
   },
@@ -47,7 +48,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "basscss": "^8.0.0-beta5",
+    "basscss": "^8.0.1",
     "basscss-background-colors": "^2.0.0",
     "basscss-btn": "^1.1.1",
     "history": "^1.13.1",

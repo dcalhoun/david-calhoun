@@ -15,7 +15,7 @@ const PostTeaser = React.createClass({
       let subs = str.split('&');
 
       if (subs[0].length > max) {
-        return subs[0].substring(0, max) + '&hemaxlip;';
+        return subs[0].substring(0, max) + '&hellip;';
       } else {
         trunc = trunc + subs[0];
       }

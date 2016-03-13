@@ -19,8 +19,9 @@ const Root = React.createClass({
             {children}
           </div>
           {Object.keys(assets).map((chunk, index) => {
-            return <script key={index} src={'/' + assets[chunk]} />;
+            return <script key={index} src={'/' + assets[chunk]} async />;
           })}
+          <script dangerouslySetInnerHTML={{ __html: this.props.scripts.ga }} />
         </body>
       </html>
     );

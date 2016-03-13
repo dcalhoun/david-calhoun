@@ -14,7 +14,7 @@ if (typeof document !== 'undefined') {
   ReactDOM.render(<Router history={history} routes={Routes} />, outlet);
 }
 
-// Static site render
+// Static render
 export default (locals, callback) => {
   const history  = createMemoryHistory();
   const location = history.createLocation(locals.path);
