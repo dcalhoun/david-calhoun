@@ -12,7 +12,7 @@ const Root = React.createClass({
           <meta name='viewport' content='width=device-width,initial-scale=1' />
           <title>{title}</title>
           <link rel='shortcut icon' type='image/png' href='/favicon.png' />
-          <style dangerouslySetInnerHTML={{ __html: css }} />
+          <link rel='stylesheet' href='/main.css' />
         </head>
         <body>
           <div id='js-outlet'>

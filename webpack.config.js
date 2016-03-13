@@ -5,6 +5,7 @@ var Copy          = require('copy-webpack-plugin');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');
 var data          = require('./src/data.js');
+var ExtractText   = require('extract-text-webpack-plugin');
 var path          = require('path');
 var postcssImport = require('postcss-import');
 var StaticSite    = require('static-site-generator-webpack-plugin');
@@ -31,7 +32,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css/,
-        loader: 'css!postcss'
+        loader: ExtractText.extract('css!postcss')
       },
       {
         test: /\.js$/,
@@ -53,14 +54,15 @@ module.exports = {
   },
 
   plugins: [
-    new StaticSite('main.js', data.routes, data),
-    new webpack.NoErrorsPlugin(),
     new Copy([
       {from: '.nojekyll'},
       {from: '*.txt'},
       {from: '*.png'},
       {from: 'CNAME'}
-    ])
+    ]),
+    new ExtractText('main.css'),
+    new StaticSite('main.js', data.routes, data),
+    new webpack.NoErrorsPlugin(),
   ],
 
   postcss: function() {
