@@ -1,7 +1,7 @@
 import React from 'react';
 import Router, {Link} from 'react-router';
 
-export default class Header extends React.Component {
+const Header = React.createClass({
   render() {
     return (
       <header>
@@ -13,4 +13,6 @@ export default class Header extends React.Component {
       </header>
     );
   }
-}
+});
+
+export default Header;

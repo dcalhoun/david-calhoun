@@ -11,7 +11,7 @@ const Post = React.createClass({
     return (
       <article>
         <h1>{post.attributes.title}</h1>
-        <Markdown source={post.body}/>
+        <Markdown source={post.body} />
       </article>
     );
   }

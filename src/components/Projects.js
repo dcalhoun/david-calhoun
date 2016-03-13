@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 
-export default class Projects extends React.Component {
+const Projects = React.createClass({
   render() {
     const rsquo = String.fromCharCode(8217);
 
@@ -26,4 +26,6 @@ export default class Projects extends React.Component {
       </section>
     );
   }
-}
+});
+
+export default Projects;

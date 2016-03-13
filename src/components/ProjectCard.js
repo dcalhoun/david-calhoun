@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ProjectCard extends React.Component {
+const ProjectCard = React.createClass({
   render() {
     const {name, description, href} = this.props;
 
@@ -13,4 +13,6 @@ export default class ProjectCard extends React.Component {
       </a>
     );
   }
-}
+});
+
+export default ProjectCard;

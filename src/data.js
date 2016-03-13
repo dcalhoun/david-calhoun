@@ -11,9 +11,11 @@ const paths = {
       return /^\/posts\//.test(route);
     });
   },
+  
   postForPath: function (path) {
     return this.postReq()(`./${path}.md`);
   },
+
   postReq: function () {
     return require.context('./posts', false, /^\.\/.*\.md$/);
   }

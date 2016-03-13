@@ -2,7 +2,7 @@ import React from 'react';
 import About from './About';
 import Projects from './Projects';
 
-export default class Index extends React.Component {
+const Index = React.createClass({
   render() {
     return (
       <main>
@@ -11,4 +11,6 @@ export default class Index extends React.Component {
       </main>
     );
   }
-}
+});
+
+export default Index;

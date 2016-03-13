@@ -1,7 +1,7 @@
 import {byline} from '../data';
 import React from 'react';
 
-export default class About extends React.Component {
+const About = React.createClass({
   render() {
     return (
       <section>
@@ -9,4 +9,6 @@ export default class About extends React.Component {
       </section>
     );
   }
-}
+});
+
+export default About;

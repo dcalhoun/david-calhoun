@@ -1,7 +1,7 @@
 import React from 'react';
 import css from '../app.css';
 
-export default class Root extends React.Component {
+const Root = React.createClass({
   render() {
     const {assets, children, title} = this.props;
 
@@ -25,4 +25,6 @@ export default class Root extends React.Component {
       </html>
     );
   }
-}
+});
+
+export default Root;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 
-export default class App extends React.Component {
+const App = React.createClass({
   render() {
     const {children} = this.props;
 
@@ -12,4 +12,6 @@ export default class App extends React.Component {
       </div>
     );
   }
-}
+});
+
+export default App;

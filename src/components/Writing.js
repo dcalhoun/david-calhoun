@@ -1,6 +1,6 @@
 import React from 'react';
 import Paths from './PathsMixin';
-import PostTeaser from './PostTeaser.jsx';
+import PostTeaser from './PostTeaser';
 
 const Writing = React.createClass({
   mixins: [Paths],
