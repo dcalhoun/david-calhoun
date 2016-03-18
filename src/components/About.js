@@ -5,7 +5,7 @@ const About = React.createClass({
   render() {
     return (
       <section>
-        <p>{byline}</p>
+        <p dangerouslySetInnerHTML={{ __html: byline }} />
       </section>
     );
   }

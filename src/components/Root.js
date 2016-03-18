@@ -21,7 +21,6 @@ const Root = React.createClass({
           {Object.keys(assets).map((chunk, index) => {
             return <script key={index} src={'/' + assets[chunk]} />;
           })}
-          <script dangerouslySetInnerHTML={{ __html: this.props.scripts.ga }} />
         </body>
       </html>
     );

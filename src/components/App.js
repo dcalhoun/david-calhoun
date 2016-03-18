@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 const App = React.createClass({
   render() {
@@ -7,8 +8,9 @@ const App = React.createClass({
 
     return (
       <div className='md-col-10 lg-col-8 mx-auto p2'>
-        <Header/>
+        <Header />
         {children}
+        <Footer />
       </div>
     );
   }

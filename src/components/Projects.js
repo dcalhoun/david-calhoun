@@ -10,18 +10,13 @@ const Projects = React.createClass({
         <h2 className='col-12 px2'>Featured Projects</h2>
         <ProjectCard
           {...this.props}
-          name='GoNoodle'
-          description='We gets kids moving to be their strongest, bravest, silliest, smartest, bestest selves.'
-          href='https://www.gonoodle.com'/>
-        <ProjectCard
-          {...this.props}
           name='Playbook'
           description='A Yeoman generator for prototyping and building experiences.'
           href='http://playbook.centresource.com'/>
         <ProjectCard
           {...this.props}
           name='Alfred Remote Inspector'
-          description='Remotely inspect any iOS device by name via Safaris web inspector.'
+          description='Remotely inspect any iOS device by name via Safari’s web inspector.'
           href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'/>
       </section>
     );
