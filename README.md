@@ -3,6 +3,6 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- Setup HMR/style tag for dev and ExtractText for build
+- Only load script for dev
 - Dynamic page titles
 - Styles
