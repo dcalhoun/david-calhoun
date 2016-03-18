@@ -31,8 +31,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css/,
-        loader: ExtractText.extract('css!postcss')
+        test: /\.css$/,
+        loader: ExtractText.extract('style', 'css!postcss')
       },
       {
         test: /\.js$/,
@@ -43,7 +43,7 @@ module.exports = {
         }
       },
       {
-        test: /\.json/,
+        test: /\.json$/,
         loader: 'json'
       },
       {
@@ -62,7 +62,7 @@ module.exports = {
     ]),
     new ExtractText('main.css'),
     new StaticSite('main.js', data.routes, data),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
 
   postcss: function() {

@@ -4,11 +4,9 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.html",
   "scripts": {
-    "build": "NODE_ENV=production webpack --colors",
-    "dev": "NODE_ENV=development webpack-dev-server --colors --content-base dist/",
-    "hot": "NODE_ENV=hot webpack-dev-server --hot --inline --colors --content-base dist/ --config webpack.dev.config.js",
-    "start": "npm run build && npm run dev",
-    "startHot": "npm run build && npm run hot"
+    "build": "webpack --colors",
+    "dev": "NODE_ENV=dev webpack-dev-server --hot --inline --colors --content-base dist/ --config webpack.dev.config.js",
+    "start": "npm run build && npm run dev"
   },
   "repository": {
     "type": "git",

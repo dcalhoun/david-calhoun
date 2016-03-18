@@ -26,8 +26,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css/,
-        loader: 'css!postcss'
+        test: /\.css$/,
+        loader: 'style!css!postcss'
       },
       {
         test: /\.js$/,
@@ -38,7 +38,7 @@ module.exports = {
         }
       },
       {
-        test: /\.json/,
+        test: /\.json$/,
         loader: 'json'
       },
       {
