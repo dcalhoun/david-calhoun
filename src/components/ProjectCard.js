@@ -11,7 +11,7 @@ const sx = {
 
 const ProjectCard = ({name, description, href, ...props}) => (
   <a href={href} className='mb3 px2' style={sx.project}>
-    <h3>{name}</h3>
+    <h3 className='mt0'>{name}</h3>
     <p className='my0' style={sx.description}>{description}</p>
   </a>
 );

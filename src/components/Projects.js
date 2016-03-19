@@ -3,7 +3,6 @@ import ProjectCard from './ProjectCard';
 
 const Projects = (props) => (
   <section className='flex flex-wrap mxn2'>
-    <h2 className='col-12 px2'>Featured Projects</h2>
     <ProjectCard
       {...props}
       name='Playbook'

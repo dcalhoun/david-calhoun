@@ -2,8 +2,8 @@ import React from 'react';
 import Router, {Link} from 'react-router';
 
 const Header = (props) => (
-  <header>
-    <h1>
+  <header className='py3'>
+    <h1 className='m0'>
       <Link to='/'>David Calhoun</Link>
     </h1>
     <nav className='mxn1'>
