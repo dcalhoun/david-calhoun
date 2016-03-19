@@ -2,21 +2,18 @@ import React from 'react';
 
 const sx = {
   project: {
+    flex: '0 0 320px'
+  },
+  description: {
     fontSize: '1rem'
   }
 }
 
-const ProjectCard = React.createClass({
-  render() {
-    const {name, description, href} = this.props;
-
-    return (
-      <a href={href} className='col-12 md-col-6 mb3 px2'>
-        <h3>{name}</h3>
-        <p style={sx.project}>{description}</p>
-      </a>
-    );
-  }
-});
+const ProjectCard = ({name, description, href, ...props}) => (
+  <a href={href} className='mb3 px2' style={sx.project}>
+    <h3>{name}</h3>
+    <p className='my0' style={sx.description}>{description}</p>
+  </a>
+);
 
 export default ProjectCard;

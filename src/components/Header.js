@@ -1,18 +1,17 @@
 import React from 'react';
 import Router, {Link} from 'react-router';
 
-const Header = React.createClass({
-  render() {
-    return (
-      <header>
-        <h1>David Calhoun</h1>
-        <nav className='mxn1'>
-          <Link to='/' className='btn btn-link px1'>About</Link>
-          <Link to='/posts' className='btn btn-link px1'>Writing</Link>
-        </nav>
-      </header>
-    );
-  }
-});
+const Header = (props) => (
+  <header>
+    <h1>
+      <Link to='/'>David Calhoun</Link>
+    </h1>
+    <nav className='mxn1'>
+      <Link to='/posts' className='btn btn-link px1'>Writing</Link>
+      <a className='btn btn-link px1' href='http://twitter.com/david_calhoun'>Twitter</a>
+      <a className='btn btn-link px1' href='http://github.com/dcalhoun'>GitHub</a>
+    </nav>
+  </header>
+);
 
 export default Header;

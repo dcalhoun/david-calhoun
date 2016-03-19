@@ -19,8 +19,7 @@ const Writing = React.createClass({
     });
 
     return (
-      <main>
-        <h2>Writing</h2>
+      <main className='my2'>
         {postNodes}
       </main>
     );
