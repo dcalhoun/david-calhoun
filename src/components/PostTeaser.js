@@ -1,3 +1,5 @@
+'use strict';
+
 import {Link} from 'react-router';
 import Markdown from 'react-markdown';
 import React from 'react';

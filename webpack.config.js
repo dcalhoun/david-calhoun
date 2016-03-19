@@ -1,3 +1,5 @@
+'use strict';
+
 require('babel-register');
 
 var calc          = require('postcss-calc');

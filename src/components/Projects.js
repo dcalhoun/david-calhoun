@@ -1,5 +1,7 @@
-import React from 'react';
+'use strict';
+
 import ProjectCard from './ProjectCard';
+import React from 'react';
 
 const Projects = (props) => (
   <section className='flex flex-wrap mxn2'>

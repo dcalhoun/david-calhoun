@@ -1,9 +1,13 @@
-import React from 'react';
-import Header from './Header';
+'use strict';
+
 import Footer from './Footer';
+import Header from './Header';
+import React from 'react';
+import Title from 'react-title-component';
 
 const App = ({children, ...props}) => (
   <div className='md-col-10 lg-col-8 mx-auto px2'>
+    <Title render='David Calhoun, Designer & Developer' />
     <Header />
     {children}
     <Footer />

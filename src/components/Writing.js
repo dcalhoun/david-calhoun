@@ -1,6 +1,9 @@
-import React from 'react';
+'use strict';
+
 import Paths from './PathsMixin';
 import PostTeaser from './PostTeaser';
+import React from 'react';
+import Title from 'react-title-component';
 
 const Writing = React.createClass({
   mixins: [Paths],
@@ -14,12 +17,18 @@ const Writing = React.createClass({
       let post = self.getPost(slug);
 
       return (
-        <PostTeaser key={i} slug={slug} path={path} title={post.attributes.title} body={post.body} />
+        <PostTeaser
+          key={i}
+          slug={slug}
+          path={path}
+          title={post.attributes.title}
+          body={post.body} />
       );
     });
 
     return (
       <main className='my2'>
+        <Title render={previous => `Writing - ${previous}`} />
         {postNodes}
       </main>
     );

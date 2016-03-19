@@ -1,3 +1,5 @@
+'use strict';
+
 import highlight from 'highlight.js';
 import React from 'react';
 import styles from '../syntax.css';

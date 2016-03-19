@@ -1,3 +1,5 @@
+'use strict';
+
 var calc          = require('postcss-calc');
 var customMedia   = require('postcss-custom-media');
 var customProps   = require('postcss-custom-properties');

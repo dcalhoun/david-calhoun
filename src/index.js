@@ -1,10 +1,12 @@
+'use strict';
+
+import { createHistory, createMemoryHistory } from 'history';
+import { Router, RoutingContext, match } from 'react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { createHistory, createMemoryHistory } from 'history';
-import { Router, RoutingContext, match } from 'react-router';
-import Routes from './Routes';
 import Root from './components/Root';
+import Routes from './Routes';
 
 // Client render
 if (typeof document !== 'undefined') {
