@@ -50,6 +50,7 @@
     "basscss": "^8.0.1",
     "basscss-basic": "^1.0.0",
     "basscss-btn": "^1.1.1",
+    "highlightjs": "^8.7.0",
     "history": "^1.13.1",
     "node-libs-browser": "^0.5.3",
     "normalize.css": "^3.0.3",
