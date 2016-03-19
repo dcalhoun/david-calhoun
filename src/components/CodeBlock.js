@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '../syntax.css';
 
 const CodeBlock = React.createClass({
-  displayName: 'CodeBlock',
   propTypes: {
     literal: React.PropTypes.string,
     language: React.PropTypes.string
