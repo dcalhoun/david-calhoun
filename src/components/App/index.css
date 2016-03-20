@@ -45,12 +45,12 @@ pre {
   background: #fff;
   border: 1px solid var(--gray-lighter);
   overflow: auto;
-  padding: 1rem;
 }
 
 pre code {
   border: none;
-  padding: 0;
+  display: block;
+  padding: 1rem;
 }
 
 code {

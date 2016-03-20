@@ -6,7 +6,7 @@
 .hljs {
   display: block;
   background: white;
-  padding: 0.5em;
+  /*padding: 0.5em;*/
   color: #333333;
   overflow-x: auto;
 }
