@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 const sx = {
   project: {
@@ -16,6 +16,6 @@ const ProjectCard = ({name, description, href, ...props}) => (
     <h3 className='mt0'>{name}</h3>
     <p className='my0' style={sx.description}>{description}</p>
   </a>
-);
+)
 
-export default ProjectCard;
+export default ProjectCard

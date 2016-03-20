@@ -39,10 +39,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react', 'stage-0']
-        }
+        loader: 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0!standard'
       },
       {
         test: /\.json$/,
@@ -74,5 +71,9 @@ module.exports = {
       customProps,
       calc
     ]
+  },
+
+  standard: {
+    parser: 'babel-eslint'
   }
 };

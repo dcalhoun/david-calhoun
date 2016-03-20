@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-import highlight from 'highlight.js';
-import React from 'react';
-import styles from '../syntax.css';
+import highlight from 'highlight.js'
+import React from 'react'
+import styles from '../syntax.css'
 
 const CodeBlock = React.createClass({
   propTypes: {
@@ -10,17 +10,17 @@ const CodeBlock = React.createClass({
     language: React.PropTypes.string
   },
 
-  componentDidMount() {
-    highlight.highlightBlock(this.refs.code);
+  componentDidMount () {
+    highlight.highlightBlock(this.refs.code)
   },
 
-  render() {
+  render () {
     return (
       <pre>
         <code ref='code' className={this.props.language}>{this.props.literal}</code>
       </pre>
     )
   }
-});
+})
 
-export default CodeBlock;
+export default CodeBlock

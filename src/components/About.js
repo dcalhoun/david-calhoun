@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 const sx = {
   status: {
     fontSize: '0.75rem'
   }
-};
+}
 
 const About = (props) => (
   <section className='mb3'>
@@ -18,6 +18,6 @@ const About = (props) => (
       Currently at <a href='https://www.gonoodle.com'>GoNoodle</a> in Nashville, TN.
     </p>
   </section>
-);
+)
 
-export default About;
+export default About

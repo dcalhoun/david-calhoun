@@ -1,14 +1,13 @@
-'use strict';
+'use strict'
 
-import {paths} from '../data';
-import React from 'react';
+import {paths} from '../data'
 
 module.exports = {
   getAllPosts: function () {
-    return paths.allPosts();
+    return paths.allPosts()
   },
 
   getPost: function (slug) {
-    return paths.postForPath(slug || this.props.params.slug);
+    return paths.postForPath(slug || this.props.params.slug)
   }
 }

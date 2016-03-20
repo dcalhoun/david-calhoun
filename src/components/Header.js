@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import Router, {Link} from 'react-router';
+import React from 'react'
+import {Link} from 'react-router'
 
 const Header = (props) => (
   <header className='py3'>
@@ -14,6 +14,6 @@ const Header = (props) => (
       <a className='btn btn-link px1' href='http://github.com/dcalhoun'>GitHub</a>
     </nav>
   </header>
-);
+)
 
-export default Header;
+export default Header

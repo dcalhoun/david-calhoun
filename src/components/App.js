@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-import Footer from './Footer';
-import Header from './Header';
-import React from 'react';
-import Title from 'react-title-component';
+import Footer from './Footer'
+import Header from './Header'
+import React from 'react'
+import Title from 'react-title-component'
 
 const App = ({children, ...props}) => (
   <div className='md-col-10 lg-col-8 mx-auto px2'>
@@ -12,6 +12,6 @@ const App = ({children, ...props}) => (
     {children}
     <Footer />
   </div>
-);
+)
 
-export default App;
+export default App
