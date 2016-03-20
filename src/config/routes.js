@@ -1,7 +1,7 @@
 'use strict'
 
-import {Route, IndexRoute} from 'react-router'
-import App from '../components/App/index'
+import { Route, IndexRoute } from 'react-router'
+import App from '../components/App'
 import Index from '../components/Index'
 import Post from '../components/Post'
 import React from 'react'

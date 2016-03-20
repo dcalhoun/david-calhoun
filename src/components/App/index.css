@@ -7,6 +7,7 @@
 }
 
 body {
+  color: var(--black);
   font-family: var(--font-family);
   font-size: var(--font-size);
   text-rendering: optimizeLegibility;
@@ -18,27 +19,23 @@ a {
   text-decoration: none;
 }
 
-p a {
+.btn-link {
+  display: inline-block;
+}
+
+p a,
+.btn-link {
   box-shadow: inset 0 -2px 0 #ccc;
 }
 
-p a:hover {
+p a:hover
+.btn-link:hover {
   box-shadow: inset 0 -2px 0 #8aba56;
 }
 
 p,
 pre {
   margin-bottom: 2rem;
-}
-
-.h0 { font-size: 1.25rem; }
-
-@media (min-width: 32rem) {
-  .h0 { font-size: 1.5rem; }
-}
-
-@media (min-width: 48rem) {
-  .h0 { font-size: 2rem; }
 }
 
 pre {
@@ -60,8 +57,30 @@ code {
   padding: .1875rem .4375rem;
 }
 
+.athelas {
+  font-family: 'Athelas', serif;
+  line-height: 1.25;
+}
+
+.h0 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 32rem) {
+  .h0 { font-size: 2rem; }
+}
+
+@media (min-width: 48rem) {
+  .h0 { font-size: 3.25rem; }
+}
+
+@media(max-width: 32rem) {
+  .sm-hide { display: none; }
+}
+
 :root {
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   --font-size: 1.125rem;
   --gray-lighter: #eee;
+  --black: #111111;
 }

@@ -2,20 +2,14 @@
 
 import React from 'react'
 
-const sx = {
-  status: {
-    fontSize: '0.75rem'
-  }
-}
-
 const About = (props) => (
-  <section className='mb3'>
-    <p className='h0 m0' style={sx.byline}>
-      Designer/developer specializing in front-end architecture & UX design. Experienced with
-      React.js, Ember.js, Backbone.js, & Ruby on Rails.
+  <section className='mb4'>
+    <p className='h0 athelas m0'>
+      Web designer/developer specializing in <br className='sm-hide' />
+      UX design & front-end architecture.
     </p>
-    <p className='h4 bold' style={sx.status}>
-      Currently at <a href='https://www.gonoodle.com'>GoNoodle</a> in Nashville, TN.
+    <p className='h5 bold'>
+      Currently at <a href='https://www.gonoodle.com'>GoNoodle</a>. Based in Nashville, TN.
     </p>
   </section>
 )
