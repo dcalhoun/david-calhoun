@@ -1,11 +1,11 @@
 'use strict'
 
-import App from './components/App'
-import Index from './components/Index'
-import Post from './components/Post'
-import React from 'react'
 import {Route, IndexRoute} from 'react-router'
-import Writing from './components/Writing'
+import App from '../components/App/index'
+import Index from '../components/Index'
+import Post from '../components/Post'
+import React from 'react'
+import Writing from '../components/Writing'
 
 export default (
   <Route path='/' component={App}>

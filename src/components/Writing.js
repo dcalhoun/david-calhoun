@@ -28,7 +28,7 @@ const Writing = React.createClass({
 
     return (
       <main className='my2'>
-        <Title render={(previous) => `Writing - ${previous}`} />
+        <Title render={(previous) => `Writing | ${previous}`} />
         {postNodes}
       </main>
     )

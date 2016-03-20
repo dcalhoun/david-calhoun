@@ -1,6 +1,6 @@
 'use strict'
 
-import {paths} from '../data'
+import paths from '../shared/utils/paths'
 
 module.exports = {
   getAllPosts: function () {

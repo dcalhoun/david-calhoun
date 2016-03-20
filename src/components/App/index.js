@@ -1,7 +1,8 @@
 'use strict'
 
-import Footer from './Footer'
-import Header from './Header'
+import './index.css'
+import Footer from '../Footer'
+import Header from '../Header'
 import React from 'react'
 import Title from 'react-title-component'
 

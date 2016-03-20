@@ -1,6 +1,6 @@
 'use strict'
 
-import '../syntax.css'
+import './index.css'
 import highlight from 'highlight.js'
 import React from 'react'
 

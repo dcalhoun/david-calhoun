@@ -14,7 +14,7 @@ const Post = React.createClass({
 
     return (
       <article>
-        <Title render={(prev) => `${post.attributes.title} - ${prev}`} />
+        <Title render={(prev) => `${post.attributes.title} | ${prev}`} />
         <h1>{post.attributes.title}</h1>
         <Markdown
           source={post.body}

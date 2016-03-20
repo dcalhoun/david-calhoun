@@ -6,7 +6,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
 import Root from './components/Root'
-import Routes from './Routes'
+import routes from './config/routes'
 import { flushTitle } from 'react-title-component'
 
 // Client render
@@ -14,7 +14,7 @@ if (typeof document !== 'undefined') {
   const history = createHistory()
   const outlet = document.getElementById('js-outlet')
 
-  ReactDOM.render(<Router history={history} routes={Routes} />, outlet)
+  ReactDOM.render(<Router history={history} routes={routes} />, outlet)
 }
 
 // Static render
@@ -22,7 +22,7 @@ export default (locals, callback) => {
   const history = createMemoryHistory()
   const location = history.createLocation(locals.path)
 
-  match({ routes: Routes, location: location }, (error, redirectLocation, renderProps) => {
+  match({ routes: routes, location: location }, (error, redirectLocation, renderProps) => {
     if (error) {
       throw new Error('Static render failed.')
     } else if (renderProps) {

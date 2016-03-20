@@ -1,6 +1,5 @@
 'use strict'
 
-import '../app.css'
 import React from 'react'
 
 const Root = React.createClass({
