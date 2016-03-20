@@ -1,8 +1,8 @@
 'use strict'
 
+import '../syntax.css'
 import highlight from 'highlight.js'
 import React from 'react'
-import styles from '../syntax.css'
 
 const CodeBlock = React.createClass({
   propTypes: {

@@ -1,11 +1,11 @@
 'use strict'
 
-import css from '../app.css'
+import '../app.css'
 import React from 'react'
 
 const Root = React.createClass({
   render () {
-    const { app, assets, children, title } = this.props
+    const { app, assets, title } = this.props
 
     return (
       <html>

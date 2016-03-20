@@ -23,9 +23,15 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path)
 
   match({ routes: Routes, location: location }, (error, redirectLocation, renderProps) => {
-    const app = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>)
-    const title = flushTitle()
-    const html = ReactDOMServer.renderToStaticMarkup(<Root {...locals} app={app} title={title} />)
-    callback(null, '<!doctype html>' + html)
+    if (error) {
+      throw new Error('Static render failed.')
+    } else if (renderProps) {
+      const app = ReactDOMServer.renderToString(<RoutingContext {...renderProps}/>)
+      const title = flushTitle()
+      const html = ReactDOMServer.renderToStaticMarkup(<Root {...locals} app={app} title={title} />)
+      callback(null, '<!doctype html>' + html)
+    } else {
+      throw new Error('Not found.')
+    }
   })
 }
