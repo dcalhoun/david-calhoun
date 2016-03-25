@@ -4,7 +4,7 @@ import React from 'react'
 
 const Root = React.createClass({
   render () {
-    const { app, assets, title } = this.props
+    const { app, title } = this.props
 
     return (
       <html>
@@ -17,9 +17,7 @@ const Root = React.createClass({
         </head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
-          {Object.keys(assets).map((chunk, index) => {
-            return <script key={index} src={'/' + assets[chunk]} />
-          })}
+          <script src='/main.js' />
         </body>
       </html>
     )

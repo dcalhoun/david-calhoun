@@ -4,10 +4,13 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.html",
   "scripts": {
-    "build": "webpack --colors",
+    "build": "npm run clean && npm run build:prod",
     "clean": "rm -rf dist",
-    "serve": "NODE_ENV=dev webpack-dev-server --hot --inline --colors --content-base dist/ --config webpack.dev.config.js",
-    "start": "npm run clean && npm run build && npm run serve"
+    "start": "npm run build:dev && node dist/server.bundle.js",
+    "build:client": "webpack --colors --config webpack.client.config.js",
+    "build:prod": "webpack --colors",
+    "build:server": "webpack --colors --config webpack.server.config.js",
+    "build:dev": "npm run build:client && npm run build:server"
   },
   "repository": {
     "type": "git",
@@ -29,8 +32,10 @@
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.6.5",
+    "compression": "^1.6.1",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.0",
+    "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "front-matter-loader": "^0.1.2",
     "html-loader": "^0.4.3",
