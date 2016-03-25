@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && npm run build:prod",
     "clean": "rm -rf dist",
-    "start": "npm run build:dev && node dist/server.bundle.js",
+    "start": "npm run clean && npm run build:dev && node dist/server.bundle.js",
     "build:client": "webpack --colors --config webpack.client.config.js",
     "build:prod": "webpack --colors",
     "build:server": "webpack --colors --config webpack.server.config.js",

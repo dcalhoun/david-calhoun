@@ -48,7 +48,12 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'config': {
+        'env': JSON.stringify('client')
+      }
+    })
   ],
 
   postcss: function() {

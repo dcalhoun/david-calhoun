@@ -57,7 +57,13 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractText('main.css')
+    new ExtractText('main.css'),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'config': {
+        'env': JSON.stringify('server')
+      }
+    })
   ],
 
   postcss: function() {

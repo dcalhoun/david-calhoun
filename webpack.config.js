@@ -61,7 +61,12 @@ module.exports = {
     ]),
     new ExtractText('main.css'),
     new StaticSite('main.js', paths.routes),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'config': {
+        'env': JSON.stringify('prod')
+      }
+    })
   ],
 
   postcss: function() {

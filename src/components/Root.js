@@ -1,3 +1,5 @@
+/* global config */
+
 'use strict'
 
 import React from 'react'
@@ -17,7 +19,7 @@ const Root = React.createClass({
         </head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
-          <script src='/main.js' />
+          {config.env !== 'prod' ? <script src='/main.js' /> : ''}
         </body>
       </html>
     )
