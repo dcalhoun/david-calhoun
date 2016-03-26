@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-var calc          = require('postcss-calc');
-var customMedia   = require('postcss-custom-media');
-var customProps   = require('postcss-custom-properties');
-var path          = require('path');
-var postcssImport = require('postcss-import');
-var webpack       = require('webpack');
+var calc = require('postcss-calc')
+var customMedia = require('postcss-custom-media')
+var customProps = require('postcss-custom-properties')
+var path = require('path')
+var postcssImport = require('postcss-import')
+var webpack = require('webpack')
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -56,7 +56,7 @@ module.exports = {
     })
   ],
 
-  postcss: function() {
+  postcss: function () {
     return [
       postcssImport,
       customMedia,
@@ -68,4 +68,4 @@ module.exports = {
   standard: {
     parser: 'babel-eslint'
   }
-};
+}

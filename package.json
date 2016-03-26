@@ -2,7 +2,7 @@
   "name": "dcalhoun.github.io",
   "version": "1.0.0",
   "description": "Personal site of David Calhoun.",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
     "build": "npm run clean && npm run build:prod",
     "clean": "rm -rf dist",

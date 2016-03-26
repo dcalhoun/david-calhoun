@@ -66,7 +66,7 @@ module.exports = {
     })
   ],
 
-  postcss: function() {
+  postcss: function () {
     return [
       postcssImport,
       customMedia,

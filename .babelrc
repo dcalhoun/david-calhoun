@@ -1,7 +1,7 @@
 {
   "presets": ["es2015", "stage-0"],
   "env": {
-    "dev": {
+    "client": {
       "plugins": [["react-transform", {
         "transforms": [{
           "transform": "react-transform-hmr",

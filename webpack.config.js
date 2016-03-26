@@ -1,17 +1,17 @@
-'use strict';
+'use strict'
 
-require('babel-register');
+require('babel-register')
 
-var calc          = require('postcss-calc');
-var Copy          = require('copy-webpack-plugin');
-var customMedia   = require('postcss-custom-media');
-var customProps   = require('postcss-custom-properties');
-var paths         = require('./src/shared/utils/paths.js');
-var ExtractText   = require('extract-text-webpack-plugin');
-var path          = require('path');
-var postcssImport = require('postcss-import');
-var StaticSite    = require('static-site-generator-webpack-plugin');
-var webpack       = require('webpack');
+var calc = require('postcss-calc')
+var Copy = require('copy-webpack-plugin')
+var customMedia = require('postcss-custom-media')
+var customProps = require('postcss-custom-properties')
+var paths = require('./src/shared/utils/paths.js')
+var ExtractText = require('extract-text-webpack-plugin')
+var path = require('path')
+var postcssImport = require('postcss-import')
+var StaticSite = require('static-site-generator-webpack-plugin')
+var webpack = require('webpack')
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -81,4 +81,4 @@ module.exports = {
   standard: {
     parser: 'babel-eslint'
   }
-};
+}
