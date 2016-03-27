@@ -15,11 +15,11 @@ const Root = React.createClass({
           <meta name='viewport' content='width=device-width,initial-scale=1' />
           <title>{title}</title>
           <link rel='shortcut icon' type='image/png' href='/favicon.png' />
-          <link rel='stylesheet' href='/main.css' />
+          <link rel='stylesheet' href='/bundle.css' />
         </head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
-          {config.env !== 'prod' ? <script src='/main.js' /> : ''}
+          {config.env !== 'prod' ? <script src='/client.bundle.js' /> : ''}
         </body>
       </html>
     )
