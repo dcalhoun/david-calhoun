@@ -3,11 +3,10 @@
 'use strict'
 
 import React from 'react'
+import Fonts from './Fonts'
 
 const Root = React.createClass({
-  render () {
-    const { app, title } = this.props
-
+  render ({ app, title, ...props }) {
     return (
       <html>
         <head>
@@ -20,6 +19,7 @@ const Root = React.createClass({
         <body>
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
           {config.env !== 'prod' ? <script src='/client.bundle.js' /> : ''}
+          <script dangerouslySetInnerHTML={{ __html: Fonts }} />
         </body>
       </html>
     )

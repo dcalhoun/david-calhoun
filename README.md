@@ -3,9 +3,7 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- HMR is forcing full reload on JS change
-- HMR middleware
+- Revert stateless components for HMR
 - Improve typography
 - Style post list
 - Add GA script
-- Create shared Webpack config
