@@ -2,8 +2,9 @@
 
 'use strict'
 
-import React from 'react'
+import Analytics from './Analytics'
 import Fonts from './Fonts'
+import React from 'react'
 
 const Root = React.createClass({
   render (props) {
@@ -22,6 +23,7 @@ const Root = React.createClass({
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
           {config.env !== 'prod' ? <script src='/client.bundle.js' /> : ''}
           <script dangerouslySetInnerHTML={{ __html: Fonts }} />
+          {config.env === 'prod' ? <script dangerouslySetInnerHTML={{ __html: Analytics }} /> : ''}
         </body>
       </html>
     )
