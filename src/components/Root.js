@@ -6,7 +6,9 @@ import React from 'react'
 import Fonts from './Fonts'
 
 const Root = React.createClass({
-  render ({ app, title, ...props }) {
+  render (props) {
+    const {app, title} = this.props
+
     return (
       <html>
         <head>

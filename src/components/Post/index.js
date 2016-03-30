@@ -10,7 +10,7 @@ import Title from 'react-title-component'
 const Post = React.createClass({
   mixins: [Paths],
 
-  render () {
+  render (props) {
     const post = this.getPost()
 
     return (

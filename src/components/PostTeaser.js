@@ -8,7 +8,7 @@ import Text from './TextMixin'
 const PostTeaser = React.createClass({
   mixins: [Text],
 
-  render () {
+  render (props) {
     const {path, title, body} = this.props
 
     return (

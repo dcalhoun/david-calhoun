@@ -14,10 +14,12 @@ const CodeBlock = React.createClass({
     highlight.highlightBlock(this.refs.code)
   },
 
-  render () {
+  render (props) {
+    const {language, literal} = this.props
+
     return (
       <pre>
-        <code ref='code' className={this.props.language}>{this.props.literal}</code>
+        <code ref='code' className={language}>{literal}</code>
       </pre>
     )
   }
