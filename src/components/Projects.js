@@ -18,11 +18,6 @@ const Projects = React.createClass({
           name='Alfred Remote Inspector'
           description='Remotely inspect any iOS device by name via Safari’s web inspector.'
           href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'/>
-        <ProjectCard
-          {...props}
-          name='Alfred Remote Inspector'
-          description='Remotely inspect any iOS device by name via Safari’s web inspector.'
-          href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'/>
       </section>
     )
   }
