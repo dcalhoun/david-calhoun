@@ -21,6 +21,7 @@ const Writing = React.createClass({
           key={i}
           slug={slug}
           path={path}
+          created={post.attributes.created}
           title={post.attributes.title}
           body={post.body} />
       )

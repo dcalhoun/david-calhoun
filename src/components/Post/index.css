@@ -1,21 +1,18 @@
-.Post {
-  font-family: 'alegreya', Georgia, serif;
-}
-
 .Post-title {
+  font-family: 'alegreya', Georgia, serif;
   font-size: 1.5625rem;
   font-weight: normal;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-top: 0rem;
 }
 
 .Post-date {
   color: #999;
+  font-size: .75rem;
   display: inline-block;
-  margin-bottom: .5rem;
 }
 
 .Post-body {
+  font-family: 'alegreya', Georgia, serif;
   font-size: 1.125rem;
 }
 

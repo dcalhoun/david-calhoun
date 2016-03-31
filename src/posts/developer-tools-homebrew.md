@@ -13,7 +13,7 @@ Homebrew is very easy to install. The documentation site provides one simple Ter
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 ````
 
-### Installing Your First Package
+## Installing Your First Package
 
 After you finish the installation, Homebrew is a tool that is very straightforward to use. Before installing a package it&rsquo;s good practice to ensure that Homebrew is up to date &amp; in working order.
 
@@ -29,7 +29,7 @@ I like to use [Yeoman](http://yeoman.io/) &amp; a generator I created called [Pl
 brew install node
 ````
 
-### Updating a Package
+## Updating a Package
 
 As time goes on you are of course going to need to update packages you have installed. It&rsquo;s typically best to update Homebrew first &amp; then the out-of-date package.
 
@@ -40,7 +40,7 @@ brew upgrade node
 
 Homebrew&rsquo;s installation is, in reality, a clone of a Git repository. The `update` command will pull down the latest information from Homewbrew for you. It will also list out any package formulas that were updated in the process. After you have the latest Homebrew forumlas, you can use the `upgrade` command to update a specific package.
 
-### Other Helpful Commands
+## Other Helpful Commands
 
 ````bash
 brew list           # shows a list of installed packages
