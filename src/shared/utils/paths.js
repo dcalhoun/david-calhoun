@@ -2,15 +2,15 @@
 
 const routes = [
   '/',
-  '/posts',
-  '/posts/developer-tools-homebrew',
-  '/posts/migration-to-jekyll-my-journey-to-understanding-yeoman'
+  '/writing',
+  '/writing/developer-tools-homebrew',
+  '/writing/migration-to-jekyll-my-journey-to-understanding-yeoman'
 ]
 
 module.exports = {
   allPosts: function () {
     return routes.filter(function (route) {
-      return /^\/posts\//.test(route)
+      return /^\/writing\//.test(route)
     })
   },
 

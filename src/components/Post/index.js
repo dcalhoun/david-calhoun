@@ -16,10 +16,8 @@ const Post = React.createClass({
     return (
       <article className='Post'>
         <Title render={(prev) => `${post.attributes.title} | ${prev}`} />
-        <header className='Post-header'>
-          <span className='Post-date'>{post.attributes.created.replace(/-/g, '.')}</span>
-          <h1 className='Post-title'>{post.attributes.title}</h1>
-        </header>
+        <h1 className='Post-title'>{post.attributes.title}</h1>
+        <span className='Post-date'>{post.attributes.created.replace(/-/g, '.')}</span>
         <Markdown
           className='Post-body'
           renderers={Object.assign({}, Markdown.renderers, { CodeBlock: CodeBlock })}

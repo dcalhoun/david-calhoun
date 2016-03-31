@@ -4,7 +4,7 @@ import React from 'react'
 
 const sx = {
   project: {
-    flex: '0 0 320px'
+    flex: '0 0 20rem'
   },
   description: {
     fontSize: '1rem'

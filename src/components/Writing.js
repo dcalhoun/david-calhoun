@@ -27,7 +27,7 @@ const Writing = React.createClass({
     })
 
     return (
-      <main className='my2'>
+      <main className='flex flex-wrap'>
         <Title render={(previous) => `Writing | ${previous}`} />
         {postNodes}
       </main>

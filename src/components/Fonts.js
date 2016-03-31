@@ -2,7 +2,7 @@
 
 const Fonts = `
   window.WebFontConfig = {
-    google: { families: [ 'Cardo:400,700,400italic:latin' ] }
+    google: { families: [ 'Alegreya:400,400italic,700:latin' ] }
   }
 
   var head = document.getElementsByTagName('head')[0]

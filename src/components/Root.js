@@ -17,7 +17,7 @@ const Root = React.createClass({
           <meta name='viewport' content='width=device-width,initial-scale=1' />
           <title>{title}</title>
           <link rel='shortcut icon' type='image/png' href='/favicon.png' />
-          <link rel='stylesheet' href='/bundle.css' />
+          {config.env === 'prod' ? <link rel='stylesheet' href='/bundle.css' /> : ''}
         </head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: app }} id='js-outlet' />
