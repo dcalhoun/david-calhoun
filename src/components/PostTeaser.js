@@ -13,11 +13,11 @@ const PostTeaser = React.createClass({
 
     return (
       <article className='mb2 pb2'>
-        <h2 className='athelas'>
+        <h2 className='cardo'>
           <Link className='btn-link' to={path}>{title}</Link>
         </h2>
         <Markdown
-          className='athelas'
+          className='cardo'
           source={this.truncate(body, 140)} />
       </article>
     )

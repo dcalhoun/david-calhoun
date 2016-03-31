@@ -1,7 +1,6 @@
 'use strict'
 
 import './index.css'
-import Footer from '../Footer'
 import Header from '../Header'
 import React from 'react'
 import Title from 'react-title-component'
@@ -15,7 +14,6 @@ const App = React.createClass({
         <Title render='David Calhoun, Designer & Developer' />
         <Header />
         {children}
-        <Footer />
       </div>
     )
   }

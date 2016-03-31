@@ -21,15 +21,15 @@ a {
 
 p a,
 .btn-link {
-  background-image: linear-gradient(transparent, transparent 4px, #ccc 4px, #ccc);
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100% 6px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .6) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 1.1em;
 }
 
 p a:hover,
 .btn-link:hover {
-  background-image: linear-gradient(transparent, transparent 4px, #8aba56 4px, #8aba56);
+  background-image: linear-gradient(to bottom, rgba(138, 186, 86, 0) 25%, rgba(138, 186, 86, .6) 50%);
 }
 
 p,
@@ -56,8 +56,8 @@ code {
   padding: .1875rem .4375rem;
 }
 
-.athelas {
-  font-family: 'Cardo', sans-serif;
+.cardo {
+  font-family: 'Cardo', Georgia, serif;
   line-height: 1.25;
 }
 
@@ -67,7 +67,7 @@ code {
 }
 
 @media (min-width: 32rem) {
-  .h0 { font-size: 2rem; }
+  .h0 { font-size: 2.6rem; }
 }
 
 @media (min-width: 48rem) {

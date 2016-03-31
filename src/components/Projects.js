@@ -7,6 +7,7 @@ const Projects = React.createClass({
   render (props) {
     return (
       <section className='flex flex-wrap mxn2'>
+        <h2 className='h6 caps my2 px2 col-12'>Open Source</h2>
         <ProjectCard
           {...props}
           name='Playbook'
