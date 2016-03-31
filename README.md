@@ -7,4 +7,5 @@ Source for David Calhoun's personal site.
 - Add Tweet button
 - Add comments
 - Clean up styles
+- Favicon
 - Debug `Warning: validateDOMNesting(...): <span> cannot appear as a child of <head>. See Root > head > span.` from Webpack build
