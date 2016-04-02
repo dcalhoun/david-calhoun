@@ -12,7 +12,6 @@ const sx = {
     color: '#999'
   },
   title: {
-    fontSize: '2.625rem',
     fontWeight: 'normal',
     marginTop: '0rem'
   }
@@ -27,7 +26,7 @@ const PostTeaser = React.createClass({
     return (
       <article className='mb2' style={sx.card}>
         <span className='h6' style={sx.date}>{created.replace(/-/g, '.')}</span>
-        <h2 className='alegreya' style={sx.title}>
+        <h2 className='alegreya h0' style={sx.title}>
           <Link className='btn-link' to={path}>{title}</Link>
         </h2>
       </article>

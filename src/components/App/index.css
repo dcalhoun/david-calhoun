@@ -74,16 +74,21 @@ iframe {
 }
 
 @media (min-width: 32rem) {
-  .h0 { font-size: 2.75rem; }
+  .h0 { font-size: 2.625rem; }
+}
+
+.h00 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 32rem) {
+  .h00 { font-size: 2.75rem; }
 }
 
 @media (min-width: 48rem) {
-  .h0 { font-size: 3.75rem; }
+  .h00 { font-size: 3.75rem; }
 }
-/*
-@media(max-width: 32rem) {
-  .sm-hide { display: none; }
-}*/
 
 :root {
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
