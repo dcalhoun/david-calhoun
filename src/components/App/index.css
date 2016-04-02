@@ -52,8 +52,12 @@ pre code {
 code {
   background: #fff;
   border: 1px solid var(--gray-lighter);
-  font-size: 1rem;
+  font-size: .8125rem;
   padding: .1875rem .4375rem;
+}
+
+@media (min-width: 32rem) {
+  code { font-size: 1rem; }
 }
 
 /**
