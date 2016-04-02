@@ -4,8 +4,9 @@
   "description": "Personal site of David Calhoun.",
   "main": "server.js",
   "scripts": {
-    "build": "npm run clean && NODE_ENV=prod webpack --env=prod --colors",
+    "build": "npm run clean && NODE_ENV=prod webpack -p --colors",
     "build:dev": "npm run clean && NODE_ENV=static webpack --colors",
+    "deploy": "npm run build && gh-pages -d dist -b master -t",
     "clean": "rm -rf dist",
     "start": "npm run build:dev && npm run serve",
     "serve": "webpack-dev-server --hot --inline"
@@ -36,6 +37,7 @@
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "front-matter-loader": "^0.1.2",
+    "gh-pages": "^0.11.0",
     "html-loader": "^0.4.3",
     "json-loader": "^0.5.4",
     "markdown-loader": "^0.1.7",
