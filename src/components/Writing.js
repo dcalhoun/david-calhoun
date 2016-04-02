@@ -8,7 +8,7 @@ import Title from 'react-title-component'
 const Writing = React.createClass({
   mixins: [Paths],
 
-  render (props) {
+  render () {
     const self = this
     const postPaths = this.getAllPosts()
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import React from 'react'
 
 const Header = React.createClass({
-  render (props) {
+  render () {
     return (
       <header className='flex flex-wrap py3'>
         <h1 className='h2 m0 mr1 inline-block'>

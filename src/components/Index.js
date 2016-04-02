@@ -5,7 +5,7 @@ import Projects from './Projects'
 import React from 'react'
 
 const Index = React.createClass({
-  render (props) {
+  render () {
     return (
       <main>
         <About/>

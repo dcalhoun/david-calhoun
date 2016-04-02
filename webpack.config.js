@@ -3,7 +3,6 @@
 require('babel-register')
 
 var calc = require('postcss-calc')
-var Copy = require('copy-webpack-plugin')
 var customMedia = require('postcss-custom-media')
 var customProps = require('postcss-custom-properties')
 var ExtractText = require('extract-text-webpack-plugin')
@@ -53,12 +52,6 @@ if (env === 'prod' || env === 'static') {
     { test: /\.css$/, loader: ExtractText.extract('style', 'css!postcss') }
   )
   config.plugins.push(
-    new Copy([
-      {from: 'src/.nojekyll'},
-      {from: 'src/*.txt'},
-      {from: 'src/*.png'},
-      {from: 'src/CNAME'}
-    ]),
     new ExtractText('bundle.css'),
     new StaticSite('static.bundle.js', paths.routes)
   )

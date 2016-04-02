@@ -2,13 +2,17 @@
 
 'use strict'
 
+import 'file?name=.nojekyll!../.nojekyll'
+import 'file?name=[name].[ext]!../apple-touch-icon.png'
+import 'file?name=CNAME!../CNAME'
+import 'file?name=[name].[ext]!../favicon.png'
 import Analytics from './Analytics'
 import Fonts from './Fonts'
 import React from 'react'
 
 const Root = React.createClass({
-  render (props) {
-    const {app, title} = this.props
+  render () {
+    const { app, title } = this.props
 
     return (
       <html>

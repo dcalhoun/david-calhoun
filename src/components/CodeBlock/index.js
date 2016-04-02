@@ -14,8 +14,8 @@ const CodeBlock = React.createClass({
     highlight.highlightBlock(this.refs.code)
   },
 
-  render (props) {
-    const {language, literal} = this.props
+  render () {
+    const { language, literal } = this.props
 
     return (
       <pre>

@@ -3,7 +3,7 @@
 import React from 'react'
 
 const About = React.createClass({
-  render (props) {
+  render () {
     return (
       <section className='mb4'>
         <p className='h00 alegreya m0'>

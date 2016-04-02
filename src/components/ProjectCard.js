@@ -12,8 +12,8 @@ const sx = {
 }
 
 const ProjectCard = React.createClass({
-  render (props) {
-    const {name, description, href} = this.props
+  render () {
+    const { name, description, href } = this.props
 
     return (
       <a href={href} className='mb3 px2' style={sx.project}>

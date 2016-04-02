@@ -12,7 +12,7 @@ import TweetButton from '../TweetButton'
 const Post = React.createClass({
   mixins: [Paths],
 
-  render (props) {
+  render () {
     const post = this.getPost()
 
     return (

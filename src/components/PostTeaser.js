@@ -20,8 +20,8 @@ const sx = {
 const PostTeaser = React.createClass({
   mixins: [Text],
 
-  render (props) {
-    const {path, created, title} = this.props
+  render () {
+    const { path, created, title } = this.props
 
     return (
       <article className='mb2' style={sx.card}>

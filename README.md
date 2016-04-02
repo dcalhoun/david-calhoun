@@ -3,6 +3,6 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- Refactor styles to be consistent in execution
 - Update favicon
+- Refactor styles to be consistent in execution
 - Debug `Warning: validateDOMNesting(...): <span> cannot appear as a child of <head>. See Root > head > span.` from Webpack build
