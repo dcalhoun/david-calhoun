@@ -64,7 +64,6 @@ if (env === 'dev') {
     publicPath: '/'
   }
   config.module.loaders.push({ test: /\.css$/, loader: 'style!css!postcss' })
-  config.devServer = { contentBase: 'dist/' }
 }
 
 module.exports = config
