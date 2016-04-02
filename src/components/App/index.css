@@ -1,0 +1,99 @@
+@import 'normalize.css';
+@import 'basscss-basic';
+@import 'basscss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--gray);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p a,
+.btn-link {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .6) 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 1.1em;
+}
+
+p a:hover,
+.btn-link:hover {
+  background-image: linear-gradient(to bottom, rgba(138, 186, 86, 0) 50%, rgba(138, 186, 86, .6) 50%);
+}
+
+p,
+pre {
+  margin-bottom: 2rem;
+}
+
+pre {
+  background: #fff;
+  border: 1px solid var(--gray-lighter);
+  overflow: auto;
+}
+
+pre code {
+  border: none;
+  display: block;
+  padding: 1rem;
+}
+
+code {
+  background: #fff;
+  border: 1px solid var(--gray-lighter);
+  font-size: 1rem;
+  padding: .1875rem .4375rem;
+}
+
+/**
+ * Tweet button
+ */
+iframe {
+  vertical-align: top;
+}
+
+.alegreya {
+  font-family: 'Alegreya', Georgia, serif;
+  line-height: 1.25;
+}
+
+.h0 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 32rem) {
+  .h0 { font-size: 2.625rem; }
+}
+
+.h00 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+@media (min-width: 32rem) {
+  .h00 { font-size: 2.75rem; }
+}
+
+@media (min-width: 48rem) {
+  .h00 { font-size: 3.75rem; }
+}
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-size: 1.125rem;
+  --gray: #555;
+  --gray-lighter: #eee;
+  --black: #111111;
+}
