@@ -2,10 +2,12 @@
 
 import './index.css'
 import CodeBlock from '../CodeBlock'
+import Issue from '../Issue'
 import Markdown from 'react-markdown'
 import Paths from '../PathsMixin'
 import React from 'react'
 import Title from 'react-title-component'
+import TweetButton from '../TweetButton'
 
 const Post = React.createClass({
   mixins: [Paths],
@@ -22,6 +24,8 @@ const Post = React.createClass({
           className='Post-body'
           renderers={Object.assign({}, Markdown.renderers, { CodeBlock: CodeBlock })}
           source={post.body} />
+        <TweetButton title={post.attributes.title} />
+        <Issue title={post.attributes.title} />
       </article>
     )
   }

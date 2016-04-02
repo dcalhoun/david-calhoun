@@ -56,6 +56,13 @@ code {
   padding: .1875rem .4375rem;
 }
 
+/**
+ * Tweet button
+ */
+iframe {
+  vertical-align: top;
+}
+
 .alegreya {
   font-family: 'Alegreya', Georgia, serif;
   line-height: 1.25;
