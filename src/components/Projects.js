@@ -24,6 +24,10 @@ const Projects = React.createClass({
           name='Playbook'
           description='A Yeoman generator for prototyping and building experiences.'
           href='http://playbook.centresource.com'/>
+        <ProjectCard
+          name='postcss-warn-cleaner'
+          description='Selectively remove PostCSS warnings from your logs.'
+          href='http://github.com/dcalhoun/postcss-warn-cleaner'/>
       </section>
     )
   }
