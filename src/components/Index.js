@@ -8,8 +8,8 @@ const Index = React.createClass({
   render () {
     return (
       <main>
-        <About/>
-        <Projects/>
+        <About />
+        <Projects />
       </main>
     )
   }

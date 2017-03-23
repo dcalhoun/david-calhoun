@@ -26,7 +26,7 @@ export default (locals, callback) => {
     if (error) {
       throw new Error('Static render failed.')
     } else if (props) {
-      const app = ReactDOMServer.renderToString(<RoutingContext {...props}/>)
+      const app = ReactDOMServer.renderToString(<RoutingContext {...props} />)
       const title = flushTitle()
       const html = ReactDOMServer.renderToStaticMarkup(<Root {...locals} app={app} title={title} />)
       callback(null, '<!doctype html>' + html)

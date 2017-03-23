@@ -9,8 +9,8 @@ import Writing from '../components/Writing'
 
 export default (
   <Route path='/' component={App}>
-    <IndexRoute component={Index}/>
-    <Route path='/writing' component={Writing}/>
-    <Route path='/writing/:slug' component={Post}/>
+    <IndexRoute component={Index} />
+    <Route path='/writing' component={Writing} />
+    <Route path='/writing/:slug' component={Post} />
   </Route>
 )

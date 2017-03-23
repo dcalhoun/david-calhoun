@@ -33,10 +33,6 @@ var config = {
     new webpack.NoErrorsPlugin()
   ],
 
-  standard: {
-    parser: 'babel-eslint'
-  },
-
   postcss: function () {
     return [postcssImport, customMedia, customProps, calc]
   }
