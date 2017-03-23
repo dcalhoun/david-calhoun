@@ -1,7 +1,7 @@
 'use strict'
 
 import './index.css'
-import highlight from 'highlight.js'
+import highlight from 'highlightjs'
 import React from 'react'
 
 const CodeBlock = React.createClass({
