@@ -21,6 +21,10 @@ const Projects = React.createClass({
           description='Immutable, CSS padding utilities.'
           href='http://github.com/dcalhoun/css-utils-padding' />
         <ProjectCard
+          name='es6-migrate'
+          description='CLI to convert AMD CoffeeScript to ES6 Standard JavaScript.'
+          href='https://github.com/dcalhoun/es6-migrate' />
+        <ProjectCard
           name='Playbook'
           description='A Yeoman generator for prototyping and building experiences.'
           href='http://playbook.centresource.com' />

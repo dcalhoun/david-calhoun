@@ -11,7 +11,7 @@ const App = React.createClass({
 
     return (
       <div className='md-col-10 lg-col-8 mx-auto px2'>
-        <Title render='David Calhoun, Designer & Developer' />
+        <Title render='David Calhoun, Software Engineer' />
         <Header />
         {children}
       </div>

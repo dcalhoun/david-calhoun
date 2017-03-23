@@ -20,6 +20,7 @@ const Root = React.createClass({
           <meta charSet='utf-8' />
           <meta name='viewport' content='width=device-width,initial-scale=1' />
           <title>{title}</title>
+          <meta name='description' content='Software engineer specializing in UX design &amp; front-end architecture.' />
           <link rel='shortcut icon' type='image/png' href='/favicon.png' />
           {config.env === 'prod' ? <link rel='stylesheet' href='/bundle.css' /> : ''}
         </head>
