@@ -12,8 +12,12 @@ const Header = () => (
       <Link href='/writing'>
         <a className='h6 btn p1'>Writing</a>
       </Link>
-      <a className='h6 btn p1' href='http://twitter.com/david_calhoun'>Twitter</a>
-      <a className='h6 btn p1' href='http://github.com/dcalhoun'>GitHub</a>
+      <a className='h6 btn p1' href='http://twitter.com/david_calhoun'>
+        Twitter
+      </a>
+      <a className='h6 btn p1' href='http://github.com/dcalhoun'>
+        GitHub
+      </a>
     </nav>
   </header>
 )
