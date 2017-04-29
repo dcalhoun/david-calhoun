@@ -2977,6 +2977,12 @@ styletron-client@^2.5.7:
   dependencies:
     styletron-core "^2.5.7"
 
+styletron-connect@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/styletron-connect/-/styletron-connect-0.0.5.tgz#ac930de941e63c6d01763333778af9af86321afa"
+  dependencies:
+    styletron-utils "^2.5.1"
+
 styletron-core@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/styletron-core/-/styletron-core-2.5.7.tgz#2c4a1fae537b42235462e438c24ab619bbf8993e"
@@ -2997,7 +3003,7 @@ styletron-server@^2.5.7:
   dependencies:
     styletron-core "^2.5.7"
 
-styletron-utils@^2.5.4:
+styletron-utils@^2.5.1, styletron-utils@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/styletron-utils/-/styletron-utils-2.5.4.tgz#f08cca7d58ee0338ce85e408cb32900e65620240"
   dependencies:

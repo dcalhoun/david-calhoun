@@ -17,7 +17,9 @@
     "url": "https://github.com/dcalhoun/dcalhoun.github.io/issues"
   },
   "homepage": "http://davidcalhoun.me",
-  "devDependencies": {},
+  "devDependencies": {
+    "styletron-connect": "^0.0.5"
+  },
   "dependencies": {
     "next": "^2.1.1",
     "react": "^15.5.4",
