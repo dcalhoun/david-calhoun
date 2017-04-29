@@ -12,9 +12,12 @@ const Layout = ({ styles, props }) => (
 
 const LayoutStyled = connectStyles(Layout, {
   layout: {
+    '-webkit-font-smoothing': 'antialiased',
+    boxSizing: 'border-box',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '0 1rem',
+    textRendering: 'optimizeLegibility',
     '@media (min-width: 54rem)': {
       width: '83.333%'
     },
@@ -26,6 +29,6 @@ const LayoutStyled = connectStyles(Layout, {
 
 export default (props) => (
   <StyletronProvider styletron={getStyletron()}>
-    <LayoutStyled props />
+    <LayoutStyled props={props} />
   </StyletronProvider>
 )
