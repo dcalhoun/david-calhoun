@@ -34,7 +34,7 @@ export default connectStyles(Header, {
     display: 'flex',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
     flexWrap: 'flex-wrap',
-    padding: '2rem'
+    padding: '2rem 0'
   },
   title: {
     display: 'inline-block',
