@@ -1,7 +1,7 @@
 import React from 'react'
 import connectStyles from 'styletron-connect'
 
-const About = ({ styles, props }) => {
+const About = ({ styles }) => {
   return (
     <section className={styles.wrap}>
       <p className={styles.title}>
