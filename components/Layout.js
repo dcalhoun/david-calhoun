@@ -1,10 +1,20 @@
+import Head from 'next/head'
 import Header from './Header'
 import connectStyles from 'styletron-connect'
 import getStyletron from '../utils/styletron'
 import { StyletronProvider } from 'styletron-react'
 
+function getTitle (title) {
+  return title
+    ? `${title} | David Calhoun, Software Engineer`
+    : 'David Calhoun, Software Engineer'
+}
+
 const Layout = ({ styles, props }) => (
   <div className={styles.layout}>
+    <Head>
+      <title>{getTitle(props.title)}</title>
+    </Head>
     <Header />
     {props.children}
   </div>

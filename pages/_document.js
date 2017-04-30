@@ -13,7 +13,8 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>David Calhoun | Software Engineer</title>
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className='_styletron_hydrate_'
