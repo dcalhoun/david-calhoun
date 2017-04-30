@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from './Link'
 import connectStyles from 'styletron-connect'
 
 const About = ({ styles }) => {
@@ -10,7 +10,13 @@ const About = ({ styles }) => {
         & front-end architecture.
       </p>
       <p className={styles.subTitle}>
-        Currently at <a className={styles.anchor} href='https://www.gonoodle.com'>GoNoodle</a>. <br className={styles.breakXS} />
+        Currently at
+        {' '}
+        <Link href='https://www.gonoodle.com'>
+          GoNoodle
+        </Link>.
+        {' '}
+        <br className={styles.breakXS} />
         Based in Nashville, TN.
       </p>
     </section>

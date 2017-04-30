@@ -1,9 +1,9 @@
-import BlogPost from './BlogPost'
+import BlogPostTeaser from './BlogPostTeaser'
 
 export default ({ posts }) => (
   <main>
     {posts.map(post => (
-      <BlogPost {...post} />
+      <BlogPostTeaser {...post} />
     ))}
   </main>
 )

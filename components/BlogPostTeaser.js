@@ -1,23 +1,24 @@
+import Link from './Link'
 import connectStyles from 'styletron-connect'
 
-const BlogPost = ({
+const BlogPostTeaser = ({
   date,
   path,
   styles,
   title
 }) => (
-  <article className={styles.blogPost}>
+  <article className={styles.blogPostTeaser}>
     <h6 className={styles.date}>{date}</h6>
     <h1 className={styles.title}>
-      <a className={styles.link} href={path}>
+      <Link href={path}>
         {title}
-      </a>
+      </Link>
     </h1>
   </article>
 )
 
-export default connectStyles(BlogPost, {
-  blogPost: {
+export default connectStyles(BlogPostTeaser, {
+  blogPostTeaser: {
     marginBottom: '1rem',
     maxWidth: '44rem'
   },
@@ -36,8 +37,5 @@ export default connectStyles(BlogPost, {
     '@media (min-width: 32rem)': {
       fontSize: '2.625rem'
     }
-  },
-  link: {
-    color: '#555'
   }
 })
