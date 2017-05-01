@@ -1,3 +1,4 @@
+import './index.css'
 import highlight from 'highlightjs'
 import { Component } from 'react'
 
@@ -14,7 +15,10 @@ class CodeBlock extends Component {
 
     return (
       <pre>
-        <code ref={code => { this.code = code }} className={language}>
+        <code
+          ref={code => { this.code = code }}
+          className={language}
+        >
           {literal}
         </code>
       </pre>

@@ -11,13 +11,17 @@ const BlogPost = ({
   title
 }) => (
   <article>
-    <span className='Post-date'>{date.replace(/-/g, '.')}</span>
-    <h1 className='Post-title'>{title}</h1>
+    <span className={styles.postDate}>
+      {date.replace(/-/g, '.')}
+    </span>
+
+    <h1 className={styles.postTitle}>{title}</h1>
     <Markdown
-      className='Post-body'
+      className={styles.postBody}
       renderers={Object.assign({}, Markdown.renderers, { CodeBlock: CodeBlock })}
       source={body}
     />
+
     <ButtonTweet title={title} />
     <IssueCTA title={title} />
   </article>
