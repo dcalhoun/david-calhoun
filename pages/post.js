@@ -1,9 +1,12 @@
 import BlogPost from '../components/BlogPost'
 import Layout from '../components/Layout'
 
-// TODO: Read posts from fs.
-export default (props = {}) => (
-  <Layout title={`${props.title}`}>
-    <BlogPost {...props} />
+export default ({
+  id,
+  title,
+  ...other
+}) => (
+  <Layout title={`${title}`}>
+    <BlogPost id={id} {...other} />
   </Layout>
 )

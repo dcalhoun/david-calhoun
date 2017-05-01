@@ -3,14 +3,14 @@ import connectStyles from 'styletron-connect'
 
 const BlogPostTeaser = ({
   date,
-  path,
+  id,
   styles,
   title
 }) => (
   <article className={styles.blogPostTeaser}>
     <h6 className={styles.date}>{date}</h6>
     <h1 className={styles.title}>
-      <Link href={path}>
+      <Link href={`/writing/${id}`}>
         {title}
       </Link>
     </h1>
