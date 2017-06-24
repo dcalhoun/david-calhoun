@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 import { flush } from '../utils/styletron'
 
 export default class MyDocument extends Document {
@@ -10,11 +11,29 @@ export default class MyDocument extends Document {
   }
 
   render () {
+    const sheet = new ServerStyleSheet()
+    const main = sheet.collectStyles(<Main />)
+    const styleTags = sheet.getStyleElement()
+
     return (
       <html>
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+
+          <style>{`
+            html {
+              box-sizing: border-box;
+            }
+
+            *, *:before, *:after {
+              box-sizing: inherit;
+            }
+            body {
+              margin: 0;
+            }
+          `}</style>
+
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className='_styletron_hydrate_'
@@ -23,9 +42,10 @@ export default class MyDocument extends Document {
               key={i}
             />
           ))}
+          {styleTags}
         </Head>
-        <body style={{ margin: 0 }}>
-          <Main />
+        <body>
+          {main}
           <NextScript />
         </body>
       </html>

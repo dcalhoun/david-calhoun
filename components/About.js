@@ -1,8 +1,9 @@
 import Link from './Link'
 import styled from 'styled-components'
 
-const About = styled.div`
-  margin-bottom: 4rem;
+const About = styled.section`
+  margin-bottom: 6rem;
+  padding: 0 1rem;
 `
 
 const Title = styled.p`
@@ -24,15 +25,20 @@ const Title = styled.p`
 const SubTitle = styled.p`
   color: #fff;
   font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 0.875rem;
   margin: 0;
 `
 
 const Break = styled.br`
-  display: 'none';
+  display: none;
 
   @media (min-width: 40rem) {
-    display: 'block';
+    display: block;
+  }
+`
+
+const BreakXS = styled.br`
+  @media (min-width: 40rem) {
+    display: none;
   }
 `
 
@@ -48,6 +54,7 @@ export default () => (
       {' '}
       <Link href='https://www.gonoodle.com'>GoNoodle</Link>.
       {' '}
+      <BreakXS />
       Based in Nashville, TN.
     </SubTitle>
   </About>

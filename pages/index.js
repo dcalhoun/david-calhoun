@@ -5,9 +5,10 @@ import withColorCycle from '../containers/withColorCycle'
 
 const ColorCycleLayout = withColorCycle(Layout)
 
-export default () => (
+export default (props) => (
   <ColorCycleLayout>
     <About />
-    <Projects />
+    {/* TODO: Pass color cycle color to Projects. Context?  */}
+    <Projects backgroundColor='red' />
   </ColorCycleLayout>
 )
