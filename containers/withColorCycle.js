@@ -8,41 +8,28 @@ export default (WrappedComponent) => (
       super(props)
 
       this.state = {
-        color: colors.base
+        backgroundColor: colors.base,
+        color: '#fff'
       }
 
+      this.names = Object.keys(colors).filter(c => (c !== 'black' && c !== 'base'))
       this.cycle = this.cycle.bind(this)
     }
 
     cycle () {
-      const names = [
-        'black',
-        'blue',
-        'cyan',
-        'fuschia',
-        'gray',
-        'green',
-        'indigo',
-        'lime',
-        'orange',
-        'pink',
-        'red',
-        'teal',
-        'violet',
-        'yellow'
-      ]
-
-      const name = names[getRandomInRange(0, 13)]
+      const name = this.names[getRandomInRange(0, 13)]
       const level = getRandomInRange(0, 9)
 
       this.setState({
-        color: colors[name][level]
+        backgroundColor: colors[name][level],
+        color: level > 3 ? '#fff' : colors['black']
       })
     }
 
     render () {
       return (
         <WrappedComponent
+          backgroundColor={this.state.backgroundColor}
           color={this.state.color}
           onClick={this.cycle}
         >

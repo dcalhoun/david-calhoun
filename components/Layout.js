@@ -12,7 +12,7 @@ function getTitle (title) {
 
 const Layout = styled.div`
   box-sizing: border-box;
-  background-color: ${props => props.color};
+  background-color: ${props => props.backgroundColor};
   margin: 0.5rem;
   padding: 1rem;
   position: relative;
@@ -34,7 +34,7 @@ const LayoutInner = styled.div`
 `
 
 const Toggle = styled.button`
-  background-color: #fff;
+  background-color: ${props => props.color};
   border: none;
   border-radius: 50%;
   font-size: 2rem;
@@ -51,17 +51,17 @@ const Toggle = styled.button`
   }
 `
 
-export default (props) => {
-  return (<StyletronProvider styletron={getStyletron()}>
-    <Layout color={props.color}>
+export default (props) => (
+  <StyletronProvider styletron={getStyletron()}>
+    <Layout backgroundColor={props.backgroundColor}>
       <Head>
         <title>{getTitle(props.title)}</title>
       </Head>
-      <Toggle onClick={props.onClick} />
+      <Toggle color={props.color} onClick={props.onClick} />
       <LayoutInner>
         <Header />
         {props.children}
       </LayoutInner>
     </Layout>
-  </StyletronProvider>)
-}
+  </StyletronProvider>
+)
