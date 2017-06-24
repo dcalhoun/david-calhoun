@@ -12,7 +12,7 @@ function getTitle (title) {
 
 const Layout = styled.div`
   box-sizing: border-box;
-  background-color: ${props => props.backgroundColor};
+  background-color: ${props => props.color};
   margin: 0.5rem;
   position: relative;
 
@@ -30,7 +30,7 @@ const LayoutInner = styled.div`
 
 export default (props) => (
   <StyletronProvider styletron={getStyletron()}>
-    <Layout backgroundColor={props.backgroundColor}>
+    <Layout color={props.color}>
       <Head>
         <title>{getTitle(props.title)}</title>
       </Head>

@@ -6,7 +6,7 @@ function getColor (color, index) {
 }
 
 const ProjectCard = styled.a`
-  background-color: ${props => getColor(props.backgroundColor, props.index)};
+  background-color: ${props => getColor(props.color, props.index)};
   color: #fff;
   font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
   flex: 0 0 100%;
@@ -17,8 +17,8 @@ const ProjectCard = styled.a`
   @media screen and (min-width: 54rem) {
     background-image: linear-gradient(
       to right,
-      ${props => getColor(props.backgroundColor, props.index)},
-      ${props => props.backgroundColor}
+      ${props => getColor(props.color, props.index)},
+      ${props => props.color}
     );
     transition: transform 300ms ease-in-out;
 
@@ -53,14 +53,14 @@ const Description = styled.p`
 `
 
 export default ({
-  backgroundColor,
+  color,
   description,
   href,
   index,
   name
 }) => (
   <ProjectCard
-    backgroundColor={backgroundColor}
+    color={color}
     href={href}
     index={index}
   >
