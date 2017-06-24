@@ -8,7 +8,6 @@ const About = styled.div`
 const Title = styled.p`
   color: #fff;
   font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  ${'' /* font-family: Monaco, monospace; */}
   font-size: 1.75rem;
   line-height: 1.25;
   margin: 0 0 3rem;
@@ -29,7 +28,7 @@ const SubTitle = styled.p`
   margin: 0;
 `
 
-const Break = styled.div`
+const Break = styled.br`
   display: 'none';
 
   @media (min-width: 40rem) {
