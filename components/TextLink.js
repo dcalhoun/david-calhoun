@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Link = styled.a`
+const TextLink = styled.a`
   background-image: linear-gradient(
     180deg,
     transparent 50%,
@@ -26,7 +26,7 @@ export default ({
   href,
   ...other
 }) => (
-  <Link href={href} {...other}>
+  <TextLink href={href} {...other}>
     {children}
-  </Link>
+  </TextLink>
 )

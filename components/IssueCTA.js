@@ -1,14 +1,14 @@
-import Link from './Link'
+import TextLink from './TextLink'
 
 export default ({ title }) => (
   <p>
     Questions, Comments, Suggestions?
     {' '}
-    <Link
+    <TextLink
       href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${title}`}
       target='_blank'
     >
       Open an Issue
-    </Link>.
+    </TextLink>.
   </p>
 )

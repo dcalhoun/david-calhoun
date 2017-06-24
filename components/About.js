@@ -1,4 +1,4 @@
-import Link from './Link'
+import TextLink from './TextLink'
 import styled from 'styled-components'
 
 const About = styled.section`
@@ -52,7 +52,7 @@ export default () => (
     <SubTitle>
       Currently at
       {' '}
-      <Link href='https://www.gonoodle.com'>GoNoodle</Link>.
+      <TextLink href='https://www.gonoodle.com'>GoNoodle</TextLink>.
       {' '}
       <BreakXS />
       Based in Nashville, TN.

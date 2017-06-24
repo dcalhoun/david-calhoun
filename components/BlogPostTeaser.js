@@ -1,4 +1,4 @@
-import Link from './Link'
+import TextLink from './TextLink'
 import connectStyles from 'styletron-connect'
 
 const BlogPostTeaser = ({
@@ -10,9 +10,9 @@ const BlogPostTeaser = ({
   <article className={styles.blogPostTeaser}>
     <h6 className={styles.date}>{date}</h6>
     <h1 className={styles.title}>
-      <Link href={`/writing/${id}`}>
+      <TextLink href={`/writing/${id}`}>
         {title}
-      </Link>
+      </TextLink>
     </h1>
   </article>
 )

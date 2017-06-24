@@ -1,10 +1,13 @@
 import Link from 'next/link'
+import TextLink from './TextLink'
 import styled from 'styled-components'
 
 const Header = styled.header`
+  align-items: baseline;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
   flex-wrap: flex-wrap;
+  justify-content: space-between;
   margin: 0 0 3rem;
   padding: 3rem 1rem 0;
 `
@@ -49,5 +52,10 @@ export default (props) => (
         </Anchor>
       </Link>
     </Title>
+    <nav>
+      <TextLink href='http://twitter.com/david_calhoun'>Twitter</TextLink>
+      {' '}
+      <TextLink href='http://github.com/dcalhoun'>GitHub</TextLink>
+    </nav>
   </Header>
 )
