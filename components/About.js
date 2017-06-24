@@ -1,64 +1,55 @@
 import Link from './Link'
-import connectStyles from 'styletron-connect'
+import styled from 'styled-components'
 
-const About = ({ styles }) => {
-  return (
-    <section className={styles.wrap}>
-      <p className={styles.title}>
-        Software engineer <br className={styles.break} />
-        specializing in UX design <br className={styles.break} />
-        & front-end architecture.
-      </p>
-      <p className={styles.subTitle}>
-        Currently at
-        {' '}
-        <Link href='https://www.gonoodle.com'>
-          GoNoodle
-        </Link>.
-        {' '}
-        <br className={styles.breakXS} />
-        Based in Nashville, TN.
-      </p>
-    </section>
-  )
-}
+const About = styled.div`
+  margin-bottom: 4rem;
+`
 
-export default connectStyles(About, {
-  wrap: {
-    marginBottom: '4rem'
-  },
-  title: {
-    color: '#555',
-    fontFamily: 'Avenir Next, serif',
-    fontSize: '1.5rem',
-    lineHeight: 1.25,
-    margin: 0,
-    '@media (min-width: 32rem)': {
-      fontSize: '2.75rem'
-    },
-    '@media (min-width: 48rem)': {
-      fontSize: '3.75rem'
-    }
-  },
-  subTitle: {
-    color: '#555',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
-    fontSize: '0.875rem',
-    fontWeight: 700,
-    marginBottom: 0
-  },
-  anchor: {
-    color: '#555',
-  },
-  break: {
-    display: 'none',
-    '@media (min-width: 40rem)': {
-      display: 'block'
-    }
-  },
-  breakXS: {
-    '@media (min-width: 40rem)': {
-      display: 'none'
-    }
+const Title = styled.p`
+  color: #fff;
+  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
+  ${'' /* font-family: Monaco, monospace; */}
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 0 0 3rem;
+
+  @media (min-width: 32rem) {
+    font-size: 2.75rem;
   }
-})
+
+  @media (min-width: 48rem) {
+    font-size: 3.75rem;
+  }
+`
+
+const SubTitle = styled.p`
+  color: #fff;
+  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.875rem;
+  margin: 0;
+`
+
+const Break = styled.div`
+  display: 'none';
+
+  @media (min-width: 40rem) {
+    display: 'block';
+  }
+`
+
+export default () => (
+  <About>
+    <Title>
+      Software engineer <Break />
+      specializing in UX design <Break />
+      & front-end architecture.
+    </Title>
+    <SubTitle>
+      Currently at
+      {' '}
+      <Link href='https://www.gonoodle.com'>GoNoodle</Link>.
+      {' '}
+      Based in Nashville, TN.
+    </SubTitle>
+  </About>
+)

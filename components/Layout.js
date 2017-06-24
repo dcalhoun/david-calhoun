@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
-import connectStyles from 'styletron-connect'
 import getStyletron from '../utils/styletron'
+import styled from 'styled-components'
 import { StyletronProvider } from 'styletron-react'
 
 function getTitle (title) {
@@ -10,35 +10,33 @@ function getTitle (title) {
     : 'David Calhoun, Software Engineer'
 }
 
-const Layout = ({ styles, props }) => (
-  <div className={styles.layout}>
-    <Head>
-      <title>{getTitle(props.title)}</title>
-    </Head>
-    <Header />
-    {props.children}
-  </div>
-)
+const Layout = styled.div`
+  box-sizing: border-box;
+  background-color: #D25C5E;
+  margin: 0.5rem;
+  padding: 1rem;
+`
 
-const LayoutStyled = connectStyles(Layout, {
-  layout: {
-    '-webkit-font-smoothing': 'antialiased',
-    boxSizing: 'border-box',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '0 1rem',
-    textRendering: 'optimizeLegibility',
-    '@media (min-width: 54rem)': {
-      width: '83.333%'
-    },
-    '@media (min-width: 64rem)': {
-      width: '66.667%'
-    }
+const LayoutInner = styled.div`
+  @media (min-width: 54rem) {
+    width: 83.333%;
   }
-})
+
+  @media (min-width: 64rem) {
+    width: 66.667%;
+  }
+`
 
 export default (props) => (
   <StyletronProvider styletron={getStyletron()}>
-    <LayoutStyled props={props} />
+    <Layout props={props}>
+      <Head>
+        <title>{getTitle(props.title)}</title>
+      </Head>
+      <LayoutInner>
+        <Header />
+        {props.children}
+      </LayoutInner>
+    </Layout>
   </StyletronProvider>
 )

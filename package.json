@@ -31,6 +31,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-markdown": "^2.5.0",
+    "styled-components": "^2.1.0",
     "styletron-client": "^2.5.7",
     "styletron-react": "^2.5.7",
     "styletron-server": "^2.5.7"

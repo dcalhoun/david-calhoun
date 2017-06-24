@@ -1,26 +1,31 @@
-import connectStyles from 'styletron-connect'
+import styled from 'styled-components'
 
-const Link = ({
+const Link = styled.a`
+  background-image: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(255, 255, 255, 0.6) 0)
+  ;
+  background-position: 0 1.025em;
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.6) 0)
+  }
+`
+
+export default ({
   children,
   href,
-  styles,
   ...other
 }) => (
-  <a className={styles.link} href={href} {...other}>
+  <Link href={href} {...other}>
     {children}
-  </a>
+  </Link>
 )
-
-export default connectStyles(Link, {
-  link: {
-    backgroundImage: 'linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6) 0)',
-    backgroundPosition: '0 1.025em',
-    backgroundRepeat: 'repeat-x',
-    backgroundSize: '2px 2px',
-    color: '#555',
-    textDecoration: 'none',
-    ':hover': {
-      backgroundImage: 'linear-gradient(180deg,rgba(138,186,86,0) 50%,rgba(138,186,86,.6) 0)'
-    }
-  }
-})
