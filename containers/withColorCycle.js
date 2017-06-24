@@ -1,5 +1,5 @@
+import React, { Component } from 'react'
 import colors from '../utils/colors.json'
-import { Component } from 'react'
 import { getRandomInRange } from '../utils/math'
 
 export default (WrappedComponent) => (
@@ -33,7 +33,15 @@ export default (WrappedComponent) => (
           color={this.state.color}
           onClick={this.cycle}
         >
-          {this.props.children}
+          {React.Children.map(
+            this.props.children,
+            child => (
+              React.cloneElement(child, {
+                backgroundColor: this.state.backgroundColor,
+                color: this.state.color
+              })
+            )
+          )}
         </WrappedComponent>
       )
     }

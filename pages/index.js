@@ -8,7 +8,6 @@ const ColorCycleLayout = withColorCycle(Layout)
 export default (props) => (
   <ColorCycleLayout>
     <About />
-    {/* TODO: Pass color cycle color to Projects. Context?  */}
-    <Projects backgroundColor='red' />
+    <Projects />
   </ColorCycleLayout>
 )

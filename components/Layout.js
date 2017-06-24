@@ -25,15 +25,7 @@ const Layout = styled.div`
 const LayoutInner = styled.div`
   margin-left: auto;
   margin-right: auto;
-  overflow: auto;
-
-  @media (min-width: 54rem) {
-    width: 83.333%;
-  }
-
-  @media (min-width: 64rem) {
-    width: 66.667%;
-  }
+  max-width: 56.25rem;
 `
 
 export default (props) => (

@@ -5,8 +5,8 @@ const Header = styled.header`
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
   flex-wrap: flex-wrap;
-  margin: 3rem 0;
-  padding: 0 1rem;
+  margin: 0 0 3rem;
+  padding: 3rem 1rem 0;
 `
 
 const Title = styled.h1`
@@ -22,7 +22,7 @@ const Leader = styled.span`
   cursor: pointer;
   display: inline-block;
   font-family: Monaco, monospace;
-  margin-right: 0.25rem;
+  padding-right: 0.5rem;
   opacity: 0.5;
   transition-duration: 300ms;
   transition-property: opacity, transform;

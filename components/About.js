@@ -13,11 +13,11 @@ const Title = styled.p`
   line-height: 1.25;
   margin: 0 0 3rem;
 
-  @media (min-width: 32rem) {
-    font-size: 2.75rem;
+  @media (min-width: 40rem) {
+    font-size: 3rem;
   }
 
-  @media (min-width: 48rem) {
+  @media (min-width: 60rem) {
     font-size: 3.75rem;
   }
 `
