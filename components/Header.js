@@ -44,20 +44,20 @@ export default (props) => (
   <Header>
     <Title>
       <Leader color={props.color} onClick={props.onClick}>#</Leader>
-      <Link href='/'>
-        <TextLink href='/' color={props.color}>
+      <Link href='/' prefetch>
+        <TextLink background={props.background} color={props.color} href='/'>
           David Calhoun
         </TextLink>
       </Link>
     </Title>
     <nav>
       <Link href='/writing' prefetch>
-        <TextLink href='/' color={props.color}>Writing</TextLink>
+        <TextLink background={props.background} color={props.color} href='/'>Writing</TextLink>
       </Link>
       {' '}
-      <TextLink href='http://twitter.com/david_calhoun'>Twitter</TextLink>
+      <TextLink background={props.background} color={props.color} href='http://twitter.com/david_calhoun'>Twitter</TextLink>
       {' '}
-      <TextLink href='http://github.com/dcalhoun'>GitHub</TextLink>
+      <TextLink background={props.background} color={props.color} href='http://github.com/dcalhoun'>GitHub</TextLink>
     </nav>
   </Header>
 )

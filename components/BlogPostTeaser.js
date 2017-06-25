@@ -27,6 +27,8 @@ const PostTitle = styled.h1`
 `
 
 export default ({
+  background,
+  color,
   date,
   id,
   styles,
@@ -36,7 +38,7 @@ export default ({
     <PostDate>{date}</PostDate>
     <PostTitle>
       <Link href={`/writing/${id}`}>
-        <TextLink href={`/writing/${id}`}>
+        <TextLink background={background} color={color} href={`/writing/${id}`}>
           {title}
         </TextLink>
       </Link>

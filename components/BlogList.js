@@ -1,9 +1,13 @@
 import BlogPostTeaser from './BlogPostTeaser'
 
-export default ({ posts }) => (
+export default ({
+  background,
+  color,
+  posts
+}) => (
   <main>
     {posts.map(post => (
-      <BlogPostTeaser key={post.id} {...post} />
+      <BlogPostTeaser background={background} color={color} key={post.id} {...post} />
     ))}
   </main>
 )

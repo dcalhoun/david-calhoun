@@ -10,6 +10,7 @@ const Title = styled.p`
   color: #fff;
   font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1.75rem;
+  font-style: italic;
   line-height: 1.25;
   margin: 0 0 3rem;
 
@@ -42,7 +43,7 @@ const BreakXS = styled.br`
   }
 `
 
-export default () => (
+export default (props) => (
   <About>
     <Title>
       Software engineer <Break />
@@ -52,7 +53,7 @@ export default () => (
     <SubTitle>
       Currently at
       {' '}
-      <TextLink href='https://www.gonoodle.com'>GoNoodle</TextLink>.
+      <TextLink background={props.background} color={props.color} href='https://www.gonoodle.com'>GoNoodle</TextLink>.
       {' '}
       <BreakXS />
       Based in Nashville, TN.

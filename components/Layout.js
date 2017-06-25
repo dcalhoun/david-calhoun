@@ -12,6 +12,7 @@ function getTitle (title) {
 const Layout = styled.div`
   background-color: ${props => chroma(props.background).darken(0.5)};
   padding: 0.5rem;
+  transition: background-color 160ms ease;
 
   @media (min-width: 54rem) {
     padding: 1rem;
@@ -22,6 +23,7 @@ const LayoutInner = styled.div`
   background-color: ${props => props.background};
   min-height: calc(100vh - 1rem);
   overflow: hidden;
+  transition: background-color 160ms ease;
 
   @media (min-width: 54rem) {
     min-height: calc(100vh - 2rem);
@@ -46,7 +48,7 @@ export default (props) => (
 
     <LayoutInner background={props.background}>
       <Content>
-        <Header color={props.color} onClick={props.onClick} />
+        <Header background={props.background} color={props.color} onClick={props.onClick} />
         {props.children}
       </Content>
     </LayoutInner>
