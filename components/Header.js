@@ -3,13 +3,16 @@ import TextLink from './TextLink'
 import styled from 'styled-components'
 
 const Header = styled.header`
-  align-items: baseline;
-  display: flex;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  flex-wrap: flex-wrap;
-  justify-content: space-between;
-  margin: 0 0 3rem;
-  padding: 3rem 1rem 0;
+  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
+  margin: 3rem 0;
+  padding: 0 1rem;
+
+  @media (min-width: 40rem) {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: flex-wrap;
+    justify-content: space-between;
+  }
 `
 
 const Title = styled.h1`
@@ -37,25 +40,21 @@ const Leader = styled.span`
   }
 `
 
-const Anchor = styled.a`
-  color: ${props => props.color};
-  text-decoration: none;
-`
-
 export default (props) => (
   <Header>
     <Title>
       <Leader color={props.color} onClick={props.onClick}>#</Leader>
       <Link href='/'>
-        <Anchor color={props.color}>
+        <TextLink href='/' color={props.color}>
           David Calhoun
-        </Anchor>
+        </TextLink>
       </Link>
     </Title>
     <nav>
-      <Link href='/writing'>
-        <Anchor color={props.color}>Writing</Anchor>
+      <Link href='/writing' prefetch>
+        <TextLink href='/' color={props.color}>Writing</TextLink>
       </Link>
+      {' '}
       <TextLink href='http://twitter.com/david_calhoun'>Twitter</TextLink>
       {' '}
       <TextLink href='http://github.com/dcalhoun'>GitHub</TextLink>

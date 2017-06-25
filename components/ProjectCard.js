@@ -74,7 +74,7 @@ ProjectCard.propTypes = {
   background: PropTypes.string,
   description: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  index: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired
 }
 

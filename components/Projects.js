@@ -4,6 +4,10 @@ import styled from 'styled-components'
 const Projects = styled.section`
   display: flex;
   flex-wrap: wrap;
+
+  @media (min-width: 54rem) {
+    padding: 0 1rem;
+  }
 `
 
 const Title = styled.h3`

@@ -23,9 +23,9 @@ const Layout = styled.div`
 const LayoutInner = styled.div`
   background-color: ${props => props.background};
   min-height: calc(100vh - 1rem);
+  overflow: hidden;
 
   @media (min-width: 54rem) {
-    padding: 2rem;
     min-height: calc(100vh - 2rem);
   }
 `
@@ -34,6 +34,10 @@ const Content = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 56.25rem;
+
+  @media (min-width: 40rem) {
+    margin-bottom: 3rem;
+  }
 `
 
 export default (props) => (
