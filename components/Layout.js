@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
 import chroma from 'chroma-js'
-import getStyletron from '../utils/styletron'
 import styled from 'styled-components'
-import { StyletronProvider } from 'styletron-react'
 
 function getTitle (title) {
   return title
@@ -41,18 +39,16 @@ const Content = styled.div`
 `
 
 export default (props) => (
-  <StyletronProvider styletron={getStyletron()}>
-    <Layout background={props.background}>
-      <Head>
-        <title>{getTitle(props.title)}</title>
-      </Head>
+  <Layout background={props.background}>
+    <Head>
+      <title>{getTitle(props.title)}</title>
+    </Head>
 
-      <LayoutInner background={props.background}>
-        <Content>
-          <Header color={props.color} onClick={props.onClick} />
-          {props.children}
-        </Content>
-      </LayoutInner>
-    </Layout>
-  </StyletronProvider>
+    <LayoutInner background={props.background}>
+      <Content>
+        <Header color={props.color} onClick={props.onClick} />
+        {props.children}
+      </Content>
+    </LayoutInner>
+  </Layout>
 )
