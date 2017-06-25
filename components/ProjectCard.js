@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import chroma from 'chroma-js'
 
 function getColor (color, index) {
-  return chroma(color).darken((index + 1) * 0.2)
+  return chroma(color).darken((100 - (index * 15)) / 100)
 }
 
-const ProjectCard = styled.a`
-  background-color: ${props => getColor(props.color, props.index)};
+const Card = styled.a`
+  background-color: ${props => getColor(props.background, props.index)};
   color: #fff;
   font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
   flex: 0 0 100%;
@@ -14,11 +15,11 @@ const ProjectCard = styled.a`
   text-decoration: none;
   width: 18rem;
 
-  @media screen and (min-width: 54rem) {
+  @media (min-width: 54rem) {
     background-image: linear-gradient(
       to right,
-      ${props => getColor(props.color, props.index)},
-      ${props => props.color}
+      ${props => getColor(props.background, props.index)},
+      ${props => props.background}
     );
     transition: transform 300ms ease-in-out;
 
@@ -34,7 +35,7 @@ const Title = styled.h3`
   margin-bottom: 0.5em;
   margin-top: 0;
 
-  @media screen and (min-width: 40rem) {
+  @media (min-width: 40rem) {
     font-size: 1.25rem;
   }
 `
@@ -47,24 +48,38 @@ const Description = styled.p`
   margin-top: 0;
   opacity: 0.5;
 
-  @media screen and (min-width: 40rem) {
+  @media (min-width: 40rem) {
     font-size: 1.125rem;
   }
 `
 
-export default ({
-  color,
+const ProjectCard = ({
+  background,
   description,
   href,
   index,
   name
 }) => (
-  <ProjectCard
-    color={color}
+  <Card
+    background={background}
     href={href}
     index={index}
   >
     <Title>{name}</Title>
     <Description>{description}</Description>
-  </ProjectCard>
+  </Card>
 )
+
+ProjectCard.propTypes = {
+  background: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  index: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+}
+
+ProjectCard.defaultProps = {
+  background: 'transparent'
+}
+
+export default ProjectCard

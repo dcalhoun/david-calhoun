@@ -8,7 +8,8 @@ export default (WrappedComponent) => (
       super(props)
 
       this.state = {
-        color: colors.base
+        background: colors.base,
+        color: '#fff'
       }
 
       this.names = Object.keys(colors).filter(c => (c !== 'black' && c !== 'base'))
@@ -20,19 +21,25 @@ export default (WrappedComponent) => (
       const level = getRandomInRange(4, 9)
 
       this.setState({
-        color: colors[name][level]
+        background: colors[name][level]
       })
     }
 
     render () {
       return (
         <WrappedComponent
+          background={this.state.background}
           color={this.state.color}
           onClick={this.cycle}
         >
           {React.Children.map(
             this.props.children,
-            child => React.cloneElement(child, { color: this.state.color })
+            child => (
+              React.cloneElement(child, {
+                background: this.state.background,
+                color: this.state.color
+              })
+            )
           )}
         </WrappedComponent>
       )

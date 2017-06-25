@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from './Header'
+import chroma from 'chroma-js'
 import getStyletron from '../utils/styletron'
 import styled from 'styled-components'
 import { StyletronProvider } from 'styletron-react'
@@ -11,18 +12,25 @@ function getTitle (title) {
 }
 
 const Layout = styled.div`
-  box-sizing: border-box;
-  background-color: ${props => props.color};
-  margin: 0.5rem;
-  position: relative;
+  background-color: ${props => chroma(props.background).darken(0.5)};
+  padding: 0.5rem;
 
-  @media screen and (min-width: 54rem) {
-    margin: 1rem;
-    padding: 2rem;
+  @media (min-width: 54rem) {
+    padding: 1rem;
   }
 `
 
 const LayoutInner = styled.div`
+  background-color: ${props => props.background};
+  min-height: calc(100vh - 1rem);
+
+  @media (min-width: 54rem) {
+    padding: 2rem;
+    min-height: calc(100vh - 2rem);
+  }
+`
+
+const Content = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 56.25rem;
@@ -30,14 +38,16 @@ const LayoutInner = styled.div`
 
 export default (props) => (
   <StyletronProvider styletron={getStyletron()}>
-    <Layout color={props.color}>
+    <Layout background={props.background}>
       <Head>
         <title>{getTitle(props.title)}</title>
       </Head>
 
-      <LayoutInner>
-        <Header onClick={props.onClick} />
-        {props.children}
+      <LayoutInner background={props.background}>
+        <Content>
+          <Header color={props.color} onClick={props.onClick} />
+          {props.children}
+        </Content>
       </LayoutInner>
     </Layout>
   </StyletronProvider>

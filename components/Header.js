@@ -21,7 +21,7 @@ const Title = styled.h1`
 `
 
 const Leader = styled.span`
-  color: #fff;
+  color: ${props => props.color};
   cursor: pointer;
   display: inline-block;
   font-family: Monaco, monospace;
@@ -38,21 +38,24 @@ const Leader = styled.span`
 `
 
 const Anchor = styled.a`
-  color: #fff;
+  color: ${props => props.color};
   text-decoration: none;
 `
 
 export default (props) => (
   <Header>
     <Title>
+      <Leader color={props.color} onClick={props.onClick}>#</Leader>
       <Link href='/'>
-        <Anchor>
-          <Leader onClick={props.onClick}>#</Leader>
+        <Anchor color={props.color}>
           David Calhoun
         </Anchor>
       </Link>
     </Title>
     <nav>
+      <Link href='/writing'>
+        <Anchor color={props.color}>Writing</Anchor>
+      </Link>
       <TextLink href='http://twitter.com/david_calhoun'>Twitter</TextLink>
       {' '}
       <TextLink href='http://github.com/dcalhoun'>GitHub</TextLink>

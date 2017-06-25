@@ -1,10 +1,15 @@
 import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
+import colors from '../utils/colors.json'
 
 // TODO: Read posts from fs.
 export default () => {
   return (
-    <Layout title='Writing'>
+    <Layout
+      background={colors['gray'][2]}
+      color={colors['gray'][9]}
+      title='Writing'
+    >
       <BlogList posts={[{
         date: '2013.12.16',
         id: 'developer-tools-homebrew',
