@@ -19,6 +19,7 @@
   },
   "homepage": "http://davidcalhoun.me",
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.1.5",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.1",
     "prettier": "^1.2.2",
