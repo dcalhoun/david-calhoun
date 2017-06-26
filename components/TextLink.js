@@ -7,7 +7,7 @@ const TextLink = styled.a`
   background-size: 2px 2px;
   border-bottom: ${props => `2px solid ${chroma(props.background).darken(0.5)}`};
   box-shadow: ${props => `inset 0 -9px 0 ${chroma(props.background).darken(0.3).alpha(0.5)}`};
-  color: #fff;
+  color: ${props => props.color};
   text-decoration: none;
   transition-duration: 160ms;
   transition-property: border-color, box-shadow;
