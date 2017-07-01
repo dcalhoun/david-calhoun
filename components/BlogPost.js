@@ -2,33 +2,33 @@ import ButtonTweet from './ButtonTweet'
 import CodeBlock from './CodeBlock'
 import IssueCTA from './IssueCTA'
 import Markdown from 'react-markdown'
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 
-const PostTitle = styled.h1`
-  font-family: 'Avenir Next', sans-serif;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-top: 0rem;
+const PostTitle = styled('h1', {
+  fontFamily: '"Avenir Next", sans-serif',
+  fontSize: '1.5rem',
+  fontWeight: 'normal',
+  marginTop: '0rem',
 
-  @media (min-width: 48rem) {
-    font-size: 2.625rem;
+  '@media (min-width: 48rem)': {
+    fontSize: '2.625rem'
   }
-`
+})
 
-const PostDate = styled.span`
-  color: #999;
-  font-size: 0.75rem;
-  display: inline-block;
-`
+const PostDate = styled('span', {
+  color: '#999',
+  display: 'inline-block',
+  fontSize: '0.75rem'
+})
 
-const PostBody = styled(Markdown)`
-  font-family: 'Avenir Next', sans-serif;
-  font-size: 1.125rem;
+const PostBody = styled(Markdown, {
+  fontFamily: '"Avenir Next", sans-serif',
+  fontSize: '1.125rem',
 
-  @media (min-width: 48rem) {
-    font-size: 1.5rem;
+  '@media (min-width: 48rem)': {
+    fontSize: '1.5rem'
   }
-`
+})
 
 export default ({
   date,

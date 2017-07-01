@@ -1,26 +1,26 @@
 import ProjectCard from './ProjectCard'
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 
-const Projects = styled.section`
-  display: flex;
-  flex-wrap: wrap;
+const Projects = styled('section', {
+  display: 'flex',
+  flexWrap: 'wrap',
 
-  @media (min-width: 54rem) {
-    padding: 0 1rem;
+  '@media (min-width: 54rem)': {
+    padding: '0 1rem'
   }
-`
+})
 
-const Title = styled.h3`
-  color: #fff;
-  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 100;
-  letter-spacing: 0.2em;
-  margin: 0 0 0.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
-`
+const Title = styled('h3', {
+  color: '#fff',
+  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontSize: '0.75rem',
+  fontWeight: 100,
+  letterSpacing: '0.2em',
+  margin: '0 0 0.5rem',
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  width: '100%'
+})
 
 export default (props) => (
   <Projects>

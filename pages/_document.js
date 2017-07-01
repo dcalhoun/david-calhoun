@@ -1,12 +1,15 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { flush } from '../utils/styletron'
 
 export default class MyDocument extends Document {
-  render () {
-    const sheet = new ServerStyleSheet()
-    const main = sheet.collectStyles(<Main />)
-    const styleTags = sheet.getStyleElement()
+  static getInitialProps ({ renderPage }) {
+    const page = renderPage()
+    const styletron = flush()
+    const stylesheets = styletron ? styletron.getStylesheets() : []
+    return { ...page, stylesheets }
+  }
 
+  render () {
     return (
       <html>
         <Head>
@@ -26,10 +29,17 @@ export default class MyDocument extends Document {
             }
           `}</style>
 
-          {styleTags}
+          {this.props.stylesheets.map((sheet, i) => (
+            <style
+              className='_styletron_hydrate_'
+              dangerouslySetInnerHTML={{ __html: sheet.css }}
+              media={sheet.media || ''}
+              key={i}
+            />
+          ))}
         </Head>
         <body>
-          {main}
+          <Main />
           <NextScript />
         </body>
       </html>

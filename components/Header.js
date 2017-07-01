@@ -1,44 +1,44 @@
 import Link from 'next/link'
 import TextLink from './TextLink'
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 
-const Header = styled.header`
-  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  margin: 3rem 0;
-  padding: 0 1rem;
+const Header = styled('header', {
+  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  margin: '3rem 0',
+  padding: '0 1rem',
 
-  @media (min-width: 40rem) {
-    align-items: baseline;
-    display: flex;
-    flex-wrap: flex-wrap;
-    justify-content: space-between;
+  '@media (min-width: 40rem)': {
+    alignItems: 'baseline',
+    display: 'flex',
+    flexWrap: 'flex-wrap',
+    justifyContent: 'space-between'
   }
-`
+})
 
-const Title = styled.h1`
-  display: inline-block;
-  font-family: Monaco, monospace;
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin: 0;
-`
+const Title = styled('h1', {
+  display: 'inline-block',
+  fontFamily: 'Monaco, monospace',
+  fontSize: '1.5rem',
+  fontWeight: 300,
+  margin: 0
+})
 
-const Leader = styled.span`
-  color: ${props => props.color};
-  cursor: pointer;
-  display: inline-block;
-  font-family: Monaco, monospace;
-  padding-right: 0.5rem;
-  opacity: 0.5;
-  transition-duration: 300ms;
-  transition-property: opacity, transform;
-  transition-timing-function: ease-in-out;
+const Leader = styled('span', props => ({
+  color: props.color,
+  cursor: 'pointer',
+  display: 'inline-block',
+  fontFamily: 'Monaco, monospace',
+  paddingRight: '0.5rem',
+  opacity: 0.5,
+  transitionDuration: '300ms',
+  transitionProperty: 'opacity, transform',
+  transitionTimingFunction: 'ease-in-out',
 
-  &:hover {
-    opacity: 1;
-    transform: translateX(-0.25rem);
+  ':hover': {
+    opacity: 1,
+    transform: 'translateX(-0.25rem)'
   }
-`
+}))
 
 export default (props) => (
   <Header>

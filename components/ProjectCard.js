@@ -1,57 +1,58 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import chroma from 'chroma-js'
+import { styled } from 'styletron-react'
 
 function getColor (color, index) {
   return chroma(color).darken((100 - (index * 15)) / 100)
 }
 
-const Card = styled.a`
-  background-color: ${props => getColor(props.background, props.index)};
-  color: #fff;
-  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif;
-  flex: 0 0 100%;
-  padding: 1rem;
-  text-decoration: none;
-  width: 18rem;
+const Card = styled('a', props => ({
+  backgroundColor: getColor(props.background, props.index),
+  color: '#fff',
+  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  flex: '0 0 100%',
+  padding: '1rem',
+  textDecoration: 'none',
+  width: '18rem',
 
-  @media (min-width: 54rem) {
-    background-image: linear-gradient(
+  '@media (min-width: 54rem)': {
+    backgroundImage: `linear-gradient(
       to right,
-      ${props => getColor(props.background, props.index)},
-      ${props => props.background}
-    );
-    transition: transform 300ms ease-in-out;
+      ${getColor(props.background, props.index)},
+      ${props.background}
+    )`,
+    transition: 'transform 300ms ease-in-out',
 
-    &:hover {
-      transform: translateX(-1rem);
+    ':hover': {
+      transform: 'translateX(-1rem)'
     }
   }
-`
-const Title = styled.h3`
-  font-family: Monaco, monospace;
-  font-size: 1rem;
-  font-weight: normal;
-  margin-bottom: 0.5em;
-  margin-top: 0;
+}))
 
-  @media (min-width: 40rem) {
-    font-size: 1.25rem;
+const Title = styled('h3', {
+  fontFamily: 'Monaco, monospace',
+  fontSize: '1rem',
+  fontWeight: 'normal',
+  marginBottom: '0.5em',
+  marginTop: 0,
+
+  '@media (min-width: 40rem)': {
+    fontSize: '1.25rem'
   }
-`
+})
 
-const Description = styled.p`
-  font-size: 0.875rem;
-  font-style: italic;
-  line-height: 1.5em;
-  margin-bottom: 0;
-  margin-top: 0;
-  opacity: 0.5;
+const Description = styled('p', {
+  fontSize: '0.875rem',
+  fontStyle: 'italic',
+  lineHeight: '1.5em',
+  marginBottom: 0,
+  marginTop: 0,
+  opacity: '0.5',
 
-  @media (min-width: 40rem) {
-    font-size: 1.125rem;
+  '@media (min-width: 40rem)': {
+    fontSize: '1.125rem'
   }
-`
+})
 
 const ProjectCard = ({
   background,

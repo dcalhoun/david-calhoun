@@ -1,30 +1,30 @@
 import Link from 'next/link'
 import TextLink from './TextLink'
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 
-const BlogPostTeaser = styled.article`
-  margin-bottom: 1rem;
-  max-width: 44rem;
-`
+const BlogPostTeaser = styled('article', {
+  marginBottom: '1rem',
+  maxWidth: '44rem'
+})
 
-const PostDate = styled.h6`
-  color: #999;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0;
-`
+const PostDate = styled('h6', {
+  color: '#999',
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontSize: '0.75rem',
+  fontWeight: '400',
+  margin: '0'
+})
 
-const PostTitle = styled.h1`
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-top: 0;
+const PostTitle = styled('h1', {
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontSize: '1.5rem',
+  fontWeight: '400',
+  marginTop: '0',
 
-  @media (min-width: 32rem) {
-    font-size: 2.625rem;
+  '@media (min-width: 32rem)': {
+    fontSize: '2.625rem'
   }
-`
+})
 
 export default ({
   background,

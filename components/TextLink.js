@@ -1,22 +1,22 @@
 import chroma from 'chroma-js'
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 
-const TextLink = styled.a`
-  background-position: 0 1.025em;
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  border-bottom: ${props => `2px solid ${chroma(props.background).darken(0.5)}`};
-  box-shadow: ${props => `inset 0 -9px 0 ${chroma(props.background).darken(0.3).alpha(0.5)}`};
-  color: ${props => props.color};
-  text-decoration: none;
-  transition-duration: 160ms;
-  transition-property: border-color, box-shadow;
-  transition-timing-function: ease;
+const TextLink = styled('a', props => ({
+  backgroundPosition: '0 1.025em',
+  backgroundRepeat: 'repeat-x',
+  backgroundSize: '2px 2px',
+  borderBottom: `2px solid ${chroma(props.background).darken(0.5)}`,
+  boxShadow: `inset 0 -9px 0 ${chroma(props.background).darken(0.3).alpha(0.5)}`,
+  color: props.color,
+  textDecoration: 'none',
+  transitionDuration: '160ms',
+  transitionProperty: 'border-color, box-shadow',
+  transitionTimingFunction: 'ease',
 
-  &:hover {
-    box-shadow: ${props => `inset 0 -1.2em 0 ${chroma(props.background).darken(0.5).alpha(0.5)}`};
+  ':hover': {
+    boxShadow: `inset 0 -1.2em 0 ${chroma(props.background).darken(0.5).alpha(0.5)}`
   }
-`
+}))
 
 export default ({
   background,
