@@ -40,6 +40,11 @@ const Leader = styled('span', props => ({
   }
 }))
 
+const NavItem = styled('div', {
+  display: 'inline-block',
+  padding: '0 0.25rem'
+})
+
 export default (props) => (
   <Header>
     <Title>
@@ -50,14 +55,21 @@ export default (props) => (
         </TextLink>
       </Link>
     </Title>
+
     <nav>
-      <Link href='/writing' prefetch>
-        <TextLink background={props.background} color={props.color} href='/'>Writing</TextLink>
-      </Link>
-      {' '}
-      <TextLink background={props.background} color={props.color} href='http://twitter.com/david_calhoun'>Twitter</TextLink>
-      {' '}
-      <TextLink background={props.background} color={props.color} href='http://github.com/dcalhoun'>GitHub</TextLink>
+      <NavItem>
+        <Link href='/writing' prefetch>
+          <TextLink background={props.background} color={props.color} href='/'>Writing</TextLink>
+        </Link>
+      </NavItem>
+
+      <NavItem>
+        <TextLink background={props.background} color={props.color} href='http://twitter.com/david_calhoun'>Twitter</TextLink>
+      </NavItem>
+
+      <NavItem>
+        <TextLink background={props.background} color={props.color} href='http://github.com/dcalhoun'>GitHub</TextLink>
+      </NavItem>
     </nav>
   </Header>
 )

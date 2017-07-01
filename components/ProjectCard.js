@@ -21,6 +21,7 @@ const Card = styled('a', props => ({
       ${getColor(props.background, props.index)},
       ${props.background}
     )`,
+    willChange: 'transform',
     transition: 'transform 300ms ease-in-out',
 
     ':hover': {
