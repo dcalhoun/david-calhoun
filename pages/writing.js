@@ -1,18 +1,14 @@
 import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
-import colors from '../utils/colors.json'
+import withDarkMode from '../containers/withDarkMode'
+
+const DarkModeLayout = withDarkMode(Layout)
 
 // TODO: Read posts from fs.
 export default () => {
   return (
-    <Layout
-      background={colors['gray'][2]}
-      color={colors['gray'][9]}
-      title='Writing'
-    >
+    <DarkModeLayout title='Writing'>
       <BlogList
-        background={colors['gray'][2]}
-        color={colors['gray'][9]}
         posts={[
           {
             date: '2013.12.16',
@@ -25,6 +21,6 @@ export default () => {
           }
         ]}
       />
-    </Layout>
+    </DarkModeLayout>
   )
 }
