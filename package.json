@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "start": "next"
+    "start": "next",
+    "build": "next build",
+    "build:posts": "processmd posts/**/*.md --outputDir .posts --preview 110 --highlightCode --summaryOutput .posts/summary.json",
+    "build:export": "npm run build && npm run export",
+    "export": "next export && cp -R static/* out/",
+    "deploy": "npm run build:posts && npm run build:export && mv out public"
   },
   "repository": {
     "type": "git",
@@ -22,6 +27,7 @@
     "husky": "^0.13.3",
     "lint-staged": "^3.4.1",
     "prettier": "^1.2.2",
+    "processmd": "^3.1.3",
     "prop-types": "^15.5.10",
     "standard": "^10.0.2"
   },

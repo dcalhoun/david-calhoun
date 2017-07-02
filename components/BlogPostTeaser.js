@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import TextLink from './TextLink'
+import { url } from '../utils/posts'
 import { styled } from 'styletron-react'
 
 const BlogPostTeaser = styled('article', {
@@ -32,16 +33,17 @@ export default ({
   date,
   id,
   styles,
-  title
-}) => (
-  <BlogPostTeaser>
-    <PostDate>{date}</PostDate>
+  title,
+  ...post
+}) => {
+  return (<BlogPostTeaser>
+    <PostDate>{date.replace(/-/g, '.')}</PostDate>
     <PostTitle>
-      <Link href={`/writing/${id}`}>
-        <TextLink background={background} color={color} href={`/writing/${id}`}>
+      <Link href={url(post)}>
+        <TextLink background={background} color={color} href={url(post)}>
           {title}
         </TextLink>
       </Link>
     </PostTitle>
-  </BlogPostTeaser>
-)
+  </BlogPostTeaser>)
+}

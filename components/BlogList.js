@@ -12,7 +12,7 @@ export default ({
 }) => (
   <BlogList>
     {posts.map(post => (
-      <BlogPostTeaser background={background} color={color} key={post.id} {...post} />
+      <BlogPostTeaser background={background} color={color} key={post.base} {...post} />
     ))}
   </BlogList>
 )

@@ -1,23 +1,13 @@
 import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
+import posts from '../.posts/summary.json'
 import withDarkMode from '../containers/withDarkMode'
+import { sortByDate } from '../utils/posts'
 
 const DarkModeLayout = withDarkMode(Layout)
 
 export default () => (
   <DarkModeLayout title='Writing'>
-    <BlogList
-      posts={[
-        {
-          date: '2013.12.16',
-          id: 'developer-tools-homebrew',
-          title: 'Developer Tools: Homebrew'
-        }, {
-          date: '2013.10.30',
-          id: 'migration-to-jekyll-my-journey-to-understanding-yeoman',
-          title: 'Migration to Jekyll: My Journey to Understanding Yeoman'
-        }
-      ]}
-    />
+    <BlogList posts={sortByDate(posts)} />
   </DarkModeLayout>
 )

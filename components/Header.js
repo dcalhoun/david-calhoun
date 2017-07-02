@@ -59,7 +59,7 @@ export default (props) => (
     <nav>
       <NavItem>
         <Link href='/writing' prefetch>
-          <TextLink background={props.background} color={props.color} href='/'>Writing</TextLink>
+          <TextLink background={props.background} color={props.color} href='/writing'>Writing</TextLink>
         </Link>
       </NavItem>
 
