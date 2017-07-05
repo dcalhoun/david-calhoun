@@ -4,13 +4,13 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged",
-    "start": "next",
     "build": "next build",
-    "build:posts": "processmd posts/**/*.md --outputDir .posts --preview 110 --highlightCode --summaryOutput .posts/summary.json",
     "build:export": "npm run build && npm run export",
+    "build:posts": "processmd posts/**/*.md --outputDir .posts --preview 110 --highlightCode --summaryOutput .posts/summary.json",
+    "deploy": "npm run build:posts && npm run build:export && mv out public",
     "export": "next export && cp -R static/* out/",
-    "deploy": "npm run build:posts && npm run build:export && mv out public"
+    "precommit": "lint-staged",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,10 @@
   },
   "dependencies": {
     "chroma-js": "^1.3.4",
+    "front-matter": "^2.1.2",
     "highlightjs": "^9.10.0",
-    "next": "^2.4.4",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^2.4.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",

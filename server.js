@@ -1,28 +1,26 @@
+const next = require('next')
+const postsApi = require('./api/posts')
 const { createServer } = require('http')
 const { parse } = require('url')
-const { join } = require('path')
-const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-
-const rootStaticFiles = [
-  '/favicon.ico',
-  '/assets'
-]
+const serialize = data => JSON.stringify({ data })
 
 app.prepare()
 .then(() => {
-  createServer((req, res) => {
+  createServer(async (req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
 
-    if (rootStaticFiles.filter((file) => pathname.indexOf(file) > -1).length > 0) {
-      const path = join(__dirname, 'static', pathname)
-      app.serveStatic(req, res, path)
-    } else if (pathname.indexOf('/posts') === 0) {
-      query.fullUrl = pathname
+    if (pathname.includes('/api/')) {
+      const posts = await postsApi.fetch(query.slug)
+
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      return res.end(serialize(posts))
+    } else if (RegExp(/\/writing\/.+/).test(pathname)) {
+      query.slug = pathname.split('/').pop()
       app.render(req, res, '/post', query)
     } else {
       handle(req, res, parsedUrl)

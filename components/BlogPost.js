@@ -1,5 +1,5 @@
 import ButtonTweet from './ButtonTweet'
-import CodeBlock from './CodeBlock'
+// import CodeBlock from './CodeBlock'
 import IssueCTA from './IssueCTA'
 import Markdown from 'react-markdown'
 import { styled } from 'styletron-react'
@@ -31,23 +31,21 @@ const PostBody = styled(Markdown, {
 })
 
 export default ({
-  date,
-  body,
-  styles,
-  title
+  post,
+  ...props
 }) => (
   <article>
     <PostDate>
-      {date.replace(/-/g, '.')}
+      {post.date}
     </PostDate>
 
-    <PostTitle>{title}</PostTitle>
+    <PostTitle>{post.title}</PostTitle>
     <PostBody
-      renderers={Object.assign({}, Markdown.renderers, { CodeBlock: CodeBlock })}
-      source={body}
+      renderers={Object.assign({}, Markdown.renderers)}
+      source={post.body}
     />
 
-    <ButtonTweet title={title} />
-    <IssueCTA title={title} />
+    <ButtonTweet title={post.title} />
+    <IssueCTA background={props.background} color={props.color} title={post.title} />
   </article>
 )
