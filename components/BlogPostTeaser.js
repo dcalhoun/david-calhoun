@@ -39,7 +39,7 @@ export default ({
     <PostDate>{date.replace(/-/g, '.')}</PostDate>
     <PostTitle>
       <Link href={`/post?slug=${slug}`} as={`/writing/${slug}`} prefetch>
-        <TextLink background={background} color={color} href={`writing/${slug}`}>
+        <TextLink background={background} color={color} href={`/writing/${slug}`}>
           {title}
         </TextLink>
       </Link>
