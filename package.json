@@ -8,7 +8,7 @@
     "build:export": "npm run build && npm run export",
     "build:posts": "processmd posts/**/*.md --outputDir .posts --preview 110 --highlightCode --summaryOutput .posts/summary.json",
     "deploy": "npm run build:posts && npm run build:export && mv out public",
-    "export": "next export && cp -R static/* out/",
+    "export": "next export",
     "precommit": "lint-staged",
     "start": "node server.js"
   },
@@ -36,7 +36,7 @@
     "front-matter": "^2.1.2",
     "highlightjs": "^9.10.0",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^2.4.6",
+    "next": "^3.0.1-beta.8",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-markdown": "^2.5.0",
