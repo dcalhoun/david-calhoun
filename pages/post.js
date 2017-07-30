@@ -1,22 +1,15 @@
-import BlogList from '../components/BlogList'
 import BlogPost from '../components/BlogPost'
 import Layout from '../components/Layout'
-import { Component } from 'react'
 import withDarkMode from '../containers/withDarkMode'
 
 const DarkModeLayout = withDarkMode(Layout)
 
-export default class Post extends Component {
-  static async getInitialProps (props) {
-    const post = await BlogList.fetch(props.query.slug)
-    return { post }
-  }
+export default props => {
+  const post = require(`../.posts/posts/${props.url.query.slug}.json`)
 
-  render () {
-    return (
-      <DarkModeLayout title={`${this.props.post.title}`}>
-        <BlogPost post={this.props.post} />
-      </DarkModeLayout>
-    )
-  }
+  return (
+    <DarkModeLayout title={`${post.title}`}>
+      <BlogPost post={post} />
+    </DarkModeLayout>
+  )
 }

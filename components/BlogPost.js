@@ -1,5 +1,4 @@
 import ButtonTweet from './ButtonTweet'
-// import CodeBlock from './CodeBlock'
 import IssueCTA from './IssueCTA'
 import Markdown from 'react-markdown'
 import { styled } from 'styletron-react'
@@ -44,11 +43,7 @@ export default ({
     </PostDate>
 
     <PostTitle color={props.color}>{post.title}</PostTitle>
-    <PostBody
-      color={props.color}
-      renderers={Object.assign({}, Markdown.renderers)}
-      source={post.body}
-    />
+    <PostBody color={props.color} source={post.bodyContent} />
 
     <ButtonTweet title={post.title} />
     <IssueCTA background={props.background} color={props.color} title={post.title} />

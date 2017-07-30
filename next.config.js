@@ -1,16 +1,21 @@
-function addPostEntry (slug) {
-  this[`/writing/${slug}`] = { page: '/post', query: { slug } }
+const posts = require('./.posts/summary.json')
+
+function addPostEntry (post) {
+  this[`/writing/${post.base.replace(/\.json/g, '')}`] = {
+    page: '/post',
+    query: {
+      slug: post.base.replace(/\.json/g, '')
+    }
+  }
 }
 
 module.exports = {
   exportPathMap: () => {
-    const slugs = [
-      'developer-tools-homebrew',
-      'migration-to-jekyll-my-journey-to-understanding-yeoman'
-    ]
-
     const entries = {}
-    slugs.forEach(addPostEntry.bind(entries))
+
+    Object.keys(posts.fileMap)
+      .map(file => posts.fileMap[file])
+      .forEach(addPostEntry.bind(entries))
 
     return Object.assign(
       {
@@ -20,7 +25,7 @@ module.exports = {
       entries
     )
   },
-  webpack: (config) => {
+  webpack: config => {
     config.externals = config.externals || {}
     config.externals['styletron-server'] = 'styletron-server'
     return config

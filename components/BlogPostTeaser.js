@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import TextLink from './TextLink'
 import { styled } from 'styletron-react'
+import { slug, url } from '../utils/posts'
 
 const BlogPostTeaser = styled('article', {
   marginBottom: '1rem',
@@ -30,19 +31,18 @@ export default ({
   background,
   color,
   date,
-  slug,
   styles,
   title,
   ...post
-}) => {
-  return (<BlogPostTeaser>
+}) => (
+  <BlogPostTeaser>
     <PostDate>{date.replace(/-/g, '.')}</PostDate>
     <PostTitle>
-      <Link href={`/post?slug=${slug}`} as={`/writing/${slug}`} prefetch>
-        <TextLink background={background} color={color} href={`/writing/${slug}`}>
+      <Link href={`/post?slug=${slug(post)}`} as={url(post)} prefetch>
+        <TextLink background={background} color={color} href={url(post)}>
           {title}
         </TextLink>
       </Link>
     </PostTitle>
-  </BlogPostTeaser>)
-}
+  </BlogPostTeaser>
+)

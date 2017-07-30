@@ -41,7 +41,7 @@ const Content = styled('div', {
   }
 })
 
-export default (props) => (
+export default props => (
   <StyletronProvider styletron={getStyletron()}>
     <Layout background={props.background}>
       <Head>
