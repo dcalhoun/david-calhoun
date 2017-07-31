@@ -1,6 +1,8 @@
-import ButtonTweet from './ButtonTweet'
-import IssueCTA from './IssueCTA'
+import ButtonTweet from '../ButtonTweet'
+import CodeBlock from '../CodeBlock'
+import IssueCTA from '../IssueCTA'
 import Markdown from 'react-markdown'
+import syntaxStyles from './index.css'
 import { styled } from 'styletron-react'
 
 const PostTitle = styled('h1', props => ({
@@ -38,12 +40,18 @@ export default ({
   ...props
 }) => (
   <article>
+    <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
     <PostDate color={props.color}>
       {post.date}
     </PostDate>
 
     <PostTitle color={props.color}>{post.title}</PostTitle>
-    <PostBody color={props.color} source={post.bodyContent} />
+    {/* <PostBody color={props.color} dangerouslySetInnerHTML={{ __html: post.bodyHtml }} /> */}
+    <PostBody
+      color={props.color}
+      renderers={Object.assign({}, Markdown.renderers, { CodeBlock })}
+      source={post.bodyContent}
+    />
 
     <ButtonTweet title={post.title} />
     <IssueCTA background={props.background} color={props.color} title={post.title} />

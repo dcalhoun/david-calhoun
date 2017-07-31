@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    ["wrap-in-js", { "extensions": ["css$"] }]
+  ],
+  "presets": ["next/babel"],
+  "ignore": []
+}
