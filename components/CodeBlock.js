@@ -1,13 +1,12 @@
 import Lowlight from 'react-lowlight'
 import PropTypes from 'prop-types'
 import bash from 'highlight.js/lib/languages/bash'
-import http from 'highlight.js/lib/languages/http'
+import xml from 'highlight.js/lib/languages/xml'
 import js from 'highlight.js/lib/languages/javascript'
 import { Component } from 'react'
 
 Lowlight.registerLanguage('bash', bash)
-// TODO: Why is there not an HTML language??
-Lowlight.registerLanguage('html', http)
+Lowlight.registerLanguage('html', xml)
 Lowlight.registerLanguage('js', js)
 
 class CodeBlock extends Component {
