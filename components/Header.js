@@ -20,7 +20,11 @@ const Title = styled('h1', {
   fontFamily: 'Monaco, monospace',
   fontSize: '1.5rem',
   fontWeight: 300,
-  margin: 0
+  margin: '0 0 1rem 0',
+
+  '@media screen and (min-width: 40rem': {
+    marginBottom: 0
+  }
 })
 
 const Leader = styled('span', props => ({

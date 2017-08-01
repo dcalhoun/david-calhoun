@@ -3,7 +3,7 @@ import { styled } from 'styletron-react'
 
 const ButtonTweet = styled('nav', {
   display: 'inline-block',
-  marginBottom: '1rem'
+  marginBottom: '1.5em'
 })
 
 export default ({ title }) => {

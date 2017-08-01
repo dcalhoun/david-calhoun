@@ -2,6 +2,13 @@ pre.lowlight {
   border: 4px solid rgba(255, 255, 255, 0.05);
 }
 
+p code {
+  background: #282c34;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #abb2bf;
+  padding: 0.25em;
+}
+
 /*
 
 Atom One Dark by Daniel Gamage

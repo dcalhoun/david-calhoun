@@ -7,30 +7,37 @@ import withTheme from '../../containers/withTheme'
 import syntaxStyles from './index.css'
 import { styled } from 'styletron-react'
 
+const Post = styled('article', {
+  padding: '0 1rem'
+})
+
 const PostTitle = styled('h1', props => ({
   color: props.color,
   fontFamily: '"Avenir Next", sans-serif',
   fontSize: '1.5rem',
-  fontWeight: 'normal',
-  marginTop: '0rem',
+  fontWeight: '400',
+  marginTop: 0,
 
-  '@media (min-width: 48rem)': {
+  '@media (min-width: 32rem)': {
     fontSize: '2.625rem'
   }
 }))
 
 const PostDate = styled('span', props => ({
-  color: props.color,
+  color: '#999',
   display: 'inline-block',
-  fontFamily: '"Avenir Next", sans-serif',
-  fontSize: '0.75rem'
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontSize: '0.75rem',
+  fontWeight: '400',
+  margin: '0'
 }))
 
 const PostBody = styled(Markdown, props => ({
   color: props.color,
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   fontSize: '1.125rem',
-  lineHeight: 1.66,
+  fontWeight: 300,
+  lineHeight: 1.5,
 
   '@media (min-width: 48rem)': {
     fontSize: '1.5rem'
@@ -41,10 +48,10 @@ export default ({
   post,
   ...props
 }) => (
-  <article>
+  <Post>
     <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
     <PostDate color={props.color}>
-      {post.date}
+      {post.date.replace(/-/g, '.')}
     </PostDate>
 
     <PostTitle color={props.color}>{post.title}</PostTitle>
@@ -62,5 +69,5 @@ export default ({
 
     <ButtonTweet title={post.title} />
     <IssueCTA background={props.background} color={props.color} title={post.title} />
-  </article>
+  </Post>
 )
