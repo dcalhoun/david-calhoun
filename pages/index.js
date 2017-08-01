@@ -1,13 +1,18 @@
 import About from '../components/About'
+import ColorCycle from '../containers/ColorCycle'
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
-import withColorCycle from '../containers/withColorCycle'
-
-const ColorCycleLayout = withColorCycle(Layout)
+import Theme from '../containers/Theme'
 
 export default (props) => (
-  <ColorCycleLayout>
-    <About />
-    <Projects />
-  </ColorCycleLayout>
+  <ColorCycle>
+    <Theme>
+      {(background, color, onClick) => (
+        <Layout background={background} color={color} onClick={onClick}>
+          <About background={background} color={color} />
+          <Projects background={background} color={color} />
+        </Layout>
+      )}
+    </Theme>
+  </ColorCycle>
 )
