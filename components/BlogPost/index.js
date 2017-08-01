@@ -2,6 +2,8 @@ import ButtonTweet from '../ButtonTweet'
 import CodeBlock from '../CodeBlock'
 import IssueCTA from '../IssueCTA'
 import Markdown from 'react-markdown'
+import TextLink from '../TextLink'
+import withTheme from '../../containers/withTheme'
 import syntaxStyles from './index.css'
 import { styled } from 'styletron-react'
 
@@ -46,10 +48,15 @@ export default ({
     </PostDate>
 
     <PostTitle color={props.color}>{post.title}</PostTitle>
-    {/* <PostBody color={props.color} dangerouslySetInnerHTML={{ __html: post.bodyHtml }} /> */}
     <PostBody
       color={props.color}
-      renderers={Object.assign({}, Markdown.renderers, { CodeBlock })}
+      renderers={
+        Object.assign(
+          {},
+          Markdown.renderers,
+          { CodeBlock, Link: withTheme(TextLink) }
+        )
+      }
       source={post.bodyContent}
     />
 
