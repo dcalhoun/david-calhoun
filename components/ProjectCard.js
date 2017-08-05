@@ -3,11 +3,11 @@ import chroma from 'chroma-js'
 import { styled } from 'styletron-react'
 
 function getColor (color, index) {
-  return chroma(color).darken((100 - (index * 15)) / 100)
+  return chroma(color).darken((100 - (index * 15)) / 100).hex()
 }
 
 const Card = styled('a', props => ({
-  backgroundColor: getColor(props.background, props.index),
+  background: getColor(props.background, props.index),
   color: '#fff',
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   flex: '0 0 100%',

@@ -36,7 +36,7 @@ const Content = styled('div', {
   marginRight: 'auto',
   maxWidth: '56.25rem',
 
-  '@media (min-width: 40rem)': {
+  '@media (min-width: 54rem)': {
     marginBottom: '3rem'
   }
 })
