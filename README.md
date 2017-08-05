@@ -3,7 +3,6 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- Style `BlogPost` headers.
 - Fix `ButtonTweet` loading.
 - Update favicon.
 - Deploy.

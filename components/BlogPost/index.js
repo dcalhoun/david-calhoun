@@ -1,10 +1,12 @@
 import ButtonTweet from '../ButtonTweet'
 import CodeBlock from '../CodeBlock'
+import Heading from '../Heading'
 import IssueCTA from '../IssueCTA'
 import Markdown from 'react-markdown'
+import React from 'react'
 import TextLink from '../TextLink'
-import withTheme from '../../containers/withTheme'
 import syntaxStyles from './index.css'
+import withTheme from '../../containers/withTheme'
 import { styled } from 'styletron-react'
 
 const Post = styled('article', {
@@ -34,7 +36,8 @@ const PostDate = styled('span', props => ({
 
 const PostBody = styled(Markdown, props => ({
   color: props.color,
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: 'Alegreya, Georgia, serif',
+  fontDisplay: 'fallback',
   fontSize: '1.125rem',
   fontWeight: 300,
   lineHeight: 1.5,
@@ -43,6 +46,18 @@ const PostBody = styled(Markdown, props => ({
     fontSize: '1.5rem'
   }
 }))
+
+const renderers = () => (
+  Object.assign(
+    {},
+    Markdown.renderers,
+    {
+      CodeBlock,
+      Link: withTheme(TextLink),
+      Heading
+    }
+  )
+)
 
 export default ({
   post,
@@ -57,13 +72,7 @@ export default ({
     <PostTitle color={props.color}>{post.title}</PostTitle>
     <PostBody
       color={props.color}
-      renderers={
-        Object.assign(
-          {},
-          Markdown.renderers,
-          { CodeBlock, Link: withTheme(TextLink) }
-        )
-      }
+      renderers={renderers()}
       source={post.bodyContent}
     />
 
