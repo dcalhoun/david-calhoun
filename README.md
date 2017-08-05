@@ -3,9 +3,6 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- Fix `ButtonTweet` loading.
-- Update favicon.
-- Deploy.
 - Store `DarkMode` status in `localStorage`.
 - Add more legible typeface for posts.
 - Add progress bar for `Link`s.
