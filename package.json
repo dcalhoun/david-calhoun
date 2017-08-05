@@ -4,13 +4,11 @@
   "description": "Personal site of David Calhoun.",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
-    "build:export": "npm run build && npm run export",
-    "build:posts": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .posts/summary.json --outputDir .posts",
-    "deploy": "npm run build:posts && npm run build:export && mv out public",
-    "export": "next export",
+    "build": "yarn content && next build && next export",
+    "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
+    "deploy": "yarn build && now ./out",
     "precommit": "lint-staged",
-    "start": "node server.js"
+    "start": "yarn content && node server.js"
   },
   "repository": {
     "type": "git",

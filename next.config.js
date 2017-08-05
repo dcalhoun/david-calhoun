@@ -1,4 +1,4 @@
-const posts = require('./.posts/summary.json')
+const posts = require('./.content/summary.json')
 
 function addPostEntry (post) {
   this[`/writing/${post.base.replace(/\.json/g, '')}`] = {

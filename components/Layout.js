@@ -46,7 +46,7 @@ export default props => (
     <Layout background={props.background}>
       <Head>
         <title>{getTitle(props.title)}</title>
-        <link rel='icon' href='/static/favicon.ico' />
+        <link rel='icon' href='/static/favicon.png' />
       </Head>
 
       <LayoutInner background={props.background}>

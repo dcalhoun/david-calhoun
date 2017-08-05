@@ -2,7 +2,7 @@ import BlogList from '../components/BlogList'
 import DarkMode from '../containers/DarkMode'
 import Layout from '../components/Layout'
 import Theme from '../containers/Theme'
-import posts from '../.posts/summary.json'
+import posts from '../.content/summary.json'
 import { sortByDate } from '../utils/posts'
 
 export default props => (

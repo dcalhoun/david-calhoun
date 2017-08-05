@@ -9,11 +9,14 @@ const Anchor = styled('nav', {
 class ButtonTweet extends Component {
   constructor (props) {
     super(props)
-    this.widget = this.loadTwitterWidget()
+
+    if (typeof window !== 'undefined') {
+      this.widget = this.loadTwitterWidget()
+    }
   }
 
   loadTwitterWidget () {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       const firstScript = document.getElementsByTagName('script')[0]
       const twttrScript = document.createElement('script')
       twttrScript.id = 'twitter-wjs'
@@ -24,7 +27,7 @@ class ButtonTweet extends Component {
   }
 
   componentDidMount () {
-    this.widget.then(() => {
+    this.widget && this.widget.then(() => {
       window.twttr.widgets.createShareButton(
         window.location.href,
         this.anchor,

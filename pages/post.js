@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import Theme from '../containers/Theme'
 
 export default props => {
-  const post = require(`../.posts/posts/${props.url.query.slug}.json`)
+  const post = require(`../.content/posts/${props.url.query.slug}.json`)
 
   return (
     <DarkMode>
