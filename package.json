@@ -6,7 +6,8 @@
   "scripts": {
     "build": "yarn content && next build && next export",
     "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
-    "deploy": "yarn build && gh-pages -d ./out -b master",
+    "predeploy": "yarn build && touch ./out/.nojekyll && mv ./out/static/CNAME ./out",
+    "deploy": "gh-pages -d ./out -b master -t",
     "precommit": "lint-staged",
     "start": "yarn content && node server.js"
   },
