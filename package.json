@@ -1,12 +1,12 @@
 {
-  "name": "dcalhoun.github.io",
-  "version": "1.0.0",
+  "name": "davidcalhoun",
+  "version": "2.0.0",
   "description": "Personal site of David Calhoun.",
   "main": "index.js",
   "scripts": {
     "build": "yarn content && next build && next export",
     "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
-    "deploy": "yarn build && now ./out --public",
+    "deploy": "yarn build && gh-pages -d ./out -b master",
     "precommit": "lint-staged",
     "start": "yarn content && node server.js"
   },
@@ -24,6 +24,7 @@
   "devDependencies": {
     "babel-plugin-transform-define": "^1.3.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
+    "gh-pages": "^1.0.0",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.1",
     "prettier": "^1.2.2",
