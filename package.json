@@ -6,7 +6,7 @@
   "scripts": {
     "build": "yarn content && next build && next export",
     "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
-    "deploy": "yarn build && now --public ./out",
+    "deploy": "yarn build && now ./out --public",
     "precommit": "lint-staged",
     "start": "yarn content && node server.js"
   },
