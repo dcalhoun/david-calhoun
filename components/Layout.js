@@ -10,7 +10,7 @@ function getTitle (title) {
     : 'David Calhoun, Software Engineer'
 }
 
-const Layout = styled('div', (props) => ({
+const Wrap = styled('div', (props) => ({
   backgroundColor: chroma(props.background).darken(0.5).hex(),
   padding: '0.5rem',
   transition: 'background-color 160ms ease',
@@ -20,7 +20,7 @@ const Layout = styled('div', (props) => ({
   }
 }))
 
-const LayoutInner = styled('div', (props) => ({
+const Inner = styled('div', (props) => ({
   backgroundColor: props.background,
   minHeight: 'calc(100vh - 1rem)',
   overflow: 'hidden',
@@ -43,18 +43,18 @@ const Content = styled('div', {
 
 export default props => (
   <StyletronProvider styletron={getStyletron()}>
-    <Layout background={props.background}>
+    <Wrap background={props.background}>
       <Head>
         <title>{getTitle(props.title)}</title>
         <link rel='icon' href='/static/favicon.png' />
       </Head>
 
-      <LayoutInner background={props.background}>
+      <Inner background={props.background}>
         <Content>
           <Header background={props.background} color={props.color} onClick={props.onClick} />
           {props.children}
         </Content>
-      </LayoutInner>
-    </Layout>
+      </Inner>
+    </Wrap>
   </StyletronProvider>
 )
