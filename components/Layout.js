@@ -46,7 +46,11 @@ export default props => (
     <Wrap background={props.background}>
       <Head>
         <title>{getTitle(props.title)}</title>
-        <link rel='icon' href='/static/favicon.png' />
+        <link rel='icon' href='/static/icon.png' />
+        <link rel='apple-touch-icon' href='/static/icon-60.png' />
+        <link rel='apple-touch-icon' sizes='152x152' href='/static/icon-152.png' />
+        <link rel='apple-touch-icon' sizes='180x180' href='/static/icon-180.png' />
+        <link rel='apple-touch-icon' sizes='167x167' href='/static/icon-167.png' />
       </Head>
 
       <Inner background={props.background}>
