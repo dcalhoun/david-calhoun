@@ -8,7 +8,7 @@ function getColor (color, index) {
 
 const Card = styled('a', props => ({
   background: getColor(props.background, props.index),
-  color: '#fff',
+  color: props.color,
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   flex: '0 0 100%',
   padding: '1rem',
@@ -57,6 +57,7 @@ const Description = styled('p', {
 
 const ProjectCard = ({
   background,
+  color,
   description,
   href,
   index,
@@ -64,6 +65,7 @@ const ProjectCard = ({
 }) => (
   <Card
     background={background}
+    color={color}
     href={href}
     index={index}
   >

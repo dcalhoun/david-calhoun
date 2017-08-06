@@ -8,8 +8,8 @@ class ColorCycle extends Component {
     super(props)
 
     this.state = {
-      background: colors.base,
-      color: '#fff'
+      background: colors.blue[7],
+      color: '#f2f2f2'
     }
 
     this.names = Object.keys(colors).filter(c => (c !== 'black' && c !== 'base'))

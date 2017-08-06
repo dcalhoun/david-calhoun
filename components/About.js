@@ -6,8 +6,8 @@ const About = styled('section', {
   padding: '0 1rem'
 })
 
-const Title = styled('p', {
-  color: '#fff',
+const Title = styled('p', props => ({
+  color: props.color,
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   fontSize: '1.75rem',
   fontStyle: 'italic',
@@ -21,13 +21,14 @@ const Title = styled('p', {
   '@media (min-width: 60rem)': {
     fontSize: '3.75rem'
   }
-})
+}))
 
-const SubTitle = styled('p', {
-  color: '#fff',
+const SubTitle = styled('p', props => ({
+  color: props.color,
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  lineHeight: 1.66,
   margin: '0'
-})
+}))
 
 const Break = styled('br', {
   display: 'none',
@@ -45,12 +46,12 @@ const BreakXS = styled('br', {
 
 export default (props) => (
   <About>
-    <Title>
+    <Title color={props.color}>
       Software engineer <Break />
       specializing in UX design <Break />
       & front-end architecture.
     </Title>
-    <SubTitle>
+    <SubTitle color={props.color}>
       Currently at
       {' '}
       <TextLink background={props.background} color={props.color} href='https://www.gonoodle.com'>GoNoodle</TextLink>.

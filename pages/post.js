@@ -13,7 +13,7 @@ export default props => {
         {(background, color, onClick) => (
           <Layout background={background} color={color} onClick={onClick} title={`${post.title}`}>
             <Head>
-              <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Alegreya:400,400italic,700&amp;subset=latin' media='all' />
+              <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Alegreya:400,400italic,700&amp;subset=latin' media='all' />
             </Head>
             <BlogPost
               background={background}

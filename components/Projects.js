@@ -27,6 +27,7 @@ export default (props) => (
     <Title>Open Source</Title>
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='Remotely inspect any iOS device by name via Safari’s web inspector.'
       href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'
       index={0}
@@ -34,6 +35,7 @@ export default (props) => (
     />
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='Immutable, CSS margin utilities.'
       href='http://github.com/dcalhoun/css-utils-margin'
       index={1}
@@ -41,6 +43,7 @@ export default (props) => (
     />
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='Immutable, CSS padding utilities.'
       href='http://github.com/dcalhoun/css-utils-padding'
       index={2}
@@ -48,6 +51,7 @@ export default (props) => (
     />
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='CLI to convert AMD CoffeeScript to ES6 Standard JavaScript.'
       href='https://github.com/dcalhoun/es6-migrate'
       index={3}
@@ -55,6 +59,7 @@ export default (props) => (
     />
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='A Yeoman generator for prototyping and building experiences.'
       href='http://playbook.centresource.com'
       index={4}
@@ -62,6 +67,7 @@ export default (props) => (
     />
     <ProjectCard
       background={props.background}
+      color={props.color}
       description='Selectively remove PostCSS warnings from your logs.'
       href='http://github.com/dcalhoun/postcss-warn-cleaner'
       index={5}
