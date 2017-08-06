@@ -25,7 +25,7 @@ module.exports = {
       entries
     )
   },
-  webpack: config => {
+  webpack: (config, { dev }) => {
     config.externals = config.externals || {}
     config.externals['styletron-server'] = 'styletron-server'
 
@@ -39,6 +39,14 @@ module.exports = {
       test: /\.css$/,
       loader: 'babel-loader!raw-loader'
     })
+
+    if (!dev) {
+      config.resolve.alias = {
+        'react': 'preact-compat/dist/preact-compat',
+        'react-dom': 'preact-compat/dist/preact-compat'
+      }
+    }
+
     return config
   }
 }
