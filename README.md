@@ -3,7 +3,8 @@
 Source for David Calhoun's personal site.
 
 ### TODO
-- Fix code highlighting
-- Update favicon
-- Refactor styles to be consistent in execution
-- Debug `Warning: validateDOMNesting(...): <span> cannot appear as a child of <head>. See Root > head > span.` from Webpack build
+- Alias domain with now.sh.
+- Improve small screen styles.
+- Store `DarkMode` status in `localStorage`.
+- Replace `processmd` with `fs` and `front-matter`.
+- Add progress bar for `Link`s.
