@@ -21,7 +21,7 @@ class ButtonTweet extends Component {
       const twttrScript = document.createElement('script')
       twttrScript.id = 'twitter-wjs'
       twttrScript.addEventListener('load', () => { resolve() })
-      twttrScript.src = 'https://platform.twitter.com/widgets.js'
+      twttrScript.src = '//platform.twitter.com/widgets.js'
       firstScript.parentNode.insertBefore(twttrScript, firstScript)
     })
   }
