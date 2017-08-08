@@ -58,7 +58,7 @@ const NavItem = styled('div', {
 
 export default props => (
   <Theme>
-    {({ background, color, linkColor, onClick }) => (
+    {({ color, onClick }) => (
       <Header>
         <Title>
           <Leader color={color} onClick={onClick}>#</Leader>

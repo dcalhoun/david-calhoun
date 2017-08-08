@@ -62,7 +62,7 @@ const renderers = () => (
 
 export default ({ post }) => (
   <Theme>
-    {({ background, color, linkColor }) => (
+    {({ background, color }) => (
       <Post>
         <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
         <PostDate color={color}>

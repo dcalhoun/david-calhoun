@@ -21,9 +21,8 @@ const TextLink = styled('a', props => ({
 
 export default props => (
   <Theme>
-    {({ background, color, linkColor }) => (
+    {({ color, linkColor }) => (
       <TextLink
-        background={background}
         color={color}
         href={props.href}
         linkColor={linkColor}

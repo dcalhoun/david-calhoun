@@ -47,7 +47,7 @@ const BreakXS = styled('br', {
 
 export default props => (
   <Theme>
-    {({ background, color, linkColor }) => (
+    {({ color }) => (
       <About>
         <Title color={color}>
           Software engineer <Break />
