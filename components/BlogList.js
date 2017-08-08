@@ -8,7 +8,7 @@ const BlogList = styled('main', {
 export default props => (
   <BlogList>
     {props.posts.map(post => (
-      <BlogPostTeaser background={props.background} color={props.color} key={post.title} {...post} />
+      <BlogPostTeaser key={post.title} {...post} />
     ))}
   </BlogList>
 )

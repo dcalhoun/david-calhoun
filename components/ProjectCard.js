@@ -1,34 +1,43 @@
-import PropTypes from 'prop-types'
+import Theme from '../containers/Theme'
 import chroma from 'chroma-js'
 import { styled } from 'styletron-react'
 
 function getColor (color, index) {
-  return chroma(color).darken((100 - (index * 15)) / 100).hex()
+  const background = chroma(color).darken((100 - (index * 15)) / 100)
+
+  return {
+    background: background.css(),
+    color: chroma.contrast(background, '#f2f2f2') >= 4.5 ? '#f2f2f2' : '#42413f'
+  }
 }
 
-const Card = styled('a', props => ({
-  background: getColor(props.background, props.index),
-  color: props.color,
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
-  flex: '0 0 100%',
-  padding: '1rem',
-  textDecoration: 'none',
-  width: '18rem',
+const Card = styled('a', props => {
+  const { background, color } = getColor(props.background, props.index)
 
-  '@media (min-width: 54rem)': {
-    backgroundImage: `linear-gradient(
-      to right,
-      ${getColor(props.background, props.index)},
-      ${props.background}
-    )`,
-    willChange: 'transform',
-    transition: 'transform 300ms ease-in-out',
+  return {
+    background: background,
+    color: color,
+    fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+    flex: '0 0 100%',
+    padding: '1rem',
+    textDecoration: 'none',
+    width: '18rem',
 
-    ':hover': {
-      transform: 'translateX(-1rem)'
+    '@media (min-width: 54rem)': {
+      backgroundImage: `linear-gradient(
+        to right,
+        ${background},
+        ${props.background}
+      )`,
+      willChange: 'transform',
+      transition: 'transform 300ms ease-in-out',
+
+      ':hover': {
+        transform: 'translateX(-1rem)'
+      }
     }
   }
-}))
+})
 
 const Title = styled('h3', {
   fontFamily: 'Monaco, monospace',
@@ -42,48 +51,37 @@ const Title = styled('h3', {
   }
 })
 
-const Description = styled('p', {
-  fontSize: '0.875rem',
-  fontStyle: 'italic',
-  lineHeight: '1.5em',
-  marginBottom: 0,
-  marginTop: 0,
-  opacity: '0.5',
+const Description = styled('p', props => {
+  const { color } = getColor(props.background, props.index)
 
-  '@media (min-width: 40rem)': {
-    fontSize: '1.125rem'
+  return {
+    color: color,
+    fontSize: '0.875rem',
+    fontStyle: 'italic',
+    lineHeight: '1.5em',
+    marginBottom: 0,
+    marginTop: 0,
+    opacity: '0.6',
+
+    '@media (min-width: 40rem)': {
+      fontSize: '1.125rem'
+    }
   }
 })
 
-const ProjectCard = ({
-  background,
-  color,
-  description,
-  href,
-  index,
-  name
-}) => (
-  <Card
-    background={background}
-    color={color}
-    href={href}
-    index={index}
-  >
-    <Title>{name}</Title>
-    <Description>{description}</Description>
-  </Card>
+export default props => (
+  <Theme>
+    {({ background }) => (
+      <Card
+        background={background}
+        href={props.href}
+        index={props.index}
+      >
+        <Title>{props.name}</Title>
+        <Description background={background} index={props.index}>
+          {props.description}
+        </Description>
+      </Card>
+    )}
+  </Theme>
 )
-
-ProjectCard.propTypes = {
-  background: PropTypes.string,
-  description: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired
-}
-
-ProjectCard.defaultProps = {
-  background: 'transparent'
-}
-
-export default ProjectCard

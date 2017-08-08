@@ -1,4 +1,5 @@
 import TextLink from './TextLink'
+import Theme from '../containers/Theme'
 import { styled } from 'styletron-react'
 
 const CTA = styled('p', props => ({
@@ -9,16 +10,18 @@ const CTA = styled('p', props => ({
 }))
 
 export default props => (
-  <CTA color={props.color}>
-    Questions, Comments, Suggestions?
-    {' '}
-    <TextLink
-      background={props.background}
-      color={props.color}
-      href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
-      target='_blank'
-    >
-      Open an Issue
-    </TextLink>.
-  </CTA>
+  <Theme>
+    {({ color }) => (
+      <CTA color={color}>
+        Questions, Comments, Suggestions?
+        {' '}
+        <TextLink
+          href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
+          target='_blank'
+        >
+          Open an Issue
+        </TextLink>.
+      </CTA>
+    )}
+  </Theme>
 )

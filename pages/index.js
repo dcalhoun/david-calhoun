@@ -1,21 +1,16 @@
 import About from '../components/About'
 import Analytics from '../containers/Analytics'
-import ColorCycle from '../containers/ColorCycle'
+import DarkMode from '../containers/DarkMode'
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
-import Theme from '../containers/Theme'
 
 export default props => (
   <Analytics>
-    <ColorCycle>
-      <Theme>
-        {(background, color, onClick) => (
-          <Layout background={background} color={color} onClick={onClick}>
-            <About background={background} color={color} />
-            <Projects background={background} color={color} />
-          </Layout>
-        )}
-      </Theme>
-    </ColorCycle>
+    <DarkMode>
+      <Layout>
+        <About />
+        <Projects />
+      </Layout>
+    </DarkMode>
   </Analytics>
 )

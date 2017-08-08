@@ -1,3 +1,4 @@
+import Theme from '../containers/Theme'
 import Link from 'next/link'
 import TextLink from './TextLink'
 import { styled } from 'styletron-react'
@@ -18,11 +19,12 @@ const Header = styled('header', {
 const Title = styled('h1', {
   display: 'inline-block',
   fontFamily: 'Monaco, monospace',
-  fontSize: '1.5rem',
+  fontSize: '1.25rem',
   fontWeight: 300,
   margin: '0 0 1rem 0',
 
   '@media screen and (min-width: 40rem': {
+    fontSize: '1.5rem',
     marginBottom: 0
   }
 })
@@ -46,34 +48,41 @@ const Leader = styled('span', props => ({
 
 const NavItem = styled('div', {
   display: 'inline-block',
-  padding: '0 0.25rem'
+  fontSize: '0.875rem',
+  padding: '0 0.25rem',
+
+  '@media screen and (min-width: 40rem': {
+    fontSize: '1rem'
+  }
 })
 
-export default (props) => (
-  <Header>
-    <Title>
-      <Leader color={props.color} onClick={props.onClick}>#</Leader>
-      <Link href='/' prefetch>
-        <TextLink background={props.background} color={props.color} href='/'>
-          David Calhoun
-        </TextLink>
-      </Link>
-    </Title>
+export default props => (
+  <Theme>
+    {({ background, color, linkColor, onClick }) => (
+      <Header>
+        <Title>
+          <Leader color={color} onClick={onClick}>#</Leader>
+          <Link href='/' prefetch>
+            <TextLink href='/'>David Calhoun</TextLink>
+          </Link>
+        </Title>
 
-    <nav>
-      <NavItem>
-        <Link href='/writing' prefetch>
-          <TextLink background={props.background} color={props.color} href='/writing'>Writing</TextLink>
-        </Link>
-      </NavItem>
+        <nav>
+          <NavItem>
+            <Link href='/writing' prefetch>
+              <TextLink href='/writing'>Writing</TextLink>
+            </Link>
+          </NavItem>
 
-      <NavItem>
-        <TextLink background={props.background} color={props.color} href='http://twitter.com/david_calhoun'>Twitter</TextLink>
-      </NavItem>
+          <NavItem>
+            <TextLink href='http://twitter.com/david_calhoun'>Twitter</TextLink>
+          </NavItem>
 
-      <NavItem>
-        <TextLink background={props.background} color={props.color} href='http://github.com/dcalhoun'>GitHub</TextLink>
-      </NavItem>
-    </nav>
-  </Header>
+          <NavItem>
+            <TextLink href='http://github.com/dcalhoun'>GitHub</TextLink>
+          </NavItem>
+        </nav>
+      </Header>
+    )}
+  </Theme>
 )

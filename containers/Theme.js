@@ -6,17 +6,19 @@ class Theme extends Component {
     const {
       background,
       color,
-      onClick
+      onClick,
+      linkColor
     } = this.context
 
-    return this.props.children(background, color, onClick)
+    return this.props.children({ background, color, onClick, linkColor })
   }
 }
 
 Theme.contextTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  linkColor: PropTypes.string
 }
 
 export default Theme

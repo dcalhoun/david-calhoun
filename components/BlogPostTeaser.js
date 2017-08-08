@@ -27,21 +27,12 @@ const PostTitle = styled('h1', {
   }
 })
 
-export default ({
-  background,
-  color,
-  date,
-  styles,
-  title,
-  ...post
-}) => (
+export default props => (
   <BlogPostTeaser>
-    <PostDate>{date.replace(/-/g, '.')}</PostDate>
+    <PostDate>{props.date.replace(/-/g, '.')}</PostDate>
     <PostTitle>
-      <Link href={`/post?slug=${slug(post)}`} as={url(post)} prefetch>
-        <TextLink background={background} color={color} href={url(post)}>
-          {title}
-        </TextLink>
+      <Link href={`/post?slug=${slug(props)}`} as={url(props)} prefetch>
+        <TextLink href={url(props)}>{props.title}</TextLink>
       </Link>
     </PostTitle>
   </BlogPostTeaser>

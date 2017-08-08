@@ -1,3 +1,4 @@
+import Theme from '../containers/Theme'
 import TextLink from './TextLink'
 import { styled } from 'styletron-react'
 
@@ -44,20 +45,26 @@ const BreakXS = styled('br', {
   }
 })
 
-export default (props) => (
-  <About>
-    <Title color={props.color}>
-      Software engineer <Break />
-      specializing in UX design <Break />
-      & front-end architecture.
-    </Title>
-    <SubTitle color={props.color}>
-      Currently at
-      {' '}
-      <TextLink background={props.background} color={props.color} href='https://www.gonoodle.com'>GoNoodle</TextLink>.
-      {' '}
-      <BreakXS />
-      Based in Nashville, TN.
-    </SubTitle>
-  </About>
+export default props => (
+  <Theme>
+    {({ background, color, linkColor }) => (
+      <About>
+        <Title color={color}>
+          Software engineer <Break />
+          specializing in UX design <Break />
+          & front-end architecture.
+        </Title>
+        <SubTitle color={color}>
+          Currently at
+          {' '}
+          <TextLink href='https://www.gonoodle.com'>
+            GoNoodle
+          </TextLink>.
+          {' '}
+          <BreakXS />
+          Based in Nashville, TN.
+        </SubTitle>
+      </About>
+    )}
+  </Theme>
 )

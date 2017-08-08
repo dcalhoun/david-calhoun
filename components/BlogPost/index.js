@@ -5,6 +5,7 @@ import IssueCTA from '../IssueCTA'
 import Markdown from 'react-markdown'
 import React from 'react'
 import TextLink from '../TextLink'
+import Theme from '../../containers/Theme'
 import syntaxStyles from './index.css'
 import withTheme from '../../containers/withTheme'
 import { styled } from 'styletron-react'
@@ -38,7 +39,7 @@ const PostBody = styled(Markdown, props => ({
   color: props.color,
   fontFamily: 'Alegreya, Georgia, serif',
   fontDisplay: 'fallback',
-  fontSize: '1.125rem',
+  fontSize: '1.25rem',
   fontWeight: 300,
   lineHeight: 1.5,
 
@@ -59,24 +60,25 @@ const renderers = () => (
   )
 )
 
-export default ({
-  post,
-  ...props
-}) => (
-  <Post>
-    <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
-    <PostDate color={props.color}>
-      {post.date.replace(/-/g, '.')}
-    </PostDate>
+export default ({ post }) => (
+  <Theme>
+    {({ background, color, linkColor }) => (
+      <Post>
+        <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
+        <PostDate color={color}>
+          {post.date.replace(/-/g, '.')}
+        </PostDate>
 
-    <PostTitle color={props.color}>{post.title}</PostTitle>
-    <PostBody
-      color={props.color}
-      renderers={renderers()}
-      source={post.bodyContent}
-    />
+        <PostTitle color={color}>{post.title}</PostTitle>
+        <PostBody
+          color={color}
+          renderers={renderers()}
+          source={post.bodyContent}
+        />
 
-    <ButtonTweet title={post.title} />
-    <IssueCTA background={props.background} color={props.color} title={post.title} />
-  </Post>
+        <ButtonTweet title={post.title} />
+        <IssueCTA background={background} color={color} title={post.title} />
+      </Post>
+    )}
+  </Theme>
 )
