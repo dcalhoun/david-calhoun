@@ -16,7 +16,7 @@ const Title = styled('h3', props => ({
   color: chroma(props.color).alpha(0.8).css(),
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   fontSize: '0.75rem',
-  fontWeight: 300,
+  fontWeight: 600,
   letterSpacing: '0.2em',
   margin: '0 0 0.5rem',
   textAlign: 'center',
