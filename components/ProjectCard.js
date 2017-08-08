@@ -16,10 +16,8 @@ const Card = styled('a', props => ({
   transitionTimingFunction: 'ease',
   width: '18rem',
 
-  '@media (min-width: 54rem)': {
-    ':hover': {
-      boxShadow: `inset 0 -1.2em 0 ${chroma(props.linkColor).alpha(0.25).css()}`
-    }
+  ':hover': {
+    boxShadow: `inset 0 -1.2em 0 ${chroma(props.linkColor).alpha(0.25).css()}`
   }
 }))
 
