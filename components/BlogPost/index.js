@@ -38,7 +38,7 @@ const PostDate = styled('span', props => ({
 
 const PostBody = styled(Markdown, props => ({
   color: props.color,
-  fontFamily: '"Fira Sans", Georgia, serif',
+  fontFamily: '"Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   fontDisplay: 'fallback',
   fontSize: '1.25rem',
   fontWeight: 400,
