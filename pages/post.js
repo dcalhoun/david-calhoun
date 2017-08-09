@@ -12,7 +12,11 @@ export default props => {
       <DarkMode>
         <Layout title={`${post.title}`}>
           <Head>
-            <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Alegreya:400,400italic,700&amp;subset=latin' media='all' />
+            <link
+              href='//fonts.googleapis.com/css?family=Fira+Sans:400,400i,700'
+              media='all'
+              rel='stylesheet'
+            />
           </Head>
           <BlogPost post={post} />
         </Layout>

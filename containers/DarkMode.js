@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { Component } from 'react'
 
 const light = {
-  background: '#f8f7f5',
-  color: '#42413f',
+  background: '#feffff',
+  color: '#4c4d4e',
   linkColor: colors['blue'][4]
 }
 
 const dark = {
-  background: '#4c4c4c',
-  color: '#f2f2f2',
+  background: '#1e2424',
+  color: '#979899',
   linkColor: colors['yellow'][4]
 }
 

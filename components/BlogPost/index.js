@@ -3,6 +3,7 @@ import CodeBlock from '../CodeBlock'
 import Heading from '../Heading'
 import IssueCTA from '../IssueCTA'
 import Markdown from 'react-markdown'
+import Paragraph from '../Paragraph'
 import React from 'react'
 import TextLink from '../TextLink'
 import Theme from '../../containers/Theme'
@@ -37,11 +38,11 @@ const PostDate = styled('span', props => ({
 
 const PostBody = styled(Markdown, props => ({
   color: props.color,
-  fontFamily: 'Alegreya, Georgia, serif',
+  fontFamily: '"Fira Sans", Georgia, serif',
   fontDisplay: 'fallback',
   fontSize: '1.25rem',
-  fontWeight: 300,
-  lineHeight: 1.5,
+  fontWeight: 400,
+  lineHeight: 1.66,
 
   '@media (min-width: 48rem)': {
     fontSize: '1.5rem'
@@ -55,7 +56,8 @@ const renderers = () => (
     {
       CodeBlock,
       Link: withTheme(TextLink),
-      Heading
+      Heading,
+      Paragraph
     }
   )
 )
