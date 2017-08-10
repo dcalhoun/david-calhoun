@@ -1,6 +1,7 @@
 import Theme from '../containers/Theme'
 import Link from 'next/link'
 import TextLink from './TextLink'
+import chroma from 'chroma-js'
 import { styled } from 'styletron-react'
 
 const Header = styled('header', {
@@ -29,41 +30,46 @@ const Title = styled('h1', {
   }
 })
 
-const Leader = styled('span', props => ({
-  color: props.color,
+const Leader = styled(TextLink, props => ({
   cursor: 'pointer',
-  display: 'inline-block',
   fontFamily: 'Monaco, monospace',
-  paddingRight: '0.5rem',
-  opacity: 0.5,
-  transitionDuration: '300ms',
-  transitionProperty: 'opacity, transform',
-  transitionTimingFunction: 'ease-in-out',
 
-  ':hover': {
-    opacity: 1,
-    transform: 'translateX(-0.25rem)'
+  '@media screen and (max-width: 39.9375rem)': {
+    alignItems: 'center',
+    display: 'flex',
+    height: '3rem',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: '1rem',
+    top: '1rem',
+    width: '3rem'
+  },
+
+  '@media screen and (min-width: 40rem)': {
+    marginRight: '0.5rem',
+    padding: '0 0.25rem'
   }
 }))
 
 const NavItem = styled('div', {
   display: 'inline-block',
   fontSize: '0.875rem',
-  padding: '0 0.25rem',
+  paddingRight: '0.5rem',
 
-  '@media screen and (min-width: 40rem': {
-    fontSize: '1rem'
+  '@media screen and (min-width: 40rem)': {
+    fontSize: '1rem',
+    paddingLeft: '0.5rem'
   }
 })
 
 export default props => (
   <Theme>
-    {({ color, onClick }) => (
+    {({ color, onClick, linkColor }) => (
       <Header>
         <Title>
-          <Leader color={color} onClick={onClick}>#</Leader>
+          <Leader color={color} linkColor={linkColor} onClick={onClick}>#</Leader>
           <Link href='/' prefetch>
-            <TextLink href='/'>David Calhoun</TextLink>
+            <TextLink button href='/'>David Calhoun</TextLink>
           </Link>
         </Title>
 
