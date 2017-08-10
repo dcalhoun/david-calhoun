@@ -6,6 +6,7 @@ import { styled } from 'styletron-react'
 const Projects = styled('section', {
   display: 'flex',
   flexWrap: 'wrap',
+  justifyContent: 'center',
 
   '@media (min-width: 54rem)': {
     padding: '0 1rem'
@@ -14,14 +15,25 @@ const Projects = styled('section', {
 
 const Title = styled('h3', props => ({
   color: chroma(props.color).alpha(0.8).css(),
+  display: 'flex',
+  flexWrap: 'wrap',
   fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
   fontSize: '0.75rem',
   fontWeight: 600,
+  justifyContent: 'center',
   letterSpacing: '0.2em',
   margin: '0 0 0.5rem',
   textAlign: 'center',
   textTransform: 'uppercase',
-  width: '100%'
+
+  '::after': {
+    borderBottom: `0.0625rem solid ${props.color}`,
+    content: '""',
+    display: 'block',
+    marginTop: '0.5rem',
+    minWidth: '0.25rem',
+    width: '50%'
+  }
 }))
 
 export default props => (
