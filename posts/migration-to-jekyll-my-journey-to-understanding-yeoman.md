@@ -1,5 +1,5 @@
 ---
-title:  'Migration to Jekyll: My Journey to Understanding Yeoman'
+title:  'Migration to Jekyll: Understanding Yeoman'
 date: '2013-10-30'
 ---
 

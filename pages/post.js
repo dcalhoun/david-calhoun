@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 
 export default props => {
-  const post = require(`../.content/posts/${props.url.query.slug}.json`)
+  const post = require(`../.content/${props.url.query.slug}.json`)
 
   return (
     <Analytics>
