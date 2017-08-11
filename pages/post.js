@@ -13,7 +13,7 @@ export default props => {
         <Layout title={`${post.title}`}>
           <Head>
             <link
-              href='//fonts.googleapis.com/css?family=Fira+Sans:400,400i,700'
+              href='//fonts.googleapis.com/css?family=Fira+Sans:300,300i,700'
               media='all'
               rel='stylesheet'
             />

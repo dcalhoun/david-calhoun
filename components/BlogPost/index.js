@@ -20,7 +20,7 @@ const PostTitle = styled('h1', props => ({
   color: props.color,
   fontFamily: fonts.heading,
   fontSize: '1.5rem',
-  fontWeight: '400',
+  fontWeight: 400,
   marginTop: 0,
 
   '@media (min-width: 32rem)': {
@@ -33,7 +33,7 @@ const PostDate = styled('span', props => ({
   display: 'inline-block',
   fontFamily: fonts.default,
   fontSize: '0.75rem',
-  fontWeight: '400',
+  fontWeight: 400,
   margin: '0'
 }))
 
@@ -41,8 +41,8 @@ const PostBody = styled(Markdown, props => ({
   color: props.color,
   fontFamily: fonts.body,
   fontDisplay: 'fallback',
-  fontSize: '1.25rem',
-  fontWeight: 400,
+  fontSize: '1.125rem',
+  fontWeight: 300,
   lineHeight: 1.66,
 
   '@media (min-width: 48rem)': {
