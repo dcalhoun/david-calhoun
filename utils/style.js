@@ -27,9 +27,11 @@ export const cursorOnly = styles => Modernizr.touchevents ? null : styles
 
 export const touchOnly = styles => Modernizr.touchevents ? styles : null
 
+const base = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif'
+
 export const fonts = {
-  body: '"Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
-  default: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
-  heading: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  body: `"Avenir Next", ${base}`,
+  base,
+  heading: `"Avenir Next", ${base}`,
   monospace: 'Monaco, monospace'
 }

@@ -5,7 +5,7 @@ import { styled } from 'styletron-react'
 
 const CTA = styled('p', props => ({
   color: props.color,
-  fontFamily: fonts.default,
+  fontFamily: fonts.base,
   fontSize: '1.125rem',
   marginTop: 0
 }))

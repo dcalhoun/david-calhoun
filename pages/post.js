@@ -1,7 +1,6 @@
 import Analytics from '../containers/Analytics'
 import BlogPost from '../components/BlogPost'
 import DarkMode from '../containers/DarkMode'
-import Head from 'next/head'
 import Layout from '../components/Layout'
 
 export default props => {
@@ -11,13 +10,6 @@ export default props => {
     <Analytics>
       <DarkMode>
         <Layout title={`${post.title}`}>
-          <Head>
-            <link
-              href='//fonts.googleapis.com/css?family=Fira+Sans:300,300i,700'
-              media='all'
-              rel='stylesheet'
-            />
-          </Head>
           <BlogPost post={post} />
         </Layout>
       </DarkMode>

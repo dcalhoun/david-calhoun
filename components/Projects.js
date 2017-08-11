@@ -32,7 +32,6 @@ const Title = styled('h3', props => ({
     content: '""',
     display: 'block',
     marginTop: '0.5rem',
-    minWidth: '0.25rem',
     width: '50%'
   }
 }))

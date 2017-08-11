@@ -11,7 +11,7 @@ const BlogPostTeaser = styled('article', {
 
 const PostDate = styled('h6', {
   color: '#999',
-  fontFamily: fonts.default,
+  fontFamily: fonts.base,
   fontSize: '0.75rem',
   fontWeight: '400',
   margin: '0'
