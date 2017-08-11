@@ -1,17 +1,18 @@
 import TextLink from './TextLink'
 import Theme from '../containers/Theme'
+import { fonts } from '../utils/style'
 import { styled } from 'styletron-react'
 
 const Card = styled(TextLink, {
   flex: '0 0 100%',
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.heading,
   padding: '1rem',
   position: 'relative',
   width: '18rem'
 })
 
 const Title = styled('h3', {
-  fontFamily: 'Monaco, monospace',
+  fontFamily: fonts.monospace,
   fontSize: '1rem',
   fontWeight: 'normal',
   marginBottom: '0.5em',

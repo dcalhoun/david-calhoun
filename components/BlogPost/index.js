@@ -9,6 +9,7 @@ import TextLink from '../TextLink'
 import Theme from '../../containers/Theme'
 import syntaxStyles from './index.css'
 import withTheme from '../../containers/withTheme'
+import { fonts } from '../../utils/style'
 import { styled } from 'styletron-react'
 
 const Post = styled('article', {
@@ -17,7 +18,7 @@ const Post = styled('article', {
 
 const PostTitle = styled('h1', props => ({
   color: props.color,
-  fontFamily: '"Avenir Next", sans-serif',
+  fontFamily: fonts.heading,
   fontSize: '1.5rem',
   fontWeight: '400',
   marginTop: 0,
@@ -30,7 +31,7 @@ const PostTitle = styled('h1', props => ({
 const PostDate = styled('span', props => ({
   color: '#999',
   display: 'inline-block',
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.default,
   fontSize: '0.75rem',
   fontWeight: '400',
   margin: '0'
@@ -38,7 +39,7 @@ const PostDate = styled('span', props => ({
 
 const PostBody = styled(Markdown, props => ({
   color: props.color,
-  fontFamily: '"Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.body,
   fontDisplay: 'fallback',
   fontSize: '1.25rem',
   fontWeight: 400,

@@ -1,10 +1,11 @@
 import TextLink from './TextLink'
 import Theme from '../containers/Theme'
+import { fonts } from '../utils/style'
 import { styled } from 'styletron-react'
 
 const CTA = styled('p', props => ({
   color: props.color,
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.default,
   fontSize: '1.125rem',
   marginTop: 0
 }))

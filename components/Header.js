@@ -1,11 +1,11 @@
 import Theme from '../containers/Theme'
 import Link from 'next/link'
 import TextLink from './TextLink'
-import chroma from 'chroma-js'
+import { fonts } from '../utils/style'
 import { styled } from 'styletron-react'
 
 const Header = styled('header', {
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.heading,
   margin: '3rem 0',
   padding: '0 1rem',
 
@@ -19,7 +19,7 @@ const Header = styled('header', {
 
 const Title = styled('h1', {
   display: 'inline-block',
-  fontFamily: 'Monaco, monospace',
+  fontFamily: fonts.monospace,
   fontSize: '1.25rem',
   fontWeight: 300,
   margin: '0 0 1rem 0',
@@ -32,7 +32,7 @@ const Title = styled('h1', {
 
 const Leader = styled(TextLink, props => ({
   cursor: 'pointer',
-  fontFamily: 'Monaco, monospace',
+  fontFamily: fonts.monospace,
 
   '@media screen and (max-width: 39.9375rem)': {
     alignItems: 'center',

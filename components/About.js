@@ -1,5 +1,6 @@
 import Theme from '../containers/Theme'
 import TextLink from './TextLink'
+import { fonts } from '../utils/style'
 import { styled } from 'styletron-react'
 
 const About = styled('section', {
@@ -9,7 +10,7 @@ const About = styled('section', {
 
 const Title = styled('p', props => ({
   color: props.color,
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.heading,
   fontSize: '1.75rem',
   fontStyle: 'italic',
   lineHeight: '1.25',
@@ -26,7 +27,7 @@ const Title = styled('p', props => ({
 
 const SubTitle = styled('p', props => ({
   color: props.color,
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.heading,
   lineHeight: 1.66,
   margin: '0'
 }))

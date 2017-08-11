@@ -1,6 +1,7 @@
 import ProjectCard from './ProjectCard'
 import Theme from '../containers/Theme'
 import chroma from 'chroma-js'
+import { fonts } from '../utils/style'
 import { styled } from 'styletron-react'
 
 const Projects = styled('section', {
@@ -17,7 +18,7 @@ const Title = styled('h3', props => ({
   color: chroma(props.color).alpha(0.8).css(),
   display: 'flex',
   flexWrap: 'wrap',
-  fontFamily: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif',
+  fontFamily: fonts.heading,
   fontSize: '0.75rem',
   fontWeight: 600,
   justifyContent: 'center',
