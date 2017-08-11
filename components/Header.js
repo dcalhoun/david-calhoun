@@ -24,7 +24,7 @@ const Title = styled('h1', {
   fontWeight: 300,
   margin: '0 0 1rem 0',
 
-  '@media screen and (min-width: 40rem': {
+  '@media screen and (min-width: 40rem)': {
     fontSize: '1.5rem',
     marginBottom: 0
   }
