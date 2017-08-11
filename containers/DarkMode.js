@@ -18,8 +18,35 @@ class DarkMode extends Component {
   constructor (props) {
     super(props)
 
-    this.state = { enabled: false }
+    this.state = { enabled: this.getInitialEnabled() }
     this.toggle = this.toggle.bind(this)
+
+    this.restorePreviousEnabled()
+  }
+
+  getInitialEnabled () {
+    return (
+      typeof window !== 'undefined' &&
+      window.localStorage.getItem('darkmode') === 'true' &&
+      window.initialBuildComplete
+    )
+  }
+
+  restorePreviousEnabled () {
+    const darkModePreviouslyEnabled = () => (
+      typeof window !== 'undefined' &&
+      window.localStorage.getItem('darkmode') === 'true' &&
+      !window.initialBuildComplete
+    )
+
+    if (darkModePreviouslyEnabled()) {
+      setTimeout(
+        () => this.setState({ enabled: true }),
+        0
+      )
+
+      window.initialBuildComplete = true
+    }
   }
 
   getChildContext () {
@@ -33,6 +60,12 @@ class DarkMode extends Component {
 
   toggle () {
     this.setState(prevState => ({ enabled: !prevState.enabled }))
+  }
+
+  componentDidUpdate () {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('darkmode', this.state.enabled)
+    }
   }
 
   render () {
