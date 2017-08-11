@@ -53,6 +53,7 @@ class DarkMode extends Component {
     return {
       background: this.state.enabled ? dark.background : light.background,
       color: this.state.enabled ? dark.color : light.color,
+      enabled: this.state.enabled,
       onClick: this.toggle,
       linkColor: this.state.enabled ? dark.linkColor : light.linkColor
     }
@@ -76,6 +77,7 @@ class DarkMode extends Component {
 DarkMode.childContextTypes = {
   background: PropTypes.string,
   color: PropTypes.string,
+  enabled: PropTypes.bool,
   onClick: PropTypes.func,
   linkColor: PropTypes.string
 }

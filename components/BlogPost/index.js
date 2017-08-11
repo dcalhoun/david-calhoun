@@ -7,7 +7,8 @@ import Paragraph from '../Paragraph'
 import React from 'react'
 import TextLink from '../TextLink'
 import Theme from '../../containers/Theme'
-import syntaxStyles from './index.css'
+import syntaxDark from './dark.css'
+import syntaxLight from './light.css'
 import withTheme from '../../containers/withTheme'
 import { fonts } from '../../utils/style'
 import { styled } from 'styletron-react'
@@ -65,9 +66,9 @@ const renderers = () => (
 
 export default ({ post }) => (
   <Theme>
-    {({ background, color }) => (
+    {({ background, color, enabled: darkModeEnabled }) => (
       <Post>
-        <style dangerouslySetInnerHTML={{ __html: syntaxStyles }} />
+        <style dangerouslySetInnerHTML={{ __html: darkModeEnabled ? syntaxDark : syntaxLight }} />
         <PostDate color={color}>
           {post.date.replace(/-/g, '.')}
         </PostDate>
