@@ -4,7 +4,7 @@ Source for David Calhoun's personal site.
 
 ### TODO
 - [x] Improve small-screen dark-mode toggle target size.
-- [ ] Disable `TextLink` hover state on touch devices.
+- [x] Disable `TextLink` hover state on touch devices.
 - [ ] Store `DarkMode` status in `localStorage`.
 - [ ] Swap syntax highlight theme with `DarkMode`.
 - [ ] Replace `processmd` with `fs` and `front-matter`.

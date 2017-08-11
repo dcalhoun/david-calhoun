@@ -1,3 +1,4 @@
+const path = require('path')
 const posts = require('./.content/summary.json')
 
 function addPostEntry (post) {
@@ -38,14 +39,23 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'babel-loader!raw-loader'
+    }, {
+      test: /\.modernizrrc$/,
+      loader: 'modernizr-loader!json-loader'
     })
 
+    let alias = {
+      modernizr$: path.resolve(__dirname, '.modernizrrc')
+    }
+
     if (!dev) {
-      config.resolve.alias = {
+      alias = Object.assign({}, alias, {
         'react': 'preact-compat/dist/preact-compat',
         'react-dom': 'preact-compat/dist/preact-compat'
-      }
+      })
     }
+
+    config.resolve.alias = alias
 
     return config
   }

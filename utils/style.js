@@ -1,3 +1,5 @@
+import Modernizr from 'modernizr'
+
 const isServer = typeof window === 'undefined'
 
 let styletron
@@ -20,3 +22,7 @@ export function flush () {
   styletron = null
   return _styletron
 }
+
+export const cursorOnly = styles => Modernizr.touchevents ? null : styles
+
+export const touchOnly = styles => Modernizr.touchevents ? styles : null

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from './Header'
 import Theme from '../containers/Theme'
 import chroma from 'chroma-js'
-import getStyletron from '../utils/styletron'
+import getStyletron from '../utils/style'
 import { styled, StyletronProvider } from 'styletron-react'
 
 function getTitle (title) {

@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { flush } from '../utils/styletron'
+import { flush } from '../utils/style'
 
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
