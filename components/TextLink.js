@@ -5,7 +5,7 @@ import { styled } from 'styletron-react'
 
 const TextLink = styled('a', props => ({
   borderBottom: `2px solid ${chroma(props.linkColor).alpha(0.8).css()}`,
-  boxShadow: `inset 0 -9px 0 ${chroma(props.linkColor).alpha(0.15).css()}`,
+  boxShadow: `inset 0 -0.5625rem 0 ${chroma(props.linkColor).alpha(0.15).css()}`,
   color: props.color,
   textDecoration: 'none',
   transitionDuration: '160ms',

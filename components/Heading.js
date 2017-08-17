@@ -9,9 +9,13 @@ class Heading extends Component {
     return injectStyle(
       this.context.styletron,
       {
-        fontSize: '1.5rem',
+        fontSize: '1.125rem',
         marginBottom: '0.5em',
-        marginTop: '1.75em'
+        marginTop: '1.75em',
+
+        '@media (min-width: 40rem)': {
+          fontSize: '1.5rem'
+        }
       }
     )
   }
