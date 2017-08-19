@@ -6,9 +6,9 @@ import getStyletron from '../utils/style'
 import { styled, StyletronProvider } from 'styletron-react'
 
 function getTitle (title) {
-  return title
-    ? `${title} | David Calhoun, Software Engineer`
-    : 'David Calhoun, Software Engineer'
+  const base = 'David Calhoun, Software Engineer'
+
+  return title ? `${title} | ${base}` : base
 }
 
 const Wrap = styled('div', (props) => ({
