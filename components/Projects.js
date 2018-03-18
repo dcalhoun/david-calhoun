@@ -42,22 +42,16 @@ export default props => (
       <Projects>
         <Title color={color}>Open Source</Title>
         <ProjectCard
-          description='Remotely inspect any iOS device by name via Safari’s web inspector.'
-          href='https://github.com/dcalhoun/alfred-remote-inspector-workflow'
+          description='A Yeoman generator for prototyping and building experiences.'
+          href='http://playbook.centresource.com'
+          index={4}
+          name='Playbook'
+        />
+        <ProjectCard
+          description='Configure Clubhouse to respond to GitHub events by specific users.'
+          href='https://github.com/dcalhoun/github-to-clubhouse'
           index={0}
-          name='Alfred Remote Inspector'
-        />
-        <ProjectCard
-          description='Immutable, CSS margin utilities.'
-          href='http://github.com/dcalhoun/css-utils-margin'
-          index={1}
-          name='css-utils-margin'
-        />
-        <ProjectCard
-          description='Immutable, CSS padding utilities.'
-          href='http://github.com/dcalhoun/css-utils-padding'
-          index={2}
-          name='css-utils-padding'
+          name='github-to-clubhouse'
         />
         <ProjectCard
           description='CLI to convert AMD CoffeeScript to ES6 Standard JavaScript.'
@@ -66,16 +60,22 @@ export default props => (
           name='es6-migrate'
         />
         <ProjectCard
-          description='A Yeoman generator for prototyping and building experiences.'
-          href='http://playbook.centresource.com'
-          index={4}
-          name='Playbook'
-        />
-        <ProjectCard
           description='Selectively remove PostCSS warnings from your logs.'
-          href='http://github.com/dcalhoun/postcss-warn-cleaner'
+          href='https://github.com/dcalhoun/postcss-warn-cleaner'
           index={5}
           name='postcss-warn-cleaner'
+        />
+        <ProjectCard
+          description='Immutable, CSS margin utilities.'
+          href='https://github.com/dcalhoun/css-utils-margin'
+          index={1}
+          name='css-utils-margin'
+        />
+        <ProjectCard
+          description='Immutable, CSS padding utilities.'
+          href='https://github.com/dcalhoun/css-utils-padding'
+          index={2}
+          name='css-utils-padding'
         />
       </Projects>
     )}
