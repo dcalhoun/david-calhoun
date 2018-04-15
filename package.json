@@ -8,7 +8,6 @@
     "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
     "predeploy": "yarn build && touch ./out/.nojekyll && mv ./out/static/CNAME ./out",
     "deploy": "gh-pages -d ./out -b master -t",
-    "precommit": "lint-staged",
     "start": "yarn content && node server.js"
   },
   "repository": {
@@ -25,16 +24,15 @@
   "devDependencies": {
     "babel-plugin-transform-define": "^1.3.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
-    "gh-pages": "^1.0.0",
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.3",
-    "modernizr": "^3.5.0",
+    "modernizr": "^3.6.0",
     "modernizr-loader": "^1.0.1",
-    "prettier": "^1.5.3",
-    "processmd": "^3.1.5",
-    "prop-types": "^15.5.10",
+    "prettier": "^1.12.0",
+    "processmd": "^4.2.0",
+    "prop-types": "^15.6.1",
     "raw-loader": "^0.5.1",
-    "standard": "^10.0.3"
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "chroma-js": "^1.3.4",
@@ -50,13 +48,6 @@
     "styletron-client": "^2.5.7",
     "styletron-react": "^2.5.8",
     "styletron-server": "^2.5.7"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --no-semi --write",
-      "standard --fix",
-      "git add"
-    ]
   },
   "standard": {
     "globals": [
