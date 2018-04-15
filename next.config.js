@@ -30,19 +30,23 @@ module.exports = {
     config.externals = config.externals || {}
     config.externals['styletron-server'] = 'styletron-server'
 
-    config.module.rules.push({
-      test: /\.css/,
-      loader: 'emit-file-loader',
-      options: {
-        name: 'dist/[path][name].[ext]'
+    config.module.rules.push(
+      {
+        test: /\.css/,
+        loader: 'emit-file-loader',
+        options: {
+          name: 'dist/[path][name].[ext]'
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: 'babel-loader!raw-loader'
+      },
+      {
+        test: /\.modernizrrc$/,
+        loader: 'modernizr-loader!json-loader'
       }
-    }, {
-      test: /\.css$/,
-      loader: 'babel-loader!raw-loader'
-    }, {
-      test: /\.modernizrrc$/,
-      loader: 'modernizr-loader!json-loader'
-    })
+    )
 
     let alias = {
       modernizr$: path.resolve(__dirname, '.modernizrrc')
@@ -50,7 +54,7 @@ module.exports = {
 
     if (!dev) {
       alias = Object.assign({}, alias, {
-        'react': 'preact-compat/dist/preact-compat',
+        react: 'preact-compat/dist/preact-compat',
         'react-dom': 'preact-compat/dist/preact-compat'
       })
     }

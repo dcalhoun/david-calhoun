@@ -15,7 +15,9 @@ const Projects = styled('section', {
 })
 
 const Title = styled('h3', props => ({
-  color: chroma(props.color).alpha(0.8).css(),
+  color: chroma(props.color)
+    .alpha(0.8)
+    .css(),
   display: 'flex',
   flexWrap: 'wrap',
   fontFamily: fonts.heading,

@@ -10,7 +10,9 @@ export default function getStyletron () {
     styletron = new Styletron()
   } else if (!styletron) {
     const Styletron = require('styletron-client')
-    const styleElements = document.getElementsByClassName('_styletron_hydrate_')
+    const styleElements = document.getElementsByClassName(
+      '_styletron_hydrate_'
+    )
     styletron = new Styletron(styleElements)
   }
 
@@ -23,11 +25,12 @@ export function flush () {
   return _styletron
 }
 
-export const cursorOnly = styles => Modernizr.touchevents ? null : styles
+export const cursorOnly = styles => (Modernizr.touchevents ? null : styles)
 
-export const touchOnly = styles => Modernizr.touchevents ? styles : null
+export const touchOnly = styles => (Modernizr.touchevents ? styles : null)
 
-const base = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif'
+const base =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif'
 
 export const fonts = {
   body: `"Avenir Next", ${base}`,

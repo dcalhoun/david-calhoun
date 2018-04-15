@@ -67,9 +67,13 @@ export default props => (
     {({ color, onClick, linkColor }) => (
       <Header>
         <Title>
-          <Leader color={color} linkColor={linkColor} onClick={onClick}>#</Leader>
+          <Leader color={color} linkColor={linkColor} onClick={onClick}>
+            #
+          </Leader>
           <Link href='/' prefetch>
-            <TextLink button href='/'>David Calhoun</TextLink>
+            <TextLink button href='/'>
+              David Calhoun
+            </TextLink>
           </Link>
         </Title>
 

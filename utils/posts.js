@@ -1,4 +1,4 @@
-export const sortByDate = ({ fileMap: posts }) => (
+export const sortByDate = ({ fileMap: posts }) =>
   Object.keys(posts)
     .map(file => posts[file])
     .sort((a, b) => {
@@ -14,7 +14,6 @@ export const sortByDate = ({ fileMap: posts }) => (
           return 0
       }
     })
-)
 
 export const slug = ({ base }) => base.replace(/\.json/g, '')
 

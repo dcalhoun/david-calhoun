@@ -7,13 +7,13 @@ I&rsquo;ve been wanting to wrap my head around [Yeoman](http://yeoman.io/) for a
 
 It seems that in order for me to finally understand the beauty of Yeoman, all I needed was an end goal: a Jekyll site. It turns out this is exactly why Yeoman was created — to help you quickly achieve your goal by generating a lot of the initial boilerplate code for you.
 
-````bash
+```bash
 npm install -g yo
 npm install -g generator-jekyllrb
 cd path/to/site/directory
 yo jekyllrb
 grunt server
-````
+```
 
 Assuming you already have Node & npm installed (I recommend using [homebrew](http://davidcalhoun.me/2013/12/16/developer-tools-homebrew/)), that&rsquo;s all it takes to get a Yeoman-generated, Grunt-compiling Jekyll site running on your local machine. I am utilizing the [jekyllrb generator](https://github.com/robwierzbowski/generator-jekyllrb) that I found via the Yeoman [community generators page](http://yeoman.io/community-generators.html).
 
@@ -21,9 +21,9 @@ A nice thing about the jekyllrb generator is that it has built-in configuration 
 
 The Yeoman workflow also includes the use of [Grunt](http://gruntjs.com/) & [Bower](http://bower.io/). Bower is a package manager. In short, it simplifies the process of downloading & including libraries on which your web app/site may depend.
 
-````bash
+```bash
 bower install jquery
-````
+```
 
 The above installs jQuery into the `_bower_components` directory of my project. I can then load that dependency into my project with a traditional script tag.
 
@@ -31,7 +31,7 @@ Grunt, as described on its home page, is a JavaScript task runner. For me, it wa
 
 The Grunt tasks included with the jekyllrb generator also include support for [Usemin](https://github.com/yeoman/grunt-usemin). Usemin allows for replacing references to non-optimized scripts & stylesheets (typically found in development environments) with references to optimized scripts & stylesheets for production.
 
-````html
+```html
 <!-- The following Usemin block... -->
 <!-- build:js(app) /assets/js/app.js -->
 <script src="/_bower_components/modernizr/modernizr.js"></script>
@@ -40,13 +40,13 @@ The Grunt tasks included with the jekyllrb generator also include support for [U
 
 <!-- ...is replaced with a single minified script tag. -->
 <script src="/assets/js/f7f2.app.js"></script>
-````
+```
 
 Running the `grunt build` task produces a compiled, concatenated, minified, production-ready version of my Jekyll site. Once that build is created, I can use a task provided by [grunt-build-control](https://github.com/robwierzbowski/grunt-build-control) to automate my deployment to GitHub pages.
 
-````bash
+```bash
 grunt buildcontrol:pages
-````
+```
 
 All in all I&rsquo;m very happy to finally have a high-level understanding of the benefits of Yeoman. I look forward to exploring creating custom generators of my own to speed up my workflow, as well as streamline project spin-up for my coworkers.
 

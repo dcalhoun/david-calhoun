@@ -6,18 +6,11 @@ class Paragraph extends Component {
   classNames () {
     // TODO: Why does a normal `styled` component's classes get
     //       lost on the way into `react-markdown`?
-    return injectStyle(
-      this.context.styletron,
-      { marginTop: 0 }
-    )
+    return injectStyle(this.context.styletron, { marginTop: 0 })
   }
 
   render () {
-    return (
-      <p className={this.classNames()}>
-        {this.props.children}
-      </p>
-    )
+    return <p className={this.classNames()}>{this.props.children}</p>
   }
 }
 

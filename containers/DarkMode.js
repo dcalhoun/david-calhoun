@@ -33,17 +33,13 @@ class DarkMode extends Component {
   }
 
   restorePreviousEnabled () {
-    const darkModePreviouslyEnabled = () => (
+    const darkModePreviouslyEnabled = () =>
       typeof window !== 'undefined' &&
       window.localStorage.getItem('darkmode') === 'true' &&
       !window.initialBuildComplete
-    )
 
     if (darkModePreviouslyEnabled()) {
-      setTimeout(
-        () => this.setState({ enabled: true }),
-        0
-      )
+      setTimeout(() => this.setState({ enabled: true }), 0)
 
       window.initialBuildComplete = true
     }

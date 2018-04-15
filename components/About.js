@@ -56,12 +56,8 @@ export default props => (
           & front-end architecture.
         </Title>
         <SubTitle color={color}>
-          Currently at
-          {' '}
-          <TextLink href='https://www.gonoodle.com'>
-            GoNoodle
-          </TextLink>.
-          {' '}
+          Currently at{' '}
+          <TextLink href='https://www.gonoodle.com'>GoNoodle</TextLink>.{' '}
           <BreakXS />
           Based in Nashville, TN.
         </SubTitle>

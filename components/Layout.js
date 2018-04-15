@@ -11,8 +11,10 @@ function getTitle (title) {
   return title ? `${title} | ${base}` : base
 }
 
-const Wrap = styled('div', (props) => ({
-  backgroundColor: chroma(props.background).darken(0.5).hex(),
+const Wrap = styled('div', props => ({
+  backgroundColor: chroma(props.background)
+    .darken(0.5)
+    .hex(),
   padding: '0.5rem',
   transition: 'background-color 160ms ease',
 
@@ -21,7 +23,7 @@ const Wrap = styled('div', (props) => ({
   }
 }))
 
-const Inner = styled('div', (props) => ({
+const Inner = styled('div', props => ({
   backgroundColor: props.background,
   minHeight: 'calc(100vh - 1rem)',
   overflow: 'hidden',
@@ -51,9 +53,21 @@ export default props => (
             <title>{getTitle(props.title)}</title>
             <link rel='icon' href='/static/icon.png' />
             <link rel='apple-touch-icon' href='/static/icon-60.png' />
-            <link rel='apple-touch-icon' sizes='152x152' href='/static/icon-152.png' />
-            <link rel='apple-touch-icon' sizes='180x180' href='/static/icon-180.png' />
-            <link rel='apple-touch-icon' sizes='167x167' href='/static/icon-167.png' />
+            <link
+              rel='apple-touch-icon'
+              sizes='152x152'
+              href='/static/icon-152.png'
+            />
+            <link
+              rel='apple-touch-icon'
+              sizes='180x180'
+              href='/static/icon-180.png'
+            />
+            <link
+              rel='apple-touch-icon'
+              sizes='167x167'
+              href='/static/icon-167.png'
+            />
           </Head>
 
           <Inner background={background}>

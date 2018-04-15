@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "yarn content && next build && next export",
-    "content": "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
-    "predeploy": "yarn build && touch ./out/.nojekyll && mv ./out/static/CNAME ./out",
+    "content":
+      "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
+    "format": "prettier '**/*.{css,md,js,json}' --write",
+    "lint": "standard",
+    "predeploy":
+      "yarn build && touch ./out/.nojekyll && mv ./out/static/CNAME ./out",
     "deploy": "gh-pages -d ./out -b master -t",
     "start": "yarn content && node server.js"
   },
@@ -50,9 +54,6 @@
     "styletron-server": "^2.5.7"
   },
   "standard": {
-    "globals": [
-      "__DEV__",
-      "__ENV__"
-    ]
+    "globals": ["__DEV__", "__ENV__"]
   }
 }

@@ -15,8 +15,7 @@ process.argv
     args[x.slice(0, sep)] = x.substring(sep + 1)
   })
 
-app.prepare()
-.then(() => {
+app.prepare().then(() => {
   createServer(async (req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
@@ -27,8 +26,7 @@ app.prepare()
     } else {
       handle(req, res, parsedUrl)
     }
-  })
-  .listen(args.port || 3000, (err) => {
+  }).listen(args.port || 3000, err => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${args.port || 3000}`)
   })

@@ -4,10 +4,7 @@ import { Component } from 'react'
 export default WrappedComponent => {
   class Themed extends Component {
     render () {
-      const {
-        background,
-        color
-      } = this.context
+      const { background, color } = this.context
 
       return (
         <WrappedComponent background={background} color={color} {...this.props}>

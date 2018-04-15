@@ -3,15 +3,15 @@ import { Component } from 'react'
 
 class Theme extends Component {
   render () {
-    const {
+    const { background, color, enabled, onClick, linkColor } = this.context
+
+    return this.props.children({
       background,
       color,
       enabled,
       onClick,
       linkColor
-    } = this.context
-
-    return this.props.children({ background, color, enabled, onClick, linkColor })
+    })
   }
 }
 

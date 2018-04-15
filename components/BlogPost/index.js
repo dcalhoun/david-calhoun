@@ -51,27 +51,24 @@ const PostBody = styled(Markdown, props => ({
   }
 }))
 
-const renderers = () => (
-  Object.assign(
-    {},
-    Markdown.renderers,
-    {
-      CodeBlock,
-      Link: withTheme(TextLink),
-      Heading,
-      Paragraph
-    }
-  )
-)
+const renderers = () =>
+  Object.assign({}, Markdown.renderers, {
+    CodeBlock,
+    Link: withTheme(TextLink),
+    Heading,
+    Paragraph
+  })
 
 export default ({ post }) => (
   <Theme>
     {({ background, color, enabled: darkModeEnabled }) => (
       <Post>
-        <style dangerouslySetInnerHTML={{ __html: darkModeEnabled ? syntaxDark : syntaxLight }} />
-        <PostDate color={color}>
-          {post.date.replace(/-/g, '.')}
-        </PostDate>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: darkModeEnabled ? syntaxDark : syntaxLight
+          }}
+        />
+        <PostDate color={color}>{post.date.replace(/-/g, '.')}</PostDate>
 
         <PostTitle color={color}>{post.title}</PostTitle>
         <PostBody
