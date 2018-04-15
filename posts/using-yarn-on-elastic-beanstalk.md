@@ -43,7 +43,7 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -;
 yum -y install yarn;
 ```
 
-Second, it creates a `51_install_packages.config` that invokes `yarn install` to install our project’s dependencies using Yarn rather than npm. It also install both production _and_ development dependencies, as we intend to build our project with webpack on the EB server.
+Second, it creates a `51_install_packages.config` that executes `yarn install` to install our project’s dependencies using Yarn rather than npm. It also installs both production _and_ development dependencies, as we intend to build our project with webpack on the EB server.
 
 ```bash
 #!/bin/bash
