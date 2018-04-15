@@ -5,7 +5,7 @@ date: '2018-04-15'
 
 At GoNoodle, our team uses [Yarn](https://yarnpkg.com/) to manage our packages. We moved to Yarn from npm for improved install speeds and the deterministic benefits of its lock file.
 
-We recently moved from serving our web applications from static files on S3 to server rendering with a Node instances on Elastic Beanstalk. That posed a problem as AWS support stated that support for Yarn is not provided on Elastic Beanstalk. The good news is that it is fairly simple to setup yourself.
+We recently moved from serving our web applications from static files on S3 to server rendering with Node instances on Elastic Beanstalk. That posed a problem as AWS support stated that support for Yarn is not provided on Elastic Beanstalk. The good news is that it is fairly simple to setup yourself.
 
 Elastic Beanstalk provides [platform hooks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platform-hooks.html) to execute script files during the creation of new instances. A strategically placed script allows for installing Yarn.
 
@@ -32,9 +32,9 @@ files:
       yarn install --production=false;
 ```
 
-## Extension Explanation
+## Extension Details
 
-The EB extension file content above is doing a couple of things. First, it creates a `41_install_yarn.config` hook that installs both Node and Yarn. Note, this effectively nullifies the “Node version” setting within the provided Node solution stack from AWS.
+The EB extension file content above is doing a couple of things. First, it creates a `41_install_yarn.config` hook that installs both Node and Yarn. Note, this effectively negates the “Node version” setting within the provided Node solution stack from AWS.
 
 ```bash
 #!/bin/bash
@@ -43,7 +43,7 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -;
 yum -y install yarn;
 ```
 
-Second, it creates a `51_install_packages.config` that invokes `yarn install` to install our project's dependencies using Yarn rather than npm. It also install both production _and_ development dependencies, as we intend to build our project with webpack on the EB server.
+Second, it creates a `51_install_packages.config` that invokes `yarn install` to install our project’s dependencies using Yarn rather than npm. It also install both production _and_ development dependencies, as we intend to build our project with webpack on the EB server.
 
 ```bash
 #!/bin/bash
@@ -66,4 +66,4 @@ Deleting/renaming a platform hook in your project will not delete/rename the pla
 
 #### Maintenance
 
-Elastic Beanstalk [solution stacks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html), the helpful, packaged stacks provided by Amazon, utilize platform hooks as well. So, if Amazon decides to significantly modify the platform hooks that are included in your chosen solution stack , that could potentially cause breakages in your hooks. You’ll want to test upgrades to your solution stack in a staging environment before applying them to production.
+Elastic Beanstalk [solution stacks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html), the convenient packaged stacks provided by Amazon, utilize platform hooks as well. So, if Amazon decides to significantly modify the platform hooks included in your chosen solution stack, that could potentially cause breakages in your hooks. You’ll want to test upgrades to your solution stack in a staging environment before applying them to production.
