@@ -4,21 +4,39 @@
     "url": "https://github.com/dcalhoun/dcalhoun.github.io/issues"
   },
   "dependencies": {
+    "chroma-js": "^2.0.3",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
+    "gatsby-plugin-google-analytics": "^2.0.15",
     "gatsby-plugin-manifest": "^2.0.20",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.7",
     "gatsby-plugin-sharp": "^2.0.23",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-sharp": "^2.1.15",
+    "highlightjs": "^9.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-lowlight": "^2.0.0",
+    "styletron-client": "^3.0.4",
+    "styletron-react": "^4.4.4",
+    "styletron-server": "^3.0.4"
   },
   "description": "Personal site of David Calhoun.",
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gatsby-plugin-styletron": "^3.0.4",
+    "gh-pages": "^2.0.1",
     "prettier": "^1.16.4"
   },
   "homepage": "http://davidcalhoun.me",
@@ -34,6 +52,7 @@
     "develop": "gatsby develop",
     "deploy": "gh-pages -d ./out -b master -t",
     "format": "prettier --write src/**/*.{css,md,js,json}",
+    "lint": "eslint --config .eslintrc.js src",
     "start": "npm run develop",
     "serve": "gatsby serve"
   },
