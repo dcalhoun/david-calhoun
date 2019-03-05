@@ -1,4 +1,4 @@
-import React, { useContext } from "react0";
+import React, { useContext } from "react";
 import TextLink from "./TextLink";
 import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
@@ -9,6 +9,7 @@ const Card = styled(TextLink, {
   fontFamily: fonts.heading,
   padding: "1rem",
   position: "relative",
+  textAlign: "left",
   width: "18rem"
 });
 
@@ -25,7 +26,7 @@ const Title = styled("h3", {
 });
 
 const Description = styled("p", props => ({
-  color: props.color,
+  color: props.$color,
   fontSize: "0.875rem",
   fontStyle: "italic",
   lineHeight: "1.5em",
@@ -38,19 +39,25 @@ const Description = styled("p", props => ({
   }
 }));
 
-export default props => {
+function ProjectCard(props) {
   const context = useContext(ThemeContext);
   return (
     <Card
-      color={context.color}
-      href={props.href}
+      $color={context.color}
+      $linkColor={context.linkColor}
       index={props.index}
-      linkColor={context.linkColor}
+      to={props.href}
     >
       <Title>{props.name}</Title>
-      <Description color={context.color} index={props.index}>
+      <Description $color={context.color} index={props.index}>
         {props.description}
       </Description>
     </Card>
   );
+}
+
+ProjectCard.propTypes = {
+  ...TextLink.propTypes
 };
+
+export default ProjectCard;

@@ -1,10 +1,10 @@
-import React, { useContext } from "react0";
+import React, { useContext } from "react";
 import TextLink from "./TextLink";
 import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
-const About = styled("section", {
+const Container = styled("section", {
   marginBottom: "6rem",
   padding: "0 1rem"
 });
@@ -47,20 +47,21 @@ const BreakXS = styled("br", {
   }
 });
 
-export default props => {
+function About(props) {
   const context = useContext(ThemeContext);
   return (
-    <About>
+    <Container>
       <Title color={context.color}>
         Software engineer <Break />
         specializing in UX design <Break />& front-end architecture.
       </Title>
       <SubTitle color={context.color}>
-        Currently at{" "}
-        <TextLink href="https://www.gonoodle.com">GoNoodle</TextLink>.{" "}
-        <BreakXS />
+        Currently at <TextLink to="https://www.gonoodle.com">GoNoodle</TextLink>
+        . <BreakXS />
         Based in Nashville, TN.
       </SubTitle>
-    </About>
+    </Container>
   );
-};
+}
+
+export default About;

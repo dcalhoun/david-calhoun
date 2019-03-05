@@ -9,12 +9,6 @@ import { ThemeContext, themes } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
-function getTitle(title) {
-  const base = "David Calhoun, Software Engineer";
-
-  return title ? `${title} | ${base}` : base;
-}
-
 const Wrap = styled("div", props => ({
   backgroundColor: chroma(props.$background || "red")
     .darken(0.5)
@@ -78,7 +72,6 @@ function Index(props) {
   return (
     <ThemeContext.Provider value={theme}>
       <Wrap $background={theme.background}>
-        <SEO title={getTitle(props.title)} />
         <Inner $background={theme.background}>
           <Content>
             <Header>
