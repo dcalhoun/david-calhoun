@@ -1,3 +1,4 @@
+import "./Layout.css";
 import Header from "./Header";
 import PropTypes from "prop-types";
 import React, { useState } from "react";

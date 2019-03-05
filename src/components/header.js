@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import TextLink from "./TextLink";
-import { Link } from "gatsby";
 import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
@@ -48,26 +47,20 @@ function Header(props) {
     <Container>
       <Title>
         {props.children}
-        <Link to="/" prefetch>
-          <TextLink button href="/">
-            David Calhoun
-          </TextLink>
-        </Link>
+        <TextLink to="/">David Calhoun</TextLink>
       </Title>
 
       <nav>
         <NavItem>
-          <Link to="/writing" prefetch>
-            <TextLink href="/writing">Writing</TextLink>
-          </Link>
+          <TextLink to="/writing">Writing</TextLink>
         </NavItem>
 
         <NavItem>
-          <TextLink href="http://twitter.com/david_calhoun">Twitter</TextLink>
+          <TextLink to="http://twitter.com/david_calhoun">Twitter</TextLink>
         </NavItem>
 
         <NavItem>
-          <TextLink href="http://github.com/dcalhoun">GitHub</TextLink>
+          <TextLink to="http://github.com/dcalhoun">GitHub</TextLink>
         </NavItem>
       </nav>
     </Container>
