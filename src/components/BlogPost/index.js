@@ -17,7 +17,7 @@ const Post = styled("article", {
 });
 
 const PostTitle = styled("h1", props => ({
-  color: props.color,
+  color: props.$color,
   fontFamily: fonts.heading,
   fontSize: "1.5rem",
   fontWeight: 400,
@@ -28,7 +28,7 @@ const PostTitle = styled("h1", props => ({
   }
 }));
 
-const PostDate = styled("span", props => ({
+const PostDate = styled("span", () => ({
   color: "#999",
   display: "inline-block",
   fontFamily: fonts.base,
@@ -37,8 +37,8 @@ const PostDate = styled("span", props => ({
   margin: "0"
 }));
 
-const PostBody = styled(Markdown, props => ({
-  color: props.color,
+const PostBody = styled("div", props => ({
+  color: props.$color,
   fontFamily: fonts.body,
   fontDisplay: "fallback",
   fontSize: "1.125rem",
@@ -50,15 +50,15 @@ const PostBody = styled(Markdown, props => ({
   }
 }));
 
-const renderers = () =>
-  Object.assign({}, Markdown.renderers, {
-    CodeBlock,
-    Link: TextLink,
-    Heading,
-    Paragraph
-  });
+// const renderers = () =>
+//   Object.assign({}, Markdown.renderers, {
+//     CodeBlock,
+//     Link: TextLink,
+//     Heading,
+//     Paragraph
+//   });
 
-export default ({ post }) => {
+function BlogPost(props) {
   const context = useContext(ThemeContext);
   return (
     <Post>
@@ -67,21 +67,31 @@ export default ({ post }) => {
           __html: context.enabled ? syntaxDark : syntaxLight
         }}
       />
-      <PostDate color={context.color}>{post.date.replace(/-/g, ".")}</PostDate>
+      <PostDate $color={context.color}>{props.frontmatter.date}</PostDate>
 
-      <PostTitle color={context.color}>{post.title}</PostTitle>
+      <PostTitle $color={context.color}>{props.frontmatter.title}</PostTitle>
       <PostBody
-        color={context.color}
-        renderers={renderers()}
-        source={post.bodyContent}
+        $color={context.color}
+        // renderers={renderers()}
+        source={props.html}
       />
 
-      <ButtonTweet title={post.title} />
+      <ButtonTweet title={props.frontmatter.title} />
       <IssueCTA
-        background={context.background}
-        color={context.color}
-        title={post.title}
+        $background={context.background}
+        $color={context.color}
+        title={props.frontmatter.title}
       />
     </Post>
   );
+}
+
+BlogPost.propTypes = {
+  frontmatter: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  }),
+  html: PropTypes.string.isRequired
 };
+
+export default BlogPost;

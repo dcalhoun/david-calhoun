@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import React from "react";
 import SEO from "../components/SEO";
-import { sortByDate } from "../utils/posts";
 import { useStaticQuery, graphql } from "gatsby";
 
 function Writing(props) {
