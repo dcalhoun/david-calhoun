@@ -1,10 +1,11 @@
-import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 import TextLink from "./TextLink";
 import { fonts } from "../utils/style";
-import { styled } from "styletron-react";
 import { slug, url } from "../utils/posts";
+import { styled } from "styletron-react";
 
-const BlogPostTeaser = styled("article", {
+const Container = styled("article", {
   marginBottom: "1rem",
   maxWidth: "44rem"
 });
@@ -28,13 +29,25 @@ const PostTitle = styled("h1", {
   }
 });
 
-export default props => (
-  <BlogPostTeaser>
-    <PostDate>{props.date.replace(/-/g, ".")}</PostDate>
-    <PostTitle>
-      <Link to={`/post?slug=${slug(props)}`} as={url(props)} prefetch>
-        <TextLink href={url(props)}>{props.title}</TextLink>
-      </Link>
-    </PostTitle>
-  </BlogPostTeaser>
-);
+function BlogPostTeaser(props) {
+  return (
+    <Container>
+      <PostDate>{props.frontmatter.date}</PostDate>
+      <PostTitle>
+        <TextLink to={props.frontmatter.path}>
+          {props.frontmatter.title}
+        </TextLink>
+      </PostTitle>
+    </Container>
+  );
+}
+
+BlogPostTeaser.propTypes = {
+  frontmatter: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  })
+};
+
+export default BlogPostTeaser;

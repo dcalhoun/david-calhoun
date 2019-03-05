@@ -1,4 +1,5 @@
 ---
+path: "/writing/migration-to-jekyll-my-journey-to-understanding-yeoman/"
 title: "Migration to Jekyll: Understanding Yeoman"
 date: "2013-10-30"
 ---

@@ -1,4 +1,5 @@
 ---
+path: "/writing/using-yarn-on-elastic-beanstalk/"
 title: "Using Yarn on Elastic Beanstalk"
 date: "2018-04-15"
 ---

@@ -1,4 +1,5 @@
 ---
+path: "/writing/developer-tools-homebrew/"
 title: "Developer Tools: Homebrew"
 date: "2013-12-16"
 ---
