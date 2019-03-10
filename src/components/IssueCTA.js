@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import TextLink from "./TextLink";
 import { ThemeContext } from "../components/Theme";
@@ -11,7 +12,7 @@ const CTA = styled("p", props => ({
   marginTop: 0
 }));
 
-export default props => {
+function IssueCTA(props) {
   const context = useContext(ThemeContext);
   return (
     <CTA color={context.color}>
@@ -27,4 +28,10 @@ export default props => {
       .
     </CTA>
   );
+}
+
+IssueCTA.propTypes = {
+  title: PropTypes.string.isRequired
 };
+
+export default IssueCTA;

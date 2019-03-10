@@ -31,6 +31,15 @@ class Heading extends Component {
   }
 }
 
+Heading.propTypes = {
+  level: PropTypes.number,
+  children: PropTypes.node.isRequired
+};
+
+Heading.defaultProps = {
+  level: 1
+};
+
 Heading.contextTypes = {
   styletron: PropTypes.object
 };
