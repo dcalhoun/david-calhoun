@@ -1,10 +1,11 @@
 import ButtonTweet from "../ButtonTweet";
 import CodeBlock from "../CodeBlock";
-import Heading from "../Heading";
+// import Heading from "../Heading";
 import IssueCTA from "../IssueCTA";
-import Markdown from "react-markdown";
-import Paragraph from "../Paragraph";
-import React from "react";
+// import Markdown from "react-markdown";
+// import Paragraph from "../Paragraph";
+import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import TextLink from "../TextLink";
 import syntaxDark from "./dark.css";
 import syntaxLight from "./light.css";
@@ -67,31 +68,35 @@ function BlogPost(props) {
           __html: context.enabled ? syntaxDark : syntaxLight
         }}
       />
-      <PostDate $color={context.color}>{props.frontmatter.date}</PostDate>
+      <PostDate $color={context.color}>{props.post.frontmatter.date}</PostDate>
 
-      <PostTitle $color={context.color}>{props.frontmatter.title}</PostTitle>
+      <PostTitle $color={context.color}>
+        {props.post.frontmatter.title}
+      </PostTitle>
       <PostBody
         $color={context.color}
-        // renderers={renderers()}
-        source={props.html}
+        source={props.post.html}
+        dangerouslySetInnerHTML={{ __html: props.post.html }}
       />
 
-      <ButtonTweet title={props.frontmatter.title} />
+      <ButtonTweet title={props.post.frontmatter.title} />
       <IssueCTA
         $background={context.background}
         $color={context.color}
-        title={props.frontmatter.title}
+        title={props.post.frontmatter.title}
       />
     </Post>
   );
 }
 
 BlogPost.propTypes = {
-  frontmatter: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  }),
-  html: PropTypes.string.isRequired
+  post: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired
+    }),
+    html: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default BlogPost;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import React, { useLayoutEffect, useRef } from "react";
 import { Component } from "react";
 import { styled } from "styletron-react";
 
@@ -6,55 +8,51 @@ const Anchor = styled("nav", {
   marginBottom: "1.5em"
 });
 
-class ButtonTweet extends Component {
-  constructor(props) {
-    super(props);
+async function initTweetButton(anchor, text) {
+  if (typeof window !== "undefined") {
+    if (typeof window.twitter === "undefined") {
+      try {
+        await new Promise(resolve => {
+          const firstScript = document.getElementsByTagName("script")[0];
+          const twttrScript = document.createElement("script");
+          twttrScript.id = "twitter-wjs";
+          twttrScript.addEventListener("load", resolve);
+          twttrScript.src = "//platform.twitter.com/widgets.js";
+          firstScript.parentNode.insertBefore(twttrScript, firstScript);
+        });
+      } catch (e) {
+        console.error("Twitter load failed.", e);
+      }
+    }
 
-    if (typeof window !== "undefined") {
-      this.widget = this.loadTwitterWidget();
+    try {
+      await window.twttr.widgets.createShareButton(
+        window.location.href,
+        anchor.current,
+        { size: "large", text, via: "david_calhoun" }
+      );
+    } catch (e) {
+      console.error("Twitter initialization failed.", e);
     }
   }
-
-  loadTwitterWidget() {
-    return new Promise(resolve => {
-      const firstScript = document.getElementsByTagName("script")[0];
-      const twttrScript = document.createElement("script");
-      twttrScript.id = "twitter-wjs";
-      twttrScript.addEventListener("load", () => {
-        resolve();
-      });
-      twttrScript.src = "//platform.twitter.com/widgets.js";
-      firstScript.parentNode.insertBefore(twttrScript, firstScript);
-    });
-  }
-
-  componentDidMount() {
-    this.widget &&
-      this.widget.then(() => {
-        window.twttr.widgets.createShareButton(
-          window.location.href,
-          this.anchor,
-          {
-            size: "large",
-            text: this.props.title,
-            via: "david_calhoun"
-          }
-        );
-      });
-  }
-
-  // TODO: Move `ref` to `Anchor` when styletron@3.x.x is out.
-  render() {
-    return (
-      <Anchor>
-        <a
-          ref={anchor => {
-            this.anchor = anchor;
-          }}
-        />
-      </Anchor>
-    );
-  }
 }
+
+function ButtonTweet(props) {
+  const anchor = useRef(null);
+  useLayoutEffect(() => {
+    initTweetButton(anchor, props.title);
+  }, [anchor, props.title]);
+
+  return (
+    <Anchor>
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+      <a href="https://twitter.com/compose/tweet" ref={anchor} />
+    </Anchor>
+  );
+}
+
+ButtonTweet.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default ButtonTweet;

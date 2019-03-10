@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import React from "module";
 import { Component } from "react";
 import { injectStyle } from "styletron-utils";
 
