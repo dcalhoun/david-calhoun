@@ -1,47 +1,31 @@
 import PropTypes from "prop-types";
-import React from "module";
+import React from "react";
 import { Component } from "react";
-import { injectStyle } from "styletron-utils";
+import { styled } from "styletron-react";
 
-class Heading extends Component {
-  classNames(level) {
-    // TODO: Why does a normal `styled` component's classes get
-    //       lost on the way into `react-markdown`?
-    return injectStyle(this.context.styletron, {
-      fontSize: level < 4 ? "1.125rem" : "0.875rem",
-      fontWeight: level < 4 ? "bold" : "normal",
-      marginBottom: "0.5em",
-      marginTop: "1.75em",
-      textTransform: level < 4 ? "none" : "uppercase",
+function Heading(props) {
+  const Container = styled(`h${props.level}`, {
+    fontSize: props.level < 4 ? "1.125rem" : "0.875rem",
+    fontWeight: props.level < 4 ? "bold" : "normal",
+    marginBottom: "0.5em",
+    marginTop: "1.75em",
+    textTransform: props.level < 4 ? "none" : "uppercase",
 
-      "@media (min-width: 40rem)": {
-        fontSize: level < 4 ? "1.5rem" : "1rem"
-      }
-    });
-  }
+    "@media (min-width: 40rem)": {
+      fontSize: props.level < 4 ? "1.5rem" : "1rem"
+    }
+  });
 
-  render() {
-    const TagName = `h${this.props.level}`;
-
-    return (
-      <TagName className={this.classNames(this.props.level)}>
-        {this.props.children}
-      </TagName>
-    );
-  }
+  return <Container>{props.children}</Container>;
 }
 
 Heading.propTypes = {
-  level: PropTypes.number,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  level: PropTypes.number
 };
 
 Heading.defaultProps = {
   level: 1
-};
-
-Heading.contextTypes = {
-  styletron: PropTypes.object
 };
 
 export default Heading;

@@ -21,6 +21,7 @@
     "react-dom": "npm:@hot-loader/react-dom",
     "react-helmet": "^5.2.0",
     "react-lowlight": "^2.0.0",
+    "rehype-react": "^3.1.0",
     "styletron-client": "^3.0.4",
     "styletron-react": "^4.4.4",
     "styletron-server": "^3.0.4"

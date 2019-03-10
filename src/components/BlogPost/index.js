@@ -1,14 +1,15 @@
 import ButtonTweet from "../ButtonTweet";
 import CodeBlock from "../CodeBlock";
-// import Heading from "../Heading";
+import Heading from "../Heading";
 import IssueCTA from "../IssueCTA";
-// import Markdown from "react-markdown";
-// import Paragraph from "../Paragraph";
+import Paragraph from "../Paragraph";
 import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import TextLink from "../TextLink";
+import rehypeReact from "rehype-react";
 import syntaxDark from "./dark.css";
 import syntaxLight from "./light.css";
+import withLevel from "../withLevel";
 import { ThemeContext } from "../../components/Theme";
 import { fonts } from "../../utils/style";
 import { styled } from "styletron-react";
@@ -51,13 +52,20 @@ const PostBody = styled("div", props => ({
   }
 }));
 
-// const renderers = () =>
-//   Object.assign({}, Markdown.renderers, {
-//     CodeBlock,
-//     Link: TextLink,
-//     Heading,
-//     Paragraph
-//   });
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    // code: CodeBlock,
+    a: TextLink,
+    h1: withLevel(1)(Heading),
+    h2: withLevel(2)(Heading),
+    h3: withLevel(3)(Heading),
+    h4: withLevel(4)(Heading),
+    h5: withLevel(5)(Heading),
+    h6: withLevel(6)(Heading),
+    p: Paragraph
+  }
+}).Compiler;
 
 function BlogPost(props) {
   const context = useContext(ThemeContext);
@@ -73,11 +81,9 @@ function BlogPost(props) {
       <PostTitle $color={context.color}>
         {props.post.frontmatter.title}
       </PostTitle>
-      <PostBody
-        $color={context.color}
-        source={props.post.html}
-        dangerouslySetInnerHTML={{ __html: props.post.html }}
-      />
+      <PostBody $color={context.color}>
+        {renderAst(props.post.htmlAst)}
+      </PostBody>
 
       <ButtonTweet title={props.post.frontmatter.title} />
       <IssueCTA
@@ -95,7 +101,7 @@ BlogPost.propTypes = {
       date: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     }),
-    html: PropTypes.string.isRequired
+    htmlAst: PropTypes.object.isRequired
   }).isRequired
 };
 

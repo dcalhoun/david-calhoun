@@ -1,26 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Component } from "react";
-import { injectStyle } from "styletron-utils";
+import { styled } from "styletron-react";
 
-class Paragraph extends Component {
-  classNames() {
-    // TODO: Why does a normal `styled` component's classes get
-    //       lost on the way into `react-markdown`?
-    return injectStyle(this.context.styletron, { marginTop: 0 });
-  }
+const Container = styled("p", { marginTop: 0 });
 
-  render() {
-    return <p className={this.classNames()}>{this.props.children}</p>;
-  }
+function Paragraph(props) {
+  return <Container>{props.children}</Container>;
 }
 
 Paragraph.propTypes = {
   children: PropTypes.node
-};
-
-Paragraph.contextTypes = {
-  styletron: PropTypes.object
 };
 
 export default Paragraph;

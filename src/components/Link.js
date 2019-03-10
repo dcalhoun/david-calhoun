@@ -2,29 +2,28 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link as GatsbyLink } from "gatsby";
 
-function Link({ children, to, activeClassName, ...other }) {
+function Link({ children, href, to, activeClassName, ...rest }) {
   const internal = /^\/(?!\/)/.test(to);
-  if (!to) {
+
+  if (!to && !href) {
     return (
-      <button type="button" {...other}>
+      <button type="button" {...rest}>
         {children}
       </button>
     );
-  }
-
-  if (internal) {
+  } else if (internal) {
     return (
-      <GatsbyLink to={to} activeClassName={activeClassName} {...other}>
+      <GatsbyLink to={to} activeClassName={activeClassName} {...rest}>
         {children}
       </GatsbyLink>
     );
+  } else {
+    return (
+      <a href={to || href} {...rest}>
+        {children}
+      </a>
+    );
   }
-
-  return (
-    <a href={to} {...other}>
-      {children}
-    </a>
-  );
 }
 
 Link.propTypes = {
