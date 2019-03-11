@@ -1,28 +1,18 @@
-import Lowlight from "react-lowlight";
 import PropTypes from "prop-types";
 import React from "react";
-import bash from "highlight.js/lib/languages/bash";
-import js from "highlight.js/lib/languages/javascript";
-import xml from "highlight.js/lib/languages/xml";
+import { styled } from "styletron-react";
 
-Lowlight.registerLanguage("bash", bash);
-Lowlight.registerLanguage("html", xml);
-Lowlight.registerLanguage("js", js);
+const Container = styled("code", props => ({
+  display: props.children.length > 1 ? "block" : "inline",
+  overflowX: "auto"
+}));
 
 function CodeBlock(props) {
-  return (
-    <Lowlight
-      inline={props.inline}
-      language={props.language || "js"}
-      value={props.literal}
-    />
-  );
+  return <Container>{props.children}</Container>;
 }
 
 CodeBlock.propTypes = {
-  inline: PropTypes.bool,
-  language: PropTypes.string,
-  literal: PropTypes.string
+  children: PropTypes.node
 };
 
 export default CodeBlock;

@@ -1,14 +1,14 @@
+import "prism-theme-night-owl";
 import ButtonTweet from "../ButtonTweet";
 import CodeBlock from "../CodeBlock";
 import Heading from "../Heading";
 import IssueCTA from "../IssueCTA";
 import Paragraph from "../Paragraph";
+import Pre from "../Pre";
 import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import TextLink from "../TextLink";
 import rehypeReact from "rehype-react";
-import syntaxDark from "./dark.css";
-import syntaxLight from "./light.css";
 import withLevel from "../withLevel";
 import { ThemeContext } from "../../components/Theme";
 import { fonts } from "../../utils/style";
@@ -55,15 +55,16 @@ const PostBody = styled("div", props => ({
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    // code: CodeBlock,
     a: TextLink,
+    code: CodeBlock,
     h1: withLevel(1)(Heading),
     h2: withLevel(2)(Heading),
     h3: withLevel(3)(Heading),
     h4: withLevel(4)(Heading),
     h5: withLevel(5)(Heading),
     h6: withLevel(6)(Heading),
-    p: Paragraph
+    p: Paragraph,
+    pre: Pre
   }
 }).Compiler;
 
@@ -71,11 +72,6 @@ function BlogPost(props) {
   const context = useContext(ThemeContext);
   return (
     <Post>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: context.enabled ? syntaxDark : syntaxLight
-        }}
-      />
       <PostDate $color={context.color}>{props.post.frontmatter.date}</PostDate>
 
       <PostTitle $color={context.color}>

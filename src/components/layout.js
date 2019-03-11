@@ -25,6 +25,7 @@ const Inner = styled("div", props => ({
   backgroundColor: props.$background,
   minHeight: "calc(100vh - 1rem)",
   overflow: "hidden",
+  position: "relative",
   transition: "background-color 160ms ease",
 
   "@media (min-width: 54rem)": {
@@ -43,24 +44,16 @@ const Content = styled("div", {
 });
 
 const Leader = styled(TextLink, () => ({
+  alignItems: "center",
   cursor: "pointer",
+  display: "flex",
   fontFamily: fonts.monospace,
-
-  "@media screen and (max-width: 39.9375rem)": {
-    alignItems: "center",
-    display: "flex",
-    height: "3rem",
-    justifyContent: "center",
-    position: "absolute",
-    right: "1rem",
-    top: "1rem",
-    width: "3rem"
-  },
-
-  "@media screen and (min-width: 40rem)": {
-    marginRight: "0.5rem",
-    padding: "0 0.25rem"
-  }
+  height: "3rem",
+  justifyContent: "center",
+  position: "absolute",
+  right: "0.5rem",
+  top: "0.5rem",
+  width: "3rem"
 }));
 
 function Index(props) {
