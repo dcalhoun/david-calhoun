@@ -1,4 +1,4 @@
-import "./Layout.css";
+import "../utils/reset.css";
 import Header from "./Header";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -9,7 +9,7 @@ import { ThemeContext, themes } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
-function Index(props) {
+function Layout(props) {
   const [theme, setTheme] = useState(themes.light);
   const toggleTheme = () => {
     setTheme(theme === themes.dark ? themes.light : themes.dark);
@@ -17,7 +17,7 @@ function Index(props) {
 
   return (
     <ThemeContext.Provider value={theme}>
-      <Wrap $background={theme.background}>
+      <Container $background={theme.background}>
         <Inner $background={theme.background}>
           <Content>
             <Header>
@@ -32,19 +32,19 @@ function Index(props) {
             {props.children}
           </Content>
         </Inner>
-      </Wrap>
+      </Container>
     </ThemeContext.Provider>
   );
 }
 
-Index.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string
 };
 
-export default Index;
+export default Layout;
 
-const Wrap = styled("div", props => ({
+const Container = styled("div", props => ({
   backgroundColor: chroma(props.$background)
     .darken(0.5)
     .hex(),
