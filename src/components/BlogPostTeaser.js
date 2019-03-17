@@ -33,7 +33,7 @@ const Container = styled("article", {
   maxWidth: "44rem"
 });
 
-const PostDate = styled("h6", {
+const PostDate = styled("span", {
   color: "#999",
   fontFamily: fonts.base,
   fontSize: "0.75rem",
