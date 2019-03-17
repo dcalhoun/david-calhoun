@@ -53,7 +53,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "gh-pages -d ./out -b master -t",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "format": "prettier --write src/**/*.{css,md,js,json}",
     "lint": "eslint --config .eslintrc.js src",
     "start": "npm run develop",
