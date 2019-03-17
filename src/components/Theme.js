@@ -4,15 +4,15 @@ import { Component } from "react";
 
 export const themes = {
   light: {
-    background: "#feffff",
-    color: "#4c4d4e",
-    linkColor: colors["blue"][4],
+    background: colors["gray"][0],
+    color: colors["gray"][9],
+    linkColor: colors["base"],
     name: "light"
   },
   dark: {
-    background: "#1e2424",
-    color: "#979899",
-    linkColor: colors["yellow"][4],
+    background: colors["black"],
+    color: colors["gray"][3],
+    linkColor: colors["gray"][0],
     name: "dark"
   }
 };

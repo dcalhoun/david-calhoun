@@ -10,7 +10,7 @@ import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 const Wrap = styled("div", props => ({
-  backgroundColor: chroma(props.$background || "red")
+  backgroundColor: chroma(props.$background)
     .darken(0.5)
     .hex(),
   padding: "0.5rem",
