@@ -5,6 +5,29 @@ import { fonts } from "../utils/style";
 import { slug, url } from "../utils/posts";
 import { styled } from "styletron-react";
 
+function BlogPostTeaser(props) {
+  return (
+    <Container>
+      <PostDate>{props.frontmatter.date}</PostDate>
+      <PostTitle>
+        <TextLink to={props.frontmatter.path}>
+          {props.frontmatter.title}
+        </TextLink>
+      </PostTitle>
+    </Container>
+  );
+}
+
+BlogPostTeaser.propTypes = {
+  frontmatter: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  })
+};
+
+export default BlogPostTeaser;
+
 const Container = styled("article", {
   marginBottom: "1rem",
   maxWidth: "44rem"
@@ -28,26 +51,3 @@ const PostTitle = styled("h1", {
     fontSize: "2.625rem"
   }
 });
-
-function BlogPostTeaser(props) {
-  return (
-    <Container>
-      <PostDate>{props.frontmatter.date}</PostDate>
-      <PostTitle>
-        <TextLink to={props.frontmatter.path}>
-          {props.frontmatter.title}
-        </TextLink>
-      </PostTitle>
-    </Container>
-  );
-}
-
-BlogPostTeaser.propTypes = {
-  frontmatter: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  })
-};
-
-export default BlogPostTeaser;

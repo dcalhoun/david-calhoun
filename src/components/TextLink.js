@@ -5,6 +5,22 @@ import chroma from "chroma-js";
 import { ThemeContext } from "../components/Theme";
 import { styled } from "styletron-react";
 
+function TextLink(props) {
+  const context = useContext(ThemeContext);
+  return (
+    <Container $color={context.color} $linkColor={context.linkColor} {...props}>
+      {props.children}
+    </Container>
+  );
+}
+
+TextLink.propTypes = {
+  ...Link.propTypes,
+  children: PropTypes.node
+};
+
+export default TextLink;
+
 const Container = styled(Link, props => ({
   backgroundColor: "transparent",
   border: "none",
@@ -28,19 +44,3 @@ const Container = styled(Link, props => ({
       .css()}`
   }
 }));
-
-function TextLink(props) {
-  const context = useContext(ThemeContext);
-  return (
-    <Container $color={context.color} $linkColor={context.linkColor} {...props}>
-      {props.children}
-    </Container>
-  );
-}
-
-TextLink.propTypes = {
-  ...Link.propTypes,
-  children: PropTypes.node
-};
-
-export default TextLink;

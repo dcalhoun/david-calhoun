@@ -4,6 +4,29 @@ import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
+function ProjectCard(props) {
+  const context = useContext(ThemeContext);
+  return (
+    <Card
+      $color={context.color}
+      $linkColor={context.linkColor}
+      index={props.index}
+      to={props.href}
+    >
+      <Title>{props.name}</Title>
+      <Description $color={context.color} index={props.index}>
+        {props.description}
+      </Description>
+    </Card>
+  );
+}
+
+ProjectCard.propTypes = {
+  ...TextLink.propTypes
+};
+
+export default ProjectCard;
+
 const Card = styled(TextLink, {
   flex: "0 0 100%",
   fontFamily: fonts.heading,
@@ -38,26 +61,3 @@ const Description = styled("p", props => ({
     fontSize: "1.125rem"
   }
 }));
-
-function ProjectCard(props) {
-  const context = useContext(ThemeContext);
-  return (
-    <Card
-      $color={context.color}
-      $linkColor={context.linkColor}
-      index={props.index}
-      to={props.href}
-    >
-      <Title>{props.name}</Title>
-      <Description $color={context.color} index={props.index}>
-        {props.description}
-      </Description>
-    </Card>
-  );
-}
-
-ProjectCard.propTypes = {
-  ...TextLink.propTypes
-};
-
-export default ProjectCard;

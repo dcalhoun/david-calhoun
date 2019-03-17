@@ -3,10 +3,6 @@ import React from "react";
 import BlogPostTeaser from "./BlogPostTeaser";
 import { styled } from "styletron-react";
 
-const Container = styled("main", {
-  padding: "0 1rem"
-});
-
 function BlogList(props) {
   return (
     <Container>
@@ -22,3 +18,7 @@ BlogList.propTypes = {
 };
 
 export default BlogList;
+
+const Container = styled("main", {
+  padding: "0 1rem"
+});

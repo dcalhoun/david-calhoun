@@ -13,6 +13,41 @@ import { ThemeContext } from "./Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
+function BlogPost(props) {
+  const context = useContext(ThemeContext);
+  return (
+    <Post>
+      <PostDate $color={context.color}>{props.post.frontmatter.date}</PostDate>
+
+      <PostTitle $color={context.color}>
+        {props.post.frontmatter.title}
+      </PostTitle>
+      <PostBody $color={context.color}>
+        {renderAst(props.post.htmlAst)}
+      </PostBody>
+
+      <ButtonTweet title={props.post.frontmatter.title} />
+      <IssueCTA
+        $background={context.background}
+        $color={context.color}
+        title={props.post.frontmatter.title}
+      />
+    </Post>
+  );
+}
+
+BlogPost.propTypes = {
+  post: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired
+    }),
+    htmlAst: PropTypes.object.isRequired
+  }).isRequired
+};
+
+export default BlogPost;
+
 const Post = styled("article", {
   padding: "0 1rem"
 });
@@ -66,38 +101,3 @@ const renderAst = new rehypeReact({
     pre: Pre
   }
 }).Compiler;
-
-function BlogPost(props) {
-  const context = useContext(ThemeContext);
-  return (
-    <Post>
-      <PostDate $color={context.color}>{props.post.frontmatter.date}</PostDate>
-
-      <PostTitle $color={context.color}>
-        {props.post.frontmatter.title}
-      </PostTitle>
-      <PostBody $color={context.color}>
-        {renderAst(props.post.htmlAst)}
-      </PostBody>
-
-      <ButtonTweet title={props.post.frontmatter.title} />
-      <IssueCTA
-        $background={context.background}
-        $color={context.color}
-        title={props.post.frontmatter.title}
-      />
-    </Post>
-  );
-}
-
-BlogPost.propTypes = {
-  post: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      date: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired
-    }),
-    htmlAst: PropTypes.object.isRequired
-  }).isRequired
-};
-
-export default BlogPost;

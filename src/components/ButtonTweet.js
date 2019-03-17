@@ -3,11 +3,6 @@ import React, { useLayoutEffect, useRef } from "react";
 import { Component } from "react";
 import { styled } from "styletron-react";
 
-const Anchor = styled("nav", {
-  display: "inline-block",
-  marginBottom: "1.5em"
-});
-
 async function initTweetButton(anchor, text) {
   if (typeof window !== "undefined") {
     if (typeof window.twitter === "undefined") {
@@ -51,3 +46,8 @@ ButtonTweet.propTypes = {
 };
 
 export default ButtonTweet;
+
+const Anchor = styled("nav", {
+  display: "inline-block",
+  marginBottom: "1.5em"
+});

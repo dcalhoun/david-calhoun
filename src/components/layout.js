@@ -9,6 +9,41 @@ import { ThemeContext, themes } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
+function Index(props) {
+  const [theme, setTheme] = useState(themes.light);
+  const toggleTheme = () => {
+    setTheme(theme === themes.dark ? themes.light : themes.dark);
+  };
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <Wrap $background={theme.background}>
+        <Inner $background={theme.background}>
+          <Content>
+            <Header>
+              <Leader
+                $color={theme.color}
+                $linkColor={theme.linkColor}
+                onClick={toggleTheme}
+              >
+                #
+              </Leader>
+            </Header>
+            {props.children}
+          </Content>
+        </Inner>
+      </Wrap>
+    </ThemeContext.Provider>
+  );
+}
+
+Index.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string
+};
+
+export default Index;
+
 const Wrap = styled("div", props => ({
   backgroundColor: chroma(props.$background)
     .darken(0.5)
@@ -55,38 +90,3 @@ const Leader = styled(TextLink, () => ({
   top: "0.5rem",
   width: "3rem"
 }));
-
-function Index(props) {
-  const [theme, setTheme] = useState(themes.light);
-  const toggleTheme = () => {
-    setTheme(theme === themes.dark ? themes.light : themes.dark);
-  };
-
-  return (
-    <ThemeContext.Provider value={theme}>
-      <Wrap $background={theme.background}>
-        <Inner $background={theme.background}>
-          <Content>
-            <Header>
-              <Leader
-                $color={theme.color}
-                $linkColor={theme.linkColor}
-                onClick={toggleTheme}
-              >
-                #
-              </Leader>
-            </Header>
-            {props.children}
-          </Content>
-        </Inner>
-      </Wrap>
-    </ThemeContext.Provider>
-  );
-}
-
-Index.propTypes = {
-  children: PropTypes.node,
-  title: PropTypes.string
-};
-
-export default Index;

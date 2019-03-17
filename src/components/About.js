@@ -4,6 +4,25 @@ import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
+function About(props) {
+  const context = useContext(ThemeContext);
+  return (
+    <Container>
+      <Title color={context.color}>
+        Software engineer <Break />
+        specializing in UX design <Break />& front-end architecture.
+      </Title>
+      <SubTitle color={context.color}>
+        Currently at <TextLink to="https://www.gonoodle.com">GoNoodle</TextLink>
+        . <BreakXS />
+        Based in Nashville, TN.
+      </SubTitle>
+    </Container>
+  );
+}
+
+export default About;
+
 const Container = styled("section", {
   marginBottom: "6rem",
   padding: "0 1rem"
@@ -46,22 +65,3 @@ const BreakXS = styled("br", {
     display: "none"
   }
 });
-
-function About(props) {
-  const context = useContext(ThemeContext);
-  return (
-    <Container>
-      <Title color={context.color}>
-        Software engineer <Break />
-        specializing in UX design <Break />& front-end architecture.
-      </Title>
-      <SubTitle color={context.color}>
-        Currently at <TextLink to="https://www.gonoodle.com">GoNoodle</TextLink>
-        . <BreakXS />
-        Based in Nashville, TN.
-      </SubTitle>
-    </Container>
-  );
-}
-
-export default About;

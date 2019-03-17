@@ -5,13 +5,6 @@ import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
-const CTA = styled("p", props => ({
-  color: props.color,
-  fontFamily: fonts.base,
-  fontSize: "1.125rem",
-  marginTop: 0
-}));
-
 function IssueCTA(props) {
   const context = useContext(ThemeContext);
   return (
@@ -35,3 +28,10 @@ IssueCTA.propTypes = {
 };
 
 export default IssueCTA;
+
+const CTA = styled("p", props => ({
+  color: props.color,
+  fontFamily: fonts.base,
+  fontSize: "1.125rem",
+  marginTop: 0
+}));

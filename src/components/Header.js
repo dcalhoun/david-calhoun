@@ -5,6 +5,37 @@ import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
+function Header(props) {
+  return (
+    <Container>
+      <Title>
+        <TextLink to="/">David Calhoun</TextLink>
+      </Title>
+
+      <nav>
+        <NavItem>
+          <TextLink to="/writing">Writing</TextLink>
+        </NavItem>
+
+        <NavItem>
+          <TextLink to="http://twitter.com/david_calhoun">Twitter</TextLink>
+        </NavItem>
+
+        <NavItem>
+          <TextLink to="http://github.com/dcalhoun">GitHub</TextLink>
+        </NavItem>
+      </nav>
+      {props.children}
+    </Container>
+  );
+}
+
+Header.propTypes = {
+  children: PropTypes.node
+};
+
+export default Header;
+
 const Container = styled("header", {
   fontFamily: fonts.heading,
   margin: "3rem 0",
@@ -41,34 +72,3 @@ const NavItem = styled("div", {
     paddingLeft: "0.5rem"
   }
 });
-
-function Header(props) {
-  return (
-    <Container>
-      <Title>
-        <TextLink to="/">David Calhoun</TextLink>
-      </Title>
-
-      <nav>
-        <NavItem>
-          <TextLink to="/writing">Writing</TextLink>
-        </NavItem>
-
-        <NavItem>
-          <TextLink to="http://twitter.com/david_calhoun">Twitter</TextLink>
-        </NavItem>
-
-        <NavItem>
-          <TextLink to="http://github.com/dcalhoun">GitHub</TextLink>
-        </NavItem>
-      </nav>
-      {props.children}
-    </Container>
-  );
-}
-
-Header.propTypes = {
-  children: PropTypes.node
-};
-
-export default Header;

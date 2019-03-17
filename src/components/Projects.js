@@ -5,40 +5,6 @@ import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
-const Container = styled("section", {
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "center",
-
-  "@media (min-width: 54rem)": {
-    padding: "0 1rem"
-  }
-});
-
-const Title = styled("h3", props => ({
-  color: chroma(props.color)
-    .alpha(0.8)
-    .css(),
-  display: "flex",
-  flexWrap: "wrap",
-  fontFamily: fonts.heading,
-  fontSize: "0.75rem",
-  fontWeight: 600,
-  justifyContent: "center",
-  letterSpacing: "0.2em",
-  margin: "0 0 0.5rem",
-  textAlign: "center",
-  textTransform: "uppercase",
-
-  "::after": {
-    borderBottom: `0.0625rem solid ${props.color}`,
-    content: '""',
-    display: "block",
-    marginTop: "0.5rem",
-    width: "50%"
-  }
-}));
-
 function Projects(props) {
   const context = useContext(ThemeContext);
   return (
@@ -85,3 +51,37 @@ function Projects(props) {
 }
 
 export default Projects;
+
+const Container = styled("section", {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+
+  "@media (min-width: 54rem)": {
+    padding: "0 1rem"
+  }
+});
+
+const Title = styled("h3", props => ({
+  color: chroma(props.color)
+    .alpha(0.8)
+    .css(),
+  display: "flex",
+  flexWrap: "wrap",
+  fontFamily: fonts.heading,
+  fontSize: "0.75rem",
+  fontWeight: 600,
+  justifyContent: "center",
+  letterSpacing: "0.2em",
+  margin: "0 0 0.5rem",
+  textAlign: "center",
+  textTransform: "uppercase",
+
+  "::after": {
+    borderBottom: `0.0625rem solid ${props.color}`,
+    content: '""',
+    display: "block",
+    marginTop: "0.5rem",
+    width: "50%"
+  }
+}));
