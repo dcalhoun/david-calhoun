@@ -43,12 +43,7 @@ function ButtonTweet(props) {
     initTweetButton(anchor, props.title);
   }, [anchor, props.title]);
 
-  return (
-    <Anchor>
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a href="https://twitter.com/compose/tweet" ref={anchor} />
-    </Anchor>
-  );
+  return <Anchor $ref={anchor} />;
 }
 
 ButtonTweet.propTypes = {
