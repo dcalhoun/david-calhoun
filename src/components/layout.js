@@ -1,7 +1,7 @@
 import "../utils/reset.css";
 import Header from "./Header";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import SEO from "../components/SEO";
 import TextLink from "./TextLink";
 import chroma from "chroma-js";
@@ -12,8 +12,19 @@ import { styled } from "styletron-react";
 function Layout(props) {
   const [theme, setTheme] = useState(themes.light);
   const toggleTheme = () => {
-    setTheme(theme === themes.dark ? themes.light : themes.dark);
+    window.__setPreferedTheme(theme === themes.dark ? "light" : "dark");
   };
+
+  useLayoutEffect(() => {
+    setTheme(themes[window.__theme]);
+    window.__onThemeChange = () => {
+      setTheme(themes[window.__theme]);
+    };
+
+    return () => {
+      window.__onThemeChange = () => {};
+    };
+  });
 
   return (
     <ThemeContext.Provider value={theme}>
