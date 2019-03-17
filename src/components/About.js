@@ -10,7 +10,8 @@ function About(props) {
     <Container>
       <Title color={context.color}>
         Software engineer <Break />
-        specializing in UX design <Break />& front-end architecture.
+        specializing in UX design & <Break />
+        scalable front-end architecture.
       </Title>
       <SubTitle color={context.color}>
         Currently at <TextLink to="https://www.gonoodle.com">GoNoodle</TextLink>

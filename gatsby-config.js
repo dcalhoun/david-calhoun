@@ -3,7 +3,7 @@ const colors = require("./src/utils/colors.json");
 module.exports = {
   siteMetadata: {
     title: `David Calhoun, Software Engineer`,
-    description: `Software engineer specializing in UX design & front-end architecture.`,
+    description: `Software engineer specializing in UX design & scalable front-end architecture.`,
     author: `@david_calhoun`
   },
   plugins: [
