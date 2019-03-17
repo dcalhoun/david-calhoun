@@ -5,7 +5,7 @@ import { Component } from "react";
 export const themes = {
   light: {
     background: colors.gray[0],
-    color: colors.gray[9],
+    color: colors.black,
     linkColor: colors.base,
     name: "light"
   },

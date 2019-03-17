@@ -16,5 +16,6 @@ const Container = styled("pre", {
   borderRadius: "6px",
   display: "block",
   fontSize: "0.77em",
+  marginBottom: "18px",
   marginTop: 0
 });

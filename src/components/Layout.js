@@ -34,12 +34,16 @@ function Layout(props) {
           <Content>
             <Header>
               <Leader
-                $color={theme.color}
-                $linkColor={theme.linkColor}
                 aria-label="Toggle dark or light theme"
                 onClick={toggleTheme}
               >
-                <IconSun fill={theme.color} height={30} width={30} />
+                <IconSun
+                  fill={chroma(theme.linkColor)
+                    .alpha(0.85)
+                    .css()}
+                  height={30}
+                  width={30}
+                />
               </Leader>
             </Header>
             {props.children}
@@ -91,14 +95,17 @@ const Content = styled("div", {
   }
 });
 
-const Leader = styled(TextLink, () => ({
+const Leader = styled("button", {
   alignItems: "center",
+  background: "none",
+  border: "none",
+  boxShadow: "none",
   cursor: "pointer",
   display: "flex",
   fontFamily: fonts.monospace,
   justifyContent: "center",
   padding: "0.55rem",
   position: "absolute",
-  right: "0.5rem",
+  right: 0,
   top: 0
-}));
+});
