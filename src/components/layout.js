@@ -1,5 +1,6 @@
 import "../utils/reset.css";
 import Header from "./Header";
+import IconSun from "./IconSun";
 import PropTypes from "prop-types";
 import React, { useState, useLayoutEffect } from "react";
 import SEO from "../components/SEO";
@@ -35,9 +36,10 @@ function Layout(props) {
               <Leader
                 $color={theme.color}
                 $linkColor={theme.linkColor}
+                aria-label="Toggle dark or light theme"
                 onClick={toggleTheme}
               >
-                #
+                <IconSun fill={theme.color} height={30} width={30} />
               </Leader>
             </Header>
             {props.children}
@@ -94,10 +96,9 @@ const Leader = styled(TextLink, () => ({
   cursor: "pointer",
   display: "flex",
   fontFamily: fonts.monospace,
-  height: "3rem",
   justifyContent: "center",
+  padding: "0.55rem",
   position: "absolute",
   right: "0.5rem",
-  top: "0.5rem",
-  width: "3rem"
+  top: 0
 }));
