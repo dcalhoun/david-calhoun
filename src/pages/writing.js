@@ -34,7 +34,9 @@ function Writing(props) {
 }
 
 Writing.propTypes = {
-  posts: PropTypes.array.isRequired
+  allMarkdownRemark: PropTypes.shape({
+    edges: PropTypes.array.isRequired
+  })
 };
 
 export default Writing;
