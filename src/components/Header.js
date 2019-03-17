@@ -46,7 +46,6 @@ function Header(props) {
   return (
     <Container>
       <Title>
-        {props.children}
         <TextLink to="/">David Calhoun</TextLink>
       </Title>
 
@@ -63,6 +62,7 @@ function Header(props) {
           <TextLink to="http://github.com/dcalhoun">GitHub</TextLink>
         </NavItem>
       </nav>
+      {props.children}
     </Container>
   );
 }
