@@ -1,6 +1,7 @@
 ---
-title:  'Migration to Jekyll: Understanding Yeoman'
-date: '2013-10-30'
+path: "/writing/migration-to-jekyll-my-journey-to-understanding-yeoman/"
+title: "Migration to Jekyll: Understanding Yeoman"
+date: "2013-10-30"
 ---
 
 I&rsquo;ve been wanting to wrap my head around [Yeoman](http://yeoman.io/) for a while now. It seemed every time I found a moment of free time to dive into understanding Yeoman, my brain was already fried from that day&rsquo;s job-related development work. I continued to spin-up a generic &ldquo;webapp&rdquo; generator & failed to understand the seemingly complex ideas behind Yeoman. This process continued until now, when I decided to move my personal site to GitHub pages & Jekyll. I wanted to share my experience and provide a brief overview/tutorial of using Yeoman.

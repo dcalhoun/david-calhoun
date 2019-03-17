@@ -1,59 +1,63 @@
 {
-  "name": "davidcalhoun",
-  "version": "2.0.0",
-  "description": "Personal site of David Calhoun.",
-  "main": "index.js",
-  "scripts": {
-    "build": "yarn content && next build && next export",
-    "content":
-      "processmd posts/**/*.md --preview 110 --highlightCode --summaryOutput .content/summary.json --outputDir .content",
-    "format": "prettier '**/*.{css,md,js,json}' --write",
-    "lint": "standard",
-    "predeploy":
-      "yarn build && touch ./out/.nojekyll && mv ./out/static/CNAME ./out",
-    "deploy": "gh-pages -d ./out -b master -t",
-    "start": "yarn content && node server.js"
+  "author": "David Calhoun",
+  "bugs": {
+    "url": "https://github.com/dcalhoun/dcalhoun.github.io/issues"
   },
+  "dependencies": {
+    "chroma-js": "^2.0.3",
+    "gatsby": "^2.1.19",
+    "gatsby-image": "^2.0.30",
+    "gatsby-plugin-google-analytics": "^2.0.15",
+    "gatsby-plugin-manifest": "^2.0.20",
+    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-remark": "^2.3.0",
+    "gatsby-transformer-sharp": "^2.1.15",
+    "prism-theme-night-owl": "^1.0.1",
+    "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "npm:@hot-loader/react-dom",
+    "react-helmet": "^5.2.0",
+    "rehype-react": "^3.1.0",
+    "styletron-client": "^3.0.4",
+    "styletron-react": "^4.4.4",
+    "styletron-server": "^3.0.4"
+  },
+  "description": "Personal site of David Calhoun.",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gatsby-plugin-styletron": "^3.0.4",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.16.4"
+  },
+  "homepage": "http://davidcalhoun.me",
+  "license": "UNLICENSED",
+  "name": "davidcalhoun",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dcalhoun/dcalhoun.github.io.git"
   },
-  "author": "David Calhoun",
-  "license": "UNLICENSED",
-  "private": true,
-  "bugs": {
-    "url": "https://github.com/dcalhoun/dcalhoun.github.io/issues"
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "format": "prettier --write src/**/*.{css,md,js,json}",
+    "lint": "eslint --config .eslintrc.js src",
+    "start": "npm run develop",
+    "serve": "gatsby serve"
   },
-  "homepage": "http://davidcalhoun.me",
-  "devDependencies": {
-    "babel-plugin-transform-define": "^1.3.0",
-    "babel-plugin-wrap-in-js": "^1.1.1",
-    "gh-pages": "^1.1.0",
-    "husky": "^0.14.3",
-    "modernizr": "^3.6.0",
-    "modernizr-loader": "^1.0.1",
-    "prettier": "^1.12.0",
-    "processmd": "^4.2.0",
-    "prop-types": "^15.6.1",
-    "raw-loader": "^0.5.1",
-    "standard": "^11.0.1"
-  },
-  "dependencies": {
-    "chroma-js": "^1.3.4",
-    "highlightjs": "^9.10.0",
-    "next": "^3.0.3",
-    "preact": "^8.2.1",
-    "preact-compat": "^3.17.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-ga": "^2.2.0",
-    "react-lowlight": "^1.1.1",
-    "react-markdown": "^2.5.0",
-    "styletron-client": "^2.5.7",
-    "styletron-react": "^2.5.8",
-    "styletron-server": "^2.5.7"
-  },
-  "standard": {
-    "globals": ["__DEV__", "__ENV__"]
-  }
+  "version": "2.0.0"
 }

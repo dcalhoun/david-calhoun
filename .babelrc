@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    ["transform-define", "./env-config.js"],
-    ["wrap-in-js", { "extensions": ["css$"] }]
-  ],
-  "presets": ["next/babel"]
-}

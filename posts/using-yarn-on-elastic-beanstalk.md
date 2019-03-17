@@ -1,6 +1,7 @@
 ---
-title:  'Using Yarn on Elastic Beanstalk'
-date: '2018-04-15'
+path: "/writing/using-yarn-on-elastic-beanstalk/"
+title: "Using Yarn on Elastic Beanstalk"
+date: "2018-04-15"
 ---
 
 At GoNoodle, our team uses [Yarn](https://yarnpkg.com/) to manage our packages. We moved to Yarn from npm for improved install speeds and the deterministic benefits of its lock file.
