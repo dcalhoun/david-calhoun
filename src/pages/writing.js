@@ -12,12 +12,12 @@ function Writing(props) {
         allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
-              id
               frontmatter {
                 date(formatString: "YYYY.DD.MM")
                 path
                 title
               }
+              id
             }
           }
         }
@@ -27,7 +27,10 @@ function Writing(props) {
 
   return (
     <Layout>
-      <SEO title="Writing" />
+      <SEO
+        description="A collection of David’s thoughts and experiences."
+        title="Writing"
+      />
       <BlogList posts={allMarkdownRemark.edges} />
     </Layout>
   );

@@ -1,7 +1,8 @@
 ---
+date: "2013-12-16"
+description: "An overview of using Homebrew to manage development packages on macOS."
 path: "/writing/developer-tools-homebrew/"
 title: "Developer Tools: Homebrew"
-date: "2013-12-16"
 ---
 
 I recently received a new MacBook Pro &amp; went through the motions of setting up my development environment. One of my favorite tools for managing my environment is the Mac OS X package manager tool [Homebrew](http://brew.sh/). The following is a brief overview/tutorial of Homebrew.

@@ -10,7 +10,10 @@ function Post({ data }) {
 
   return (
     <Layout>
-      <SEO title={`${post.frontmatter.title}`} />
+      <SEO
+        description={post.frontmatter.description}
+        title={post.frontmatter.title}
+      />
       <BlogPost post={post} />
     </Layout>
   );
@@ -25,13 +28,14 @@ export default Post;
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      id
-      htmlAst
       frontmatter {
-        title
         date(formatString: "YYYY.DD.MM")
+        description
         path
+        title
       }
+      htmlAst
+      id
     }
   }
 `;
