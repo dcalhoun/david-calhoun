@@ -1,4 +1,4 @@
-const colors = require("src/utils/colors.json");
+const colors = require("./src/utils/colors.json");
 
 module.exports = {
   siteMetadata: {
@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/posts`,
         name: "markdown-pages"
       }
     },
