@@ -16,14 +16,14 @@ function IssueCTA(props) {
   const context = useContext(ThemeContext);
   return (
     <CTA color={context.color}>
-      Questions, Comments, Suggestions?{" "}
+      Questions, comments, suggestions?{" "}
       <TextLink
         href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${
           props.title
         }`}
         target="_blank"
       >
-        Open an Issue
+        Open an issue
       </TextLink>
       .
     </CTA>

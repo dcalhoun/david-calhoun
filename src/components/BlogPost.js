@@ -1,17 +1,16 @@
-import "prism-theme-night-owl";
-import ButtonTweet from "../ButtonTweet";
-import CodeBlock from "../CodeBlock";
-import Heading from "../Heading";
-import IssueCTA from "../IssueCTA";
-import Paragraph from "../Paragraph";
-import Pre from "../Pre";
+import ButtonTweet from "./ButtonTweet";
+import CodeBlock from "./CodeBlock";
+import Heading from "./Heading";
+import IssueCTA from "./IssueCTA";
+import Paragraph from "./Paragraph";
+import Pre from "./Pre";
 import PropTypes from "prop-types";
 import React, { useContext } from "react";
-import TextLink from "../TextLink";
+import TextLink from "./TextLink";
 import rehypeReact from "rehype-react";
-import withLevel from "../withLevel";
-import { ThemeContext } from "../../components/Theme";
-import { fonts } from "../../utils/style";
+import withLevel from "./withLevel";
+import { ThemeContext } from "./Theme";
+import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 const Post = styled("article", {
