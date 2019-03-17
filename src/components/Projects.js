@@ -48,7 +48,7 @@ function Projects(props) {
         description="A Yeoman generator for prototyping and building experiences."
         href="https://github.com/centresource/generator-playbook"
         index={4}
-        name="Playbook"
+        name="generator-playbook"
       />
       <ProjectCard
         description="Configure Clubhouse to respond to GitHub events by specific users."
