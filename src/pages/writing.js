@@ -13,7 +13,7 @@ function Writing(props) {
           edges {
             node {
               frontmatter {
-                date(formatString: "YYYY.DD.MM")
+                date(formatString: "YYYY.MM.DD")
                 path
                 title
               }
