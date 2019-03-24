@@ -42,7 +42,7 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.16.4"
   },
-  "homepage": "http://davidcalhoun.me",
+  "homepage": "https://davidcalhoun.me",
   "license": "UNLICENSED",
   "name": "davidcalhoun",
   "private": true,

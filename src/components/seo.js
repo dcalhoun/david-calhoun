@@ -11,6 +11,8 @@ import React from "react";
 import defaultOpenGraphImage from "../images/david.jpg";
 import { useStaticQuery, graphql } from "gatsby";
 
+function withDomain(path) {}
+
 function SEO({
   description,
   image,
@@ -29,6 +31,7 @@ function SEO({
             title
             description
             author
+            siteUrl: url
           }
         }
       }
@@ -60,7 +63,7 @@ function SEO({
         },
         {
           property: `og:image`,
-          content: image
+          content: `${site.siteMetadata.siteUrl}${image}`
         },
         {
           property: `og:image:height`,
@@ -106,8 +109,8 @@ function SEO({
 
 SEO.defaultProps = {
   image: defaultOpenGraphImage,
-  imageHeight: 1080,
-  imageWidth: 1080,
+  imageHeight: 630,
+  imageWidth: 1200,
   lang: `en`,
   meta: [],
   keywords: []

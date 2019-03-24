@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: `David Calhoun, Software Engineer`,
     description: `Software engineer specializing in UX design & scalable front-end architecture.`,
-    author: `@david_calhoun`
+    author: `@david_calhoun`,
+    url: "https://davidcalhoun.me"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
