@@ -39,7 +39,7 @@ function Layout(props) {
               >
                 <IconSun
                   fill={chroma(theme.linkColor)
-                    .alpha(0.85)
+                    .alpha(0.8)
                     .css()}
                   height={30}
                   width={30}
