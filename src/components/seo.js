@@ -9,6 +9,7 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import React from "react";
 import defaultOpenGraphImage from "../images/david.jpg";
+import { Location } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 
 function withDomain(path) {}
@@ -41,69 +42,77 @@ function SEO({
   const metaDescription = description || site.siteMetadata.description;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      defaultTitle={site.siteMetadata.title}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${image}`
-        },
-        {
-          property: `og:image:height`,
-          content: imageHeight
-        },
-        {
-          property: `og:image:width`,
-          content: imageWidth
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author
-        },
-        {
-          name: `twitter:title`,
-          content: title
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription
-        }
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `)
-              }
-            : []
-        )
-        .concat(meta)}
-    />
+    <Location>
+      {({ location }) => (
+        <Helmet
+          htmlAttributes={{
+            lang
+          }}
+          defaultTitle={site.siteMetadata.title}
+          title={title}
+          titleTemplate={`%s | ${site.siteMetadata.title}`}
+          meta={[
+            {
+              name: `description`,
+              content: metaDescription
+            },
+            {
+              property: `og:title`,
+              content: title
+            },
+            {
+              property: `og:url`,
+              content: location.href
+            },
+            {
+              property: `og:description`,
+              content: metaDescription
+            },
+            {
+              property: `og:image`,
+              content: `${site.siteMetadata.siteUrl}${image}`
+            },
+            {
+              property: `og:image:height`,
+              content: imageHeight
+            },
+            {
+              property: `og:image:width`,
+              content: imageWidth
+            },
+            {
+              property: `og:type`,
+              content: `website`
+            },
+            {
+              name: `twitter:card`,
+              content: `summary`
+            },
+            {
+              name: `twitter:creator`,
+              content: site.siteMetadata.author
+            },
+            {
+              name: `twitter:title`,
+              content: title
+            },
+            {
+              name: `twitter:description`,
+              content: metaDescription
+            }
+          ]
+            .concat(
+              keywords.length > 0
+                ? {
+                    name: `keywords`,
+                    content: keywords.join(`, `)
+                  }
+                : []
+            )
+            .concat(meta)}
+        />
+      )}
+    </Location>
   );
 }
 
