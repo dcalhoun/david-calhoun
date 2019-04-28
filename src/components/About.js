@@ -1,19 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import TextLink from "./TextLink";
-import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 function About(props) {
-  const context = useContext(ThemeContext);
   return (
     <Container>
-      <Title color={context.color}>
+      <Title>
         Software engineer <Break />
         specializing in UX design & <Break />
         scalable front-end architecture.
       </Title>
-      <SubTitle color={context.color}>
+      <SubTitle>
         Currently at <TextLink to="https://www.gonoodle.com">GoNoodle</TextLink>
         . <BreakXS />
         Based in Nashville, TN.
@@ -29,8 +27,8 @@ const Container = styled("section", {
   padding: "0 1rem"
 });
 
-const Title = styled("p", props => ({
-  color: props.color,
+const Title = styled("p", {
+  color: "var(--color)",
   fontFamily: fonts.heading,
   fontSize: "1.75rem",
   fontStyle: "italic",
@@ -44,10 +42,10 @@ const Title = styled("p", props => ({
   "@media (min-width: 60rem)": {
     fontSize: "3.75rem"
   }
-}));
+});
 
 const SubTitle = styled("p", props => ({
-  color: props.color,
+  color: "var(--color)",
   fontFamily: fonts.heading,
   lineHeight: 1.66,
   margin: "0"

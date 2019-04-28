@@ -1,22 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import TextLink from "./TextLink";
-import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 function ProjectCard(props) {
-  const context = useContext(ThemeContext);
   return (
-    <Card
-      $color={context.color}
-      $linkColor={context.linkColor}
-      index={props.index}
-      to={props.href}
-    >
+    <Card index={props.index} to={props.href}>
       <Title>{props.name}</Title>
-      <Description $color={context.color} index={props.index}>
-        {props.description}
-      </Description>
+      <Description index={props.index}>{props.description}</Description>
     </Card>
   );
 }
@@ -48,8 +39,8 @@ const Title = styled("h3", {
   }
 });
 
-const Description = styled("p", props => ({
-  color: props.$color,
+const Description = styled("p", {
+  color: "var(--color)",
   fontSize: "0.875rem",
   fontStyle: "italic",
   lineHeight: "1.5em",
@@ -60,4 +51,4 @@ const Description = styled("p", props => ({
   "@media (min-width: 40rem)": {
     fontSize: "1.125rem"
   }
-}));
+});

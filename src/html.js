@@ -18,12 +18,10 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                window.__onThemeChange = () => {};
-
                 function setTheme(newTheme) {
                   window.__theme = newTheme;
                   preferredTheme = newTheme;
-                  window.__onThemeChange(newTheme);
+                  document.body.className = newTheme;
                 }
 
                 let preferredTheme;

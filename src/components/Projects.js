@@ -1,15 +1,13 @@
 import ProjectCard from "./ProjectCard";
 import React, { useContext } from "react";
 import chroma from "chroma-js";
-import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 function Projects(props) {
-  const context = useContext(ThemeContext);
   return (
     <Container>
-      <Title color={context.color}>Open Source</Title>
+      <Title>Open Source</Title>
       <ProjectCard
         description="A Yeoman generator for prototyping and building experiences."
         href="https://github.com/centresource/generator-playbook"
@@ -62,10 +60,8 @@ const Container = styled("section", {
   }
 });
 
-const Title = styled("h3", props => ({
-  color: chroma(props.color)
-    .alpha(0.8)
-    .css(),
+const Title = styled("h3", {
+  color: "var(--color)",
   display: "flex",
   flexWrap: "wrap",
   fontFamily: fonts.heading,
@@ -78,10 +74,10 @@ const Title = styled("h3", props => ({
   textTransform: "uppercase",
 
   "::after": {
-    borderBottom: `0.0625rem solid ${props.color}`,
+    borderBottom: `0.0625rem solid var(--color)`,
     content: '""',
     display: "block",
     marginTop: "0.5rem",
     width: "50%"
   }
-}));
+});

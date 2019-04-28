@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import TextLink from "./TextLink";
-import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 

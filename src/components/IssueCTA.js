@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
-import React, { useContext } from "react";
+import React from "react";
 import TextLink from "./TextLink";
-import { ThemeContext } from "../components/Theme";
 import { fonts } from "../utils/style";
 import { styled } from "styletron-react";
 
 function IssueCTA(props) {
-  const context = useContext(ThemeContext);
   return (
-    <CTA color={context.color}>
+    <CTA>
       Questions, comments, suggestions?{" "}
       <TextLink
         href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${
@@ -29,9 +27,9 @@ IssueCTA.propTypes = {
 
 export default IssueCTA;
 
-const CTA = styled("p", props => ({
-  color: props.color,
+const CTA = styled("p", {
+  color: "var(--color)",
   fontFamily: fonts.base,
   fontSize: "1.125rem",
   marginTop: 0
-}));
+});
