@@ -15,10 +15,8 @@ TextLink.propTypes = {
 export default TextLink;
 
 const Container = styled(Link, {
-  backgroundColor: "transparent",
-  border: "none",
   borderBottom: "2px solid var(--linkBorder)",
-  boxShadow: "inset 0 -0.5625rem 0 var(--linkShadow)",
+  boxShadow: "inset 0 -0.3rem 0 var(--linkShadow)",
   color: "var(--color)",
   fontSize: "inherit",
   margin: 0,
@@ -28,6 +26,6 @@ const Container = styled(Link, {
   transitionTimingFunction: "ease",
 
   ":hover": {
-    boxShadow: "inset 0 -1.2em 0 var(--linkShadow)"
+    boxShadow: "inset 0 -1.3em 0 var(--linkShadow)"
   }
 });

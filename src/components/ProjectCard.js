@@ -46,7 +46,7 @@ const Description = styled("p", {
   lineHeight: "1.5em",
   marginBottom: 0,
   marginTop: 0,
-  opacity: "0.6",
+  opacity: "0.8",
 
   "@media (min-width: 40rem)": {
     fontSize: "1.125rem"

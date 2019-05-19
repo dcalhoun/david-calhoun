@@ -50,9 +50,9 @@ const Container = styled("header", {
 
 const Title = styled("h1", {
   display: "inline-block",
-  fontFamily: fonts.monospace,
+  fontFamily: fonts.heading,
   fontSize: "1.25rem",
-  fontWeight: 300,
+  fontWeight: 400,
   margin: "0 0 1rem 0",
 
   "@media screen and (min-width: 40rem)": {
