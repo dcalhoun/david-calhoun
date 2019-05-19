@@ -36,7 +36,7 @@ function ButtonTweet(props) {
     }
 
     initTweetButton(anchor, props.title);
-  }, [anchor, props.title]);
+  }, [anchor]);
 
   return <Anchor $ref={anchor} />;
 }
