@@ -9,15 +9,21 @@ function Projects(props) {
     <Container>
       <Title>Open Source</Title>
       <ProjectCard
+        description="Summon your Hyper windows with a system-wide hotkey."
+        href="https://github.com/soutar/hyperterm-summon"
+        index={0}
+        name="hyperterm-summon"
+      />
+      <ProjectCard
         description="A Yeoman generator for prototyping and building experiences."
         href="https://github.com/centresource/generator-playbook"
-        index={4}
+        index={1}
         name="generator-playbook"
       />
       <ProjectCard
         description="Configure Clubhouse to respond to GitHub events by specific users."
         href="https://github.com/dcalhoun/github-to-clubhouse"
-        index={0}
+        index={2}
         name="github-to-clubhouse"
       />
       <ProjectCard
@@ -29,19 +35,19 @@ function Projects(props) {
       <ProjectCard
         description="Selectively remove PostCSS warnings from your logs."
         href="https://github.com/dcalhoun/postcss-warn-cleaner"
-        index={5}
+        index={4}
         name="postcss-warn-cleaner"
       />
       <ProjectCard
         description="Immutable, CSS margin utilities."
         href="https://github.com/dcalhoun/css-utils-margin"
-        index={1}
+        index={5}
         name="css-utils-margin"
       />
       <ProjectCard
         description="Immutable, CSS padding utilities."
         href="https://github.com/dcalhoun/css-utils-padding"
-        index={2}
+        index={6}
         name="css-utils-padding"
       />
     </Container>
