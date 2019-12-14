@@ -1,64 +1,15 @@
 {
-  "author": "David Calhoun",
-  "bugs": {
-    "url": "https://github.com/dcalhoun/dcalhoun.github.io/issues"
+  "name": "dcalhoun",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "chroma-js": "^2.0.3",
-    "gatsby": "^2.1.19",
-    "gatsby-image": "^2.0.30",
-    "gatsby-plugin-google-analytics": "^2.0.15",
-    "gatsby-plugin-manifest": "^2.0.20",
-    "gatsby-plugin-offline": "^3.0.29",
-    "gatsby-plugin-react-helmet": "^3.0.7",
-    "gatsby-plugin-sharp": "^2.0.23",
-    "gatsby-remark-prismjs": "^3.2.4",
-    "gatsby-source-filesystem": "^2.0.23",
-    "gatsby-transformer-remark": "^2.3.0",
-    "gatsby-transformer-sharp": "^2.1.15",
-    "prism-theme-night-owl": "^1.0.1",
-    "prismjs": "^1.15.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "npm:@hot-loader/react-dom",
-    "react-helmet": "^5.2.0",
-    "rehype-react": "^4.0.1",
-    "styletron-client": "^3.0.4",
-    "styletron-react": "^4.4.4",
-    "styletron-server": "^3.0.4"
-  },
-  "description": "Personal site of David Calhoun.",
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "gatsby-plugin-styletron": "^3.0.4",
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.16.4"
-  },
-  "homepage": "https://davidcalhoun.me",
-  "license": "UNLICENSED",
-  "name": "davidcalhoun",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dcalhoun/dcalhoun.github.io.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "deploy": "gatsby build && gh-pages -d public -b master",
-    "format": "prettier --write src/**/*.{css,md,js,json}",
-    "lint": "eslint --config .eslintrc.js src",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "theme": "node scripts/theme.js"
-  },
-  "version": "2.0.0"
+    "next": "9.1.5",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  }
 }
