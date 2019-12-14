@@ -9,7 +9,7 @@
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-google-analytics": "^2.0.15",
     "gatsby-plugin-manifest": "^2.0.20",
-    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-offline": "^3.0.29",
     "gatsby-plugin-react-helmet": "^3.0.7",
     "gatsby-plugin-sharp": "^2.0.23",
     "gatsby-remark-prismjs": "^3.2.4",
@@ -22,7 +22,7 @@
     "react": "^16.8.3",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-helmet": "^5.2.0",
-    "rehype-react": "^3.1.0",
+    "rehype-react": "^4.0.1",
     "styletron-client": "^3.0.4",
     "styletron-react": "^4.4.4",
     "styletron-server": "^3.0.4"
