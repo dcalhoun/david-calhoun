@@ -7,7 +7,7 @@ const files = fs
   .readdirSync(DIR)
   .filter(file => file.endsWith(".md") || file.endsWith(".mdx"));
 
-const foo = files
+module.exports = files
   .map((file, index) => {
     const name = path.join(DIR, file);
     const contents = fs.readFileSync(name, "utf-8");
@@ -28,6 +28,3 @@ const foo = files
   })
   .filter(meta => meta.published)
   .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-
-console.log(">", foo);
-module.exports = foo;
