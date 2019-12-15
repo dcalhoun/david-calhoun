@@ -1,3 +1,3 @@
-# DavidCalhoun.me
+# davidcalhoun.me
 
-Source for David Calhoun's personal site.
+Personal website of David Calhoun.
