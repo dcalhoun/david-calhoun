@@ -8,12 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.5.1",
-    "@zeit/next-mdx": "^1.2.0",
+    "@mdx-js/loader": "^1.5.1",
+    "@next/mdx": "^9.1.5",
     "next": "9.1.5",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "remark-emoji": "^2.0.2",
     "remark-images": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-preval": "^4.0.0"
   }
 }
