@@ -3,7 +3,7 @@ const emoji = require("remark-emoji");
 
 const withMDX = require("@next/mdx")({
   options: {
-    mdPlugins: [images, emoji]
+    remarkPlugins: [images, emoji]
   }
 });
 
