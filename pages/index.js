@@ -1,6 +1,7 @@
 import React from "react";
 import Project from "../components/Project";
 import Layout from "../components/Layout";
+import TextLink from "../components/TextLink";
 
 const projects = [
   {
@@ -41,25 +42,41 @@ const projects = [
   }
 ];
 
-const Home = () => (
+export default () => (
   <Layout>
-    <h1>
-      Software engineer specializing in UX design & scalable front-end
-      architecture.
+    <h1 className="text-3xl italic mb-8">
+      David Calhoun is a software engineer specializing in UX design & scalable
+      front-end architecture.
     </h1>
     <h2>
-      Currently at <a href="https://www.gonoodle.com">GoNoodle</a>. Based in
-      Nashville, TN.
+      Currently at{" "}
+      <TextLink
+        href="https://www.gonoodle.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GoNoodle
+      </TextLink>
+      . <br className="md:hidden" />
+      Based in Nashville, TN.
     </h2>
     <div>
-      <h3>Open Source</h3>
+      <div className="text-center">
+        <h3 className="text-sm text-center text-gray-800 uppercase">
+          Open Source
+        </h3>
+        <span className="h-1 w-10 inline-block bg-gray-400" />
+      </div>
       {projects.map((p, i) => (
-        <a key={i} href={p.href}>
+        <TextLink
+          key={i}
+          href={p.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Project name={p.name} description={p.description} />
-        </a>
+        </TextLink>
       ))}
     </div>
   </Layout>
 );
-
-export default Home;
