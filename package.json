@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node ./scripts/theme.js",
     "dev": "next dev",
+    "prebuild": "node ./scripts/theme.js",
     "build": "next build",
     "start": "next start"
   },
@@ -23,8 +25,11 @@
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
+    "@types/node": "^12.12.21",
     "autoprefixer": "^9.7.3",
     "babel-plugin-preval": "^4.0.0",
-    "cssnano": "^4.1.10"
+    "chroma-js": "^2.1.0",
+    "cssnano": "^4.1.10",
+    "webpack": "^4.4.0"
   }
 }
