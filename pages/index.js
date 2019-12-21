@@ -1,7 +1,7 @@
 import React from "react";
 import Project from "../components/Project";
 import Layout from "../components/Layout";
-import TextLink from "../components/TextLink";
+import TextButton from "../components/TextButton";
 
 const projects = [
   {
@@ -50,13 +50,13 @@ export default () => (
     </h1>
     <h2>
       Currently at{" "}
-      <TextLink
+      <TextButton
         href="https://www.gonoodle.com"
         target="_blank"
         rel="noopener noreferrer"
       >
         GoNoodle
-      </TextLink>
+      </TextButton>
       . <br className="md:hidden" />
       Based in Nashville, TN.
     </h2>
@@ -68,14 +68,15 @@ export default () => (
         <span className="h-1 w-10 inline-block bg-gray-400" />
       </div>
       {projects.map((p, i) => (
-        <TextLink
+        <TextButton
+          className="block"
           key={i}
           href={p.href}
           target="_blank"
           rel="noopener noreferrer"
         >
           <Project name={p.name} description={p.description} />
-        </TextLink>
+        </TextButton>
       ))}
     </div>
   </Layout>

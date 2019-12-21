@@ -2,7 +2,7 @@ import "../styles/index.css";
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import TextLink from "./TextLink";
+import TextButton from "./TextButton";
 
 export default props => (
   <div className="bg-gray-200 min-h-screen p-2 flex flex-col">
@@ -11,27 +11,29 @@ export default props => (
         <title>David Calhoun, Software Engineer</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <nav>
+      <nav className="text-center mb-2">
         <Link href="/" passHref>
-          <TextLink>About</TextLink>
+          <TextButton className="mx-1">About</TextButton>
         </Link>{" "}
         <Link href="/writing" passHref>
-          <TextLink>Writing</TextLink>
+          <TextButton className="mx-1">Writing</TextButton>
         </Link>{" "}
-        <TextLink
+        <TextButton
+          className="mx-1"
           href="https://twitter.com/david_calhoun"
           target="_blank"
           rel="noopener noreferrer"
         >
           Twitter
-        </TextLink>{" "}
-        <TextLink
+        </TextButton>{" "}
+        <TextButton
+          className="mx-1"
           href="https://github.com/dcalhoun"
           target="_blank"
           rel="noopener noreferrer"
         >
           GitHub
-        </TextLink>
+        </TextButton>
       </nav>
       {props.children}
     </div>

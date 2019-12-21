@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import TextLink from "../../components/TextLink";
+import TextButton from "../../components/TextButton";
 import posts from "../../scripts/posts";
 
 export default () => (
@@ -10,7 +10,7 @@ export default () => (
       {posts.map((p, i) => (
         <li key={i}>
           <Link href={p.path} passHref>
-            <TextLink>{p.title}</TextLink>
+            <TextButton>{p.title}</TextButton>
           </Link>
         </li>
       ))}
