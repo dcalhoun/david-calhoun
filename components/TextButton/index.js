@@ -1,5 +1,5 @@
-import "../styles/theme.css";
-import "../styles/TextButton.css";
+import "../../theme.css";
+import "./index.css";
 import React from "react";
 
 const TextButton = React.forwardRef(({ className, ...rest }, ref) => (

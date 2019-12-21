@@ -50,7 +50,7 @@ let themeCSS = themes.reduce((acc, theme) => {
   return acc + template(fullTheme);
 }, "");
 
-fs.writeFile("./styles/theme.css", themeCSS, err => {
+fs.writeFile("./theme.css", themeCSS, err => {
   if (err) {
     return console.log("❌ Theme CSS generation failed.", err);
   }
