@@ -7,30 +7,43 @@ import stripEmpty from "../utils/string";
 import IssueCTA from "./IssueCTA";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
 
 function Anchor(props) {
   return <TextButton target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
-function Pre({ className, ...rest }) {
+function Code({ children, className }) {
+  let language = className.replace(/language-/, "");
   return (
-    <pre
-      className={`bg-gray-300 mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll ${stripEmpty(
-        className
-      )}`}
-      {...rest}
-    />
+    <Highlight
+      {...defaultProps}
+      code={children}
+      language={language}
+      theme={theme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre
+          className={`text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll ${stripEmpty(
+            className
+          )}`}
+          style={style}
+        >
+          {tokens.map(
+            (line, i) =>
+              line.every(l => !l.empty) && (
+                <div key={i} {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              )
+          )}
+        </pre>
+      )}
+    </Highlight>
   );
-}
-
-function Code({ className, ...rest }) {
-  return (
-    <code className={`text-sm lg:text-lg ${stripEmpty(className)}`} {...rest} />
-  );
-}
-
-function InlineCode({ className, ...rest }) {
-  return <code className={`bg-gray-300 ${stripEmpty(className)}`} {...rest} />;
 }
 
 let components = {
@@ -39,9 +52,8 @@ let components = {
   h3: Heading.H3,
   p: Paragraph,
   a: Anchor,
-  pre: Pre,
-  code: Code,
-  inlineCode: InlineCode
+  pre: props => <div {...props} />,
+  code: Code
 };
 
 export default function Post(props) {

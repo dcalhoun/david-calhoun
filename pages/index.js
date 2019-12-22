@@ -30,22 +30,24 @@ export default function Index() {
         </h3>
         <span className="h-1 w-10 inline-block bg-gray-400" />
       </div>
-      {projects.map((p, i) => (
-        <TextButton
-          className="block"
-          key={i}
-          href={p.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="p-4">
-            <h4 className="font-mono text-md lg:text-lg mb-2">{p.name}</h4>
-            <p className="text-sm lg:text-lg italic opacity-75">
-              {p.description}
-            </p>
-          </div>
-        </TextButton>
-      ))}
+      <div className="lg:mb-8">
+        {projects.map((p, i) => (
+          <TextButton
+            className="block"
+            key={i}
+            href={p.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="p-4">
+              <h4 className="font-mono text-md lg:text-lg mb-2">{p.name}</h4>
+              <p className="text-sm lg:text-lg italic opacity-75">
+                {p.description}
+              </p>
+            </div>
+          </TextButton>
+        ))}
+      </div>
     </Layout>
   );
 }

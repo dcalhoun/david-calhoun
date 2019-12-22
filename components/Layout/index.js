@@ -11,7 +11,7 @@ export default function Layout({ children, disableContentPadding }) {
       <div
         className={`Layout-content ${
           disableContentPadding ? "pt-4" : "p-4"
-        } flex-1`}
+        } flex-1 rounded-lg`}
       >
         <Head>
           <title>David Calhoun, Software Engineer</title>
