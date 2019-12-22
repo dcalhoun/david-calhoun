@@ -1,13 +1,14 @@
 import React from "react";
 import Layout from "../components/Layout";
 import TextButton from "../components/TextButton";
+import SEO, { SITE_DESCRIPTION } from "../components/SEO";
 
 export default () => (
   <Layout disableContentPadding>
+    <SEO />
     <div className="px-4">
       <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
-        David Calhoun is a software engineer specializing in UX design &
-        scalable front-end architecture.
+        {SITE_DESCRIPTION}
       </h1>
       <p className="text-md mb-16">
         Currently at{" "}
