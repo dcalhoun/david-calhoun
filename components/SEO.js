@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 const SITE_TITLE = "David Calhoun, Software Engineer";
 export const SITE_DESCRIPTION =
-  "David Calhoun is a software engineer specializing in UX design & scalable front-end architecture.";
+  "David Calhoun is a software engineer with a passion for good UX design & scalable architecture.";
 const HOST = "davidcalhoun.me";
 
 function generateTitle(pageTitle) {
@@ -40,11 +40,7 @@ export default ({ description, image, imageHeight, imageWidth, title }) => {
       />
       <meta key="og:title" name="og:title" content={generateTitle(title)} />
       <meta key="og:type" name="og:type" content="website" />
-      <meta
-        key="og:url"
-        name="og:url"
-        content={`//${HOST}${router.pathname}`}
-      />
+      <meta key="og:url" name="og:url" content={`//${HOST}${router.route}`} />
       <meta key="twitter:card" name="twitter:card" content="summary" />
       <meta
         key="twitter:creator"
