@@ -10,7 +10,7 @@ export default function Layout({ children, disableContentPadding }) {
     <div className="Layout min-h-screen p-2 lg:p-4 flex flex-col">
       <div
         className={`Layout-content ${
-          disableContentPadding ? "py-4" : "p-4"
+          disableContentPadding ? "pt-4" : "p-4"
         } flex-1`}
       >
         <Head>
@@ -21,7 +21,7 @@ export default function Layout({ children, disableContentPadding }) {
           />
         </Head>
         <nav
-          className={`text-center mb-4 ${disableContentPadding ? "px-4" : ""}`}
+          className={`text-center mb-6 ${disableContentPadding ? "px-4" : ""}`}
         >
           <Link href="/" passHref>
             <TextButton className="mx-2 text-md">About</TextButton>
