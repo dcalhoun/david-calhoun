@@ -10,15 +10,17 @@ const withMDX = require("@next/mdx")({
 
 module.exports = withCSS(
   withMDX({
-    pageExtensions: ["js", "jsx", "mdx"],
+    pageExtensions: ["js", "mdx"],
     webpack: (config, { defaultLoaders, isServer, dev }) => {
-      // Fixes npm packages that depend on `fs` module
-      config.node = {
-        fs: "empty",
-        module: "empty"
+      return {
+        ...config,
+        // Mock `fs` module for client packages
+        // https://webpack.js.org/configuration/node/#node
+        node: {
+          fs: "empty",
+          module: "empty"
+        }
       };
-
-      return config;
     }
   })
 );

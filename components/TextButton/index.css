@@ -2,6 +2,7 @@
   border-bottom: 2px solid var(--linkBorder);
   box-shadow: inset 0 -0.3rem 0 var(--linkShadow);
   color: var(--color);
+  font-size: inherit;
   text-decoration: none;
   transition-duration: 160ms;
   transition-property: box-shadow;

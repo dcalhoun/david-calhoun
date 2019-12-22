@@ -63,15 +63,15 @@ yarn install --production=false;
 
 An couple of important notes regarding platform hooks:
 
-#### Naming
+### Naming
 
 The “41” of `41_install_yarn.sh` is the important part of the file name, the rest has no impact. Platform hooks are executed alphabetically, so the prefixing number impacts when this hook is executed in relation to other platform hooks.
 
-#### Deletion and Renames
+### Deletion and Renames
 
 Deleting/renaming a platform hook in your project will not delete/rename the platform hook on the EB instances. You will need to SSH into your environment and remove the hook that is no longer needed.
 
-#### Maintenance
+### Maintenance
 
 Elastic Beanstalk [solution stacks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html), the convenient packaged stacks provided by Amazon, utilize platform hooks as well. So, if Amazon decides to significantly modify the platform hooks included in your chosen solution stack, that could potentially cause breakages in your hooks. You’ll want to test upgrades to your solution stack in a staging environment before applying them to production.
 
