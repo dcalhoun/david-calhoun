@@ -20,21 +20,21 @@ export default ({ children, disableContentPadding }) => (
         className={`text-center mb-4 ${disableContentPadding ? "px-4" : ""}`}
       >
         <Link href="/" passHref>
-          <TextButton className="mx-1 text-md">About</TextButton>
-        </Link>{" "}
+          <TextButton className="mx-2 text-md">About</TextButton>
+        </Link>
         <Link href="/writing" passHref>
-          <TextButton className="mx-1 text-md">Writing</TextButton>
-        </Link>{" "}
+          <TextButton className="mx-2 text-md">Writing</TextButton>
+        </Link>
         <TextButton
-          className="mx-1 text-md"
+          className="mx-2 text-md"
           href="https://twitter.com/david_calhoun"
           target="_blank"
           rel="noopener noreferrer"
         >
           Twitter
-        </TextButton>{" "}
+        </TextButton>
         <TextButton
-          className="mx-1 text-md"
+          className="mx-2 text-md"
           href="https://github.com/dcalhoun"
           target="_blank"
           rel="noopener noreferrer"
