@@ -4,15 +4,9 @@ import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
 import TextButton from "./TextButton";
 import stripEmpty from "../utils/string";
-
-function Paragraph({ className, ...rest }) {
-  return (
-    <p
-      className={`text-md lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
-      {...rest}
-    />
-  );
-}
+import IssueCTA from "./IssueCTA";
+import ButtonTweet from "./ButtonTweet";
+import Paragraph from "./Paragraph";
 
 function Anchor(props) {
   return <TextButton target="_blank" rel="noopener noreferrer" {...props} />;
@@ -57,6 +51,8 @@ export default function Post(props) {
       <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
       <Heading.H1>{props.title}</Heading.H1>
       {props.children}
+      <IssueCTA title={props.title} />
+      <ButtonTweet title={props.title} />
     </MDXProvider>
   );
 }
