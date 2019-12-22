@@ -48,8 +48,8 @@ export default function Post(props) {
   return (
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />
-      <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
       <Heading.H1>{props.title}</Heading.H1>
+      <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
       {props.children}
       <IssueCTA title={props.title} />
       <ButtonTweet title={props.title} />

@@ -15,13 +15,13 @@ export default function Writing() {
       />
       <ul>
         {posts.map((p, i) => (
-          <li key={i} className="mb-4 lg:mb-8">
-            <H4>{p.published.replace(/-/g, ".")}</H4>
+          <li key={i}>
             <H2>
               <Link href={p.path} passHref>
                 <TextButton className="lg:text-4xl">{p.title}</TextButton>
               </Link>
             </H2>
+            <H4>{p.published.replace(/-/g, ".")}</H4>
           </li>
         ))}
       </ul>
