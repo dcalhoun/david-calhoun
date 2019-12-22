@@ -17,17 +17,18 @@ let themes = [
   }
 ];
 
-let template = theme => `
-body${theme.name === "light" ? "" : `.${theme.name}`} {
-  --background: ${theme.background};
-  --backgroundBorder: ${theme.backgroundBorder};
-  --color: ${theme.color};
-  --linkColor: ${theme.linkColor};
-  --linkBorder: ${theme.linkBorder};
-  --linkShadow: ${theme.linkShadow};
-  --linkShadowHover: ${theme.linkShadowHover};
-}
-`;
+let template = theme =>
+  `${theme.name === "dark" ? "@media (prefers-color-scheme: dark) {" : ""}
+    body {
+      --background: ${theme.background};
+      --backgroundBorder: ${theme.backgroundBorder};
+      --color: ${theme.color};
+      --linkColor: ${theme.linkColor};
+      --linkBorder: ${theme.linkBorder};
+      --linkShadow: ${theme.linkShadow};
+      --linkShadowHover: ${theme.linkShadowHover};
+    }
+  ${theme.name === "dark" ? "}" : ""}`;
 
 let themeCSS = themes.reduce((acc, theme) => {
   let { name, ...colors } = theme;

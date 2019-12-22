@@ -1,6 +1,6 @@
 .TextButton {
   border-bottom: 2px solid var(--linkBorder);
-  box-shadow: inset 0 -0-3rem 0 var(--linkShadow);
+  box-shadow: inset 0 -0.3rem 0 var(--linkShadow);
   color: var(--color);
   text-decoration: none;
   transition-duration: 160ms;

@@ -6,11 +6,11 @@ import TextButton from "../components/TextButton";
 export default () => (
   <Layout disableContentPadding>
     <div className="px-4">
-      <h1 className="text-2xl text-gray-800 italic leading-snug my-16">
+      <h1 className="text-2xl lg:text-6xl leading-tight my-16">
         David Calhoun is a software engineer specializing in UX design &
         scalable front-end architecture.
       </h1>
-      <h2 className="text-md text-gray-700 mb-16">
+      <h2 className="text-md mb-16">
         Currently at{" "}
         <TextButton
           href="https://www.gonoodle.com"
@@ -24,7 +24,7 @@ export default () => (
       </h2>
     </div>
     <div className="text-center">
-      <h3 className="text-xs text-center text-gray-800 tracking-widest font-medium uppercase">
+      <h3 className="text-xs text-center tracking-widest font-medium uppercase">
         Open Source
       </h3>
       <span className="h-1 w-10 inline-block bg-gray-400" />

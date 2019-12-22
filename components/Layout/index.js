@@ -1,3 +1,4 @@
+import "../../theme.css";
 import "./index.css";
 import React from "react";
 import Link from "next/link";
@@ -5,9 +6,11 @@ import Head from "next/head";
 import TextButton from "../TextButton";
 
 export default ({ children, disableContentPadding }) => (
-  <div className="bg-gray-300 min-h-screen p-2 flex flex-col">
+  <div className="Layout min-h-screen p-2 lg:p-4 flex flex-col">
     <div
-      className={`bg-white ${disableContentPadding ? "py-4" : "p-4"} flex-1`}
+      className={`Layout-content ${
+        disableContentPadding ? "py-4" : "p-4"
+      } flex-1`}
     >
       <Head>
         <title>David Calhoun, Software Engineer</title>
@@ -39,7 +42,7 @@ export default ({ children, disableContentPadding }) => (
           GitHub
         </TextButton>
       </nav>
-      <div className="max-w-md m-auto">{children}</div>
+      <div className="max-w-md lg:max-w-4xl m-auto">{children}</div>
     </div>
   </div>
 );

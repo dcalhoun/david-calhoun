@@ -1,4 +1,3 @@
-import "../../theme.css";
 import "./index.css";
 import React from "react";
 

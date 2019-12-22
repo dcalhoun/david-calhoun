@@ -27,4 +27,4 @@ module.exports = files
     };
   })
   .filter(meta => meta.published)
-  .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  .sort((a, b) => new Date(b.published) - new Date(a.published));
