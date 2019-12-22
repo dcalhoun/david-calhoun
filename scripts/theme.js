@@ -19,7 +19,7 @@ let themes = [
 
 let template = theme =>
   `${theme.name === "dark" ? "@media (prefers-color-scheme: dark) {" : ""}
-    body {
+    :root {
       --background: ${theme.background};
       --backgroundBorder: ${theme.backgroundBorder};
       --color: ${theme.color};
