@@ -24,7 +24,7 @@ export default () => (
       </p>
     </div>
     <div className="text-center">
-      <h3 className="text-xs text-center tracking-widest font-medium uppercase">
+      <h3 className="text-xs lg:text-base text-center tracking-widest font-medium uppercase">
         Open Source
       </h3>
       <span className="h-1 w-10 inline-block bg-gray-400" />
