@@ -1,8 +1,9 @@
 import "./index.css";
 import React from "react";
+import c from "../../utils/className";
 
-const TextButton = React.forwardRef(({ className, ...rest }, ref) => (
-  <a className={`TextButton ${className}`} {...rest} ref={ref} />
+let TextButton = React.forwardRef(({ className, ...rest }, ref) => (
+  <a className={`TextButton ${c(className)}`} {...rest} ref={ref} />
 ));
 
 TextButton.defaultProps = {

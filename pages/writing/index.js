@@ -8,7 +8,7 @@ import { H2, H4 } from "../../components/Heading";
 
 export default () => (
   <Layout>
-    <SEO title="Writing | David Calhoun, Software Engineer" />
+    <SEO title="Writing" />
     <ul>
       {posts.map((p, i) => (
         <li key={i}>

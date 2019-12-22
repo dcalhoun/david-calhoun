@@ -1,6 +1,6 @@
-const chroma = require("chroma-js");
-const colors = require("./colors.json");
-const fs = require("fs");
+let chroma = require("chroma-js");
+let colors = require("./colors.json");
+let fs = require("fs");
 
 let themes = [
   {

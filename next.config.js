@@ -1,8 +1,8 @@
-const images = require("remark-images");
-const emoji = require("remark-emoji");
+let images = require("remark-images");
+let emoji = require("remark-emoji");
 
-const withCSS = require("@zeit/next-css");
-const withMDX = require("@next/mdx")({
+let withCSS = require("@zeit/next-css");
+let withMDX = require("@next/mdx")({
   options: {
     remarkPlugins: [images, emoji]
   }

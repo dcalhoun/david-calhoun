@@ -1,24 +1,24 @@
-const fs = require("fs");
-const path = require("path");
+let fs = require("fs");
+let path = require("path");
 
-const DIR = path.join(process.cwd(), "/pages/writing/");
-const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/;
-const files = fs
+let DIR = path.join(process.cwd(), "/pages/writing/");
+let META = /export\s+let\s+meta\s+=\s+({[\s\S]*?\n})/;
+let files = fs
   .readdirSync(DIR)
   .filter(file => file.endsWith(".md") || file.endsWith(".mdx"));
 
 module.exports = files
   .map((file, index) => {
-    const name = path.join(DIR, file);
-    const contents = fs.readFileSync(name, "utf-8");
-    const match = META.exec(contents);
+    let name = path.join(DIR, file);
+    let contents = fs.readFileSync(name, "utf-8");
+    let match = META.exec(contents);
 
     if (!match || typeof match[1] !== "string") {
-      throw new Error(`${name} needs to export const meta = {}`);
+      throw new Error(`${name} needs to export let meta = {}`);
     }
 
     // eslint-disable-next-line no-eval
-    const meta = eval("(" + match[1] + ")");
+    let meta = eval("(" + match[1] + ")");
 
     return {
       ...meta,

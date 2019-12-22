@@ -1,5 +1,4 @@
 import React from "react";
-import Project from "../components/Project";
 import Layout from "../components/Layout";
 import TextButton from "../components/TextButton";
 
@@ -37,13 +36,18 @@ export default () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Project name={p.name} description={p.description} />
+        <div className="p-4">
+          <h4 className="font-mono text-md lg:text-lg mb-2">{p.name}</h4>
+          <p className="text-sm lg:text-lg italic opacity-75">
+            {p.description}
+          </p>
+        </div>
       </TextButton>
     ))}
   </Layout>
 );
 
-const projects = [
+let projects = [
   {
     description: "Summon your Hyper windows with a system-wide hotkey.",
     href: "https://github.com/soutar/hyperterm-summon",
