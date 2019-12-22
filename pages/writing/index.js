@@ -3,7 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import TextButton from "../../components/TextButton";
-import posts from "../../scripts/posts";
+import posts from "../../utils/posts";
 import { H2, H4 } from "../../components/Heading";
 
 export default function Writing() {
