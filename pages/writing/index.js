@@ -14,7 +14,7 @@ export default () => (
     />
     <ul>
       {posts.map((p, i) => (
-        <li key={i}>
+        <li key={i} className="mb-4 lg:mb-8">
           <H4>{p.published.replace(/-/g, ".")}</H4>
           <H2>
             <Link href={p.path} passHref>
