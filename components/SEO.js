@@ -11,7 +11,13 @@ function generateTitle(pageTitle) {
   return pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 }
 
-export default ({ description, image, imageHeight, imageWidth, title }) => {
+export default function SEO({
+  description,
+  image,
+  imageHeight,
+  imageWidth,
+  title
+}) {
   const router = useRouter();
 
   return (
@@ -59,4 +65,4 @@ export default ({ description, image, imageHeight, imageWidth, title }) => {
       />
     </Head>
   );
-};
+}

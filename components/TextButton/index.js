@@ -1,13 +1,18 @@
 import "./index.css";
 import React from "react";
-import c from "../../utils/className";
+import stripEmpty from "../../utils/string";
 
-let TextButton = React.forwardRef(({ className, ...rest }, ref) => (
-  <a className={`TextButton ${c(className)}`} {...rest} ref={ref} />
-));
+let TextButtonWithRef = React.forwardRef(function TextButton(
+  { className, ...rest },
+  ref
+) {
+  return (
+    <a className={`TextButton ${stripEmpty(className)}`} {...rest} ref={ref} />
+  );
+});
 
-TextButton.defaultProps = {
+TextButtonWithRef.defaultProps = {
   className: ""
 };
 
-export default TextButton;
+export default TextButtonWithRef;

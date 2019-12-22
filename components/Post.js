@@ -3,42 +3,60 @@ import SEO from "./SEO";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
 import TextButton from "./TextButton";
-import c from "../utils/className";
+import stripEmpty from "../utils/string";
+
+function Paragraph({ className, ...rest }) {
+  return (
+    <p
+      className={`text-md lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
+      {...rest}
+    />
+  );
+}
+
+function Anchor(props) {
+  return <TextButton target="_blank" rel="noopener noreferrer" {...props} />;
+}
+
+function Pre({ className, ...rest }) {
+  return (
+    <pre
+      className={`bg-gray-300 mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll ${stripEmpty(
+        className
+      )}`}
+      {...rest}
+    />
+  );
+}
+
+function Code({ className, ...rest }) {
+  return (
+    <code className={`text-sm lg:text-lg ${stripEmpty(className)}`} {...rest} />
+  );
+}
+
+function InlineCode({ className, ...rest }) {
+  return <code className={`bg-gray-300 ${stripEmpty(className)}`} {...rest} />;
+}
 
 let components = {
   h1: Heading.H1,
   h2: Heading.H2,
   h3: Heading.H3,
-  p: ({ className, ...rest }) => (
-    <p
-      className={`text-md lg:text-2xl mb-4 lg:mb-8 ${c(className)}`}
-      {...rest}
-    />
-  ),
-  a: props => (
-    <TextButton target="_blank" rel="noopener noreferrer" {...props} />
-  ),
-  pre: ({ className, ...rest }) => (
-    <pre
-      className={`bg-gray-300 mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll ${c(
-        className
-      )}`}
-      {...rest}
-    />
-  ),
-  code: ({ className, ...rest }) => (
-    <code className={`text-sm lg:text-lg ${c(className)}`} {...rest} />
-  ),
-  inlineCode: ({ className, ...rest }) => (
-    <code className={`bg-gray-300 ${c(className)}`} {...rest} />
-  )
+  p: Paragraph,
+  a: Anchor,
+  pre: Pre,
+  code: Code,
+  inlineCode: InlineCode
 };
 
-export default props => (
-  <MDXProvider components={components}>
-    <SEO title={props.title} description={props.description} />
-    <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
-    <Heading.H1>{props.title}</Heading.H1>
-    {props.children}
-  </MDXProvider>
-);
+export default function Post(props) {
+  return (
+    <MDXProvider components={components}>
+      <SEO title={props.title} description={props.description} />
+      <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
+      <Heading.H1>{props.title}</Heading.H1>
+      {props.children}
+    </MDXProvider>
+  );
+}
