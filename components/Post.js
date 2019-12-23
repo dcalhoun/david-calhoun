@@ -1,10 +1,9 @@
 import React from "react";
-import SEO from "./SEO";
+import SEO, { SITE_DESCRIPTION } from "./SEO";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
 import TextButton from "./TextButton";
 import stripEmpty from "../utils/string";
-import IssueCTA from "./IssueCTA";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -63,8 +62,31 @@ export default function Post(props) {
       <Heading.H1>{props.title}</Heading.H1>
       <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
       {props.children}
-      <IssueCTA title={props.title} />
+      <Paragraph className="mb-4 lg:mb-8">
+        Questions, comments, suggestions?{" "}
+        <TextButton
+          href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open an issue
+        </TextButton>
+        .
+      </Paragraph>
       <ButtonTweet title={props.title} />
+      <footer
+        className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8"
+        style={{ backgroundColor: "var(--backgroundBorder)" }}
+      >
+        <img
+          className="h-24 w-24 rounded-full mb-4 lg:mb-0 lg:mr-4"
+          src="/david-thumbnail.jpg"
+          srcset="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
+        />
+        <p className="text-md lg:text-xl text-center lg:text-left">
+          {SITE_DESCRIPTION}
+        </p>
+      </footer>
     </MDXProvider>
   );
 }
