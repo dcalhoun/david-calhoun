@@ -84,7 +84,16 @@ export default function Post(props) {
           srcset="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
         />
         <p className="text-md lg:text-xl text-center lg:text-left">
-          {SITE_DESCRIPTION}
+          {SITE_DESCRIPTION} He is the the Director of Engineering at{" "}
+          <TextButton
+            href="https://www.gonoodle.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GoNoodle
+          </TextButton>
+          , where he works to help kids be their best selves through movement
+          and mindfulness.
         </p>
       </footer>
     </MDXProvider>
