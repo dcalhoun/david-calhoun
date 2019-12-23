@@ -11,7 +11,7 @@ export default function Index() {
         <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
           {SITE_DESCRIPTION}
         </h1>
-        <p className="text-md mb-16">
+        <p className="text-lg mb-16">
           Currently at{" "}
           <TextButton
             href="https://www.gonoodle.com"

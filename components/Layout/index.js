@@ -10,8 +10,8 @@ export default function Layout({ children, disableContentPadding }) {
     <div className="Layout min-h-screen p-2 lg:p-4 flex flex-col">
       <div
         className={`Layout-content ${
-          disableContentPadding ? "pt-4" : "p-4"
-        } flex-1 rounded-lg`}
+          disableContentPadding ? "pt-8" : "px-4 pt-8"
+        } flex-1`}
       >
         <Head>
           <title>David Calhoun, Software Engineer</title>
@@ -21,16 +21,18 @@ export default function Layout({ children, disableContentPadding }) {
           />
         </Head>
         <nav
-          className={`text-center mb-6 ${disableContentPadding ? "px-4" : ""}`}
+          className={`text-center text-lg mb-8 ${
+            disableContentPadding ? "px-4" : ""
+          }`}
         >
           <Link href="/" passHref>
-            <TextButton className="mx-2 text-md">About</TextButton>
+            <TextButton className="mx-2">About</TextButton>
           </Link>
           <Link href="/writing" passHref>
-            <TextButton className="mx-2 text-md">Writing</TextButton>
+            <TextButton className="mx-2">Writing</TextButton>
           </Link>
           <TextButton
-            className="mx-2 text-md"
+            className="mx-2"
             href="https://twitter.com/david_calhoun"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,7 +40,7 @@ export default function Layout({ children, disableContentPadding }) {
             Twitter
           </TextButton>
           <TextButton
-            className="mx-2 text-md"
+            className="mx-2"
             href="https://github.com/dcalhoun"
             target="_blank"
             rel="noopener noreferrer"
