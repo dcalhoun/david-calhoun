@@ -34,16 +34,14 @@ export default function Layout({ children, disableContentPadding }) {
           <TextButton
             className="mx-2"
             href="https://twitter.com/david_calhoun"
-            target="_blank"
-            rel="noopener noreferrer"
+            external
           >
             Twitter
           </TextButton>
           <TextButton
             className="mx-2"
             href="https://github.com/dcalhoun"
-            target="_blank"
-            rel="noopener noreferrer"
+            external
           >
             GitHub
           </TextButton>

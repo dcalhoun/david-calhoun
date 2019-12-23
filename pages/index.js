@@ -13,11 +13,7 @@ export default function Index() {
         </h1>
         <p className="text-lg mb-16">
           Currently at{" "}
-          <TextButton
-            href="https://www.gonoodle.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <TextButton href="https://www.gonoodle.com" external>
             GoNoodle
           </TextButton>
           . <br className="md:hidden" />
@@ -32,13 +28,7 @@ export default function Index() {
       </div>
       <div className="lg:mb-8">
         {projects.map((p, i) => (
-          <TextButton
-            className="block"
-            key={i}
-            href={p.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <TextButton className="block" key={i} href={p.href} external>
             <div className="p-4">
               <h4 className="font-mono text-md lg:text-lg mb-2">{p.name}</h4>
               <p className="text-sm lg:text-lg italic opacity-75">

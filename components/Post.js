@@ -8,9 +8,10 @@ import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
+import { event } from "../utils/gtag";
 
 function Anchor(props) {
-  return <TextButton target="_blank" rel="noopener noreferrer" {...props} />;
+  return <TextButton external {...props} />;
 }
 
 function Code({ children, className }) {
@@ -65,6 +66,13 @@ export default function Post(props) {
       <Paragraph className="mb-4 lg:mb-8">
         Questions, comments, suggestions?{" "}
         <TextButton
+          onClick={() =>
+            event({
+              action: "Send Feedback",
+              category: "Post",
+              label: props.title
+            })
+          }
           href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -81,15 +89,11 @@ export default function Post(props) {
         <img
           className="h-24 w-24 rounded-full mb-4 lg:mb-0 lg:mr-4"
           src="/david-thumbnail.jpg"
-          srcset="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
+          srcSet="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
         />
         <p className="text-md lg:text-xl text-center lg:text-left">
           {SITE_DESCRIPTION} He is the the Director of Engineering at{" "}
-          <TextButton
-            href="https://www.gonoodle.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <TextButton href="https://www.gonoodle.com" external>
             GoNoodle
           </TextButton>
           , where he works to help kids be their best selves through movement
