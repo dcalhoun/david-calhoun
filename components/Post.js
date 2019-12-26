@@ -92,7 +92,7 @@ export default function Post(props) {
           srcSet="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
         />
         <p className="text-md lg:text-xl text-center lg:text-left">
-          {SITE_DESCRIPTION} He is the the Director of Engineering at{" "}
+          {SITE_DESCRIPTION} He is the Director of Engineering at{" "}
           <TextButton href="https://www.gonoodle.com" external>
             GoNoodle
           </TextButton>
