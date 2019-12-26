@@ -14,6 +14,7 @@ function generateTitle(pageTitle) {
 export default function SEO({
   description,
   image,
+  imageAlt,
   imageHeight,
   imageWidth,
   title
@@ -42,6 +43,11 @@ export default function SEO({
         key="og:image:width"
         property="og:image:width"
         content={imageWidth || 1200}
+      />
+      <meta
+        key="og:image:alt"
+        property="og:image:width"
+        content={imageAlt || "David Calhoun"}
       />
       <meta
         key="og:image"
