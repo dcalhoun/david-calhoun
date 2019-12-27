@@ -9,6 +9,7 @@ import Paragraph from "./Paragraph";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import { event } from "../utils/gtag";
+import "lazysizes";
 
 function Anchor(props) {
   return <TextButton external {...props} />;
@@ -117,11 +118,12 @@ export default function Post(props) {
         style={{ backgroundColor: "var(--backgroundBorder)" }}
       >
         <img
-          className="h-24 w-24 rounded-full mb-4 lg:mb-0 lg:mr-4"
-          src="/david-thumbnail.jpg"
-          srcSet="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
+          alt="David Calhoun"
+          className="lazyload block h-24 w-24 mb-4 lg:mb-0 lg:mr-4 rounded-full"
+          data-src="/david-thumbnail.jpg"
+          data-src-set="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
         />
-        <p className="text-md lg:text-xl text-center lg:text-left">
+        <p className="flex-shrink text-md lg:text-xl text-center lg:text-left">
           {SITE_DESCRIPTION} He is the Director of Engineering at{" "}
           <TextButton href="https://www.gonoodle.com" external>
             GoNoodle

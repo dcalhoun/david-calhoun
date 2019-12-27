@@ -42,6 +42,7 @@ class MyDocument extends NextDocument {
           <NextScript />
           <script
             async
+            rel="preconnect"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
           />
           <script
