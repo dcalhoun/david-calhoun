@@ -1,5 +1,5 @@
 import React from "react";
-import stripEmpty from "../utils/string";
+import { stripEmpty } from "../utils/string";
 
 export default function Paragraph({ className, ...rest }) {
   return (

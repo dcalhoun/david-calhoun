@@ -1,6 +1,6 @@
 import "./index.css";
 import React from "react";
-import stripEmpty from "../../utils/string";
+import { stripEmpty } from "../../utils/string";
 import { event } from "../../utils/gtag";
 
 export default React.forwardRef(function TextButton(

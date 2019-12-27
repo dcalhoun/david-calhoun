@@ -3,7 +3,7 @@ import SEO, { SITE_DESCRIPTION } from "./SEO";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
 import TextButton from "./TextButton";
-import stripEmpty from "../utils/string";
+import { stripEmpty } from "../utils/string";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
 import Highlight, { defaultProps } from "prism-react-renderer";

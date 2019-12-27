@@ -1,1 +1,3 @@
-export default string => string || "";
+export function stripEmpty(string) {
+  return string || "";
+}
