@@ -1,0 +1,24 @@
+import Layout from "../../components/Layout";
+import Post from "../../components/Post";
+
+export let meta = {
+  description: "A practical guide to code review.",
+  published: "2019-12-27",
+  title: "Writing Code Together"
+};
+
+<Layout>
+<Post {...meta}>
+
+Writing code with other people is hard. Thankfully, companies like GitHub have built great tools to help make it easier. Tools so great that it’s difficult for me to remember the days before GitHub Pull Requests with easy-to-follow inline comments on diff files.
+
+Even with great tooling like this, however, it is still challenging to keep everyone on a team focused on a common goal and avoid resentment between team members created through miscommunication. Here are a few tactics I’ve learned over the years to foster community.
+
+1. Author your comments from the perspective of the team when possible by using plural pronouns (e.g. we, our, us) to convey that all code contributed is a team effort.
+1. Provide an explanation for the “why” behind your requested changes (e.g. outline the pros and cons of both the current and proposed approach to a problem) to avoid the perception of arbitrary demands.
+1. When providing a personal opinion or preference, leave opportunity for feedback on the topic (e.g. “What are your thoughts on what I have proposed?”) to promote collaboration.
+
+Communicating tone and intent via text is difficult. Using collabrative language can go a long way to unifying a team around their common task—shipping great software.
+
+</Post>
+</Layout>
