@@ -14,7 +14,6 @@ export default function Layout({ children, disableContentPadding }) {
         } flex-1`}
       >
         <Head>
-          <title>David Calhoun, Software Engineer</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
