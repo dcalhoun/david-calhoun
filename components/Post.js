@@ -46,6 +46,33 @@ function Code({ children, className }) {
   );
 }
 
+function UnorderedList({ className, ...rest }) {
+  return (
+    <ul
+      className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
+      {...rest}
+    />
+  );
+}
+
+function OrderedList({ className, ...rest }) {
+  return (
+    <ol
+      className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
+      {...rest}
+    />
+  );
+}
+
+function ListItem({ className, ...rest }) {
+  return (
+    <li
+      className={`text-lg lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
+      {...rest}
+    />
+  );
+}
+
 let components = {
   h1: Heading.H1,
   h2: Heading.H2,
@@ -53,6 +80,9 @@ let components = {
   p: Paragraph,
   a: Anchor,
   pre: props => <div {...props} />,
+  ul: UnorderedList,
+  ol: OrderedList,
+  li: ListItem,
   code: Code
 };
 
