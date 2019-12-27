@@ -12,3 +12,20 @@
 .Layout-content {
   background-color: var(--background);
 }
+
+.SkipToContent {
+  @apply sr-only;
+}
+
+.SkipToContent:focus {
+  @apply not-sr-only;
+  @apply bg-white;
+  @apply border-solid;
+  @apply rounded-lg;
+  @apply p-4;
+  @apply mt-2;
+  @apply ml-2;
+  background-color: var(--color);
+  color: var(--background);
+  position: absolute;
+}
