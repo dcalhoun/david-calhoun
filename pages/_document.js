@@ -36,13 +36,15 @@ class MyDocument extends NextDocument {
             sizes="512x512"
             href="/icon-512x512.png"
           />
+          <link rel="preconnect" href="https://www.google-analytics.com" />
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
+          <link rel="preconnect" href="https://platform.twitter.com" />
         </Head>
         <body>
           <Main />
           <NextScript />
           <script
             async
-            rel="preconnect"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
           />
           <script
