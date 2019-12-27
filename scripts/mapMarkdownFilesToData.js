@@ -1,8 +1,8 @@
 let fs = require("fs");
 let path = require("path");
 
-let DIR = path.join(process.cwd(), "/pages/writing/");
-let META = /export\s+let\s+meta\s+=\s+({[\s\S]*?\n})/;
+const DIR = path.join(process.cwd(), "/pages/writing/");
+const META = /export\s+let\s+meta\s+=\s+({[\s\S]*?\n})/;
 let files = fs
   .readdirSync(DIR)
   .filter(file => file.endsWith(".md") || file.endsWith(".mdx"));
