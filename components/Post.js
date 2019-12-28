@@ -120,8 +120,9 @@ export default function Post(props) {
         <img
           alt="David Calhoun"
           className="lazyload block h-24 w-24 mb-4 lg:mb-0 lg:mr-4 rounded-full"
+          data-sizes="auto"
           data-src="/david-thumbnail.jpg"
-          data-src-set="/david-thumbnail@2x.jpg 2x, /david-thumbnail@3x.jpg 3x"
+          data-srcset="/david-thumbnail.jpg 96w, /david-thumbnail@2x.jpg 192w, /david-thumbnail@3x.jpg 288w"
         />
         <p className="flex-shrink text-md lg:text-xl text-center lg:text-left">
           {SITE_DESCRIPTION} He is the Director of Engineering at{" "}
