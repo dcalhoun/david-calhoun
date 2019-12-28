@@ -94,7 +94,7 @@ export default function Post(props) {
       <Heading.H1>{props.title}</Heading.H1>
       <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
       {props.children}
-      <Paragraph className="mb-4 lg:mb-8">
+      <Paragraph>
         Questions, comments, suggestions?{" "}
         <TextButton
           onClick={() =>
@@ -110,9 +110,12 @@ export default function Post(props) {
         >
           Open an issue
         </TextButton>
-        .
+        . Enjoy this content? Please consider sharing it.
+        <ButtonTweet
+          className="inline-block align-middle ml-2"
+          title={props.title}
+        />
       </Paragraph>
-      <ButtonTweet title={props.title} />
       <footer
         className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8"
         style={{ backgroundColor: "var(--backgroundBorder)" }}
