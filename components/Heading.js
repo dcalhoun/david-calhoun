@@ -31,7 +31,7 @@ export function H3({ className, ...rest }) {
 export function H4({ className, ...rest }) {
   return (
     <h4
-      className={`text-xs lg:text-lg opacity-75 mb-4 lg:mb-8 ${stripEmpty(
+      className={`text-sm lg:text-lg opacity-75 mb-4 lg:mb-8 ${stripEmpty(
         className
       )}`}
       {...rest}
