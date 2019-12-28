@@ -1,8 +1,9 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import { stripEmpty } from "../utils/string";
 
-export default function ButtonTweet(props) {
+export default function ButtonTweet({ title, ...rest }) {
   const anchor = useRef(null);
-  useLayoutEffect(() => {
+  useEffect(() => {
     async function initTweetButton(anchor, text) {
       if (typeof window !== "undefined") {
         if (typeof window.twitter === "undefined") {
@@ -32,8 +33,8 @@ export default function ButtonTweet(props) {
       }
     }
 
-    initTweetButton(anchor, props.title);
+    initTweetButton(anchor, title);
   }, [anchor]);
 
-  return <nav ref={anchor} className="mb-4 lg:mb-8" />;
+  return <span ref={anchor} {...rest} />;
 }
