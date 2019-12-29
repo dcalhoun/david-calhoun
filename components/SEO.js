@@ -5,7 +5,10 @@ import { useRouter } from "next/router";
 const SITE_TITLE = "David Calhoun, Software Engineer";
 export const SITE_DESCRIPTION =
   "David Calhoun is a software engineer with a passion for good UX design & scalable architecture.";
-const ORIGIN = "https://davidcalhoun.me";
+const ORIGIN =
+  process.env.NODE_ENV === "production"
+    ? "https://davidcalhoun.me"
+    : "http://localhost:3000";
 
 function generateTitle(pageTitle) {
   return pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
