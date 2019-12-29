@@ -5,6 +5,9 @@ class MyDocument extends NextDocument {
     return (
       <Html lang="en">
         <Head>
+          {process.env.DEVTOOLS === "true" && (
+            <script src="http://localhost:8097" />
+          )}
           <link rel="shortcut icon" href="/icon-48x48.png" />
           <link rel="manifest" href="/manifest.webmanifest" />
           <meta name="theme-color" content="#4e1fe0" />
