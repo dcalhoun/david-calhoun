@@ -12,7 +12,7 @@ let themes = [
   {
     background: colors.black,
     color: colors.gray[3],
-    linkColor: colors.gray[0],
+    linkColor: colors.yellow[3],
     name: "dark"
   }
 ];
