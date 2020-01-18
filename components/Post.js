@@ -10,6 +10,7 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import { event } from "../utils/gtag";
 import "lazysizes";
+import FormattedDate from "../components/FormattedDate";
 
 function Anchor(props) {
   return <TextButton external {...props} />;
@@ -92,7 +93,9 @@ export default function Post(props) {
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />
       <Heading.H1>{props.title}</Heading.H1>
-      <Heading.H4>{props.published.replace(/-/g, ".")}</Heading.H4>
+      <Heading.H4>
+        <FormattedDate dateString={props.published} />
+      </Heading.H4>
       {props.children}
       <Paragraph>
         Questions, comments, suggestions?{" "}

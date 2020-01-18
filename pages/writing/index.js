@@ -5,6 +5,7 @@ import SEO from "../../components/SEO";
 import TextButton from "../../components/TextButton";
 import posts from "../../utils/posts";
 import { H2, H4 } from "../../components/Heading";
+import FormattedDate from "../../components/FormattedDate";
 
 export default function Writing() {
   return (
@@ -14,14 +15,18 @@ export default function Writing() {
         description="Thoughts and explorations of David Calhoun."
       />
       <ul>
-        {posts.map((p, i) => (
-          <li key={i}>
+        {posts.map((postData, index) => (
+          <li key={index}>
             <H2>
-              <Link href={p.path} passHref>
-                <TextButton className="lg:text-4xl">{p.title}</TextButton>
+              <Link href={postData.path} passHref>
+                <TextButton className="lg:text-4xl">
+                  {postData.title}
+                </TextButton>
               </Link>
             </H2>
-            <H4>{p.published.replace(/-/g, ".")}</H4>
+            <H4>
+              <FormattedDate dateString={postData.published} />
+            </H4>
           </li>
         ))}
       </ul>
