@@ -1,9 +1,9 @@
-import "../../theme.css";
-import "./index.css";
+import "../theme.css";
+import "./Layout.css";
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
-import TextButton from "../TextButton";
+import TextButton from "./TextButton";
 
 export default function Layout({ children, disableContentPadding }) {
   return (
