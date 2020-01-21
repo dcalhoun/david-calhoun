@@ -5,7 +5,12 @@ import Link from "next/link";
 import Head from "next/head";
 import TextButton from "./TextButton";
 
-export default function Layout({ children, disableContentPadding }) {
+interface Props {
+  children: React.ReactNode;
+  disableContentPadding: boolean;
+}
+
+export default function Layout({ children, disableContentPadding }: Props) {
   return (
     <>
       <a className="SkipToContent" href="#content">
@@ -57,3 +62,7 @@ export default function Layout({ children, disableContentPadding }) {
     </>
   );
 }
+
+Layout.defaultProps = {
+  disableContentPadding: false
+};

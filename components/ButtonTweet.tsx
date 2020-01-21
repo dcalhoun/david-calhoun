@@ -1,12 +1,24 @@
 import React, { useEffect, useRef } from "react";
-import { stripEmpty } from "../utils/string";
+
+declare global {
+  interface Window {
+    twttr?: {
+      widgets: {
+        createShareButton(href: any, element: any, options: any): Promise<void>;
+      };
+    };
+  }
+}
 
 export default function ButtonTweet({ title, ...rest }) {
   const anchor = useRef(null);
   useEffect(() => {
-    async function initTweetButton(anchor, text) {
+    async function initTweetButton(
+      anchor: React.RefObject<HTMLSpanElement>,
+      text: string
+    ) {
       if (typeof window !== "undefined") {
-        if (typeof window.twitter === "undefined") {
+        if (typeof window.twttr === "undefined") {
           try {
             await new Promise(resolve => {
               const firstScript = document.getElementsByTagName("script")[0];

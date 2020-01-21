@@ -16,7 +16,12 @@ function Anchor(props) {
   return <TextButton external {...props} />;
 }
 
-function Code({ children, className }) {
+interface CodeProps {
+  children: string;
+  className?: string;
+}
+
+function Code({ children, className }: CodeProps) {
   let language = className.replace(/language-/, "");
   return (
     <Highlight
@@ -88,7 +93,14 @@ let components = {
   code: Code
 };
 
-export default function Post(props) {
+interface Props {
+  children: React.ReactNode;
+  description: string;
+  published: string;
+  title: string;
+}
+
+export default function Post(props: Props) {
   return (
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />

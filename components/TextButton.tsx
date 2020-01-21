@@ -3,10 +3,20 @@ import React from "react";
 import { stripEmpty } from "../utils/string";
 import { event } from "../utils/gtag";
 
-export default React.forwardRef(function TextButton(
-  { className, external, onClick, href, ...rest },
-  ref
-) {
+interface Props {
+  className?: string;
+  children: React.ReactNode;
+  external?: boolean;
+  onClick?(event: Event): void;
+  href?: string;
+  rel?: "noopener noreferrer";
+  target?: "_blank";
+}
+
+export default React.forwardRef<HTMLAnchorElement, Props>(function TextButton(
+  { className, external, onClick, href, ...rest }: Props,
+  ref: React.Ref<HTMLAnchorElement>
+): React.ReactElement {
   return (
     <a
       className={`TextButton ${stripEmpty(className)}`}
@@ -18,7 +28,7 @@ export default React.forwardRef(function TextButton(
         external && {
           target: "_blank",
           rel: "noopener noreferrer",
-          onClick: () => {
+          onClick: (): void => {
             event({
               action: "Click Link",
               category: "External Links",

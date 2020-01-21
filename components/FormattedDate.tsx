@@ -1,4 +1,8 @@
-export default function FormattedDate({ dateString }) {
+interface Props {
+  dateString: string;
+}
+
+export default function FormattedDate({ dateString }: Props): string {
   const months = [
     "January",
     "February",
@@ -14,5 +18,5 @@ export default function FormattedDate({ dateString }) {
     "December"
   ];
   let [year, month, day] = dateString.split(/-/g);
-  return `${day} ${months[month - 1]} ${year}`;
+  return `${day} ${months[parseInt(month) - 1]} ${year}`;
 }

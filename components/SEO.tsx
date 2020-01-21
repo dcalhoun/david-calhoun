@@ -10,8 +10,17 @@ const ORIGIN =
     ? "https://davidcalhoun.me"
     : "http://localhost:3000";
 
-function generateTitle(pageTitle) {
+function generateTitle(pageTitle: string) {
   return pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
+}
+
+interface Props {
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  imageHeight?: string;
+  imageWidth?: string;
+  title?: string;
 }
 
 export default function SEO({
@@ -21,7 +30,7 @@ export default function SEO({
   imageHeight,
   imageWidth,
   title
-}) {
+}: Props) {
   const router = useRouter();
 
   return (
@@ -40,12 +49,12 @@ export default function SEO({
       <meta
         key="og:image:height"
         property="og:image:height"
-        content={imageHeight || 630}
+        content={imageHeight || "630"}
       />
       <meta
         key="og:image:width"
         property="og:image:width"
-        content={imageWidth || 1200}
+        content={imageWidth || "1200"}
       />
       <meta
         key="og:image:alt"
