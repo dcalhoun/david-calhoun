@@ -2,7 +2,7 @@ import React from "react";
 import SEO, { SITE_DESCRIPTION } from "./SEO";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
-import TextButton from "./TextButton";
+import TextButton, { TextButtonProps } from "./TextButton";
 import { stripEmpty } from "../utils/string";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
@@ -12,7 +12,7 @@ import { event } from "../utils/gtag";
 import "lazysizes";
 import FormattedDate from "../components/FormattedDate";
 
-function Anchor(props) {
+function Anchor(props: TextButtonProps) {
   return <TextButton external {...props} />;
 }
 
@@ -27,6 +27,7 @@ function Code({ children, className }: CodeProps) {
     <Highlight
       {...defaultProps}
       code={children}
+      // @ts-ignore
       language={language}
       theme={theme}
     >
@@ -86,7 +87,11 @@ let components = {
   h3: Heading.H3,
   p: Paragraph,
   a: Anchor,
-  pre: props => <div {...props} />,
+  pre: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLDivElement> &
+      React.HTMLAttributes<HTMLDivElement>
+  ) => <div {...props} />,
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
