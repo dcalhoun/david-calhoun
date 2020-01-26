@@ -118,10 +118,9 @@ export default function Post(props: Props) {
         Questions, comments, suggestions?{" "}
         <TextButton
           onClick={() =>
-            event({
-              action: "Send Feedback",
-              category: "Post",
-              label: props.title
+            event("Send Feedback", {
+              event_category: "Post",
+              event_label: props.title
             })
           }
           href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}

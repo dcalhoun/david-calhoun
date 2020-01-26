@@ -30,10 +30,9 @@ export default React.forwardRef<HTMLAnchorElement, TextButtonProps>(
             target: "_blank",
             rel: "noopener noreferrer",
             onClick: (): void => {
-              event({
-                action: "Click Link",
-                category: "External Links",
-                label: href
+              event("Click Link", {
+                event_category: "External Links",
+                event_label: href
               });
             }
           })}
