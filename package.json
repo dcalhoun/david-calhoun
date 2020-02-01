@@ -8,7 +8,7 @@
     "prebuild": "node ./scripts/theme.js",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "typecheck": "tsc"
   },
   "engines": {
     "node": ">=12"
