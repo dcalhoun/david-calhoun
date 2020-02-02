@@ -1,16 +1,11 @@
 import React, { useEffect, useRef } from "react";
 
-declare global {
-  interface Window {
-    twttr?: {
-      widgets: {
-        createShareButton(href: any, element: any, options: any): Promise<void>;
-      };
-    };
-  }
+interface Props {
+  className?: string;
+  title: string;
 }
 
-export default function ButtonTweet({ title, ...rest }) {
+let ButtonTweet: React.FC<Props> = ({ title, ...rest }) => {
   const anchor = useRef(null);
   useEffect(() => {
     async function initTweetButton(
@@ -49,4 +44,6 @@ export default function ButtonTweet({ title, ...rest }) {
   }, [anchor]);
 
   return <span ref={anchor} {...rest} />;
-}
+};
+
+export default ButtonTweet;

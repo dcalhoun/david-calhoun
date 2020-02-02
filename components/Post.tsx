@@ -12,16 +12,16 @@ import { event } from "../utils/gtag";
 import "lazysizes";
 import FormattedDate from "../components/FormattedDate";
 
-function Anchor(props: TextButtonProps) {
+let Anchor: React.FC<TextButtonProps> = props => {
   return <TextButton external {...props} />;
-}
+};
 
-interface CodeProps {
+interface ElementProps {
   children: string;
   className?: string;
 }
 
-function Code({ children, className }: CodeProps) {
+let Code: React.FC<ElementProps> = ({ children, className }) => {
   let language = className.replace(/language-/, "");
   return (
     <Highlight
@@ -52,34 +52,34 @@ function Code({ children, className }: CodeProps) {
       )}
     </Highlight>
   );
-}
+};
 
-function UnorderedList({ className, ...rest }) {
+let UnorderedList: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <ul
       className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
-function OrderedList({ className, ...rest }) {
+let OrderedList: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <ol
       className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
-function ListItem({ className, ...rest }) {
+let ListItem: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <li
       className={`text-lg lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
 let components = {
   h1: Heading.H1,
@@ -105,7 +105,7 @@ interface Props {
   title: string;
 }
 
-export default function Post(props: Props) {
+let Post: React.FC<Props> = props => {
   return (
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />
@@ -157,4 +157,6 @@ export default function Post(props: Props) {
       </footer>
     </MDXProvider>
   );
-}
+};
+
+export default Post;

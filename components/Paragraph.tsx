@@ -6,11 +6,13 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function Paragraph({ className, ...rest }: Props) {
+let Paragraph: React.FC<Props> = ({ className, ...rest }) => {
   return (
     <p
       className={`text-lg lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
+
+export default Paragraph;

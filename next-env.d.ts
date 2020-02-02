@@ -11,3 +11,21 @@ declare module "babel-plugin-preval/macro" {
 }
 
 declare module "lazysizes";
+
+declare namespace twttr {
+  let widgets: {
+    createShareButton(
+      href: string,
+      element: HTMLElement,
+      options: {
+        dnt?: boolean;
+        hashtags?: string;
+        lang?: string;
+        related?: string;
+        size?: string;
+        text?: string;
+        via?: string;
+      }
+    ): Promise<void>;
+  };
+}

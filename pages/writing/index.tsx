@@ -6,6 +6,7 @@ import TextButton from "../../components/TextButton";
 import posts from "../../utils/posts";
 import { H2, H4 } from "../../components/Heading";
 import FormattedDate from "../../components/FormattedDate";
+import { NextPage } from "next";
 
 interface Post {
   description: string;
@@ -14,7 +15,7 @@ interface Post {
   title: string;
 }
 
-export default function Writing() {
+let Writing: NextPage = () => {
   return (
     <Layout>
       <SEO
@@ -39,4 +40,6 @@ export default function Writing() {
       </ul>
     </Layout>
   );
-}
+};
+
+export default Writing;

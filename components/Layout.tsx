@@ -7,10 +7,10 @@ import TextButton from "./TextButton";
 
 interface Props {
   children: React.ReactNode;
-  disableContentPadding: boolean;
+  disableContentPadding?: boolean;
 }
 
-export default function Layout({ children, disableContentPadding }: Props) {
+let Layout: React.FC<Props> = ({ children, disableContentPadding }) => {
   return (
     <>
       <a className="SkipToContent" href="#content">
@@ -61,8 +61,10 @@ export default function Layout({ children, disableContentPadding }: Props) {
       </div>
     </>
   );
-}
+};
 
 Layout.defaultProps = {
   disableContentPadding: false
 };
+
+export default Layout;

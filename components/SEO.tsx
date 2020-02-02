@@ -10,7 +10,7 @@ const ORIGIN =
     ? "https://davidcalhoun.me"
     : "http://localhost:3000";
 
-function generateTitle(pageTitle: string) {
+function generateTitle(pageTitle: string): string {
   return pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE;
 }
 
@@ -23,14 +23,14 @@ interface Props {
   title?: string;
 }
 
-export default function SEO({
+let SEO: React.FC<Props> = ({
   description,
   image,
   imageAlt,
   imageHeight,
   imageWidth,
   title
-}: Props) {
+}) => {
   const router = useRouter();
 
   return (
@@ -91,4 +91,6 @@ export default function SEO({
       />
     </Head>
   );
-}
+};
+
+export default SEO;

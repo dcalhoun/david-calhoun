@@ -1,6 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 
-class MyDocument extends NextDocument {
+export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
@@ -65,5 +65,3 @@ class MyDocument extends NextDocument {
     );
   }
 }
-
-export default MyDocument;

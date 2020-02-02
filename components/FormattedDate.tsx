@@ -2,9 +2,7 @@ interface Props {
   dateString: string;
 }
 
-export default function FormattedDate({
-  dateString
-}: Props): React.ReactElement {
+let FormattedDate: React.FC<Props> = ({ dateString }) => {
   const months = [
     "January",
     "February",
@@ -22,4 +20,6 @@ export default function FormattedDate({
   let [year, month, day] = dateString.split(/-/g);
   // Return fragment to workaround https://git.io/Jvq25
   return <>{`${day} ${months[parseInt(month) - 1]} ${year}`}</>;
-}
+};
+
+export default FormattedDate;
