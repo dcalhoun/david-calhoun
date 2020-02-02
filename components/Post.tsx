@@ -2,7 +2,7 @@ import React from "react";
 import SEO, { SITE_DESCRIPTION } from "./SEO";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
-import TextButton from "./TextButton";
+import TextButton, { TextButtonProps } from "./TextButton";
 import { stripEmpty } from "../utils/string";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
@@ -12,16 +12,22 @@ import { event } from "../utils/gtag";
 import "lazysizes";
 import FormattedDate from "../components/FormattedDate";
 
-function Anchor(props) {
+let Anchor: React.FC<TextButtonProps> = props => {
   return <TextButton external {...props} />;
+};
+
+interface ElementProps {
+  children: string;
+  className?: string;
 }
 
-function Code({ children, className }) {
+let Code: React.FC<ElementProps> = ({ children, className }) => {
   let language = className.replace(/language-/, "");
   return (
     <Highlight
       {...defaultProps}
       code={children}
+      // @ts-ignore
       language={language}
       theme={theme}
     >
@@ -46,34 +52,34 @@ function Code({ children, className }) {
       )}
     </Highlight>
   );
-}
+};
 
-function UnorderedList({ className, ...rest }) {
+let UnorderedList: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <ul
       className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
-function OrderedList({ className, ...rest }) {
+let OrderedList: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <ol
       className={`list-decimal pl-6 lg:pl-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
-function ListItem({ className, ...rest }) {
+let ListItem: React.FC<ElementProps> = ({ className, ...rest }) => {
   return (
     <li
       className={`text-lg lg:text-2xl mb-4 lg:mb-8 ${stripEmpty(className)}`}
       {...rest}
     />
   );
-}
+};
 
 let components = {
   h1: Heading.H1,
@@ -81,14 +87,25 @@ let components = {
   h3: Heading.H3,
   p: Paragraph,
   a: Anchor,
-  pre: props => <div {...props} />,
+  pre: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLDivElement> &
+      React.HTMLAttributes<HTMLDivElement>
+  ) => <div {...props} />,
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
   code: Code
 };
 
-export default function Post(props) {
+interface Props {
+  children: React.ReactNode;
+  description: string;
+  published: string;
+  title: string;
+}
+
+let Post: React.FC<Props> = props => {
   return (
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />
@@ -101,10 +118,9 @@ export default function Post(props) {
         Questions, comments, suggestions?{" "}
         <TextButton
           onClick={() =>
-            event({
-              action: "Send Feedback",
-              category: "Post",
-              label: props.title
+            event("Send Feedback", {
+              event_category: "Post",
+              event_label: props.title
             })
           }
           href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
@@ -141,4 +157,6 @@ export default function Post(props) {
       </footer>
     </MDXProvider>
   );
-}
+};
+
+export default Post;

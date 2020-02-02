@@ -2,8 +2,9 @@ import React from "react";
 import Layout from "../components/Layout";
 import TextButton from "../components/TextButton";
 import SEO, { SITE_DESCRIPTION } from "../components/SEO";
+import { NextPage } from "next";
 
-export default function Index() {
+let Index: NextPage = () => {
   return (
     <Layout disableContentPadding>
       <SEO />
@@ -40,7 +41,7 @@ export default function Index() {
       </div>
     </Layout>
   );
-}
+};
 
 let projects = [
   {
@@ -80,3 +81,5 @@ let projects = [
     name: "css-utils-padding"
   }
 ];
+
+export default Index;

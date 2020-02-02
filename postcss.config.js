@@ -3,7 +3,10 @@ module.exports = ({ env }) => ({
     require("tailwindcss"),
     env === "production"
       ? require("@fullhuman/postcss-purgecss")({
-          content: ["./pages/**/*.js", "./components/**/*.js"],
+          content: [
+            "./pages/**/*.{ts,tsx,js}",
+            "./components/**/*.{ts,tsx,js}"
+          ],
           defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
         })
       : false,

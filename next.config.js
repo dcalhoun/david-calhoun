@@ -10,7 +10,7 @@ let withMDX = require("@next/mdx")({
 
 module.exports = withCSS(
   withMDX({
-    pageExtensions: ["js", "mdx"],
+    pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
     webpack: (config, { defaultLoaders, isServer, dev }) => {
       return {
         ...config,

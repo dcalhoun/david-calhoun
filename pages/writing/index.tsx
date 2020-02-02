@@ -6,8 +6,16 @@ import TextButton from "../../components/TextButton";
 import posts from "../../utils/posts";
 import { H2, H4 } from "../../components/Heading";
 import FormattedDate from "../../components/FormattedDate";
+import { NextPage } from "next";
 
-export default function Writing() {
+interface Post {
+  description: string;
+  path: string;
+  published: string;
+  title: string;
+}
+
+let Writing: NextPage = () => {
   return (
     <Layout>
       <SEO
@@ -15,7 +23,7 @@ export default function Writing() {
         description="Thoughts and explorations of David Calhoun."
       />
       <ul>
-        {posts.map((postData, index) => (
+        {posts.map((postData: Post, index: number) => (
           <li key={index}>
             <H2>
               <Link href={postData.path} passHref>
@@ -32,4 +40,6 @@ export default function Writing() {
       </ul>
     </Layout>
   );
-}
+};
+
+export default Writing;
