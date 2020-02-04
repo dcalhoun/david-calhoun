@@ -41,7 +41,7 @@ let ButtonTweet: React.FC<Props> = ({ title, ...rest }) => {
     }
 
     initTweetButton(anchor, title);
-  }, [anchor]);
+  }, [anchor, title]);
 
   return <span ref={anchor} {...rest} />;
 };
