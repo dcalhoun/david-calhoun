@@ -19,7 +19,7 @@ let FormattedDate: React.FC<Props> = ({ dateString }) => {
   ];
   let [year, month, day] = dateString.split(/-/g);
   // Return fragment to workaround https://git.io/Jvq25
-  return <>{`${day} ${months[parseInt(month) - 1]} ${year}`}</>;
+  return <>{`${parseInt(day, 10)} ${months[parseInt(month) - 1]} ${year}`}</>;
 };
 
 export default FormattedDate;
