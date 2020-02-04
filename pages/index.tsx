@@ -67,9 +67,9 @@ let Index: NextPage = () => {
         </p>
       </div>
       <div className="text-center">
-        <h3 className="text-xs lg:text-base text-center tracking-widest font-medium uppercase">
+        <h2 className="text-xs lg:text-base text-center tracking-widest font-medium uppercase">
           Open Source
-        </h3>
+        </h2>
         <span className="h-1 w-10 inline-block bg-gray-400" />
       </div>
       <div className="lg:mb-8">
@@ -81,9 +81,9 @@ let Index: NextPage = () => {
             external
           >
             <div className="p-4">
-              <h4 className="font-mono text-md lg:text-lg mb-2">
+              <h3 className="font-mono text-md lg:text-lg mb-2">
                 {project.name}
-              </h4>
+              </h3>
               <p className="text-sm lg:text-lg italic opacity-75">
                 {project.description}
               </p>
