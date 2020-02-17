@@ -5,12 +5,12 @@ import { event } from "../utils/gtag";
 
 export interface TextButtonProps {
   className?: string;
-  children: React.ReactNode;
+  children: React.ReactElement;
   external?: boolean;
   onClick?(event: Event): void;
   href?: string;
-  rel?: "noopener noreferrer";
-  target?: "_blank";
+  rel?: string;
+  target?: string;
 }
 
 let TextButton: React.FC<TextButtonProps> = (
