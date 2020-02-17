@@ -5,7 +5,7 @@ import { event } from "../utils/gtag";
 
 export interface TextButtonProps {
   className?: string;
-  children: React.ReactElement;
+  children: React.ReactNode;
   external?: boolean;
   onClick?(event: Event): void;
   href?: string;
