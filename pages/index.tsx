@@ -51,28 +51,26 @@ let projects: Project[] = [
 
 let Index: NextPage = () => {
   return (
-    <Layout disableContentPadding>
+    <Layout>
       <SEO />
-      <div className="px-4">
-        <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
-          {SITE_DESCRIPTION}
-        </h1>
-        <p className="text-lg mb-16">
-          Currently at{" "}
-          <TextButton href="https://www.gonoodle.com" external>
-            GoNoodle
-          </TextButton>
-          . <br className="md:hidden" />
-          Based in Nashville, TN.
-        </p>
-      </div>
+      <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
+        {SITE_DESCRIPTION}
+      </h1>
+      <p className="text-lg mb-16">
+        Currently at{" "}
+        <TextButton href="https://www.gonoodle.com" external>
+          GoNoodle
+        </TextButton>
+        . <br className="md:hidden" />
+        Based in Nashville, TN.
+      </p>
       <div className="text-center">
         <h2 className="text-xs lg:text-base text-center tracking-widest font-medium uppercase">
           Open Source
         </h2>
         <span className="h-1 w-10 inline-block bg-gray-400" />
       </div>
-      <div className="lg:mb-8">
+      <div className="mb-8">
         {projects.map((project: Project, index: number) => (
           <TextButton
             className="block"
@@ -80,7 +78,7 @@ let Index: NextPage = () => {
             href={project.href}
             external
           >
-            <div className="p-4">
+            <div className="py-4">
               <h3 className="font-mono text-md lg:text-lg mb-2">
                 {project.name}
               </h3>

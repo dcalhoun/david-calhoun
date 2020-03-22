@@ -7,32 +7,23 @@ import TextButton from "./TextButton";
 
 interface Props {
   children: React.ReactNode;
-  disableContentPadding?: boolean;
 }
 
-let Layout: React.FC<Props> = ({ children, disableContentPadding }) => {
+let Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <a className="SkipToContent" href="#content">
         Skip to content
       </a>
       <div className="Layout min-h-screen p-2 lg:p-4 flex flex-col">
-        <div
-          className={`Layout-content ${
-            disableContentPadding ? "pt-8" : "px-4 pt-8"
-          } flex-1`}
-        >
+        <div className="Layout-content px-4 pt-8 flex-1">
           <Head>
             <meta
               name="viewport"
               content="initial-scale=1.0, width=device-width"
             />
           </Head>
-          <nav
-            className={`text-center text-lg mb-8 ${
-              disableContentPadding ? "px-4" : ""
-            }`}
-          >
+          <nav className="text-center text-lg mb-8">
             <Link href="/" passHref>
               <TextButton className="mx-2">About</TextButton>
             </Link>
@@ -61,10 +52,6 @@ let Layout: React.FC<Props> = ({ children, disableContentPadding }) => {
       </div>
     </>
   );
-};
-
-Layout.defaultProps = {
-  disableContentPadding: false
 };
 
 export default Layout;
