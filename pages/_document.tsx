@@ -3,7 +3,7 @@ import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" style={{ boxSizing: "border-box" }}>
         <Head>
           {process.env.DEVTOOLS === "true" && (
             <script src="http://localhost:8097" />
