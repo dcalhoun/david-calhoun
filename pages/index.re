@@ -1,4 +1,8 @@
 [@react.component]
 let default = () => {
-  <> <TextButton> {React.string("Click Me!")} </TextButton> </>;
+  <>
+    <TextButton className="hello" onClick={_event => ()}>
+      {React.string("Click Me!")}
+    </TextButton>
+  </>;
 };
