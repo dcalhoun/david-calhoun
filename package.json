@@ -36,7 +36,6 @@
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "autoprefixer": "^9.7.3",
-    "babel-plugin-bucklescript": "^0.5.3",
     "babel-plugin-preval": "^4.0.0",
     "bs-platform": "^7.1.0",
     "chroma-js": "^2.1.0",
