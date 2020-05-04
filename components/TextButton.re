@@ -1,10 +1,3 @@
-let stripEmpty = string => {
-  switch (string) {
-  | None => ""
-  | Some(string) => " " ++ string
-  };
-};
-
 type event = {
   event_category: string,
   event_label: string,
@@ -56,7 +49,7 @@ let make =
     };
 
     <a
-      className={"TextButton" ++ stripEmpty(className)}
+      className={"TextButton" ++ String.stripEmpty(className)}
       href
       onClick
       target
