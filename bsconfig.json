@@ -1,15 +1,6 @@
 {
   "name": "davidcalhoun",
-  "sources": [
-    {
-      "dir": "components",
-      "subdirs": true
-    },
-    {
-      "dir": "pages",
-      "subdirs": true
-    }
-  ],
+  "sources": ["components", "pages", "utils"],
   "bs-dependencies": ["reason-react"],
   "reason": { "react-jsx": 3 },
   "package-specs": {
