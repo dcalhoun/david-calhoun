@@ -1,6 +1,6 @@
 type event = {
   event_category: string,
-  event_label: string,
+  event_label: option(string),
   value: option(string),
 };
 
@@ -18,7 +18,7 @@ let make =
       ~children,
       ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
-      ~href: string,
+      ~href: option(string)=?,
       ~rel: string="",
       ~target: string="",
       _ref: Js.Nullable.t(React.Ref.t('a)),
@@ -47,13 +47,30 @@ let make =
       | _ => (target, rel, (_event => ()))
       };
     };
+    let element =
+      switch (href) {
+      | Some(_href) => "a"
+      | None => "button"
+      };
+    let href = {
+      switch (href) {
+      | Some(href) => href
+      | None => ""
+      };
+    };
 
-    <a
-      className={"TextButton" ++ String.stripEmpty(className)}
-      href
-      onClick
-      target
-      rel>
-      children
-    </a>;
+    ReactDOMRe.createElement(
+      element,
+      // TODO: Conditionally pass empty props like href, target, rel
+      ~props=
+        ReactDOMRe.props(
+          ~className="TextButton" ++ String.stripEmpty(className),
+          ~href,
+          ~onClick,
+          ~target,
+          ~rel,
+          (),
+        ),
+      [|children|],
+    );
   });
