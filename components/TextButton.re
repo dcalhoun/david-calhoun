@@ -7,11 +7,9 @@ let stripEmpty = string => {
 
 type event = {
   event_category: string,
-  event_label: option(string),
+  event_label: string,
   value: option(string),
 };
-
-type clickHandler = ReactEvent.Mouse.t => unit;
 
 [@bs.val] external gtag: (string, string, event) => unit = "gtag";
 
@@ -25,17 +23,17 @@ let make =
     (
       ~className: option(string)=?,
       ~children,
-      ~onClick: option(clickHandler)=?,
+      ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
-      ~href: option(string)=?,
+      ~href: string,
       ~_rel: option(string)=?,
       ~_target: option(string)=?,
       _ref: Js.Nullable.t(React.Ref.t('a)),
     ) => {
-    let needsExternalOnClick = (onClick, href, external_);
+    let needsExternalOnClick = (onClick, external_);
     let (target, rel, onClick) = {
       switch (needsExternalOnClick) {
-      | (Some(onClick), Some(_string), Some(true)) => (
+      | (Some(onClick), Some(true)) => (
           "_blank",
           "noopener noreferrer",
           (
@@ -52,19 +50,15 @@ let make =
             }
           ),
         )
-      | (Some(onClick), None, None) => ("", "", onClick)
+      | (Some(onClick), None) => ("", "", onClick)
       | _ => ("", "", (_event => ()))
       };
     };
 
     <a
       className={"TextButton" ++ stripEmpty(className)}
-      ?href
-      onClick={event => {
-        switch (onClick) {
-        | onClick => onClick(event)
-        }
-      }}
+      href
+      onClick
       target
       rel>
       children
