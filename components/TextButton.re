@@ -26,16 +26,16 @@ let make =
       ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
       ~href: string,
-      ~_rel: option(string)=?,
-      ~_target: option(string)=?,
+      ~rel: string="",
+      ~target: string="",
       _ref: Js.Nullable.t(React.Ref.t('a)),
     ) => {
     let needsExternalOnClick = (onClick, external_);
     let (target, rel, onClick) = {
       switch (needsExternalOnClick) {
       | (Some(onClick), Some(true)) => (
-          "_blank",
-          "noopener noreferrer",
+          rel ++ "_blank",
+          target ++ "noopener noreferrer",
           (
             event => {
               trackEvent(
@@ -50,8 +50,8 @@ let make =
             }
           ),
         )
-      | (Some(onClick), None) => ("", "", onClick)
-      | _ => ("", "", (_event => ()))
+      | (Some(onClick), None) => (target, rel, onClick)
+      | _ => (target, rel, (_event => ()))
       };
     };
 
