@@ -26,14 +26,12 @@ let make =
     | None => siteTitle
     };
   };
-
   let description = {
     switch (description) {
     | Some(description) => description
     | None => siteDescription
     };
   };
-
   let imageHeight = {
     switch (imageHeight) {
     | Some(imageHeight) => imageHeight
