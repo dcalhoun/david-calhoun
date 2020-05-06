@@ -45,7 +45,7 @@ module Projects = {
 };
 
 [@react.component]
-let make = () => {
+let default = () => {
   <Layout>
     <SEO />
     <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
