@@ -1,9 +1,9 @@
 import React from "react";
-import SEO, { SITE_DESCRIPTION } from "./SEO";
+import SEO, { SITE_DESCRIPTION } from "./SEO.bs";
 import { MDXProvider } from "@mdx-js/react";
 import * as Heading from "./Heading";
-import TextButton, { TextButtonProps } from "./TextButton";
-import { stripEmpty } from "../utils/string";
+import TextButton, { TextButtonProps } from "./TextButton.bs";
+import { stripEmpty } from "../utils/String.bs";
 import ButtonTweet from "./ButtonTweet";
 import Paragraph from "./Paragraph";
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -12,7 +12,7 @@ import { event } from "../utils/gtag";
 import "lazysizes";
 import FormattedDate from "../components/FormattedDate";
 
-let Anchor: React.FC<TextButtonProps> = props => {
+let Anchor: React.FC<TextButtonProps> = (props) => {
   return <TextButton external {...props} />;
 };
 
@@ -40,7 +40,7 @@ let Code: React.FC<ElementProps> = ({ children, className }) => {
         >
           {tokens.map(
             (line, i) =>
-              line.every(l => !l.empty) && (
+              line.every((l) => !l.empty) && (
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
@@ -95,7 +95,7 @@ let components = {
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
-  code: Code
+  code: Code,
 };
 
 interface Props {
@@ -105,7 +105,7 @@ interface Props {
   title: string;
 }
 
-let Post: React.FC<Props> = props => {
+let Post: React.FC<Props> = (props) => {
   return (
     <MDXProvider components={components}>
       <SEO title={props.title} description={props.description} />
@@ -120,7 +120,7 @@ let Post: React.FC<Props> = props => {
           onClick={() =>
             event("Send Feedback", {
               event_category: "Post",
-              event_label: props.title
+              event_label: props.title,
             })
           }
           href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${props.title}`}
