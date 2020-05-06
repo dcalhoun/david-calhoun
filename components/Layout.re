@@ -1,3 +1,5 @@
+[%raw {| require("../components/Layout.css")|}];
+
 [@react.component]
 let make = (~children) => {
   <>
