@@ -1,3 +1,4 @@
+[%raw {| require("../theme.css")|}];
 [%raw {| require("../components/Layout.css")|}];
 
 [@react.component]

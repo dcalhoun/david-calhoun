@@ -1,3 +1,5 @@
+[%raw {| require("../components/TextButton.css")|}];
+
 type event = {
   event_category: string,
   event_label: option(string),
@@ -7,8 +9,6 @@ type event = {
 [@bs.val] external gtag: (string, string, event) => unit = "gtag";
 
 let trackEvent = (~action, ~params) => gtag("event", action, params);
-
-[%raw {| require("../components/TextButton.css")|}];
 
 [@react.component]
 let make =
