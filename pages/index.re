@@ -54,7 +54,7 @@ let default = () => {
       <TextButton href="https://www.gonoodle.com" external_=true>
         {React.string("GoNoodle")}
       </TextButton>
-      {React.string(".")}
+      {React.string(". ")}
       <br className="md:hidden" />
       {React.string("Based in Nashville, TN.")}
     </p>
