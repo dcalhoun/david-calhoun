@@ -1,13 +1,11 @@
 [@bs.val] [@bs.scope ("process", "env")]
 external nodeEnv: string = "NODE_ENV";
 
-module Site = {
-  let title = "David Calhoun, Software Engineer";
-  let description = "David Calhoun is a software engineer with a passion for good UX design & scalable architecture.";
-  let origin =
-    nodeEnv === "production"
-      ? "https://davidcalhoun.me" : "http://localhost:3000";
-};
+let siteTitle = "David Calhoun, Software Engineer";
+let siteDescription = "David Calhoun is a software engineer with a passion for good UX design & scalable architecture.";
+let siteOrigin =
+  nodeEnv === "production"
+    ? "https://davidcalhoun.me" : "http://localhost:3000";
 
 [@react.component]
 let make =
@@ -24,15 +22,15 @@ let make =
 
   let title = {
     switch (title) {
-    | Some(pageTitle) => pageTitle ++ " | " ++ Site.title
-    | None => Site.title
+    | Some(pageTitle) => pageTitle ++ " | " ++ siteTitle
+    | None => siteTitle
     };
   };
 
   let description = {
     switch (description) {
     | Some(description) => description
-    | None => Site.description
+    | None => siteDescription
     };
   };
 
@@ -57,7 +55,7 @@ let make =
   let image = {
     switch (image) {
     | Some(image) => image
-    | None => Site.origin ++ "/david.jpg"
+    | None => siteOrigin ++ "/david.jpg"
     };
   };
 
@@ -78,7 +76,7 @@ let make =
     // <meta
     //   key="og:url"
     //   property="og:url"
-    //   content={Site.origin ++ router.route}
+    //   content={siteOrigin ++ router.route}
     // />
     <meta key="twitter:card" name="twitter:card" content="summary" />
     <meta

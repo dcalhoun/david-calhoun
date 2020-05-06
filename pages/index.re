@@ -1,55 +1,53 @@
-module Projects = {
-  type project = {
-    description: string,
-    href: string,
-    name: string,
-  };
-
-  let projects: list(project) = [
-    {
-      description: "Summon your Hyper windows with a system-wide hotkey.",
-      href: "https://github.com/soutar/hyperterm-summon",
-      name: "hyperterm-summon",
-    },
-    {
-      description: "A Yeoman generator for prototyping and building experiences.",
-      href: "https://github.com/centresource/generator-playbook",
-      name: "generator-playbook",
-    },
-    {
-      description: "Configure Clubhouse to respond to GitHub events by specific users.",
-      href: "https://github.com/dcalhoun/github-to-clubhouse",
-      name: "github-to-clubhouse",
-    },
-    {
-      description: "CLI to convert AMD CoffeeScript to ES6 Standard JavaScript.",
-      href: "https://github.com/dcalhoun/es6-migrate",
-      name: "es6-migrate",
-    },
-    {
-      description: "Selectively remove PostCSS warnings from your logs.",
-      href: "https://github.com/dcalhoun/postcss-warn-cleaner",
-      name: "postcss-warn-cleaner",
-    },
-    {
-      description: "Immutable, CSS margin utilities.",
-      href: "https://github.com/dcalhoun/css-utils-margin",
-      name: "css-utils-margin",
-    },
-    {
-      description: "Immutable, CSS padding utilities.",
-      href: "https://github.com/dcalhoun/css-utils-padding",
-      name: "css-utils-padding",
-    },
-  ];
+type project = {
+  description: string,
+  href: string,
+  name: string,
 };
+
+let projects: list(project) = [
+  {
+    description: "Summon your Hyper windows with a system-wide hotkey.",
+    href: "https://github.com/soutar/hyperterm-summon",
+    name: "hyperterm-summon",
+  },
+  {
+    description: "A Yeoman generator for prototyping and building experiences.",
+    href: "https://github.com/centresource/generator-playbook",
+    name: "generator-playbook",
+  },
+  {
+    description: "Configure Clubhouse to respond to GitHub events by specific users.",
+    href: "https://github.com/dcalhoun/github-to-clubhouse",
+    name: "github-to-clubhouse",
+  },
+  {
+    description: "CLI to convert AMD CoffeeScript to ES6 Standard JavaScript.",
+    href: "https://github.com/dcalhoun/es6-migrate",
+    name: "es6-migrate",
+  },
+  {
+    description: "Selectively remove PostCSS warnings from your logs.",
+    href: "https://github.com/dcalhoun/postcss-warn-cleaner",
+    name: "postcss-warn-cleaner",
+  },
+  {
+    description: "Immutable, CSS margin utilities.",
+    href: "https://github.com/dcalhoun/css-utils-margin",
+    name: "css-utils-margin",
+  },
+  {
+    description: "Immutable, CSS padding utilities.",
+    href: "https://github.com/dcalhoun/css-utils-padding",
+    name: "css-utils-padding",
+  },
+];
 
 [@react.component]
 let default = () => {
   <Layout>
     <SEO />
     <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
-      {React.string(SEO.Site.description)}
+      {React.string(SEO.siteDescription)}
     </h1>
     <p className="text-lg mb-16">
       {React.string("Currently at ")}
@@ -68,7 +66,7 @@ let default = () => {
       <span className="h-1 w-10 inline-block bg-gray-400" />
     </div>
     <div className="mb-8">
-      {Projects.projects
+      {projects
        ->Belt.List.toArray
        ->Belt.Array.map(project =>
            <TextButton
