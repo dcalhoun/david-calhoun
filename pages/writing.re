@@ -7,12 +7,6 @@ type post = {
 
 [@bs.module "../utils/posts"] external posts: array(post) = "default";
 
-// TODO - Replace JS module with Reason
-module FormattedDate = {
-  [@bs.module "../components/FormattedDate"] [@react.component]
-  external make: (~dateString: string) => React.element = "default";
-};
-
 [@react.component]
 let default = () => {
   <Layout>
