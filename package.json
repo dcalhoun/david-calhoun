@@ -18,6 +18,7 @@
     "@mdx-js/loader": "^1.5.3",
     "@next/mdx": "^9.1.6",
     "@zeit/next-css": "^1.0.1",
+    "bs-webapi": "^0.15.9",
     "lazysizes": "^5.2.0",
     "next": "9.3.2",
     "prism-react-renderer": "^1.0.2",
