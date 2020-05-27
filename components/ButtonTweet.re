@@ -55,7 +55,6 @@ let make = (~title) => {
                   document
                   |> Document.getElementsByTagName("script")
                   |> HtmlCollection.item(0);
-                ();
 
                 switch (firstScript) {
                 | Some(sibling) =>
@@ -69,6 +68,7 @@ let make = (~title) => {
                 | None => ()
                 };
               });
+
             twttrLoad
             |> Js.Promise.then_(_ => {
                  createShareButton(
@@ -99,6 +99,5 @@ let make = (~title) => {
     },
     (anchor, title),
   );
-  // <span ref=anchor />;
-  <span />;
+  <span ref={ReactDOMRe.Ref.domRef(anchor)} />;
 };
