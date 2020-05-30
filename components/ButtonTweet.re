@@ -1,8 +1,9 @@
 open Webapi.Dom;
 
-type window;
-[@bs.val] external window: window = "window";
-let isClient = Js.Types.test(window, Js.Types.Object);
+// type window;
+// [@bs.val] external window: window = "window";
+// let isClient = Js.Types.test(window, Js.Types.Object);
+let isClient: bool = [%raw "typeof window !== 'undefined'"];
 
 type twttr;
 [@bs.val] [@bs.scope "window"] external twttr: twttr = "twttr";
@@ -89,7 +90,7 @@ let initTweetButton = (~anchor, ~text) => {
 };
 
 [@react.component]
-let make = (~title) => {
+let make = (~className, ~title) => {
   let anchor = React.useRef(Js.Nullable.null);
 
   React.useEffect2(
@@ -97,5 +98,5 @@ let make = (~title) => {
     (anchor, title),
   );
 
-  <span ref={ReactDOMRe.Ref.domRef(anchor)} />;
+  <span className ref={ReactDOMRe.Ref.domRef(anchor)} />;
 };
