@@ -1,13 +1,15 @@
 open Webapi.Dom;
 
-// type window;
-// [@bs.val] external window: window = "window";
-// let isClient = Js.Types.test(window, Js.Types.Object);
 let isClient: bool = [%raw "typeof window !== 'undefined'"];
 
 type twttr;
 [@bs.val] [@bs.scope "window"] external twttr: twttr = "twttr";
-let twttrLoaded = Js.Types.test(twttr, Js.Types.Object);
+let twttrLoaded =
+  if (isClient) {
+    Js.Types.test(twttr, Js.Types.Object);
+  } else {
+    false;
+  };
 
 type twttrShareButtonOptions = {
   dnt: option(bool),
