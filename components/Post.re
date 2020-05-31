@@ -1,15 +1,11 @@
-// import { make as SEO, siteDescription } from "./SEO.bs";
 // import { MDXProvider } from "@mdx-js/react";
-// import * as Heading from "./Heading";
-// import { make as TextButton } from "./TextButton.bs";
-// import { stripEmpty } from "../utils/String.bs";
-// import ButtonTweet from "./ButtonTweet";
-// import Paragraph from "./Paragraph";
 // import Highlight, { defaultProps } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/nightOwl";
-// import { event } from "../utils/gtag";
 // import "lazysizes";
-// import FormattedDate from "../components/FormattedDate";
+
+type lazysizes;
+[@bs.module] external lazysizes: lazysizes = "lazysizes";
+lazysizes;
 
 type event = {
   event_category: string,
