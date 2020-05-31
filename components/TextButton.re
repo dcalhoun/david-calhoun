@@ -44,6 +44,11 @@ let make =
           ),
         )
       | (Some(onClick), None) => (target, rel, onClick)
+      | (None, Some(true)) => (
+          rel ++ "_blank",
+          target ++ "noopener noreferrer",
+          (_event => ()),
+        )
       | _ => (target, rel, (_event => ()))
       };
     };
