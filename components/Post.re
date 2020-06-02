@@ -1,7 +1,6 @@
 // import { MDXProvider } from "@mdx-js/react";
 // import Highlight, { defaultProps } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/nightOwl";
-// import "lazysizes";
 
 type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
