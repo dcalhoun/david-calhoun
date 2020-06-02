@@ -38,6 +38,14 @@ module Highlight = {
   // TODO - Set proper type
   [@bs.module] external theme: string = "prism-react-renderer/themes/nightOwl";
 
+  type jsProps = {
+    className: string,
+    style: string,
+    tokens: array(array(string)),
+    getLineProps: ({. line: string, key: int }) => unit,
+    getTokenProps: ({. token: string, key: int }) => unit,
+  };
+
   [@bs.module "prism-react-renderer"] [@react.component]
   external make:
     (
@@ -45,47 +53,45 @@ module Highlight = {
       ~theme: 'a,
       ~language: 'a,
       ~code: string,
-      ~children: React.element
+      ~children: (Js.t(jsProps)) => React.element
     ) =>
     React.element =
     "default";
 };
 
-// module Code = {
-//   [@react.component]
-//   let make = (~children, ~className) => {
-//     let language = Js.String.replaceByRe([%re"/language-/"], "", className);
+module Code = {
+  [@react.component]
+  let make = (~children, ~className) => {
+    let language = Js.String.replaceByRe([%re"/language-/"], "", className);
 
-//       <Highlight
-//         // {...Highlight.defaultProps}
-//         code={children}
-//         // @ts-ignore
-//         language={language}
-//         theme={Highlight.theme}
-//       >
-//         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-//           <pre
-//             className={"text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll" ++ String.stripEmpty(
-//               className
-//             )}
-//             style={style}
-//           >
-//             {tokens.map(
-//               (line, i) =>
-//                 line.every((l) => !l.empty) && (
-//                   <div key={i} {...getLineProps({ line, key: i })}>
-//                     {line.map((token, key) => (
-//                       <span key={key} {...getTokenProps({ token, key })} />
-//                     ))}
-//                   </div>
-//                 )
-//             )}
-//           </pre>
-//         )}
-//       </Highlight>
-//     ;
-//   };
-// }
+    <Highlight
+      // {...Highlight.defaultProps}
+      code={children}
+      language={language}
+      theme={Highlight.theme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre
+          className={"text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll" ++ String.stripEmpty(
+            className
+          )}
+          style={style}
+        >
+          {tokens.map(
+            (line, i) =>
+              line.every((l) => !l.empty) && (
+                <div key={i} {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              )
+          )}
+        </pre>
+      )}
+    </Highlight>
+  };
+}
 
 module UnorderedList = {
   [@react.component]
