@@ -1,4 +1,3 @@
-// import { MDXProvider } from "@mdx-js/react";
 // import Highlight, { defaultProps } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/nightOwl";
 
@@ -16,12 +15,24 @@ type event = {
 
 let trackEvent = (~action, ~params) => gtag("event", action, params);
 
-module MDX = {
-  module MDXProvider = {
-    [@bs.module "@mdx-js/react"] [@react.component]
-    external make: (~components: 'a, ~children: React.element) => React.element =
-      "MDXProvider";
-  };
+type mdxComponents = {
+  h1: (~children: React.element) => React.element,
+  h2: (~children: React.element) => React.element,
+  h3: (~children: React.element) => React.element,
+  p: (~children: React.element) => React.element,
+  a: (~children: React.element, ~href: string) => React.element,
+  pre: (~children: React.element) => React.element,
+  ul: (~children: React.element, ~className: string) => React.element,
+  ol: (~children: React.element, ~className: string) => React.element,
+  li: (~children: React.element, ~className: string) => React.element,
+  code: (~children: React.element, ~className: string) => React.element,
+};
+
+module MDXProvider = {
+  [@bs.module "@mdx-js/react"] [@react.component]
+  external make:
+    (~components: mdxComponents, ~children: React.element) => React.element =
+    "MDXProvider";
 };
 
 module Anchor = {
@@ -31,71 +42,82 @@ module Anchor = {
   };
 };
 
-module Highlight = {
-  [@bs.module "prism-react-renderer"]
-  external defaultProps: string = "defaultProps";
+// module Highlight = {
+//   [@bs.module "prism-react-renderer"]
+//   external defaultProps: string = "defaultProps";
 
-  // TODO - Set proper type
-  [@bs.module] external theme: string = "prism-react-renderer/themes/nightOwl";
+//   // TODO - Set proper type
+//   [@bs.module] external theme: string = "prism-react-renderer/themes/nightOwl";
 
-  type jsProps = {
-    className: string,
-    style: string,
-    tokens: array(array(string)),
-    getLineProps: ({. line: string, key: int }) => unit,
-    getTokenProps: ({. token: string, key: int }) => unit,
-  };
+//   [@bs.deriving abstract]
+//   type jsRenderProps = {
+//     className: string,
+//     style: string,
+//     tokens: array(array(string)),
+//     getLineProps: ({. line: string, key: int }) => unit,
+//     getTokenProps: ({. token: string, key: int }) => unit,
+//   };
 
-  [@bs.module "prism-react-renderer"] [@react.component]
-  external make:
-    (
-      ~prism: 'a,
-      ~theme: 'a,
-      ~language: 'a,
-      ~code: string,
-      ~children: (Js.t(jsProps)) => React.element
-    ) =>
-    React.element =
-    "default";
-};
+//   [@bs.deriving abstract]
+//   type jsProps = {
+//     prism: 'a,
+//     theme: 'a,
+//     language: 'a,
+//     code: string,
+//     children: (Js.t(jsRenderProps)) => React.element,
+//   };
+
+//   [@bs.module "prism-react-renderer"] external highlight: highlight = "default";
+
+//   let make:
+//     (
+//       ~prism: 'a,
+//       ~theme: 'a,
+//       ~language: 'a,
+//       ~code: string,
+//       ~children: (Js.t(jsProps)) => React.element
+//     ) =>
+//     ReasonReact.wrapJsForReason(~reactClass=highlight, ~props=jsProps())
+// };
 
 module Code = {
   [@react.component]
   let make = (~children, ~className) => {
-    let language = Js.String.replaceByRe([%re"/language-/"], "", className);
-
-    <Highlight
-      // {...Highlight.defaultProps}
-      code={children}
-      language={language}
-      theme={Highlight.theme}
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={"text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll" ++ String.stripEmpty(
-            className
-          )}
-          style={style}
-        >
-          {tokens.map(
-            (line, i) =>
-              line.every((l) => !l.empty) && (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              )
-          )}
-        </pre>
-      )}
-    </Highlight>
+    <div className>
+       children </div>;
+      //   let language = Js.String.replaceByRe([%re"/language-/"], "", className);
+      //   <Highlight
+      //     // {...Highlight.defaultProps}
+      //     code={children}
+      //     language={language}
+      //     theme={Highlight.theme}
+      //   >
+      //     {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      //       <pre
+      //         className={"text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll" ++ String.stripEmpty(
+      //           className
+      //         )}
+      //         style={style}
+      //       >
+      //         {tokens.map(
+      //           (line, i) =>
+      //             line.every((l) => !l.empty) && (
+      //               <div key={i} {...getLineProps({ line, key: i })}>
+      //                 {line.map((token, key) => (
+      //                   <span key={key} {...getTokenProps({ token, key })} />
+      //                 ))}
+      //               </div>
+      //             )
+      //         )}
+      //       </pre>
+      //     )}
+      //   </Highlight>
   };
-}
+};
 
 module UnorderedList = {
   [@react.component]
-  let make = (~className, ~children) => {
+  let make = (~className: option(string)=?, ~children) => {
     <ul
       className={"list-decimal pl-6 lg:pl-8" ++ String.stripEmpty(className)}>
       children
@@ -105,7 +127,7 @@ module UnorderedList = {
 
 module OrderedList = {
   [@react.component]
-  let make = (~className, ~children) => {
+  let make = (~children, ~className: option(string)=?) => {
     <ol
       className={"list-decimal pl-6 lg:pl-8" ++ String.stripEmpty(className)}>
       children
@@ -115,7 +137,7 @@ module OrderedList = {
 
 module ListItem = {
   [@react.component]
-  let make = (~className, ~children) => {
+  let make = (~children, ~className: option(string)=?) => {
     <li
       className={
         "text-lg lg:text-2xl mb-4 lg:mb-8" ++ String.stripEmpty(className)
@@ -125,39 +147,30 @@ module ListItem = {
   };
 };
 
-// type mDXComponents = {
-//   h1: int,
-//   h2: int,
-//   h3: int,
-//   p: int,
-//   a: int,
-//   pre: int,
-//   ul: int,
-//   ol: int,
-//   li: int,
-//   code: int,
-// };
-
-// let components = {
-//   h1: Heading.H1,
-//   h2: Heading.H2,
-//   h3: Heading.H3,
-//   p: Paragraph,
-//   a: Anchor,
-//   pre: (
-//     props: JSX.IntrinsicAttributes &
-//       React.ClassAttributes<HTMLDivElement> &
-//       React.HTMLAttributes<HTMLDivElement>
-//   ) => <div {...props} />,
-//   ul: UnorderedList,
-//   ol: OrderedList,
-//   li: ListItem,
-//   code: Code,
-// };
+let components: mdxComponents = {
+  h1: (~children) => <Heading.H1> children </Heading.H1>,
+  h2: (~children) => <Heading.H2> children </Heading.H2>,
+  h3: (~children) => <Heading.H3> children </Heading.H3>,
+  p: (~children) => <Paragraph> children </Paragraph>,
+  a: (~children, ~href) => <Anchor href> children </Anchor>,
+  pre: (~children) => <div> children </div>,
+  ul: (~children, ~className) => {
+    <UnorderedList className> children </UnorderedList>;
+  },
+  ol: (~children, ~className) => {
+    <OrderedList className> children </OrderedList>;
+  },
+  li: (~children, ~className) => {
+    <ListItem className> children </ListItem>;
+  },
+  code: (~children, ~className) => {
+    <Code className> children </Code>;
+  },
+};
 
 [@react.component]
 let make = (~title, ~description, ~published, ~children) => {
-  <MDX.MDXProvider components="">
+  <MDXProvider components>
     <SEO title description />
     <Heading.H1> {React.string(title)} </Heading.H1>
     <Heading.H4> <FormattedDate dateString=published /> </Heading.H4>
@@ -219,5 +232,5 @@ let make = (~title, ~description, ~published, ~children) => {
          )}
       </p>
     </footer>
-  </MDX.MDXProvider>;
+  </MDXProvider>;
 };
