@@ -15,17 +15,32 @@ type event = {
 
 let trackEvent = (~action, ~params) => gtag("event", action, params);
 
+type mdxContentComponent =
+  {
+    .
+    "children": ReasonReact.reactElement,
+    "className": option(string),
+  } =>
+  ReasonReact.reactElement;
+
+type mdxAnchorComponent =
+  {
+    .
+    "children": ReasonReact.reactElement,
+    "href": string,
+  } =>
+  ReasonReact.reactElement;
 type mdxComponents = {
-  h1: (~children: React.element) => React.element,
-  h2: (~children: React.element) => React.element,
-  h3: (~children: React.element) => React.element,
-  p: (~children: React.element) => React.element,
-  a: (~children: React.element, ~href: string) => React.element,
-  pre: (~children: React.element) => React.element,
-  ul: (~children: React.element, ~className: string) => React.element,
-  ol: (~children: React.element, ~className: string) => React.element,
-  li: (~children: React.element, ~className: string) => React.element,
-  code: (~children: React.element, ~className: string) => React.element,
+  h1: mdxContentComponent,
+  h2: mdxContentComponent,
+  h3: mdxContentComponent,
+  p: mdxContentComponent,
+  a: mdxAnchorComponent,
+  ul: mdxContentComponent,
+  ol: mdxContentComponent,
+  li: mdxContentComponent,
+  code: mdxContentComponent,
+  pre: mdxContentComponent,
 };
 
 module MDXProvider = {
@@ -41,6 +56,14 @@ module Anchor = {
     <TextButton external_=true href> children </TextButton>;
   };
 };
+
+// Render prop example
+// module Foo = {
+//   [@react.component] [@bs.module "foo"]
+//   external make: (~children: string => React.element) => React.element = "Foo";
+// };
+
+// <Foo> {x => <div> x->React.string </div>} </Foo>;
 
 // module Highlight = {
 //   [@bs.module "prism-react-renderer"]
@@ -82,8 +105,8 @@ module Anchor = {
 
 module Code = {
   [@react.component]
-  let make = (~children, ~className) => {
-    <div className>
+  let make = (~children, ~className: option(string)=?) => {
+    <div ?className>
        children </div>;
       //   let language = Js.String.replaceByRe([%re"/language-/"], "", className);
       //   <Highlight
@@ -113,6 +136,11 @@ module Code = {
       //     )}
       //   </Highlight>
   };
+};
+
+module Pre = {
+  [@react.component]
+  let make = (~children, ~className) => <div ?className> children </div>;
 };
 
 module UnorderedList = {
@@ -148,33 +176,25 @@ module ListItem = {
 };
 
 let components: mdxComponents = {
-  h1: (~children) => <Heading.H1> children </Heading.H1>,
-  h2: (~children) => <Heading.H2> children </Heading.H2>,
-  h3: (~children) => <Heading.H3> children </Heading.H3>,
-  p: (~children) => <Paragraph> children </Paragraph>,
-  a: (~children, ~href) => <Anchor href> children </Anchor>,
-  pre: (~children) => <div> children </div>,
-  ul: (~children, ~className) => {
-    <UnorderedList className> children </UnorderedList>;
-  },
-  ol: (~children, ~className) => {
-    <OrderedList className> children </OrderedList>;
-  },
-  li: (~children, ~className) => {
-    <ListItem className> children </ListItem>;
-  },
-  code: (~children, ~className) => {
-    <Code className> children </Code>;
-  },
+  h1: Heading.H1.make,
+  h2: Heading.H2.make,
+  h3: Heading.H3.make,
+  p: Paragraph.make,
+  a: Anchor.make,
+  ul: UnorderedList.make,
+  ol: OrderedList.make,
+  li: ListItem.make,
+  code: Code.make,
+  pre: Pre.make,
 };
 
 [@react.component]
 let make = (~title, ~description, ~published, ~children) => {
-  <MDXProvider components>
+  <>
     <SEO title description />
     <Heading.H1> {React.string(title)} </Heading.H1>
     <Heading.H4> <FormattedDate dateString=published /> </Heading.H4>
-    children
+    <MDXProvider components> children </MDXProvider>
     <Paragraph>
       <>
         {React.string("Questions, comments, suggestions? ")}
@@ -232,5 +252,5 @@ let make = (~title, ~description, ~published, ~children) => {
          )}
       </p>
     </footer>
-  </MDXProvider>;
+  </>;
 };
