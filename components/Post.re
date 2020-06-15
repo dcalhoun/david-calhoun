@@ -1,6 +1,3 @@
-// import Highlight, { defaultProps } from "prism-react-renderer";
-// import theme from "prism-react-renderer/themes/nightOwl";
-
 type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;
@@ -39,7 +36,13 @@ type mdxComponents = {
   ul: mdxContentComponent,
   ol: mdxContentComponent,
   li: mdxContentComponent,
-  code: mdxContentComponent,
+  code:
+    {
+      .
+      "children": string,
+      "className": string,
+    } =>
+    React.element,
   pre: mdxContentComponent,
 };
 
@@ -57,84 +60,103 @@ module Anchor = {
   };
 };
 
-// Render prop example
-// module Foo = {
-//   [@react.component] [@bs.module "foo"]
-//   external make: (~children: string => React.element) => React.element = "Foo";
-// };
+type token = {
+  types: array(string),
+  content: string,
+  empty: bool,
+};
 
-// <Foo> {x => <div> x->React.string </div>} </Foo>;
+type lineInputProps = {
+  line: array(token),
+  key: int,
+};
 
-// module Highlight = {
-//   [@bs.module "prism-react-renderer"]
-//   external defaultProps: string = "defaultProps";
+type tokenInputProps = {
+  token,
+  key: int,
+};
 
-//   // TODO - Set proper type
-//   [@bs.module] external theme: string = "prism-react-renderer/themes/nightOwl";
+module Highlight = {
+  type prism;
 
-//   [@bs.deriving abstract]
-//   type jsRenderProps = {
-//     className: string,
-//     style: string,
-//     tokens: array(array(string)),
-//     getLineProps: ({. line: string, key: int }) => unit,
-//     getTokenProps: ({. token: string, key: int }) => unit,
-//   };
+  type defaultProps = {
+    [@bs.as "Prism"]
+    prism,
+  };
+  [@bs.module "prism-react-renderer"]
+  external defaultProps: defaultProps = "defaultProps";
 
-//   [@bs.deriving abstract]
-//   type jsProps = {
-//     prism: 'a,
-//     theme: 'a,
-//     language: 'a,
-//     code: string,
-//     children: (Js.t(jsRenderProps)) => React.element,
-//   };
+  type theme;
+  [@bs.module "prism-react-renderer/themes/nightOwl"]
+  external theme: theme = "default";
 
-//   [@bs.module "prism-react-renderer"] external highlight: highlight = "default";
+  type language = string;
 
-//   let make:
-//     (
-//       ~prism: 'a,
-//       ~theme: 'a,
-//       ~language: 'a,
-//       ~code: string,
-//       ~children: (Js.t(jsProps)) => React.element
-//     ) =>
-//     ReasonReact.wrapJsForReason(~reactClass=highlight, ~props=jsProps())
-// };
+  [@bs.module "prism-react-renderer"] [@react.component]
+  external make:
+    (
+      ~_Prism: prism,
+      ~theme: theme,
+      ~language: language,
+      ~code: string,
+      ~children: {
+                   .
+                   "getLineProps": lineInputProps => Js.t({..}),
+                   "getTokenProps": tokenInputProps => Js.t({..}),
+                   "tokens": array(array(token)),
+                   "className": option(string),
+                   "style": ReactDOMRe.style,
+                 } =>
+                 React.element
+    ) =>
+    React.element =
+    "default";
+};
 
 module Code = {
+  module Row = {
+    [@react.component]
+    let make = (~getLineProps, ~getTokenProps, ~tokens, ~className, ~style) =>
+      <pre
+        className={
+          "text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll"
+          ++ String.stripEmpty(className)
+        }
+        style>
+        {tokens
+         ->Belt.Array.mapWithIndex((i, line) =>
+             line->Belt.Array.every((l: token) => !l.empty)
+               ? <Spread
+                   key={string_of_int(i)}
+                   props={getLineProps({line, key: i})}>
+                   <div>
+                     {line
+                      ->Belt.Array.mapWithIndex((key, token) =>
+                          <Spread
+                            key={string_of_int(key)}
+                            props={getTokenProps({token, key})}>
+                            <span />
+                          </Spread>
+                        )
+                      ->React.array}
+                   </div>
+                 </Spread>
+               : React.null
+           )
+         ->React.array}
+      </pre>;
+  };
+
   [@react.component]
-  let make = (~children, ~className: option(string)=?) => {
-    <div ?className>
-       children </div>;
-      //   let language = Js.String.replaceByRe([%re"/language-/"], "", className);
-      //   <Highlight
-      //     // {...Highlight.defaultProps}
-      //     code={children}
-      //     language={language}
-      //     theme={Highlight.theme}
-      //   >
-      //     {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      //       <pre
-      //         className={"text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll" ++ String.stripEmpty(
-      //           className
-      //         )}
-      //         style={style}
-      //       >
-      //         {tokens.map(
-      //           (line, i) =>
-      //             line.every((l) => !l.empty) && (
-      //               <div key={i} {...getLineProps({ line, key: i })}>
-      //                 {line.map((token, key) => (
-      //                   <span key={key} {...getTokenProps({ token, key })} />
-      //                 ))}
-      //               </div>
-      //             )
-      //         )}
-      //       </pre>
-      //     )}
-      //   </Highlight>
+  let make = (~children, ~className) => {
+    let language = Js.String.replaceByRe([%re "/language-/"], "", className);
+    <Highlight
+      code=children
+      language
+      _Prism={Highlight.defaultProps.prism}
+      theme=Highlight.theme>
+      Row.make
+    </Highlight>;
   };
 };
 
