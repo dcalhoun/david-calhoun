@@ -1,15 +1,5 @@
 [%raw {| require("../components/TextButton.css")|}];
 
-type event = {
-  event_category: string,
-  event_label: option(string),
-  value: option(string),
-};
-
-[@bs.val] external gtag: (string, string, event) => unit = "gtag";
-
-let trackEvent = (~action, ~params) => gtag("event", action, params);
-
 [@react.component]
 let make =
   React.forwardRef(
@@ -31,10 +21,10 @@ let make =
           target ++ "noopener noreferrer",
           (
             event => {
-              trackEvent(
+              Gtag.trackEvent(
                 ~action="Click Link",
-                ~params={
-                  event_category: "External Links",
+                ~eventParams={
+                  event_category: Some("External Links"),
                   event_label: href,
                   value: None,
                 },

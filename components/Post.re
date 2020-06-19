@@ -2,16 +2,6 @@ type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;
 
-type event = {
-  event_category: string,
-  event_label: option(string),
-  value: option(string),
-};
-
-[@bs.val] external gtag: (string, string, event) => unit = "gtag";
-
-let trackEvent = (~action, ~params) => gtag("event", action, params);
-
 type mdxContentComponent =
   {
     .
@@ -222,10 +212,10 @@ let make = (~title, ~description, ~published, ~children) => {
         {React.string("Questions, comments, suggestions? ")}
         <TextButton
           onClick={_e => {
-            trackEvent(
+            Gtag.trackEvent(
               ~action="Send Feedback",
-              ~params={
-                event_category: "Post",
+              ~eventParams={
+                event_category: Some("Post"),
                 event_label: Some(title),
                 value: None,
               },
