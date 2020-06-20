@@ -2,14 +2,14 @@
   border-bottom: 2px solid var(--linkBorder);
   box-shadow: inset 0 -0.3rem 0 var(--linkShadow);
   color: var(--color);
-  display: inline-block;
+  display: inline;
   font-size: inherit;
   text-decoration: none;
   transition-duration: 100ms;
-  transition-property: transform;
+  transition-property: opacity;
   transition-timing-function: ease;
 }
 
 .TextButton:active {
-  transform: scale(0.97);
+  opacity: 0.5;
 }
