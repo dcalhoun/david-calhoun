@@ -57,7 +57,7 @@ export default class Document extends NextDocument {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${process.env.GA_TRACKING_ID}');
-              `
+              `,
             }}
           />
         </body>

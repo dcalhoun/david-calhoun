@@ -24,6 +24,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# ReasonML
+bs
+.merlin
+lib/
+*.bs.js
+*.gen.tsx
+.bsb.lock
+
 OLD-*
 .tool-versions
 theme.css

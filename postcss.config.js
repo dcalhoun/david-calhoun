@@ -4,8 +4,8 @@ module.exports = ({ env }) => ({
     env === "production"
       ? require("@fullhuman/postcss-purgecss")({
           content: [
-            "./pages/**/*.{ts,tsx,js}",
-            "./components/**/*.{ts,tsx,js}"
+            "./pages/**/*.{ts,tsx,js,re}",
+            "./components/**/*.{ts,tsx,js,re}"
           ],
           defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
         })
