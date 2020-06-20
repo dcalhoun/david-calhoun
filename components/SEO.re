@@ -17,8 +17,7 @@ let make =
       ~imageWidth: option(string)=?,
       ~title: option(string)=?,
     ) => {
-  // TODO: Fix Next router Hook usage
-  // let router = useRouter();
+  let router = Next.useRouter();
 
   let title = {
     switch (title) {
@@ -71,11 +70,11 @@ let make =
     <meta key="og:image" property="og:image" content=image />
     <meta key="og:title" property="og:title" content=title />
     <meta key="og:type" property="og:type" content="website" />
-    // <meta
-    //   key="og:url"
-    //   property="og:url"
-    //   content={siteOrigin ++ router.route}
-    // />
+    <meta
+      key="og:url"
+      property="og:url"
+      content={siteOrigin ++ router.pathname}
+    />
     <meta key="twitter:card" name="twitter:card" content="summary" />
     <meta
       key="twitter:creator"

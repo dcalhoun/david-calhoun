@@ -24,3 +24,11 @@ module Error = {
   external make: (~statusCode: int, ~children: React.element) => React.element =
     "default";
 };
+
+type router = {
+  pathname: string,
+  query: Js.t({.}),
+  asPath: string,
+};
+
+[@bs.module "next/router"] external useRouter: unit => router = "useRouter";
