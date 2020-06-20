@@ -21,5 +21,9 @@ let make = (~dateString) => {
       day ++ " " ++ List.nth(months, int_of_string(month) - 1) ++ " " ++ year
     | _ => ""
     };
-  React.string(formattedDate);
+  <time
+    className="inline-block text-sm lg:text-lg opacity-75 mb-4 lg:mb-8"
+    dateTime=dateString>
+    {React.string(formattedDate)}
+  </time>;
 };

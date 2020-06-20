@@ -203,38 +203,40 @@ let components: mdxComponents = {
 [@react.component]
 let make = (~title, ~description, ~published, ~children) => {
   <>
-    <SEO title description />
-    <Heading.H1> {React.string(title)} </Heading.H1>
-    <Heading.H4> <FormattedDate dateString=published /> </Heading.H4>
-    <MDXProvider components> children </MDXProvider>
-    <Paragraph>
-      <>
-        {React.string("Questions, comments, suggestions? ")}
-        <TextButton
-          onClick={_e => {
-            Gtag.trackEvent(
-              ~action="Send Feedback",
-              ~eventParams={
-                event_category: Some("Post"),
-                event_label: Some(title),
-                value: None,
-              },
-            )
-          }}
-          href={
-            "https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title="
-            ++ {
-              title;
+    <article>
+      <SEO title description />
+      <Heading.H1> {React.string(title)} </Heading.H1>
+      <FormattedDate dateString=published />
+      <MDXProvider components> children </MDXProvider>
+      <Paragraph>
+        <>
+          {React.string("Questions, comments, suggestions? ")}
+          <TextButton
+            onClick={_e => {
+              Gtag.trackEvent(
+                ~action="Send Feedback",
+                ~eventParams={
+                  event_category: Some("Post"),
+                  event_label: Some(title),
+                  value: None,
+                },
+              )
+            }}
+            href={
+              "https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title="
+              ++ {
+                title;
+              }
             }
-          }
-          target="_blank"
-          rel="noopener noreferrer">
-          {React.string("Open an issue")}
-        </TextButton>
-        {React.string(". Enjoy this content? Please consider sharing it.")}
-        <ButtonTweet className="inline-block align-middle ml-2" title />
-      </>
-    </Paragraph>
+            target="_blank"
+            rel="noopener noreferrer">
+            {React.string("Open an issue")}
+          </TextButton>
+          {React.string(". Enjoy this content? Please consider sharing it.")}
+          <ButtonTweet className="inline-block align-middle ml-2" title />
+        </>
+      </Paragraph>
+    </article>
     <footer
       className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8"
       style={ReactDOMRe.Style.make(

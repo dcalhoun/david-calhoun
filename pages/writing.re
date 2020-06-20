@@ -14,23 +14,24 @@ let default = () => {
       title="Writing"
       description="Thoughts and explorations of David Calhoun."
     />
-    <ul>
-      {posts
-       ->Belt.Array.map(postData =>
-           <li key={postData.title}>
-             <Heading.H2>
-               <Next.Link href={postData.path} passHref=true>
-                 <TextButton className="lg:text-4xl">
-                   {React.string(postData.title)}
-                 </TextButton>
-               </Next.Link>
-             </Heading.H2>
-             <Heading.H4>
+    <Heading.H1> {React.string("Writing")} </Heading.H1>
+    {posts->Belt.Array.length < 1
+       ? <Paragraph className="text-center">
+           {React.string("No posts to display.")}
+         </Paragraph>
+       : posts
+         ->Belt.Array.map(postData =>
+             <article key={postData.title}>
+               <Heading.H2>
+                 <Next.Link href={postData.path} passHref=true>
+                   <TextButton className="lg:text-4xl">
+                     {React.string(postData.title)}
+                   </TextButton>
+                 </Next.Link>
+               </Heading.H2>
                <FormattedDate dateString={postData.published} />
-             </Heading.H4>
-           </li>
-         )
-       ->React.array}
-    </ul>
+             </article>
+           )
+         ->React.array}
   </Layout>;
 };

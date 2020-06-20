@@ -4,17 +4,14 @@
 [@react.component]
 let make = (~children) => {
   <>
+    <Next.Head>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Next.Head>
     <a className="SkipToContent" href="#content">
       {React.string("Skip to content")}
     </a>
     <div className="Layout min-h-screen p-2 lg:p-4 flex flex-col">
       <div className="Layout-content px-4 pt-8 flex-1">
-        <Next.Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Next.Head>
         <nav className="text-center text-lg mb-8">
           <Next.Link href="/" passHref=true>
             <TextButton className="mx-2">
