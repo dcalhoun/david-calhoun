@@ -46,10 +46,10 @@ let projects: list(project) = [
 let default = () => {
   <Layout>
     <SEO />
-    <h1 className="text-2xl lg:text-6xl font-bold leading-tight my-16">
+    <Heading className={Heading.Styles.primary ++ " mb-8 lg:mb-16"}>
       {React.string(SEO.siteDescription)}
-    </h1>
-    <p className="text-lg mb-16">
+    </Heading>
+    <Paragraph className=" mb-8 lg:mb-16">
       {React.string("Currently at ")}
       <TextButton href="https://www.gonoodle.com" external_=true>
         {React.string("GoNoodle")}
@@ -57,34 +57,43 @@ let default = () => {
       {React.string(". ")}
       <br className="md:hidden" />
       {React.string("Based in Nashville, TN.")}
-    </p>
+    </Paragraph>
     <div className="text-center">
-      <h2
-        className="text-xs lg:text-base text-center tracking-widest font-medium uppercase">
+      <Heading
+        level=2
+        className={
+          Heading.Styles.tertiary
+          ++ " text-center tracking-widest font-medium uppercase"
+        }>
         {React.string("Open Source")}
-      </h2>
+      </Heading>
       <span className="h-1 w-10 inline-block bg-gray-400" />
     </div>
     <div className="mb-8">
-      {projects
-       ->Belt.List.toArray
-       ->Belt.Array.map(project =>
-           <TextButton
-             className="block"
-             key={project.name}
-             href={project.href}
-             external_=true>
-             <div className="py-4">
-               <h3 className="font-mono text-md lg:text-lg mb-2">
-                 {React.string(project.name)}
-               </h3>
-               <p className="text-sm lg:text-lg italic opacity-75">
-                 {React.string(project.description)}
-               </p>
-             </div>
-           </TextButton>
-         )
-       ->React.array}
+      {projects->Belt.List.length < 1
+         ? <Paragraph className="italic text-center my-4">
+             {React.string("No projects to display.")}
+           </Paragraph>
+         : projects
+           ->Belt.List.toArray
+           ->Belt.Array.map(project =>
+               <TextButton
+                 className="block"
+                 key={project.name}
+                 href={project.href}
+                 external_=true>
+                 <div className="py-4">
+                   <Heading
+                     level=3 className={Heading.Styles.quaternary ++ " mb-2"}>
+                     {React.string(project.name)}
+                   </Heading>
+                   <p className="text-sm lg:text-lg italic opacity-75">
+                     {React.string(project.description)}
+                   </p>
+                 </div>
+               </TextButton>
+             )
+           ->React.array}
     </div>
   </Layout>;
 };

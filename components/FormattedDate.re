@@ -22,7 +22,7 @@ let make = (~dateString) => {
     | _ => ""
     };
   <time
-    className="inline-block text-sm lg:text-lg opacity-75 mb-4 lg:mb-8"
+    className="inline-block text-base lg:text-xl opacity-75 mb-4 lg:mb-8"
     dateTime=dateString>
     {React.string(formattedDate)}
   </time>;

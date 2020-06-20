@@ -2,6 +2,9 @@ type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;
 
+type mdxHeadingComponent =
+  {. "children": ReasonReact.reactElement} => ReasonReact.reactElement;
+
 type mdxContentComponent =
   {
     .
@@ -18,9 +21,9 @@ type mdxAnchorComponent =
   } =>
   ReasonReact.reactElement;
 type mdxComponents = {
-  h1: mdxContentComponent,
-  h2: mdxContentComponent,
-  h3: mdxContentComponent,
+  h1: mdxHeadingComponent,
+  h2: mdxHeadingComponent,
+  h3: mdxHeadingComponent,
   p: mdxContentComponent,
   a: mdxAnchorComponent,
   ul: mdxContentComponent,
@@ -187,10 +190,31 @@ module ListItem = {
   };
 };
 
+module Heading1 = {
+  [@react.component]
+  let make = (~children) => {
+    <Heading> children </Heading>;
+  };
+};
+
+module Heading2 = {
+  [@react.component]
+  let make = (~children) => {
+    <Heading level=2 className=Heading.Styles.secondary> children </Heading>;
+  };
+};
+
+module Heading3 = {
+  [@react.component]
+  let make = (~children) => {
+    <Heading level=3 className=Heading.Styles.tertiary> children </Heading>;
+  };
+};
+
 let components: mdxComponents = {
-  h1: Heading.H1.make,
-  h2: Heading.H2.make,
-  h3: Heading.H3.make,
+  h1: Heading1.make,
+  h2: Heading2.make,
+  h3: Heading3.make,
   p: Paragraph.make,
   a: Anchor.make,
   ul: UnorderedList.make,
@@ -205,7 +229,7 @@ let make = (~title, ~description, ~published, ~children) => {
   <>
     <article>
       <SEO title description />
-      <Heading.H1> {React.string(title)} </Heading.H1>
+      <Heading> {React.string(title)} </Heading>
       <FormattedDate dateString=published />
       <MDXProvider components> children </MDXProvider>
       <Paragraph>
