@@ -9,17 +9,18 @@ let make =
       ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
       ~href: option(string)=?,
-      ~rel: string="",
-      ~target: string="",
+      ~rel: option(string)=?,
+      ~target: option(string)=?,
       _ref: Js.Nullable.t(React.Ref.t('a)),
     ) => {
     let needsExternalOnClick = (onClick, external_);
+
     let (target, rel, onClick) = {
       switch (needsExternalOnClick) {
       | (Some(onClick), Some(true)) => (
-          rel ++ "_blank",
-          target ++ "noopener noreferrer",
-          (
+          Some("_blank"),
+          Some("noopener noreferrer"),
+          Some(
             event => {
               Gtag.trackEvent(
                 ~action="Click Link",
@@ -30,40 +31,34 @@ let make =
                 },
               );
               onClick(event);
-            }
+            },
           ),
         )
-      | (Some(onClick), None) => (target, rel, onClick)
+      | (Some(onClick), None) => (target, rel, Some(onClick))
       | (None, Some(true)) => (
-          rel ++ "_blank",
-          target ++ "noopener noreferrer",
-          (_event => ()),
+          Some("_blank"),
+          Some("noopener noreferrer"),
+          None,
         )
-      | _ => (target, rel, (_event => ()))
+      | _ => (target, rel, None)
       };
     };
+
     let element =
       switch (href) {
       | Some(_href) => "a"
       | None => "button"
       };
-    let href = {
-      switch (href) {
-      | Some(href) => href
-      | None => ""
-      };
-    };
 
     ReactDOMRe.createElement(
       element,
-      // TODO: Conditionally pass empty props like href, target, rel
       ~props=
         ReactDOMRe.props(
           ~className="TextButton" ++ String.stripEmpty(className),
-          ~href,
-          ~onClick,
-          ~target,
-          ~rel,
+          ~href?,
+          ~onClick?,
+          ~target?,
+          ~rel?,
           (),
         ),
       [|children|],
