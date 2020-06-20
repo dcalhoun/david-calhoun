@@ -70,9 +70,9 @@ let default = () => {
          : projects
            ->Belt.List.toArray
            ->Belt.Array.map(project =>
-               <article key={project.name}>
+               <article key={project.name} className="mb-4">
                  <TextButton
-                   className="block py-4" href={project.href} external_=true>
+                   className="block pb-4" href={project.href} external_=true>
                    <h3 className={Heading.Styles.quaternary ++ " mb-2"}>
                      {React.string(project.name)}
                    </h3>
