@@ -265,10 +265,10 @@ let make = (~title, ~description, ~published, ~children) => {
         }>
         <img
           alt="David Calhoun"
-          className="lazyload block h-24 w-24 mb-4 lg:mb-0 lg:mr-4 rounded-full"
+          className="lazyload block h-24 w-24 flex-shrink-0 mb-4 lg:mb-0 lg:mr-4 rounded-full"
         />
       </Spread>
-      <p className="flex-shrink text-md lg:text-xl text-center lg:text-left">
+      <p className="flex-shrink text-md lg:text-xl">
         {React.string(
            SEO.siteDescription ++ "He is the Director of Engineering at ",
          )}
