@@ -113,7 +113,7 @@ module Code = {
     let make = (~getLineProps, ~getTokenProps, ~tokens, ~className, ~style) =>
       <pre
         className={
-          "text-sm lg:text-lg mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll"
+          "text-sm lg:text-base mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll"
           ++ String.stripEmpty(className)
         }
         style>
@@ -176,7 +176,7 @@ module OrderedList = {
 module ListItem = {
   [@react.component]
   let make = (~children) => {
-    <li className="text-lg lg:text-2xl mb-4 lg:mb-8"> children </li>;
+    <li className="text-base lg:text-2xl mb-4 lg:mb-8"> children </li>;
   };
 };
 

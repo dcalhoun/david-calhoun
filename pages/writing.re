@@ -29,7 +29,7 @@ let default = () => {
              <article key={articleData.title}>
                <h2 className=Heading.Styles.secondary>
                  <Next.Link href={articleData.path} passHref=true>
-                   <TextButton className="lg:text-4xl">
+                   <TextButton>
                      {React.string(articleData.title)}
                    </TextButton>
                  </Next.Link>
