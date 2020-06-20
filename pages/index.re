@@ -46,10 +46,10 @@ let projects: list(project) = [
 let default = () => {
   <Layout>
     <SEO />
-    <Heading className={Heading.Styles.primary ++ " mb-8 lg:mb-16"}>
+    <h1 className={Heading.Styles.primary ++ " mb-8 lg:mb-16"}>
       {React.string(SEO.siteDescription)}
-    </Heading>
-    <Paragraph className=" mb-8 lg:mb-16">
+    </h1>
+    <Paragraph className="mb-8 lg:mb-16">
       {React.string("Currently at ")}
       <TextButton href="https://www.gonoodle.com" external_=true>
         {React.string("GoNoodle")}
@@ -58,18 +58,11 @@ let default = () => {
       <br className="md:hidden" />
       {React.string("Based in Nashville, TN.")}
     </Paragraph>
-    <div className="text-center">
-      <Heading
-        level=2
-        className={
-          Heading.Styles.tertiary
-          ++ " text-center tracking-widest font-medium uppercase"
-        }>
-        {React.string("Open Source")}
-      </Heading>
-      <span className="h-1 w-10 inline-block bg-gray-400" />
-    </div>
-    <div className="mb-8">
+    <section className="mb-8">
+      <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
+        {React.string("Open Source Projects")}
+      </h2>
+      <div className="h-1 w-10 block bg-gray-400 mx-auto mb-4" />
       {projects->Belt.List.length < 1
          ? <Paragraph className="italic text-center my-4">
              {React.string("No projects to display.")}
@@ -77,23 +70,19 @@ let default = () => {
          : projects
            ->Belt.List.toArray
            ->Belt.Array.map(project =>
-               <TextButton
-                 className="block"
-                 key={project.name}
-                 href={project.href}
-                 external_=true>
-                 <div className="py-4">
-                   <Heading
-                     level=3 className={Heading.Styles.quaternary ++ " mb-2"}>
+               <article key={project.name}>
+                 <TextButton
+                   className="block py-4" href={project.href} external_=true>
+                   <h3 className={Heading.Styles.quaternary ++ " mb-2"}>
                      {React.string(project.name)}
-                   </Heading>
+                   </h3>
                    <p className="text-sm lg:text-lg italic opacity-75">
                      {React.string(project.description)}
                    </p>
-                 </div>
-               </TextButton>
+                 </TextButton>
+               </article>
              )
            ->React.array}
-    </div>
+    </section>
   </Layout>;
 };

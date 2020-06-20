@@ -2,10 +2,10 @@ type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;
 
-type mdxHeadingComponent =
+type mdxContentComponent =
   {. "children": ReasonReact.reactElement} => ReasonReact.reactElement;
 
-type mdxContentComponent =
+type mdxParapgraphComponent =
   {
     .
     "children": ReasonReact.reactElement,
@@ -20,11 +20,12 @@ type mdxAnchorComponent =
     "href": string,
   } =>
   ReasonReact.reactElement;
+
 type mdxComponents = {
-  h1: mdxHeadingComponent,
-  h2: mdxHeadingComponent,
-  h3: mdxHeadingComponent,
-  p: mdxContentComponent,
+  h1: mdxContentComponent,
+  h2: mdxContentComponent,
+  h3: mdxContentComponent,
+  p: mdxParapgraphComponent,
   a: mdxAnchorComponent,
   ul: mdxContentComponent,
   ol: mdxContentComponent,
@@ -155,59 +156,48 @@ module Code = {
 
 module Pre = {
   [@react.component]
-  let make = (~children, ~className) => <div ?className> children </div>;
+  let make = (~children) => <div> children </div>;
 };
 
 module UnorderedList = {
   [@react.component]
-  let make = (~className: option(string)=?, ~children) => {
-    <ul
-      className={"list-decimal pl-6 lg:pl-8" ++ String.stripEmpty(className)}>
-      children
-    </ul>;
+  let make = (~children) => {
+    <ul className="list-decimal pl-6 lg:pl-8"> children </ul>;
   };
 };
 
 module OrderedList = {
   [@react.component]
-  let make = (~children, ~className: option(string)=?) => {
-    <ol
-      className={"list-decimal pl-6 lg:pl-8" ++ String.stripEmpty(className)}>
-      children
-    </ol>;
+  let make = (~children) => {
+    <ol className="list-decimal pl-6 lg:pl-8"> children </ol>;
   };
 };
 
 module ListItem = {
   [@react.component]
-  let make = (~children, ~className: option(string)=?) => {
-    <li
-      className={
-        "text-lg lg:text-2xl mb-4 lg:mb-8" ++ String.stripEmpty(className)
-      }>
-      children
-    </li>;
+  let make = (~children) => {
+    <li className="text-lg lg:text-2xl mb-4 lg:mb-8"> children </li>;
   };
 };
 
 module Heading1 = {
   [@react.component]
   let make = (~children) => {
-    <Heading> children </Heading>;
+    <h1 className=Heading.Styles.primary> children </h1>;
   };
 };
 
 module Heading2 = {
   [@react.component]
   let make = (~children) => {
-    <Heading level=2 className=Heading.Styles.secondary> children </Heading>;
+    <h2 className=Heading.Styles.secondary> children </h2>;
   };
 };
 
 module Heading3 = {
   [@react.component]
   let make = (~children) => {
-    <Heading level=3 className=Heading.Styles.tertiary> children </Heading>;
+    <h3 className=Heading.Styles.tertiary> children </h3>;
   };
 };
 
@@ -229,7 +219,7 @@ let make = (~title, ~description, ~published, ~children) => {
   <>
     <article>
       <SEO title description />
-      <Heading> {React.string(title)} </Heading>
+      <h1 className=Heading.Styles.primary> {React.string(title)} </h1>
       <FormattedDate dateString=published />
       <MDXProvider components> children </MDXProvider>
       <Paragraph>

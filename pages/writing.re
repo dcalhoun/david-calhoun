@@ -14,9 +14,9 @@ let default = () => {
       title="Writing"
       description="Thoughts and explorations of David Calhoun."
     />
-    <Heading className={Heading.Styles.primary ++ " mb-4"}>
+    <h1 className={Heading.Styles.primary ++ " mb-4"}>
       {React.string("Writing")}
-    </Heading>
+    </h1>
     {posts->Belt.Array.length < 1
        ? <Paragraph className="italic text-center">
            {React.string("No posts to display.")}
@@ -24,13 +24,13 @@ let default = () => {
        : posts
          ->Belt.Array.map(postData =>
              <article key={postData.title}>
-               <Heading className=Heading.Styles.secondary level=2>
+               <h2 className=Heading.Styles.secondary>
                  <Next.Link href={postData.path} passHref=true>
                    <TextButton className="lg:text-4xl">
                      {React.string(postData.title)}
                    </TextButton>
                  </Next.Link>
-               </Heading>
+               </h2>
                <FormattedDate dateString={postData.published} />
              </article>
            )
