@@ -13,8 +13,5 @@
   },
   "suffix": ".bs.js",
   "bsc-flags": ["-bs-super-errors"],
-  "refmt": 3,
-  "gentypeconfig": {
-    "language": "typescript"
-  }
+  "refmt": 3
 }
