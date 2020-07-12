@@ -11,7 +11,7 @@ let make =
       ~href: option(string)=?,
       ~rel: option(string)=?,
       ~target: option(string)=?,
-      _ref: Js.Nullable.t(React.Ref.t('a)),
+      _ref: Js.Nullable.t(React.ref('a)),
     ) => {
     let needsExternalOnClick = (onClick, external_);
 
