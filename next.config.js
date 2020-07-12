@@ -1,13 +1,7 @@
-let images = require("remark-images");
-let emoji = require("remark-emoji");
 const withTM = require("next-transpile-modules")(["bs-platform"]);
 
 let withCSS = require("@zeit/next-css");
-let withMDX = require("@next/mdx")({
-  options: {
-    remarkPlugins: [images, emoji]
-  }
-});
+let withMDX = require("@next/mdx")();
 
 module.exports = withCSS(
   withMDX(
