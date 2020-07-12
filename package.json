@@ -26,7 +26,6 @@
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@mdx-js/loader": "^1.6.6",
     "autoprefixer": "^9.8.5",
     "babel-plugin-preval": "^5.0.0",
