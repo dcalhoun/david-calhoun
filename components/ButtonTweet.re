@@ -20,10 +20,9 @@ type twttrShareButtonOptions = {
   text: option(string),
   via: option(string),
 };
-type createShareButton =
-  (string, ReactDOMRe.Ref.t, twttrShareButtonOptions) => unit;
+
 [@bs.val] [@bs.scope ("window", "twttr", "widgets")]
-external createShareButton: createShareButton = "createShareButton";
+external createShareButton: (string, Dom.element, twttrShareButtonOptions) => unit = "createShareButton";
 
 let initTweetButton = (~anchor, ~text) => {
   if (isClient) {
@@ -55,9 +54,9 @@ let initTweetButton = (~anchor, ~text) => {
 
           switch (firstScript) {
           | Some(sibling) =>
-            switch (Element.parentNode(sibling)) {
+            switch (Element.parentElement(sibling)) {
             | Some(parent) =>
-              parent->Element.insertBefore(sibling, twttrScript) |> ignore
+              parent |> Element.insertBefore(twttrScript, sibling) |> ignore
             | None => ()
             }
           | None => ()
@@ -66,20 +65,24 @@ let initTweetButton = (~anchor, ~text) => {
 
       twttrLoad
       |> Js.Promise.then_(_ => {
-           createShareButton(
-             Webapi.Dom.window |> Window.location |> Location.href,
-             ReactDOMRe.Ref.domRef(anchor),
-             {
-               dnt: None,
-               hashtags: None,
-               lang: None,
-               related: None,
-               size: Some("large"),
-               text: Some(text),
-               via: Some("david_calhoun"),
-             },
-           );
-           Js.Promise.resolve();
+        switch(anchor) {
+          | Some(anchorEl) =>
+             createShareButton(
+               Webapi.Dom.window |> Window.location |> Location.href,
+               anchorEl,
+               {
+                 dnt: None,
+                 hashtags: None,
+                 lang: None,
+                 related: None,
+                 size: Some("large"),
+                 text: Some(text),
+                 via: Some("david_calhoun"),
+               },
+             );
+             Js.Promise.resolve();
+             | None => Js.Promise.resolve();
+             }
          })
       |> Js.Promise.catch(error => {
            Js_console.error2("Twitter initialization failed.", error);
@@ -93,12 +96,12 @@ let initTweetButton = (~anchor, ~text) => {
 
 [@react.component]
 let make = (~className, ~title) => {
-  let anchor = React.useRef(Js.Nullable.null);
+  let anchorRef = React.useRef(Js.Nullable.null);
 
   React.useEffect2(
-    () => {initTweetButton(~anchor, ~text=title)},
-    (anchor, title),
+    () => {initTweetButton(~anchor=anchorRef.current->Js.Nullable.toOption, ~text=title)},
+    (anchorRef,title),
   );
 
-  <span className ref={ReactDOMRe.Ref.domRef(anchor)} />;
+  <span className ref={ReactDOMRe.Ref.domRef(anchorRef)} />;
 };
