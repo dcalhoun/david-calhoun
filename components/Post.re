@@ -242,9 +242,7 @@ let make = (~title, ~description, ~published, ~children) => {
               ++ {
                 title;
               }
-            }
-            target="_blank"
-            rel="noopener noreferrer">
+            }>
             {React.string("Open an issue")}
           </TextButton>
           {React.string(". Enjoy this content? Please consider sharing it.")}

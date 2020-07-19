@@ -9,58 +9,37 @@ let make =
       ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
       ~href: option(string)=?,
-      ~rel: option(string)=?,
-      ~target: option(string)=?,
       _ref: Js.Nullable.t(React.ref('a)),
     ) => {
-    let needsExternalOnClick = (onClick, external_);
-
-    // TODO: Remove target="_blank" usage
-    let (target, rel, onClick) = {
-      switch (needsExternalOnClick) {
-      | (Some(onClick), Some(true)) => (
-          Some("_blank"),
-          Some("noopener noreferrer"),
-          Some(
-            event => {
-              Gtag.trackEvent(
-                ~action="Click Link",
-                ~eventParams={
-                  event_category: Some("External Links"),
-                  event_label: href,
-                  value: None,
-                },
-              );
-              onClick(event);
-            },
-          ),
+    let onClick = {
+      switch (onClick, external_) {
+      | (Some(onClick), Some(true)) =>
+        Some(
+          event => {
+            Gtag.trackEvent(
+              ~action="Click Link",
+              ~eventParams={
+                event_category: Some("External Links"),
+                event_label: href,
+                value: None,
+              },
+            );
+            onClick(event);
+          },
         )
-      | (Some(onClick), None) => (target, rel, Some(onClick))
-      | (None, Some(true)) => (
-          Some("_blank"),
-          Some("noopener noreferrer"),
-          None,
-        )
-      | _ => (target, rel, None)
+      | (Some(onClick), None) => Some(onClick)
+      | _ => None
       };
     };
 
-    let element =
-      switch (href) {
-      | Some(_href) => "a"
-      | None => "button"
-      };
-
     ReactDOMRe.createElement(
-      element,
+      href->Belt.Option.mapWithDefault("button", _href => "a"),
       ~props=
         ReactDOMRe.props(
           ~className=
             "TextButton " ++ className->Belt.Option.getWithDefault(""),
           ~href?,
           ~onClick?,
-          ~target?,
-          ~rel?,
           (),
         ),
       [|children|],
