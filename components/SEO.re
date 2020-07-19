@@ -19,6 +19,7 @@ let make =
     ) => {
   let router = Next.useRouter();
 
+  // TODO: Simply switches with Belt.Option.getWithDefault
   let title = {
     switch (title) {
     | Some(pageTitle) => pageTitle ++ " | " ++ siteTitle

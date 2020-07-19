@@ -1,3 +1,4 @@
+// TODO: Attempt to simply file
 type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;

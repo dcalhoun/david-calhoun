@@ -15,6 +15,7 @@ let make =
     ) => {
     let needsExternalOnClick = (onClick, external_);
 
+    // TODO: Remove target="_blank" usage
     let (target, rel, onClick) = {
       switch (needsExternalOnClick) {
       | (Some(onClick), Some(true)) => (
