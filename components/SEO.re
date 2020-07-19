@@ -18,57 +18,36 @@ let make =
       ~title: option(string)=?,
     ) => {
   let router = Next.useRouter();
-
-  // TODO: Simply switches with Belt.Option.getWithDefault
-  let title = {
-    switch (title) {
-    | Some(pageTitle) => pageTitle ++ " | " ++ siteTitle
-    | None => siteTitle
-    };
-  };
-  let description = {
-    switch (description) {
-    | Some(description) => description
-    | None => siteDescription
-    };
-  };
-  let imageHeight = {
-    switch (imageHeight) {
-    | Some(imageHeight) => imageHeight
-    | None => "630"
-    };
-  };
-  let imageWidth = {
-    switch (imageWidth) {
-    | Some(imageWidth) => imageWidth
-    | None => "1200"
-    };
-  };
-  let imageAlt = {
-    switch (imageAlt) {
-    | Some(imageAlt) => imageAlt
-    | None => "David Calhoun"
-    };
-  };
-  let image = {
-    switch (image) {
-    | Some(image) => image
-    | None => siteOrigin ++ "/david.jpg"
-    };
-  };
+  let title =
+    title->Belt.Option.mapWithDefault(siteTitle, title =>
+      title ++ " | " ++ siteTitle
+    );
+  let description = description->Belt.Option.getWithDefault(siteDescription);
 
   <Next.Head>
-    <title key="title"> {React.string(title)} </title>
+    <title key="title"> title->React.string </title>
     <meta key="description" name="description" content=description />
     <meta key="og:description" property="og:description" content=description />
     <meta
       key="og:image:height"
       property="og:image:height"
-      content=imageHeight
+      content={imageHeight->Belt.Option.getWithDefault("630")}
     />
-    <meta key="og:image:width" property="og:image:width" content=imageWidth />
-    <meta key="og:image:alt" property="og:image:width" content=imageAlt />
-    <meta key="og:image" property="og:image" content=image />
+    <meta
+      key="og:image:width"
+      property="og:image:width"
+      content={imageWidth->Belt.Option.getWithDefault("1200")}
+    />
+    <meta
+      key="og:image:alt"
+      property="og:image:width"
+      content={imageAlt->Belt.Option.getWithDefault("David Calhoun")}
+    />
+    <meta
+      key="og:image"
+      property="og:image"
+      content={image->Belt.Option.getWithDefault(siteOrigin ++ "/david.jpg")}
+    />
     <meta key="og:title" property="og:title" content=title />
     <meta key="og:type" property="og:type" content="website" />
     <meta
