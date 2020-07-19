@@ -1,6 +1,6 @@
 open Webapi.Dom;
 
-type twttrScaffolding;
+// TODO: Avoid raw JS
 let twttrScaffolding = [%raw
   {|
   (function() {
@@ -13,9 +13,11 @@ let twttrScaffolding = [%raw
   })()
 |}
 ];
+
 type twttr;
 [@bs.val] external twttr: twttr = "twttr";
 [@bs.set] external setTwttr: (Dom.window, twttr) => unit = "twttr";
+
 [@bs.val] [@bs.scope ("window", "twttr")]
 external ready: 'a => unit = "ready";
 
@@ -28,7 +30,6 @@ type twttrShareButtonOptions = {
   text: option(string),
   via: option(string),
 };
-
 [@bs.val] [@bs.scope ("window", "twttr", "widgets")]
 external createShareButton:
   (string, Dom.element, twttrShareButtonOptions) => unit =
@@ -50,7 +51,8 @@ let make = (~className, ~title) => {
         |> Belt.Option.isSome;
 
       if (!twttrLoaded) {
-        setTwttr(Webapi.Dom.window, twttrScaffolding);
+        twttrScaffolding |> setTwttr(Webapi.Dom.window);
+
         let twttrScript = Document.createElement("script", document);
         Element.setId(twttrScript, twttrScriptId);
         Element.setAttribute(
@@ -77,26 +79,24 @@ let make = (~className, ~title) => {
   // Initialize tweet button
   React.useEffect2(
     () => {
-      if (isClient) {
+      switch (isClient, anchorRef.current->Js.Nullable.toOption) {
+      | (true, Some(anchorEl)) =>
         ready(() => {
-          switch (anchorRef.current->Js.Nullable.toOption) {
-          | Some(anchorEl) =>
-            createShareButton(
-              Webapi.Dom.window |> Window.location |> Location.href,
-              anchorEl,
-              {
-                dnt: None,
-                hashtags: None,
-                lang: None,
-                related: None,
-                size: Some("large"),
-                text: Some(title),
-                via: Some("david_calhoun"),
-              },
-            )
-          | None => ()
-          }
-        });
+          createShareButton(
+            Webapi.Dom.window |> Window.location |> Location.href,
+            anchorEl,
+            {
+              dnt: None,
+              hashtags: None,
+              lang: None,
+              related: None,
+              size: Some("large"),
+              text: Some(title),
+              via: Some("david_calhoun"),
+            },
+          )
+        })
+      | _ => ()
       };
       Some(() => ());
     },
