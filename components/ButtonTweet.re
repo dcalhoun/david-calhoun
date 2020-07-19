@@ -65,8 +65,7 @@ let make = (~className, ~title) => {
         );
       };
     };
-
-    Some(() => ());
+    None;
   });
 
   // Initialize tweet button
@@ -91,7 +90,7 @@ let make = (~className, ~title) => {
         })
       | _ => ()
       };
-      Some(() => ());
+      None;
     },
     (anchorRef, title),
   );
