@@ -1,25 +1,14 @@
 open Webapi.Dom;
 
-// TODO: Avoid raw JS
-let twttrScaffolding = [%raw
-  {|
-  (function() {
-    var t = {};
-    t._e = [];
-    t.ready = function(f) {
-      t._e.push(f);
-    }
-    return t;
-  })()
-|}
-];
-
-type twttr;
-[@bs.val] external twttr: twttr = "twttr";
+type twttrCallback = unit => unit;
+type twttr = {
+  _e: array(twttrCallback),
+  mutable ready: twttrCallback => unit,
+};
 [@bs.set] external setTwttr: (Dom.window, twttr) => unit = "twttr";
 
 [@bs.val] [@bs.scope ("window", "twttr")]
-external ready: 'a => unit = "ready";
+external ready: twttrCallback => unit = "ready";
 
 type twttrShareButtonOptions = {
   dnt: option(bool),
@@ -51,15 +40,19 @@ let make = (~className, ~title) => {
         |> Belt.Option.isSome;
 
       if (!twttrLoaded) {
-        twttrScaffolding |> setTwttr(Webapi.Dom.window);
-
-        let twttrScript = Document.createElement("script", document);
-        Element.setId(twttrScript, twttrScriptId);
-        Element.setAttribute(
-          "src",
-          "//platform.twitter.com/widgets.js",
-          twttrScript,
+        Webapi.Dom.window->setTwttr(
+          {
+            let t = {_e: [||], ready: ignore};
+            t.ready = (f => t._e |> Js.Array.push(f) |> ignore);
+            t;
+          },
         );
+
+        let twttrScript = document |> Document.createElement("script");
+        twttrScriptId |> Element.setId(twttrScript);
+        twttrScript
+        |> Element.setAttribute("src", "//platform.twitter.com/widgets.js");
+        twttrScript |> Element.setAttribute("async", "");
 
         let firstScript =
           document
