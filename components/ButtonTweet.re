@@ -1,15 +1,23 @@
 open Webapi.Dom;
 
-let isClient: bool = [%raw "typeof window !== 'undefined'"];
-
+type twttrScaffolding;
+let twttrScaffolding = [%raw
+  {|
+  (function() {
+    var t = {};
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    }
+    return t;
+  })()
+|}
+];
 type twttr;
-[@bs.val] [@bs.scope "window"] external twttr: twttr = "twttr";
-let twttrLoaded =
-  if (isClient) {
-    Js.Types.test(twttr, Js.Types.Object);
-  } else {
-    false;
-  };
+[@bs.val] external twttr: twttr = "twttr";
+[@bs.set] external setTwttr: (Dom.window, twttr) => unit = "twttr";
+[@bs.val] [@bs.scope ("window", "twttr")]
+external ready: 'a => unit = "ready";
 
 type twttrShareButtonOptions = {
   dnt: option(bool),
@@ -22,85 +30,77 @@ type twttrShareButtonOptions = {
 };
 
 [@bs.val] [@bs.scope ("window", "twttr", "widgets")]
-external createShareButton: (string, Dom.element, twttrShareButtonOptions) => unit = "createShareButton";
-
-let initTweetButton = (~anchor, ~text) => {
-  if (isClient) {
-    if (!twttrLoaded) {
-      let twttrLoad =
-        Js.Promise.make((~resolve, ~reject) => {
-          let twttrScript = Document.createElement("script", document);
-          Element.setId(twttrScript, "twitter-wjs");
-          Element.addEventListener(
-            "load",
-            _ => resolve(. twttrScript),
-            twttrScript,
-          );
-          Element.addEventListener(
-            "error",
-            _ => reject(. Js.Exn.raiseError("Twitter load failed.")),
-            twttrScript,
-          );
-          Element.setAttribute(
-            "src",
-            "//platform.twitter.com/widgets.js",
-            twttrScript,
-          );
-
-          let firstScript =
-            document
-            |> Document.getElementsByTagName("script")
-            |> HtmlCollection.item(0);
-
-          switch (firstScript) {
-          | Some(sibling) =>
-            switch (Element.parentElement(sibling)) {
-            | Some(parent) =>
-              parent |> Element.insertBefore(twttrScript, sibling) |> ignore
-            | None => ()
-            }
-          | None => ()
-          };
-        });
-
-      twttrLoad
-      |> Js.Promise.then_(_ => {
-        switch(anchor) {
-          | Some(anchorEl) =>
-             createShareButton(
-               Webapi.Dom.window |> Window.location |> Location.href,
-               anchorEl,
-               {
-                 dnt: None,
-                 hashtags: None,
-                 lang: None,
-                 related: None,
-                 size: Some("large"),
-                 text: Some(text),
-                 via: Some("david_calhoun"),
-               },
-             );
-             Js.Promise.resolve();
-             | None => Js.Promise.resolve();
-             }
-         })
-      |> Js.Promise.catch(error => {
-           Js_console.error2("Twitter initialization failed.", error);
-           Js.Promise.resolve();
-         })
-      |> ignore;
-    };
-  };
-  Some(() => ());
-};
+external createShareButton:
+  (string, Dom.element, twttrShareButtonOptions) => unit =
+  "createShareButton";
 
 [@react.component]
 let make = (~className, ~title) => {
+  let isClient = Js.typeof(window) != "undefined";
   let anchorRef = React.useRef(Js.Nullable.null);
 
+  // Load Twitter widget library
+  React.useEffect(() => {
+    let twttrScriptId = "twitter-wjs";
+
+    if (isClient) {
+      let twttrLoaded =
+        document
+        |> Document.getElementById(twttrScriptId)
+        |> Belt.Option.isSome;
+
+      if (!twttrLoaded) {
+        setTwttr(Webapi.Dom.window, twttrScaffolding);
+        let twttrScript = Document.createElement("script", document);
+        Element.setId(twttrScript, twttrScriptId);
+        Element.setAttribute(
+          "src",
+          "//platform.twitter.com/widgets.js",
+          twttrScript,
+        );
+
+        let firstScript =
+          document
+          |> Document.getElementsByTagName("body")
+          |> HtmlCollection.item(0);
+
+        firstScript->Belt.Option.mapWithDefault(
+          (),
+          Element.appendChild(twttrScript),
+        );
+      };
+    };
+
+    Some(() => ());
+  });
+
+  // Initialize tweet button
   React.useEffect2(
-    () => {initTweetButton(~anchor=anchorRef.current->Js.Nullable.toOption, ~text=title)},
-    (anchorRef,title),
+    () => {
+      if (isClient) {
+        ready(() => {
+          switch (anchorRef.current->Js.Nullable.toOption) {
+          | Some(anchorEl) =>
+            createShareButton(
+              Webapi.Dom.window |> Window.location |> Location.href,
+              anchorEl,
+              {
+                dnt: None,
+                hashtags: None,
+                lang: None,
+                related: None,
+                size: Some("large"),
+                text: Some(title),
+                via: Some("david_calhoun"),
+              },
+            )
+          | None => ()
+          }
+        });
+      };
+      Some(() => ());
+    },
+    (anchorRef, title),
   );
 
   <span className ref={ReactDOMRe.Ref.domRef(anchorRef)} />;
