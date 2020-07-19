@@ -55,7 +55,8 @@ let make =
       element,
       ~props=
         ReactDOMRe.props(
-          ~className="TextButton" ++ String.stripEmpty(className),
+          ~className=
+            "TextButton " ++ className->Belt.Option.getWithDefault(""),
           ~href?,
           ~onClick?,
           ~target?,

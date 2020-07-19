@@ -114,8 +114,8 @@ module Code = {
     let make = (~getLineProps, ~getTokenProps, ~tokens, ~className, ~style) =>
       <pre
         className={
-          "text-sm lg:text-base mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll"
-          ++ String.stripEmpty(className)
+          "text-sm lg:text-base mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll "
+          ++ className->Belt.Option.getWithDefault("")
         }
         style>
         {tokens
