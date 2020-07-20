@@ -1,59 +1,6 @@
-// TODO: Attempt to simply file
 type lazysizes;
 [@bs.module] external lazysizes: lazysizes = "lazysizes";
 lazysizes;
-
-type mdxContentComponent =
-  {. "children": ReasonReact.reactElement} => ReasonReact.reactElement;
-
-type mdxParapgraphComponent =
-  {
-    .
-    "children": ReasonReact.reactElement,
-    "className": option(string),
-  } =>
-  ReasonReact.reactElement;
-
-type mdxAnchorComponent =
-  {
-    .
-    "children": ReasonReact.reactElement,
-    "href": string,
-  } =>
-  ReasonReact.reactElement;
-
-type mdxComponents = {
-  h1: mdxContentComponent,
-  h2: mdxContentComponent,
-  h3: mdxContentComponent,
-  p: mdxParapgraphComponent,
-  a: mdxAnchorComponent,
-  ul: mdxContentComponent,
-  ol: mdxContentComponent,
-  li: mdxContentComponent,
-  code:
-    {
-      .
-      "children": string,
-      "className": string,
-    } =>
-    React.element,
-  pre: mdxContentComponent,
-};
-
-module MDXProvider = {
-  [@bs.module "@mdx-js/react"] [@react.component]
-  external make:
-    (~components: mdxComponents, ~children: React.element) => React.element =
-    "MDXProvider";
-};
-
-module Anchor = {
-  [@react.component]
-  let make = (~children, ~href) => {
-    <TextButton external_=true href> children </TextButton>;
-  };
-};
 
 type token = {
   types: array(string),
@@ -200,6 +147,54 @@ module Heading3 = {
   let make = (~children) => {
     <h3 className=Heading.Styles.tertiary> children </h3>;
   };
+};
+
+module Anchor = {
+  [@react.component]
+  let make = (~children, ~href) => {
+    <TextButton external_=true href> children </TextButton>;
+  };
+};
+
+type mdxContentComponent =
+  {. "children": ReasonReact.reactElement} => ReasonReact.reactElement;
+
+type mdxComponents = {
+  h1: mdxContentComponent,
+  h2: mdxContentComponent,
+  h3: mdxContentComponent,
+  p:
+    {
+      .
+      "children": ReasonReact.reactElement,
+      "className": option(string),
+    } =>
+    ReasonReact.reactElement,
+  a:
+    {
+      .
+      "children": ReasonReact.reactElement,
+      "href": string,
+    } =>
+    ReasonReact.reactElement,
+  ul: mdxContentComponent,
+  ol: mdxContentComponent,
+  li: mdxContentComponent,
+  code:
+    {
+      .
+      "children": string,
+      "className": string,
+    } =>
+    React.element,
+  pre: mdxContentComponent,
+};
+
+module MDXProvider = {
+  [@bs.module "@mdx-js/react"] [@react.component]
+  external make:
+    (~components: mdxComponents, ~children: React.element) => React.element =
+    "MDXProvider";
 };
 
 let components: mdxComponents = {
