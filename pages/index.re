@@ -47,25 +47,25 @@ let default = () => {
   <Layout>
     <SEO />
     <h1 className={Heading.Styles.primary ++ " mb-8 lg:mb-16"}>
-      {React.string(SEO.siteDescription)}
+      SEO.siteDescription->React.string
     </h1>
     <Paragraph className="mb-8 lg:mb-16">
-      {React.string("Currently at ")}
+      "Currently at "->React.string
       <TextButton href="https://www.gonoodle.com" external_=true>
-        {React.string("GoNoodle")}
+        "GoNoodle"->React.string
       </TextButton>
-      {React.string(". ")}
+      ". "->React.string
       <br className="md:hidden" />
-      {React.string("Based in Nashville, TN.")}
+      "Based in Nashville, TN."->React.string
     </Paragraph>
     <section className="mb-8">
       <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
-        {React.string("Open Source Projects")}
+        "Open Source Projects"->React.string
       </h2>
       <div className="h-1 w-10 block bg-gray-400 mx-auto mb-4" />
       {projects->Belt.List.length < 1
          ? <Paragraph className="italic text-center my-4">
-             {React.string("No projects to display.")}
+             "No projects to display."->React.string
            </Paragraph>
          : projects
            ->Belt.List.toArray
@@ -74,10 +74,10 @@ let default = () => {
                  <TextButton
                    className="block pb-4" href={project.href} external_=true>
                    <h3 className={Heading.Styles.quaternary ++ " mb-2"}>
-                     {React.string(project.name)}
+                     project.name->React.string
                    </h3>
                    <p className="text-sm lg:text-lg italic opacity-75">
-                     {React.string(project.description)}
+                     project.description->React.string
                    </p>
                  </TextButton>
                </article>

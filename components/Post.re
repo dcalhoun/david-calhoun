@@ -220,12 +220,12 @@ let make = (~title, ~description, ~published, ~children) => {
   <>
     <article>
       <SEO title description />
-      <h1 className=Heading.Styles.primary> {React.string(title)} </h1>
+      <h1 className=Heading.Styles.primary> title->React.string </h1>
       <FormattedDate dateString=published />
       <MDXProvider components> children </MDXProvider>
       <Paragraph>
         <>
-          {React.string("Questions, comments, suggestions? ")}
+          "Questions, comments, suggestions? "->React.string
           <TextButton
             onClick={_e => {
               Gtag.trackEvent(
@@ -243,9 +243,9 @@ let make = (~title, ~description, ~published, ~children) => {
                 title;
               }
             }>
-            {React.string("Open an issue")}
+            "Open an issue"->React.string
           </TextButton>
-          {React.string(". Enjoy this content? Please consider sharing it.")}
+          ". Enjoy this content? Please consider sharing it."->React.string
           <ButtonTweet className="inline-block align-middle ml-2" title />
         </>
       </Paragraph>
@@ -268,15 +268,13 @@ let make = (~title, ~description, ~published, ~children) => {
         />
       </Spread>
       <p className="flex-shrink text-md lg:text-xl">
-        {React.string(
-           SEO.siteDescription ++ "He is the Director of Engineering at ",
-         )}
+        {(SEO.siteDescription ++ "He is the Director of Engineering at ")
+         ->React.string}
         <TextButton href="https://www.gonoodle.com" external_=true>
-          {React.string("GoNoodle")}
+          "GoNoodle"->React.string
         </TextButton>
-        {React.string(
-           ", where he works to help kids be their best selves through movement and mindfulness.",
-         )}
+        ", where he works to help kids be their best selves through movement and mindfulness."
+        ->React.string
       </p>
     </footer>
   </>;

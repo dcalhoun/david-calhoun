@@ -24,6 +24,6 @@ let make = (~dateString) => {
   <time
     className="inline-block text-base lg:text-xl opacity-75 mb-4 lg:mb-8"
     dateTime=dateString>
-    {React.string(formattedDate)}
+    formattedDate->React.string
   </time>;
 };
