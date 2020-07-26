@@ -1,5 +1,16 @@
 [%raw {| require("../components/TextButton.css")|}];
 
+let sendExternalLinkClick = href => {
+  Gtag.sendEvent(
+    ~action="Click Link",
+    ~eventParams={
+      event_category: Some("External Links"),
+      event_label: href,
+      value: None,
+    },
+  );
+};
+
 [@react.component]
 let make =
   React.forwardRef(
@@ -16,17 +27,11 @@ let make =
       | (Some(onClick), Some(true)) =>
         Some(
           event => {
-            Gtag.trackEvent(
-              ~action="Click Link",
-              ~eventParams={
-                event_category: Some("External Links"),
-                event_label: href,
-                value: None,
-              },
-            );
+            sendExternalLinkClick(href);
             onClick(event);
           },
         )
+      | (None, Some(true)) => Some(_event => {sendExternalLinkClick(href)})
       | (Some(onClick), None) => Some(onClick)
       | _ => None
       };

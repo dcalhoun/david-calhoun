@@ -5,5 +5,9 @@ type eventParams = {
 };
 
 [@bs.val]
-external trackEvent: (~action: string, ~eventParams: eventParams) => unit =
+external gtagEvent:
+  (~command: string, ~action: string, ~eventParams: eventParams) => unit =
   "gtag";
+
+let sendEvent = (~action, ~eventParams) =>
+  gtagEvent(~command="event", ~action, ~eventParams);

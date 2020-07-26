@@ -223,7 +223,7 @@ let make = (~title, ~description, ~published, ~children) => {
           "Questions, comments, suggestions? "->React.string
           <TextButton
             onClick={_e => {
-              Gtag.trackEvent(
+              Gtag.sendEvent(
                 ~action="Send Feedback",
                 ~eventParams={
                   event_category: Some("Post"),
