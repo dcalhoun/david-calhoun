@@ -71,7 +71,7 @@ let make = (~className, ~title) => {
   // Initialize tweet button
   React.useEffect2(
     () => {
-      switch (isClient, anchorRef.current->Js.Nullable.toOption) {
+      switch (isClient, anchorRef.current |> Js.Nullable.toOption) {
       | (true, Some(anchorEl)) =>
         ready(() => {
           createShareButton(
