@@ -263,7 +263,7 @@ let make = (~title, ~description, ~published, ~children) => {
         />
       </Spread>
       <p className="flex-shrink text-md lg:text-xl">
-        {(SEO.siteDescription ++ "He is the Director of Engineering at ")
+        {(SEO.siteDescription ++ " He is the Director of Engineering at ")
          ->React.string}
         <TextButton href="https://www.gonoodle.com" external_=true>
           "GoNoodle"->React.string
