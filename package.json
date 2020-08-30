@@ -14,25 +14,25 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@next/mdx": "^9.4.4",
+    "@next/mdx": "^9.5.2",
     "@zeit/next-css": "^1.0.1",
-    "bs-webapi": "^0.17.1",
+    "bs-webapi": "^0.19.1",
     "lazysizes": "^5.2.2",
-    "next": "9.4.4",
+    "next": "9.5.2",
     "prism-react-renderer": "^1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "reason-react": "^0.9.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.7.6"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^1.6.6",
-    "autoprefixer": "^9.8.5",
+    "@mdx-js/loader": "^1.6.16",
+    "autoprefixer": "^9.8.6",
     "babel-plugin-preval": "^5.0.0",
     "bs-platform": "^8.2.0",
     "chroma-js": "^2.1.0",
     "cssnano": "^4.1.10",
-    "next-transpile-modules": "^3.3.0",
-    "webpack": "^4.43.0"
+    "next-transpile-modules": "^4.1.0",
+    "webpack": "^4.44.1"
   }
 }
