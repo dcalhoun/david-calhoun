@@ -19,16 +19,31 @@ module Head = {
   external make: (~children: React.element) => React.element = "default";
 };
 
-module Error = {
-  [@bs.module "next/head"] [@react.component]
-  external make: (~statusCode: int, ~children: React.element) => React.element =
-    "default";
+type eventName = [
+  | `routeChangeStart
+  | `routeChangeComplete
+  | `routeChangeError
+  | `beforeHistoryChange
+  | `hashChangeStart
+  | `hashChangeComplete
+];
+
+type events = {
+  on: (eventName, string => unit) => unit,
+  off: (eventName, string => unit) => unit,
 };
 
 type router = {
-  pathname: string,
-  query: Js.t({.}),
   asPath: string,
+  back: unit => unit,
+  beforePopState: ((string, string, {.}) => bool) => unit,
+  events,
+  pathname: string,
+  prefetch: (string, string),
+  push: (string, string, {. shallow: bool}),
+  query: Js.t({.}),
+  reload: unit => unit,
+  replace: (string, string, {. shallow: bool}),
 };
 
 [@bs.module "next/router"] external useRouter: unit => router = "useRouter";

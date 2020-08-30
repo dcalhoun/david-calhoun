@@ -11,3 +11,19 @@ external gtagEvent:
 
 let sendEvent = (~action, ~eventParams) =>
   gtagEvent(~command="event", ~action, ~eventParams);
+
+type pageViewParams = {
+  page_title: option(string),
+  page_location: option(string),
+  page_path: option(string),
+};
+
+[@bs.val]
+external gtagPageView:
+  (~command: string, ~action: string, ~pageViewParams: pageViewParams) => unit =
+  "gtag";
+
+[@bs.val] external gaTrackingId: string = "process.env.GA_TRACKING_ID";
+
+let sendPageView = (~pageViewParams) =>
+  gtagPageView(~command="config", ~action=gaTrackingId, ~pageViewParams);

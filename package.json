@@ -29,7 +29,7 @@
     "@mdx-js/loader": "^1.6.6",
     "autoprefixer": "^9.8.5",
     "babel-plugin-preval": "^5.0.0",
-    "bs-platform": "^8.0.3",
+    "bs-platform": "^8.2.0",
     "chroma-js": "^2.1.0",
     "cssnano": "^4.1.10",
     "next-transpile-modules": "^3.3.0",
