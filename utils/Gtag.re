@@ -23,7 +23,13 @@ external gtagPageView:
   (~command: string, ~action: string, ~pageViewParams: pageViewParams) => unit =
   "gtag";
 
-[@bs.val] external gaTrackingId: string = "process.env.GA_TRACKING_ID";
+[@bs.val]
+external gaTrackingId: option(string) =
+  "process.env.NEXT_PUBLIC_GA_TRACKING_ID";
 
 let sendPageView = (~pageViewParams) =>
-  gtagPageView(~command="config", ~action=gaTrackingId, ~pageViewParams);
+  switch (gaTrackingId) {
+  | Some(gaTrackingId) =>
+    gtagPageView(~command="config", ~action=gaTrackingId, ~pageViewParams)
+  | None => ()
+  };
