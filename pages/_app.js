@@ -1,1 +1,1 @@
-export { make as default } from "./App.bs";
+export { make as default } from "../re_pages/App.bs";
