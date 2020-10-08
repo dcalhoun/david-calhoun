@@ -18,7 +18,7 @@
     "@zeit/next-css": "^1.0.1",
     "bs-webapi": "^0.19.1",
     "lazysizes": "^5.2.2",
-    "next": "9.5.2",
+    "next": "9.5.4",
     "prism-react-renderer": "^1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
