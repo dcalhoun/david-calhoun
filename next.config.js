@@ -1,23 +1,23 @@
-const withTM = require("next-transpile-modules")(["bs-platform"]);
+const bsconfig = require("./bsconfig.json");
+const withTM = require("next-transpile-modules")(
+  ["bs-platform"].concat(bsconfig["bs-dependencies"])
+);
 
-let withCSS = require("@zeit/next-css");
 let withMDX = require("@next/mdx")();
 
-module.exports = withCSS(
-  withMDX(
-    withTM({
-      pageExtensions: ["mdx", "jsx", "js", "ts", "tsx", "bs.js"],
-      webpack: (config, { defaultLoaders, isServer, dev }) => {
-        return {
-          ...config,
-          // Mock `fs` module for client packages
-          // https://webpack.js.org/configuration/node/#node
-          node: {
-            fs: "empty",
-            module: "empty"
-          }
-        };
-      }
-    })
-  )
+module.exports = withMDX(
+  withTM({
+    pageExtensions: ["mdx", "js", "bs.js"],
+    webpack: (config) => {
+      return {
+        ...config,
+        // Mock `fs` module for client packages
+        // https://webpack.js.org/configuration/node/#node
+        node: {
+          fs: "empty",
+          module: "empty",
+        },
+      };
+    },
+  })
 );

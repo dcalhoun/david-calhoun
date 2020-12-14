@@ -1,5 +1,3 @@
-[%raw {| require("../components/TextButton.css")|}];
-
 let sendExternalLinkClick = href => {
   Gtag.sendEvent(
     ~action="Click Link",
@@ -15,7 +13,7 @@ let sendExternalLinkClick = href => {
 let make =
   React.forwardRef(
     (
-      ~className: option(string)=?,
+      ~className="",
       ~children,
       ~onClick: option(ReactEvent.Mouse.t => unit)=?,
       ~external_: option(bool)=?,
@@ -42,7 +40,8 @@ let make =
       ~props=
         ReactDOMRe.props(
           ~className=
-            "TextButton " ++ className->Belt.Option.getWithDefault(""),
+            className
+            ++ " no-underline active:opacity-50 transition-opacity TextButton",
           ~href?,
           ~onClick?,
           (),

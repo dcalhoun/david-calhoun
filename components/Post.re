@@ -1,5 +1,4 @@
-type lazysizes;
-[@bs.module] external lazysizes: lazysizes = "lazysizes";
+[@bs.module] external lazysizes: 'lazysizes = "lazysizes";
 lazysizes;
 
 type token = {
