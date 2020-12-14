@@ -15,7 +15,7 @@ let months = list{
 
 @react.component
 let make = (~dateString) => {
-  let formattedDate = switch dateString |> Js.String.splitByRe(%re("/-/g")) |> Array.to_list {
+  let formattedDate = switch %re("/-/g")->Js.String.splitByRe(dateString)->Array.to_list {
   | list{Some(year), Some(month), Some(day)} =>
     day ++ (" " ++ (List.nth(months, int_of_string(month) - 1) ++ (" " ++ year)))
   | _ => ""
