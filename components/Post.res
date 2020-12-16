@@ -207,11 +207,11 @@ let make = (~title, ~description, ~published, ~children) => <>
       />
     </Spread>
     <p className="flex-shrink text-md lg:text-xl">
-      {(SEO.siteDescription ++ " He is the Director of Engineering at ")->React.string}
-      <TextButton href="https://www.gonoodle.com" external_=true>
-        {"GoNoodle"->React.string}
+      {(SEO.siteDescription ++ " He is a Software Engineer at ")->React.string}
+      <TextButton href="https://automattic.com" external_=true>
+        {"Automattic"->React.string}
       </TextButton>
-      {", where he works to help kids be their best selves through movement and mindfulness."->React.string}
+      {", where he works to make the web a better place."->React.string}
     </p>
   </footer>
 </>

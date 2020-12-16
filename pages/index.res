@@ -51,8 +51,8 @@ let default = () =>
     </h1>
     <Paragraph className="mb-8 lg:mb-16">
       {"Currently at "->React.string}
-      <TextButton href="https://www.gonoodle.com" external_=true>
-        {"GoNoodle"->React.string}
+      <TextButton href="https://automattic.com" external_=true>
+        {"Automattic"->React.string}
       </TextButton>
       {". "->React.string}
       <br className="md:hidden" />
