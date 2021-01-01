@@ -50,7 +50,7 @@ let default = () =>
       {SEO.siteDescription->React.string}
     </h1>
     <Paragraph className="mb-8 lg:mb-16">
-      {"Currently at "->React.string}
+      {"Software Engineer at "->React.string}
       <TextButton href="https://automattic.com" external_=true>
         {"Automattic"->React.string}
       </TextButton>
