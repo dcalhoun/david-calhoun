@@ -62,25 +62,28 @@ let default = () =>
       <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
         {"Open Source Projects"->React.string}
       </h2>
-      <div className="h-1 w-10 block bg-gray-400 mx-auto mb-4" />
-      {projects->Belt.List.length < 1
-        ? <Paragraph className="italic text-center my-4">
-            {"No projects to display."->React.string}
-          </Paragraph>
-        : projects
-          ->Belt.List.toArray
-          ->Belt.Array.map(project =>
-            <article key=project.name className="mb-4">
-              <TextButton className="block pb-4" href=project.href external_=true>
-                <h3 className={Heading.Styles.quaternary ++ " mb-2"}>
-                  {project.name->React.string}
-                </h3>
-                <p className="text-sm lg:text-lg italic opacity-75">
-                  {project.description->React.string}
-                </p>
-              </TextButton>
-            </article>
-          )
-          ->React.array}
+      <div className="grid gap-4 auto-cols-fr lg:grid-cols-2">
+        {projects->Belt.List.length < 1
+          ? <Paragraph className="italic text-center my-4">
+              {"No projects to display."->React.string}
+            </Paragraph>
+          : projects
+            ->Belt.List.toArray
+            ->Belt.Array.map(project =>
+              <article key=project.name>
+                <a
+                  className="block bg-white rounded shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-4 border border-gray-300"
+                  href=project.href>
+                  <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
+                    {project.name->React.string}
+                  </h3>
+                  <p className="font-serif text-gray-800 text-sm lg:text-lg italic">
+                    {project.description->React.string}
+                  </p>
+                </a>
+              </article>
+            )
+            ->React.array}
+      </div>
     </section>
   </Layout>

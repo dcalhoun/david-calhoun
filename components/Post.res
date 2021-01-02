@@ -94,12 +94,14 @@ module Pre = {
 
 module UnorderedList = {
   @react.component
-  let make = (~children) => <ul className="list-decimal pl-6 lg:pl-8"> children </ul>
+  let make = (~children) =>
+    <ul className="font-serif text-gray-800 list-decimal pl-6 lg:pl-8"> children </ul>
 }
 
 module OrderedList = {
   @react.component
-  let make = (~children) => <ol className="list-decimal pl-6 lg:pl-8"> children </ol>
+  let make = (~children) =>
+    <ol className="font-serif text-gray-800 list-decimal pl-6 lg:pl-8"> children </ol>
 }
 
 module ListItem = {
@@ -193,8 +195,7 @@ let make = (~title, ~description, ~published, ~children) => <>
     </Paragraph>
   </article>
   <footer
-    className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8"
-    style={ReactDOMRe.Style.make(~backgroundColor="var(--backgroundBorder)", ())}>
+    className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8 bg-gray-200">
     <Spread
       props={
         "data-sizes": "auto",
@@ -206,7 +207,7 @@ let make = (~title, ~description, ~published, ~children) => <>
         className="lazyload block h-24 w-24 flex-shrink-0 mb-4 lg:mb-0 lg:mr-4 rounded-full"
       />
     </Spread>
-    <p className="flex-shrink text-md lg:text-xl">
+    <p className="flex-shrink text-md lg:text-xl font-serif text-gray-800">
       {(SEO.siteDescription ++ " He is a Software Engineer at ")->React.string}
       <TextButton href="https://automattic.com" external_=true>
         {"Automattic"->React.string}
