@@ -195,7 +195,7 @@ let make = (~title, ~description, ~published, ~children) => <>
     </Paragraph>
   </article>
   <footer
-    className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8 bg-gray-200">
+    className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8 bg-gray-100">
     <Spread
       props={
         "data-sizes": "auto",
