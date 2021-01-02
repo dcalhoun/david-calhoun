@@ -62,6 +62,32 @@ let default = () =>
       <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
         {"Open Source Projects"->React.string}
       </h2>
+      <div
+        className="relative w-full text-gray-400 mb-6"
+        style={ReactDOM.Style.make(
+          ~backgroundImage="linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))",
+          ~height="1px",
+          (),
+        )}>
+        <div
+          className="h-4 bg-gray-400 absolute transform rotate-12"
+          style={ReactDOM.Style.make(
+            ~left="calc(50% - 0.25rem)",
+            ~top="calc(50% - 0.5rem)",
+            ~width="1px",
+            (),
+          )}
+        />
+        <div
+          className="h-4 bg-gray-400 absolute transform rotate-12"
+          style={ReactDOM.Style.make(
+            ~left="calc(50% + 0.25rem)",
+            ~top="calc(50% - 0.5rem)",
+            ~width="1px",
+            (),
+          )}
+        />
+      </div>
       <div className="grid gap-4 auto-cols-fr lg:grid-cols-2">
         {projects->Belt.List.length < 1
           ? <Paragraph className="italic text-center my-4">
@@ -84,6 +110,32 @@ let default = () =>
               </article>
             )
             ->React.array}
+      </div>
+      <div
+        className="relative w-full text-gray-400 mt-6 mb-6"
+        style={ReactDOM.Style.make(
+          ~backgroundImage="linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))",
+          ~height="1px",
+          (),
+        )}>
+        <div
+          className="h-4 bg-gray-400 absolute transform rotate-12"
+          style={ReactDOM.Style.make(
+            ~left="calc(50% - 0.25rem)",
+            ~top="calc(50% - 0.5rem)",
+            ~width="1px",
+            (),
+          )}
+        />
+        <div
+          className="h-4 bg-gray-400 absolute transform rotate-12"
+          style={ReactDOM.Style.make(
+            ~left="calc(50% + 0.25rem)",
+            ~top="calc(50% - 0.5rem)",
+            ~width="1px",
+            (),
+          )}
+        />
       </div>
     </section>
   </Layout>
