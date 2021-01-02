@@ -3,7 +3,7 @@ let make = (~children) => <>
   <Next.Head> <meta name="viewport" content="initial-scale=1.0, width=device-width" /> </Next.Head>
   <div className="sr-only focus-within:not-sr-only">
     <a
-      className="inline-block font-serif text-gray-800 bg-white border-solid rounded-lg m-2 p-4 absolute z-10"
+      className="inline-block font-serif text-blue-500 bg-white border-solid rounded-lg m-2 p-4 absolute z-10"
       href="#content">
       {"Skip to content"->React.string}
     </a>
