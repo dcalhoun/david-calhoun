@@ -46,10 +46,10 @@ let projects: list<project> = list{
 let default = () =>
   <Layout>
     <SEO />
-    <h1 className={Heading.Styles.primary ++ " mb-8 lg:mb-16"}>
+    <h1 className={Heading.Styles.primary ++ " mb-8 md:mb-16"}>
       {SEO.siteDescription->React.string}
     </h1>
-    <Paragraph className="mb-8 lg:mb-16">
+    <Paragraph className="mb-8 md:mb-16">
       {"Software Engineer at "->React.string}
       <TextButton href="https://automattic.com" external_=true>
         {"Automattic"->React.string}
@@ -58,37 +58,12 @@ let default = () =>
       <br className="md:hidden" />
       {"Based in Nashville, TN."->React.string}
     </Paragraph>
+    <Hr />
     <section className="mb-8">
       <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
         {"Open Source Projects"->React.string}
       </h2>
-      <div
-        className="relative w-full text-gray-400 mb-6"
-        style={ReactDOM.Style.make(
-          ~backgroundImage="linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))",
-          ~height="1px",
-          (),
-        )}>
-        <div
-          className="h-4 bg-gray-400 absolute transform rotate-12"
-          style={ReactDOM.Style.make(
-            ~left="calc(50% - 0.25rem)",
-            ~top="calc(50% - 0.5rem)",
-            ~width="1px",
-            (),
-          )}
-        />
-        <div
-          className="h-4 bg-gray-400 absolute transform rotate-12"
-          style={ReactDOM.Style.make(
-            ~left="calc(50% + 0.25rem)",
-            ~top="calc(50% - 0.5rem)",
-            ~width="1px",
-            (),
-          )}
-        />
-      </div>
-      <div className="grid gap-4 auto-cols-fr lg:grid-cols-2">
+      <div className="grid gap-4 auto-cols-fr md:grid-cols-2">
         {projects->Belt.List.length < 1
           ? <Paragraph className="italic text-center my-4">
               {"No projects to display."->React.string}
@@ -103,39 +78,13 @@ let default = () =>
                   <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
                     {project.name->React.string}
                   </h3>
-                  <p className="font-serif text-gray-800 text-sm lg:text-lg italic">
+                  <p className="font-serif text-gray-600 text-sm md:text-lg italic">
                     {project.description->React.string}
                   </p>
                 </a>
               </article>
             )
             ->React.array}
-      </div>
-      <div
-        className="relative w-full text-gray-400 mt-6 mb-6"
-        style={ReactDOM.Style.make(
-          ~backgroundImage="linear-gradient(to left, currentColor calc(50% - 16px), transparent calc(50% - 16px), transparent calc(50% + 16px), currentColor calc(50% + 16px))",
-          ~height="1px",
-          (),
-        )}>
-        <div
-          className="h-4 bg-gray-400 absolute transform rotate-12"
-          style={ReactDOM.Style.make(
-            ~left="calc(50% - 0.25rem)",
-            ~top="calc(50% - 0.5rem)",
-            ~width="1px",
-            (),
-          )}
-        />
-        <div
-          className="h-4 bg-gray-400 absolute transform rotate-12"
-          style={ReactDOM.Style.make(
-            ~left="calc(50% + 0.25rem)",
-            ~top="calc(50% - 0.5rem)",
-            ~width="1px",
-            (),
-          )}
-        />
       </div>
     </section>
   </Layout>

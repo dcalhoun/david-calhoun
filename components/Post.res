@@ -54,7 +54,7 @@ module Code = {
     @react.component
     let make = (~getLineProps, ~getTokenProps, ~tokens, ~className, ~style) =>
       <pre
-        className={"text-sm lg:text-base mb-4 lg:mb-8 p-4 rounded-lg overflow-scroll " ++
+        className={"text-sm md:text-base mb-4 md:mb-8 p-4 rounded-lg overflow-scroll " ++
         className->Belt.Option.getWithDefault("")}
         style>
         {tokens
@@ -95,18 +95,18 @@ module Pre = {
 module UnorderedList = {
   @react.component
   let make = (~children) =>
-    <ul className="font-serif text-gray-800 list-decimal pl-6 lg:pl-8"> children </ul>
+    <ul className="font-serif text-gray-800 list-decimal pl-6 md:pl-8"> children </ul>
 }
 
 module OrderedList = {
   @react.component
   let make = (~children) =>
-    <ol className="font-serif text-gray-800 list-decimal pl-6 lg:pl-8"> children </ol>
+    <ol className="font-serif text-gray-800 list-decimal pl-6 md:pl-8"> children </ol>
 }
 
 module ListItem = {
   @react.component
-  let make = (~children) => <li className="text-base lg:text-2xl mb-4 lg:mb-8"> children </li>
+  let make = (~children) => <li className="text-base md:text-2xl mb-4 md:mb-8"> children </li>
 }
 
 module Heading1 = {
@@ -170,32 +170,37 @@ let components: mdxComponents = {
 let make = (~title, ~description, ~published, ~children) => <>
   <article>
     <SEO title description />
-    <h1 className=Heading.Styles.primary> {title->React.string} </h1>
-    <FormattedDate dateString=published />
-    <MDXProvider components> children </MDXProvider>
-    <Paragraph>
-      {<>
-        {"Questions, comments, suggestions? "->React.string}
-        <TextButton
-          onClick={_e =>
-            Gtag.sendEvent(
-              ~action="Send Feedback",
-              ~eventParams={
-                event_category: Some("Post"),
-                event_label: Some(title),
-                value: None,
-              },
-            )}
-          href={"https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=" ++ title}>
-          {"Open an issue"->React.string}
-        </TextButton>
-        {". Enjoy this content? Please consider sharing it."->React.string}
-        <ButtonTweet className="inline-block align-middle ml-2" title />
-      </>}
-    </Paragraph>
+    <header className="text-center">
+      <h1 className=Heading.Styles.primary> {title->React.string} </h1>
+      <FormattedDate dateString=published />
+    </header>
+    <div className="max-w-2xl mx-auto">
+      <MDXProvider components> children </MDXProvider>
+      <Paragraph>
+        {<>
+          {"Questions, comments, suggestions? "->React.string}
+          <TextButton
+            onClick={_e =>
+              Gtag.sendEvent(
+                ~action="Send Feedback",
+                ~eventParams={
+                  event_category: Some("Post"),
+                  event_label: Some(title),
+                  value: None,
+                },
+              )}
+            href={"https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=" ++ title}>
+            {"Open an issue"->React.string}
+          </TextButton>
+          {". Enjoy this content? Please consider sharing it."->React.string}
+          <ButtonTweet className="inline-block align-middle ml-2" title />
+        </>}
+      </Paragraph>
+    </div>
   </article>
+  <Hr className="max-w-2xl mx-auto" />
   <footer
-    className="flex items-center flex-col lg:flex-row rounded-lg p-4 mb-4 lg:mb-8 bg-gray-100">
+    className="max-w-2xl mx-auto flex items-center flex-col md:flex-row rounded-lg p-4 mb-4 md:mb-8 bg-gray-100">
     <Spread
       props={
         "data-sizes": "auto",
@@ -204,10 +209,10 @@ let make = (~title, ~description, ~published, ~children) => <>
       }>
       <img
         alt="David Calhoun"
-        className="lazyload block h-24 w-24 flex-shrink-0 mb-4 lg:mb-0 lg:mr-4 rounded-full"
+        className="lazyload block h-24 w-24 flex-shrink-0 mb-4 md:mb-0 md:mr-4 rounded-full"
       />
     </Spread>
-    <p className="flex-shrink text-md lg:text-xl font-serif text-gray-800">
+    <p className="flex-shrink text-md md:text-xl font-serif text-gray-800">
       {(SEO.siteDescription ++ " He is a Software Engineer at ")->React.string}
       <TextButton href="https://automattic.com" external_=true>
         {"Automattic"->React.string}
