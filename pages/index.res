@@ -63,7 +63,7 @@ let default = () =>
       <h2 className={Heading.Styles.tertiary ++ " text-center mb-4"}>
         {"Open Source Projects"->React.string}
       </h2>
-      <div className="grid gap-4 auto-cols-fr md:grid-cols-2">
+      <div className="grid gap-4 auto-rows-fr md:grid-cols-2">
         {projects->Belt.List.length < 1
           ? <Paragraph className="italic text-center my-4">
               {"No projects to display."->React.string}
@@ -71,18 +71,17 @@ let default = () =>
           : projects
             ->Belt.List.toArray
             ->Belt.Array.map(project =>
-              <article key=project.name>
-                <a
-                  className="block bg-white rounded shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-4 border border-gray-300"
-                  href=project.href>
-                  <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
-                    {project.name->React.string}
-                  </h3>
-                  <p className="font-serif text-gray-600 text-sm md:text-lg italic">
-                    {project.description->React.string}
-                  </p>
-                </a>
-              </article>
+              <a
+                className="block bg-white rounded shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-4 border border-gray-300"
+                href=project.href
+                key=project.name>
+                <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
+                  {project.name->React.string}
+                </h3>
+                <p className="font-serif text-gray-600 text-sm md:text-lg italic">
+                  {project.description->React.string}
+                </p>
+              </a>
             )
             ->React.array}
       </div>
