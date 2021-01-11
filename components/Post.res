@@ -174,7 +174,7 @@ let make = (~title, ~description, ~published, ~children) => <>
       <h1 className=Heading.Styles.primary> {title->React.string} </h1>
       <FormattedDate dateString=published />
     </header>
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-lg lg:max-w-2xl mx-auto">
       <MDXProvider components> children </MDXProvider>
       <Paragraph>
         {<>
@@ -198,9 +198,9 @@ let make = (~title, ~description, ~published, ~children) => <>
       </Paragraph>
     </div>
   </article>
-  <Hr className="max-w-2xl mx-auto" />
+  <Hr className="max-w-lg lg:max-w-2xl mx-auto" />
   <footer
-    className="max-w-2xl mx-auto flex items-center flex-col md:flex-row rounded-lg p-4 mb-4 md:mb-8 bg-gray-100">
+    className="max-w-lg lg:max-w-2xl mx-auto flex items-center flex-col md:flex-row rounded-lg p-4 mb-4 md:mb-8 bg-gray-100">
     <Spread
       props={
         "data-sizes": "auto",
