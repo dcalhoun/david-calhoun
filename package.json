@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev:next": "node ./scripts/theme.js",
     "dev:rescript": "bsb -clean-world -make-world -w",
     "dev:next": "next dev",
-    "prebuild": "node ./scripts/theme.js",
     "build": "bsb -clean-world -make-world && next build",
     "start": "next start"
   },
@@ -30,7 +28,6 @@
     "autoprefixer": "^10.1.0",
     "babel-plugin-preval": "^5.0.0",
     "bs-platform": "^8.4.2",
-    "chroma-js": "^2.1.0",
     "cssnano": "^4.1.10",
     "next-transpile-modules": "^4.1.0",
     "webpack": "^5.10.1"

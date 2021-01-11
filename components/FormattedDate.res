@@ -20,7 +20,8 @@ let make = (~dateString) => {
     day ++ (" " ++ (List.nth(months, int_of_string(month) - 1) ++ (" " ++ year)))
   | _ => ""
   }
-  <time className="inline-block text-base lg:text-xl opacity-75 mb-4 lg:mb-8" dateTime=dateString>
+  <time
+    className="inline-block text-base text-gray-700 md:text-xl mb-4 md:mb-8" dateTime=dateString>
     {formattedDate->React.string}
   </time>
 }
