@@ -78,7 +78,7 @@ let default = () =>
                 <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
                   {project.name->React.string}
                 </h3>
-                <p className="font-serif text-gray-600 dark:text-gray-400 text-sm md:text-lg italic">
+                <p className="font-serif text-gray-600 dark:text-gray-300 text-sm md:text-lg italic">
                   {project.description->React.string}
                 </p>
               </a>
