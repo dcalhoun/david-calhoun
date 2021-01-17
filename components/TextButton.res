@@ -33,7 +33,7 @@ let make = React.forwardRef((
   ReactDOMRe.createElement(
     href->Belt.Option.mapWithDefault("button", _href => "a"),
     ~props=ReactDOMRe.props(
-      ~className=className ++ " text-blue-500 underline active:opacity-50 transition-opacity TextButton",
+      ~className=className ++ " text-blue-500 text-blue-400 underline active:opacity-50 transition-opacity",
       ~href?,
       ~onClick?,
       (),

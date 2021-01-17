@@ -72,13 +72,15 @@ let default = () =>
             ->Belt.List.toArray
             ->Belt.Array.map(project =>
               <a
-                className="block bg-white dark:bg-gray-800 rounded shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-4 border border-gray-300 dark:border-gray-900"
+                className="block bg-white dark:bg-gray-700 rounded shadow-sm hover:shadow-lg transition-shadow duration-300 px-6 py-4 border border-gray-300 dark:border-gray-900"
                 href=project.href
                 key=project.name>
-                <h3 className={Heading.Styles.quaternary ++ " mb-2 text-blue-500"}>
+                <h3
+                  className={Heading.Styles.quaternary ++ " mb-2 text-blue-500 dark:text-blue-400"}>
                   {project.name->React.string}
                 </h3>
-                <p className="font-serif text-gray-600 dark:text-gray-300 text-sm md:text-lg italic">
+                <p
+                  className="font-serif text-gray-600 dark:text-gray-300 text-sm md:text-lg italic">
                   {project.description->React.string}
                 </p>
               </a>

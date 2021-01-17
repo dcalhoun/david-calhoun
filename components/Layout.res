@@ -6,7 +6,7 @@ let make = (~children) => {
     </Next.Head>
     <div className="sr-only focus-within:not-sr-only">
       <a
-        className="inline-block font-sans font-semibold text-blue-500 bg-white dark:bg-gray-900 rounded-lg m-2 p-4 absolute z-10"
+        className="inline-block font-sans font-semibold text-gray-700 bg-white dark:bg-gray-900 rounded-lg m-2 p-4 absolute z-10"
         href="#content">
         {"Skip to content"->React.string}
       </a>
@@ -15,17 +15,17 @@ let make = (~children) => {
       <div className="bg-white dark:bg-gray-800 px-4 pt-8 flex-1">
         <nav className="font-semibold text-center text-md mb-8">
           <Next.Link href="/" passHref=true>
-            <TextButton className="mx-2"> {"About"->React.string} </TextButton>
+            <NavItem className="mx-2"> {"About"->React.string} </NavItem>
           </Next.Link>
           <Next.Link href="/writing" passHref=true>
-            <TextButton className="mx-2"> {"Writing"->React.string} </TextButton>
+            <NavItem className="mx-2"> {"Writing"->React.string} </NavItem>
           </Next.Link>
-          <TextButton className="mx-2" href="https://twitter.com/david_calhoun" external_=true>
+          <NavItem className="mx-2" href="https://twitter.com/david_calhoun">
             {"Twitter"->React.string}
-          </TextButton>
-          <TextButton className="mx-2" href="https://github.com/dcalhoun" external_=true>
+          </NavItem>
+          <NavItem className="mx-2" href="https://github.com/dcalhoun">
             {"GitHub"->React.string}
-          </TextButton>
+          </NavItem>
         </nav>
         <main className="content m-auto" id="content"> children </main>
       </div>
