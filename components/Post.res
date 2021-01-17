@@ -95,13 +95,13 @@ module Pre = {
 module UnorderedList = {
   @react.component
   let make = (~children) =>
-    <ul className="font-serif text-gray-800 list-decimal pl-6 md:pl-8"> children </ul>
+    <ul className="font-serif list-decimal pl-6 md:pl-8"> children </ul>
 }
 
 module OrderedList = {
   @react.component
   let make = (~children) =>
-    <ol className="font-serif text-gray-800 list-decimal pl-6 md:pl-8"> children </ol>
+    <ol className="font-serif list-decimal pl-6 md:pl-8"> children </ol>
 }
 
 module ListItem = {
@@ -200,7 +200,7 @@ let make = (~title, ~description, ~published, ~children) => <>
   </article>
   <Hr className="max-w-lg lg:max-w-2xl mx-auto" />
   <footer
-    className="max-w-lg lg:max-w-2xl mx-auto flex items-center flex-col md:flex-row rounded-lg p-4 mb-4 md:mb-8 bg-gray-100">
+    className="max-w-lg lg:max-w-2xl mx-auto flex items-center flex-col md:flex-row rounded-lg p-4 mb-4 md:mb-8 bg-gray-100 dark:bg-gray-700">
     <Spread
       props={
         "data-sizes": "auto",
@@ -212,12 +212,12 @@ let make = (~title, ~description, ~published, ~children) => <>
         className="lazyload block h-24 w-24 flex-shrink-0 mb-4 md:mb-0 md:mr-4 rounded-full"
       />
     </Spread>
-    <p className="flex-shrink text-md md:text-xl font-serif text-gray-800">
+    <p className="flex-shrink text-md md:text-xl font-serif">
       {(SEO.siteDescription ++ " He is a Software Engineer at ")->React.string}
       <TextButton href="https://automattic.com" external_=true>
         {"Automattic"->React.string}
       </TextButton>
-      {", where he works to make the web a better place."->React.string}
+      {" where he works to make the web a better place."->React.string}
     </p>
   </footer>
 </>
