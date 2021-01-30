@@ -24,7 +24,7 @@ external createShareButton: (string, Dom.element, twttrShareButtonOptions) => un
   "createShareButton"
 
 @react.component
-let make = (~className, ~title) => {
+let make = (~className="", ~title) => {
   let isClient = Js.typeof(window) != "undefined"
   let anchorRef = React.useRef(Js.Nullable.null)
 

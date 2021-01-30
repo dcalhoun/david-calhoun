@@ -94,14 +94,12 @@ module Pre = {
 
 module UnorderedList = {
   @react.component
-  let make = (~children) =>
-    <ul className="font-serif list-decimal pl-6 md:pl-8"> children </ul>
+  let make = (~children) => <ul className="font-serif list-decimal pl-6 md:pl-8"> children </ul>
 }
 
 module OrderedList = {
   @react.component
-  let make = (~children) =>
-    <ol className="font-serif list-decimal pl-6 md:pl-8"> children </ol>
+  let make = (~children) => <ol className="font-serif list-decimal pl-6 md:pl-8"> children </ol>
 }
 
 module ListItem = {
@@ -193,9 +191,9 @@ let make = (~title, ~description, ~published, ~children) => <>
             {"Open an issue"->React.string}
           </TextButton>
           {". Enjoy this content? Please consider sharing it."->React.string}
-          <ButtonTweet className="inline-block align-middle ml-2" title />
         </>}
       </Paragraph>
+      <ButtonTweet title />
     </div>
   </article>
   <Hr className="max-w-lg lg:max-w-2xl mx-auto" />
