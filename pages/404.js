@@ -1,1 +1,1 @@
-export { make as default } from "./Error404.bs";
+export { make as default } from "../components/Error404.bs";
