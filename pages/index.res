@@ -49,7 +49,7 @@ let default = () =>
     <h1 className={Heading.Styles.primary ++ " mb-8 md:mb-16"}>
       {SEO.siteDescription->React.string}
     </h1>
-    <Paragraph className="mb-8 md:mb-16">
+    <Paragraph style={ReactDOM.Style.make(~margin="0", ())}>
       {"Software Engineer at "->React.string}
       <TextButton href="https://automattic.com"> {"Automattic"->React.string} </TextButton>
       {". "->React.string}
