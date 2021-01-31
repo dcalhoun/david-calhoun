@@ -70,7 +70,7 @@ let default = () =>
             ->Belt.List.toArray
             ->Belt.Array.map(project =>
               <a
-                className="block bg-white dark:bg-gray-700 rounded shadow-sm hover:shadow-lg transition-shadow duration-300 px-6 py-4 border border-gray-300 dark:border-gray-900"
+                className="block bg-white dark:bg-gray-700 rounded hover:shadow-lg transition-shadow duration-300 px-6 py-4 border border-gray-300 dark:border-gray-900"
                 href=project.href
                 key=project.name>
                 <h3
