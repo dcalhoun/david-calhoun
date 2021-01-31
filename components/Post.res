@@ -136,6 +136,7 @@ type mdxComponents = {
   p: {
     "children": ReasonReact.reactElement,
     "className": option<string>,
+    "style": option<ReactDOM.Style.t>,
   } => ReasonReact.reactElement,
   a: {"children": ReasonReact.reactElement, "href": string} => ReasonReact.reactElement,
   ul: mdxContentComponent,

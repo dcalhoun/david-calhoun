@@ -12,7 +12,7 @@ let make = (~children) => {
       </TextButton>
     </div>
     <div className="bg-gray-200 dark:bg-gray-900 min-h-screen p-2 md:p-4 flex flex-col">
-      <div className="bg-white dark:bg-gray-800 px-4 pt-8 flex-1">
+      <div className="bg-white dark:bg-gray-800 px-4 pt-8 flex flex-col flex-1">
         <nav className="font-semibold text-center text-md mb-8">
           <Next.Link href="/" passHref=true>
             <TextButton className="mx-2 md:text-xl"> {"About"->React.string} </TextButton>
@@ -27,7 +27,9 @@ let make = (~children) => {
             {"GitHub"->React.string}
           </TextButton>
         </nav>
-        <main className="content m-auto" id="content"> children </main>
+        <main className="content flex flex-1 flex-col items-stretch mx-auto" id="content">
+          children
+        </main>
       </div>
     </div>
   </>
