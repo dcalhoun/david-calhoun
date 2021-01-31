@@ -124,7 +124,7 @@ module Heading3 = {
 
 module Anchor = {
   @react.component
-  let make = (~children, ~href) => <TextButton external_=true href> children </TextButton>
+  let make = (~children, ~href) => <TextButton href> children </TextButton>
 }
 
 type mdxContentComponent = {"children": ReasonReact.reactElement} => ReasonReact.reactElement
@@ -178,15 +178,6 @@ let make = (~title, ~description, ~published, ~children) => <>
         {<>
           {"Questions, comments, suggestions? "->React.string}
           <TextButton
-            onClick={_e =>
-              Gtag.sendEvent(
-                ~action="Send Feedback",
-                ~eventParams={
-                  event_category: Some("Post"),
-                  event_label: Some(title),
-                  value: None,
-                },
-              )}
             href={"https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=" ++ title}>
             {"Open an issue"->React.string}
           </TextButton>
@@ -212,9 +203,7 @@ let make = (~title, ~description, ~published, ~children) => <>
     </Spread>
     <p className="flex-shrink text-md md:text-xl font-serif">
       {(SEO.siteDescription ++ " He is a Software Engineer at ")->React.string}
-      <TextButton href="https://automattic.com" external_=true>
-        {"Automattic"->React.string}
-      </TextButton>
+      <TextButton href="https://automattic.com"> {"Automattic"->React.string} </TextButton>
       {" where he works to make the web a better place."->React.string}
     </p>
   </footer>

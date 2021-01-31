@@ -51,9 +51,7 @@ let default = () =>
     </h1>
     <Paragraph className="mb-8 md:mb-16">
       {"Software Engineer at "->React.string}
-      <TextButton href="https://automattic.com" external_=true>
-        {"Automattic"->React.string}
-      </TextButton>
+      <TextButton href="https://automattic.com"> {"Automattic"->React.string} </TextButton>
       {". "->React.string}
       <br className="md:hidden" />
       {"Based in Nashville, TN."->React.string}

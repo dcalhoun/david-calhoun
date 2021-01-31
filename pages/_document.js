@@ -39,27 +39,11 @@ export default class Document extends NextDocument {
             sizes="512x512"
             href="/icon-512x512.png"
           />
-          <link rel="preconnect" href="https://www.google-analytics.com" />
-          <link rel="preconnect" href="https://www.googletagmanager.com" />
           <link rel="preconnect" href="https://platform.twitter.com" />
         </Head>
         <body className="text-gray-800 dark:text-gray-100">
           <Main />
           <NextScript />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-              `,
-            }}
-          />
         </body>
       </Html>
     );
