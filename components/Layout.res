@@ -27,7 +27,7 @@ let make = (~children) => {
             {"GitHub"->React.string}
           </TextButton>
         </nav>
-        <main className="content flex flex-1 flex-col items-stretch mx-auto" id="content">
+        <main className="content flex flex-1 flex-col items-stretch mx-auto w-full" id="content">
           children
         </main>
       </div>
