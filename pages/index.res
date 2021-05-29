@@ -50,7 +50,7 @@ let default = () =>
       {SEO.siteDescription->React.string}
     </h1>
     <Paragraph style={ReactDOM.Style.make(~margin="0", ())}>
-      {"Software Engineer at "->React.string}
+      {"Software engineer at "->React.string}
       <TextButton href="https://automattic.com"> {"Automattic"->React.string} </TextButton>
       {". "->React.string}
       <br className="md:hidden" />
