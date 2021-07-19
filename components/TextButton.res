@@ -11,9 +11,9 @@ let make = React.forwardRef((
   | _ => None
   }
 
-  ReactDOMRe.createElement(
-    href->Belt.Option.mapWithDefault("button", _href => "a"),
-    ~props=ReactDOMRe.props(
+  React.createElementVariadic(
+    href->Belt.Option.mapWithDefault("button", _href => "a")->ReactDOM.stringToComponent,
+    ReactDOM.domProps(
       ~className=className ++ " text-blue-500 text-blue-400 underline active:opacity-50 transition-opacity",
       ~href?,
       ~onClick?,

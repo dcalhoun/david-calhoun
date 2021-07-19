@@ -7,7 +7,7 @@ type article = {
 
 // Must rely upon a JavaScript file until ESM default exports are supported.
 // https://github.com/BuckleScript/bucklescript/issues/2113
-@bs.module("../utils/articles")
+@module("../utils/articles")
 external articles: array<article> = "default"
 
 @react.component

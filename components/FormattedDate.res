@@ -21,7 +21,8 @@ let make = (~dateString) => {
   | _ => ""
   }
   <time
-    className="inline-block text-base text-gray-700 dark:text-gray-400 md:text-xl mb-4 md:mb-8" dateTime=dateString>
+    className="inline-block text-base text-gray-700 dark:text-gray-400 md:text-xl mb-4 md:mb-8"
+    dateTime=dateString>
     {formattedDate->React.string}
   </time>
 }

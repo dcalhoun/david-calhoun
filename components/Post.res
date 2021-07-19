@@ -1,4 +1,4 @@
-@bs.module external lazysizes: 'lazysizes = "lazysizes"
+@module external lazysizes: 'lazysizes = "lazysizes"
 lazysizes
 
 type token = {
@@ -21,19 +21,19 @@ module Highlight = {
   type prism
 
   type defaultProps = {
-    @bs.as("Prism")
+    @as("Prism")
     prism: prism,
   }
-  @bs.module("prism-react-renderer")
+  @module("prism-react-renderer")
   external defaultProps: defaultProps = "defaultProps"
 
   type theme
-  @bs.module("prism-react-renderer/themes/nightOwl")
+  @module("prism-react-renderer/themes/nightOwl")
   external theme: theme = "default"
 
   type language = string
 
-  @bs.module("prism-react-renderer") @react.component
+  @module("prism-react-renderer") @react.component
   external make: (
     ~_Prism: prism,
     ~theme: theme,
@@ -44,7 +44,7 @@ module Highlight = {
       "getTokenProps": tokenInputProps => {..},
       "tokens": array<array<token>>,
       "className": option<string>,
-      "style": ReactDOMRe.style,
+      "style": ReactDOM.style,
     } => React.element,
   ) => React.element = "default"
 }
@@ -127,18 +127,18 @@ module Anchor = {
   let make = (~children, ~href) => <TextButton href> children </TextButton>
 }
 
-type mdxContentComponent = {"children": ReasonReact.reactElement} => ReasonReact.reactElement
+type mdxContentComponent = {"children": React.element} => React.element
 
 type mdxComponents = {
   h1: mdxContentComponent,
   h2: mdxContentComponent,
   h3: mdxContentComponent,
   p: {
-    "children": ReasonReact.reactElement,
+    "children": React.element,
     "className": option<string>,
     "style": option<ReactDOM.Style.t>,
-  } => ReasonReact.reactElement,
-  a: {"children": ReasonReact.reactElement, "href": string} => ReasonReact.reactElement,
+  } => React.element,
+  a: {"children": React.element, "href": string} => React.element,
   ul: mdxContentComponent,
   ol: mdxContentComponent,
   li: mdxContentComponent,
@@ -147,7 +147,7 @@ type mdxComponents = {
 }
 
 module MDXProvider = {
-  @bs.module("@mdx-js/react") @react.component
+  @module("@mdx-js/react") @react.component
   external make: (~components: mdxComponents, ~children: React.element) => React.element =
     "MDXProvider"
 }

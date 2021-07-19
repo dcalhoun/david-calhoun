@@ -1,4 +1,4 @@
-@bs.val @bs.scope(("process", "env"))
+@val @scope(("process", "env"))
 external nodeEnv: string = "NODE_ENV"
 
 let siteTitle = "David Calhoun, Software Engineer"

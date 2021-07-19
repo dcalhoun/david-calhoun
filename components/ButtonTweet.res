@@ -5,9 +5,9 @@ type twttr = {
   _e: array<twttrCallback>,
   mutable ready: twttrCallback => unit,
 }
-@bs.set external setTwttr: (Dom.window, twttr) => unit = "twttr"
+@set external setTwttr: (Dom.window, twttr) => unit = "twttr"
 
-@bs.val @bs.scope(("window", "twttr"))
+@val @scope(("window", "twttr"))
 external ready: twttrCallback => unit = "ready"
 
 type twttrShareButtonOptions = {
@@ -19,7 +19,7 @@ type twttrShareButtonOptions = {
   text: option<string>,
   via: option<string>,
 }
-@bs.val @bs.scope(("window", "twttr", "widgets"))
+@val @scope(("window", "twttr", "widgets"))
 external createShareButton: (string, Dom.element, twttrShareButtonOptions) => unit =
   "createShareButton"
 
@@ -80,5 +80,5 @@ let make = (~className="", ~title) => {
     None
   }, (anchorRef, title))
 
-  <span className ref={ReactDOMRe.Ref.domRef(anchorRef)} />
+  <span className ref={ReactDOM.Ref.domRef(anchorRef)} />
 }
