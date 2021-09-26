@@ -2,8 +2,8 @@
   "name": "David Calhoun",
   "short_name": "David Calhoun",
   "start_url": "/",
-  "background_color": "#f9f9fa",
-  "theme_color": "#4e1fe0",
+  "background_color": "#e5e7eb",
+  "theme_color": "#e5e7eb",
   "display": "minimal-ui",
   "icons": [
     { "src": "icon-48x48.png", "sizes": "48x48", "type": "image/png" },

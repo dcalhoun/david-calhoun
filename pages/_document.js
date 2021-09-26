@@ -10,7 +10,12 @@ export default class Document extends NextDocument {
           )}
           <link rel="shortcut icon" href="/icon-48x48.png" />
           <link rel="manifest" href="/manifest.webmanifest" />
-          <meta name="theme-color" content="#4e1fe0" />
+          <meta
+            name="theme-color"
+            content="#111827"
+            media="(prefers-color-scheme: dark)"
+          />
+          <meta name="theme-color" content="#e5e7eb" />
           <link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
           <link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
           <link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
