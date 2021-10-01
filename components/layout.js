@@ -27,8 +27,8 @@ export function Layout({
         <Link href="/">
           <a className="mr-4">About</a>
         </Link>
-        <Link href="/writing">
-          <a className="mr-4">Writing</a>
+        <Link href="/blog">
+          <a className="mr-4">Blog</a>
         </Link>
         <a href="https://github.com/dcalhoun" className="mr-4">
           GitHub
