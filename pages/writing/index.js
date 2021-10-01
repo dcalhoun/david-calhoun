@@ -3,7 +3,10 @@ import { Layout } from "../../components/layout";
 
 export default function Writing() {
   return (
-    <Layout title="Writing | David Calhoun">
+    <Layout
+      title="Writing | David Calhoun"
+      description="David’s thoughts on software development."
+    >
       <main className="prose lg:prose-xl mx-auto">
         <h1>Writing</h1>
         <div role="list">
