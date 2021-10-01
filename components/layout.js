@@ -23,7 +23,7 @@ export function Layout({
         <meta property="og:description" content={description} />
         <meta name="twitter:site" content="@david_calhoun" />
       </Head>
-      <nav className="prose lg:prose-xl mx-auto">
+      <nav className="flex flex-wrap prose lg:prose-xl mx-auto my-10 px-2">
         <Link href="/">
           <a className="mr-4">About</a>
         </Link>
@@ -50,7 +50,7 @@ export default function Blog({ meta: { title, description } }) {
   return function BlogLayout({ children }) {
     return (
       <Layout title={`${title} | ${NAME}`} description={description}>
-        <main className="prose lg:prose-xl mx-auto">
+        <main className="prose lg:prose-xl mx-auto px-2">
           <h1>{title}</h1>
           {children}
         </main>

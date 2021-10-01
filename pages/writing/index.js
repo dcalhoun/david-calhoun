@@ -7,7 +7,7 @@ export default function Writing() {
       title="Writing | David Calhoun"
       description="David’s thoughts on software development."
     >
-      <main className="prose lg:prose-xl mx-auto">
+      <main className="prose lg:prose-xl mx-auto px-2">
         <h1>Writing</h1>
         <div role="list">
           <Link href="/writing/building-software-together">
