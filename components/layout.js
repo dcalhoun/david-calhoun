@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
 
-export function LayoutHead() {}
-
 export function Layout({
   description = "David Calhoun is a software engineer with a passion for good UX design & scalable architecture.",
   children,
