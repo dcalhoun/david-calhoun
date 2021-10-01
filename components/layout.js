@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { forwardRef } from "react";
 
 const NAME = "David Calhoun";
 const SITE_NAME = `${NAME}, Software Engineer`;
@@ -23,27 +25,47 @@ export function Layout({
         <meta property="og:description" content={description} />
         <meta name="twitter:site" content="@david_calhoun" />
       </Head>
-      <nav className="flex flex-wrap prose lg:prose-xl mx-auto my-10 px-2">
-        <Link href="/">
-          <a className="mr-4">About</a>
-        </Link>
-        <Link href="/blog">
-          <a className="mr-4">Blog</a>
-        </Link>
-        <a href="https://github.com/dcalhoun" className="mr-4">
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/davidpcalhoun/" className="mr-4">
-          LinkedIn
-        </a>
-        <a href="https://twitter.com/david_calhoun" className="mr-4">
-          Twitter
-        </a>
+      <div className="pb-16">{children}</div>
+      <nav className="fixed bottom-0 w-full p-2">
+        <div
+          className="max-w-2xl mx-auto flex justify-around backdrop-filter backdrop-blur rounded-xl"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+        >
+          <Link href="/" passHref>
+            <NavLink>About</NavLink>
+          </Link>
+          <Link href="/blog" passHref>
+            <NavLink>Blog</NavLink>
+          </Link>
+          <Link href="/links" passHref>
+            <NavLink>Links</NavLink>
+          </Link>
+        </div>
       </nav>
-      {children}
     </>
   );
 }
+
+function NavNextLink({ children, href, onClick }, ref) {
+  const { asPath } = useRouter();
+  const indicatorColor = new RegExp(`${href}($|\/.+)`).test(asPath)
+    ? "bg-blue-500"
+    : "";
+  return (
+    <a
+      className="relative flex flex-col items-center text-sm md:text-2xl px-4 py-4"
+      href={href}
+      onClick={onClick}
+      ref={ref}
+    >
+      {children}
+      <div
+        className={`absolute bottom-2 left-1/2 -translate-x-1/2 h-1 w-1 mt-1 rounded-full ${indicatorColor}`}
+      />
+    </a>
+  );
+}
+const NavLink = forwardRef(NavNextLink);
 
 // Default export layout required for Nextra
 export default function Blog({ meta: { title, description } }) {
