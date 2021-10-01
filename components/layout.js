@@ -14,12 +14,12 @@ export function Layout({
         <meta name="og:title" content={title} />
         <meta name="description" content={description} />
       </Head>
-      <nav>
+      <nav className="prose lg:prose-xl mx-auto">
         <Link href="/">
-          <a>About</a>
+          <a className="mr-4">About</a>
         </Link>
         <Link href="/writing">
-          <a>Writing</a>
+          <a className="mr-4">Writing</a>
         </Link>
       </nav>
       {children}
@@ -32,7 +32,7 @@ export default function Blog({ meta: { title, description } }) {
   return function BlogLayout({ children }) {
     return (
       <Layout title={title + " | David Calhoun"} description={description}>
-        <main>
+        <main className="prose lg:prose-xl mx-auto">
           <h1>{title}</h1>
           {children}
         </main>

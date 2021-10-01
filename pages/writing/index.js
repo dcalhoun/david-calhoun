@@ -4,7 +4,7 @@ import { Layout } from "../../components/layout";
 export default function Writing() {
   return (
     <Layout title="Writing | David Calhoun">
-      <main>
+      <main className="prose lg:prose-xl mx-auto">
         <h1>Writing</h1>
         <div role="list">
           <Link href="/writing/building-software-together">
