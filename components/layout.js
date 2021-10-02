@@ -95,7 +95,9 @@ export default function Blog({ meta: { title, description, type }, pageMap }) {
         {type === "posts" ? (
           <>
             <div className="prose lg:prose-2xl mb-8 lg:mb-16">{children}</div>
-            <PostList posts={pageMap[0]?.children} />
+            <PostList
+              posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}
+            />
           </>
         ) : (
           children
@@ -103,4 +105,15 @@ export default function Blog({ meta: { title, description, type }, pageMap }) {
       </Layout>
     );
   };
+}
+
+function sortByPostPublishDateString(a, b) {
+  return (
+    parseDate(b.frontMatter.published) - parseDate(a.frontMatter.published)
+  );
+}
+
+function parseDate(dateString) {
+  const [year, month, day] = dateString.split("-");
+  return new Date(year, month - 1, day);
 }
