@@ -36,7 +36,7 @@ export function Layout({
         </Head>
         <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 lg:-left-32 flex w-full lg:w-auto">
           <div
-            className="mx-auto flex lg:flex-col justify-around lg:items-end backdrop-filter backdrop-blur rounded-xl"
+            className="mx-auto flex lg:flex-col justify-around lg:items-start backdrop-filter backdrop-blur rounded-xl"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
           >
             <Link href="/" passHref>
@@ -65,8 +65,8 @@ export function Layout({
 function NavNextLink({ children, href, onClick }, ref) {
   const { asPath } = useRouter();
   const indicatorColor = new RegExp(`${href}($|\/.+)`).test(asPath)
-    ? "bg-blue-500"
-    : "";
+    ? "text-blue-500"
+    : "text-transparent";
   return (
     <a
       className="relative flex items-center text-sm md:text-2xl p-4 lg:p-0 lg:mb-6"
@@ -75,8 +75,37 @@ function NavNextLink({ children, href, onClick }, ref) {
       ref={ref}
     >
       <div
-        className={`absolute bottom-2 lg:bottom-auto lg:top-1/2 left-1/2 lg:-left-4 -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 h-1 lg:h-2 w-1 lg:w-2 rounded-full ${indicatorColor}`}
-      />
+        className={`absolute bottom-1 lg:bottom-auto lg:top-1/2 left-1/2 lg:-left-6 -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 rounded-full ${indicatorColor}`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 lg:hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 15l7-7 7 7"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 hidden lg:block"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </div>
       {children}
     </a>
   );
