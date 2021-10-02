@@ -17,7 +17,7 @@ export function Layout({
   title = SITE_NAME,
 }) {
   return (
-    <div className="px-4">
+    <div className="px-4 font-serif">
       <div className="relative max-w-prose mx-auto">
         <Head>
           <meta
