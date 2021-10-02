@@ -34,7 +34,7 @@ export function Layout({
           <meta name="twitter:site" content="@david_calhoun" />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 lg:-left-32 flex w-full lg:w-auto">
+        <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 left-0 lg:-left-32 flex w-full lg:w-auto">
           <div
             className="mx-auto flex lg:flex-col justify-around lg:items-start backdrop-filter backdrop-blur rounded-xl"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
