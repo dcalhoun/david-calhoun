@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 const NAME = "David Calhoun";
 const SITE_NAME = `${NAME}, Software Engineer`;
 export const DESCRIPTION =
-  "software engineer with a passion for building quality, accessible websites and apps";
+  "software engineer with a passion for building high-quality, accessible websites and apps";
 
 export function Layout({
   description = `David Calhoun is a ${DESCRIPTION}.`,
