@@ -14,7 +14,7 @@ export function Layout({
   title = SITE_NAME,
 }) {
   return (
-    <>
+    <div className="relative max-w-2xl mx-auto">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
@@ -25,10 +25,9 @@ export function Layout({
         <meta property="og:description" content={description} />
         <meta name="twitter:site" content="@david_calhoun" />
       </Head>
-      <div className="pb-16">{children}</div>
-      <nav className="fixed bottom-0 w-full p-2">
+      <nav className="fixed lg:absolute bottom-2 lg:bottom-auto lg:top-0 lg:-left-32 flex w-full lg:w-auto">
         <div
-          className="max-w-2xl mx-auto flex justify-around backdrop-filter backdrop-blur rounded-xl"
+          className="max-w-2xl mx-auto flex lg:flex-col justify-around lg:items-end backdrop-filter backdrop-blur rounded-xl"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         >
           <Link href="/" passHref>
@@ -42,7 +41,10 @@ export function Layout({
           </Link>
         </div>
       </nav>
-    </>
+      <main className="prose lg:prose-xl mx-auto my-10 px-2 pb-16 lg:pb-0">
+        {children}
+      </main>
+    </div>
   );
 }
 
@@ -53,15 +55,15 @@ function NavNextLink({ children, href, onClick }, ref) {
     : "";
   return (
     <a
-      className="relative flex flex-col items-center text-sm md:text-2xl px-4 py-4"
+      className="relative flex items-center text-sm md:text-2xl p-4 lg:p-0 lg:mb-6"
       href={href}
       onClick={onClick}
       ref={ref}
     >
-      {children}
       <div
-        className={`absolute bottom-2 left-1/2 -translate-x-1/2 h-1 w-1 mt-1 rounded-full ${indicatorColor}`}
+        className={`absolute bottom-2 lg:bottom-auto lg:top-1/2 left-1/2 lg:-left-4 -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 h-1 lg:h-2 w-1 lg:w-2 rounded-full ${indicatorColor}`}
       />
+      {children}
     </a>
   );
 }
