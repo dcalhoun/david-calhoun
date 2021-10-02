@@ -69,7 +69,7 @@ function NavNextLink({ children, href, onClick }, ref) {
     : "text-transparent";
   return (
     <a
-      className="relative flex items-center text-sm md:text-2xl p-4 lg:p-0 lg:mb-6"
+      className="relative flex items-center text-lg md:text-2xl p-4 lg:p-0 lg:mb-6"
       href={href}
       onClick={onClick}
       ref={ref}
