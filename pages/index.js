@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <h1>
-        Hi. 👋🏻 <br className="lg:hidden" />
+        Hi. 👋🏻 <br />
         I’m David Calhoun.
       </h1>
       <Image

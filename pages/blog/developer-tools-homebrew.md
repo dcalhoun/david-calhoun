@@ -4,6 +4,8 @@ published: "2013-12-16"
 title: "Developer Tools: Homebrew"
 ---
 
+# Developer Tools: Homebrew
+
 I recently received a new MacBook Pro &amp; went through the motions of setting up my development environment. One of my favorite tools for managing my environment is the Mac OS X package manager tool [Homebrew](http://brew.sh/). The following is a brief overview/tutorial of Homebrew.
 
 As a front end developer I&rsquo;m not nearly nerdy enough to understand many of the details behind the packages I use, but I do know that several of them are required to accomplish the projects that I work on. Homebrew allows me to easily install &amp; maintain those packages.
