@@ -52,8 +52,8 @@ export function Layout({
         </nav>
         <main
           className={`${
-            prose ? "prose lg:prose-2xl" : "max-w-prose"
-          } mx-auto my-10 pb-16 lg:pb-0`}
+            prose ? "prose md:prose-lg lg:prose-2xl" : "max-w-prose"
+          } mx-auto mt-10 mb-28 md:mb-40 lg:mb-10`}
         >
           {children}
         </main>
@@ -123,7 +123,9 @@ export default function Blog({ meta: { title, description, type }, pageMap }) {
       >
         {type === "posts" ? (
           <>
-            <div className="prose lg:prose-2xl mb-8 lg:mb-16">{children}</div>
+            <div className="prose md:prose-lg lg:prose-2xl mb-8 lg:mb-16">
+              {children}
+            </div>
             <PostList
               posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}
             />
