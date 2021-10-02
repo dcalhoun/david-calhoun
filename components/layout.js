@@ -65,7 +65,7 @@ export function Layout({
 function NavNextLink({ children, href, onClick }, ref) {
   const { asPath } = useRouter();
   const indicatorColor = new RegExp(`${href}($|\/.+)`).test(asPath)
-    ? "text-blue-500"
+    ? "text-blue-600"
     : "text-transparent";
   return (
     <a

@@ -22,7 +22,10 @@ export default function PostList({ posts }) {
       <article className="mb-4 lg:mb-8" role="listitem" key={route}>
         <Link href={route}>
           <a className="block" title={`${title} - Published on ${published}`}>
-            <h2 aria-hidden className="text-2xl lg:text-4xl font-semibold">
+            <h2
+              aria-hidden
+              className="text-2xl lg:text-4xl font-semibold text-blue-600 underline"
+            >
               {title}
             </h2>
             <time aria-hidden className="" dateTime={published}>
