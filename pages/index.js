@@ -1,5 +1,7 @@
 import { Layout } from "../components/layout";
 import { DESCRIPTION } from "../components/layout";
+import Image from "next/image";
+import davidImage from "../public/david.jpg";
 
 export default function Home() {
   return (
@@ -8,6 +10,12 @@ export default function Home() {
         Hi. 👋🏻 <br className="lg:hidden" />
         I’m David Calhoun.
       </h1>
+      <Image
+        alt="David Calhoun"
+        className="rounded-2xl"
+        placeholder="blur"
+        src={davidImage}
+      />
       <p>
         I am a {DESCRIPTION}. Currently, I am a Senior Software Engineer at{" "}
         <a href="https://automattic.com/">Automattic</a> building Gutenberg, the
