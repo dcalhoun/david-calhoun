@@ -34,6 +34,14 @@ export function Layout({
           <meta name="twitter:site" content="@david_calhoun" />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
+        <div className="sr-only focus-within:not-sr-only">
+          <a
+            className="fixed z-10 top-0 left-0 inline-block font-semibold bg-white text-blue-600 rounded-lg m-2 p-4"
+            href="#content"
+          >
+            Skip to content
+          </a>
+        </div>
         <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 left-0 lg:-left-32 flex w-full lg:w-auto">
           <div
             className="mx-auto flex lg:flex-col justify-around lg:items-start backdrop-filter backdrop-blur rounded-xl"
@@ -54,6 +62,7 @@ export function Layout({
           className={`${
             prose ? "prose md:prose-lg lg:prose-2xl" : "max-w-prose"
           } mx-auto mt-10 mb-28 md:mb-40 lg:mb-10`}
+          id="content"
         >
           {children}
         </main>
