@@ -11,6 +11,7 @@ export const DESCRIPTION =
 export function Layout({
   description = `David Calhoun is a ${DESCRIPTION}.`,
   children,
+  image = "../public/david.jpg",
   title = SITE_NAME,
 }) {
   return (
@@ -23,7 +24,9 @@ export function Layout({
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
         <meta name="twitter:site" content="@david_calhoun" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <nav className="fixed lg:absolute bottom-2 lg:bottom-auto lg:top-0 lg:-left-32 flex w-full lg:w-auto">
         <div
