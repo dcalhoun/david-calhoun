@@ -121,7 +121,10 @@ function NavNextLink({ children, href, onClick }, ref) {
 const NavLink = forwardRef(NavNextLink);
 
 // Default export layout required for Nextra
-export default function Blog({ meta: { title, description, type }, pageMap }) {
+export default function NextraLayout({
+  meta: { title, description, type },
+  pageMap,
+}) {
   return function BlogLayout({ children }) {
     return (
       <Layout
