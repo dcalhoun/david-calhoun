@@ -36,17 +36,14 @@ export function Layout({
         </Head>
         <div className="sr-only focus-within:not-sr-only">
           <a
-            className="fixed z-10 top-0 left-0 inline-block font-semibold bg-white text-blue-600 rounded-lg m-2 p-4"
+            className="fixed z-10 top-0 left-0 inline-block font-semibold bg-white dark:bg-gray-900 text-blue-600 dark:text-white rounded-lg m-2 p-4"
             href="#content"
           >
             Skip to content
           </a>
         </div>
         <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 left-0 lg:-left-32 flex w-full lg:w-auto">
-          <div
-            className="mx-auto flex lg:flex-col justify-around lg:items-start backdrop-filter backdrop-blur rounded-xl"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
-          >
+          <div className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white dark:bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur rounded-xl">
             <Link href="/" passHref>
               <NavLink>About</NavLink>
             </Link>
@@ -60,7 +57,9 @@ export function Layout({
         </nav>
         <main
           className={`${
-            prose ? "prose md:prose-lg lg:prose-2xl" : "max-w-prose"
+            prose
+              ? "prose md:prose-lg lg:prose-2xl dark:prose-light"
+              : "max-w-prose"
           } mx-auto mt-10 mb-28 md:mb-40 lg:mb-10`}
           id="content"
         >
@@ -74,11 +73,11 @@ export function Layout({
 function NavNextLink({ children, href, onClick }, ref) {
   const { asPath } = useRouter();
   const indicatorColor = new RegExp(`${href}($|\/.+)`).test(asPath)
-    ? "text-blue-600"
+    ? "text-blue-600 dark:text-white"
     : "text-transparent";
   return (
     <a
-      className="relative flex items-center text-lg md:text-2xl p-4 lg:p-0 lg:mb-6"
+      className="relative flex items-center text-lg md:text-2xl text-gray-700 dark:text-gray-400 p-4 lg:p-0 lg:mb-6"
       href={href}
       onClick={onClick}
       ref={ref}
@@ -132,7 +131,7 @@ export default function Blog({ meta: { title, description, type }, pageMap }) {
       >
         {type === "posts" ? (
           <>
-            <div className="prose md:prose-lg lg:prose-2xl mb-8 lg:mb-16">
+            <div className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16">
               {children}
             </div>
             <PostList

@@ -24,11 +24,15 @@ export default function PostList({ posts }) {
           <a className="block" title={`${title} - Published on ${published}`}>
             <h2
               aria-hidden
-              className="text-2xl lg:text-4xl font-semibold text-blue-600 underline"
+              className="text-2xl lg:text-4xl font-semibold text-blue-600 dark:text-white underline"
             >
               {title}
             </h2>
-            <time aria-hidden className="" dateTime={published}>
+            <time
+              aria-hidden
+              className="text-gray-700 dark:text-gray-400"
+              dateTime={published}
+            >
               {`${day} ${MONTHS[month - 1]} ${year}`}
             </time>
           </a>
