@@ -43,7 +43,7 @@ export function Layout({
           </a>
         </div>
         <nav className="fixed z-10 lg:absolute bottom-2 lg:bottom-auto lg:top-0 left-0 lg:-left-32 flex w-full lg:w-auto">
-          <div className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white dark:bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur rounded-xl">
+          <div className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white dark:bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur rounded-xl border border-gray-100 dark:border-gray-800 lg:border-none">
             <Link href="/" passHref>
               <NavLink>About</NavLink>
             </Link>
