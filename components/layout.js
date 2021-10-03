@@ -36,7 +36,7 @@ export function Layout({
         </Head>
         <div className="sr-only focus-within:not-sr-only">
           <a
-            className="fixed z-10 top-0 left-0 inline-block font-semibold bg-white dark:bg-gray-900 text-blue-600 dark:text-white rounded-lg m-2 p-4"
+            className="fixed z-10 top-0 left-0 bg-white dark:bg-gray-900 text-blue-600 dark:text-white underline rounded-lg m-2 p-4"
             href="#content"
           >
             Skip to content
