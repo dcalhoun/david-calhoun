@@ -128,7 +128,7 @@ export default function NextraLayout({
   return function BlogLayout({ children }) {
     return (
       <Layout
-        title={`${title} | ${NAME}`}
+        title={title ? `${title} | ${NAME}` : undefined}
         description={description}
         prose={type !== "posts"}
       >
