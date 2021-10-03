@@ -6,6 +6,15 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {
+      animation: {
+        "fade-up": "fade-up 300ms ease-in-out 1",
+      },
+      keyframes: {
+        "fade-up": {
+          "0%": { opacity: 0, transform: "translateY(5px)" },
+          "100%": { opacity: 1, transform: "translateY(0px)" },
+        },
+      },
       colors: {
         "light-blue": colors.lightBlue,
         cyan: colors.cyan,

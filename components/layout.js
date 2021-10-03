@@ -60,7 +60,7 @@ export function Layout({
             prose
               ? "prose md:prose-lg lg:prose-2xl dark:prose-light"
               : "max-w-prose"
-          } mx-auto mt-10 mb-28 md:mb-40 lg:mb-10`}
+          } mx-auto mt-10 mb-28 md:mb-40 lg:mb-10 animate-fade-up`}
           id="content"
         >
           {children}
