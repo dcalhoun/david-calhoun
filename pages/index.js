@@ -18,10 +18,11 @@ export default function Home() {
       />
       <p>
         I am a {DESCRIPTION}. Currently, I am a Senior Software Engineer at{" "}
-        <a href="https://automattic.com/">Automattic</a> building Gutenberg, the
+        <a href="https://automattic.com/">Automattic</a> building the native
+        version of{" "}
+        <a href="https://github.com/WordPress/gutenberg">Gutenberg</a>, the
         block editor for the <a href="https://wordpress.org">WordPress</a>{" "}
-        mobile <a href="https://apps.wordpress.com/mobile/">apps</a>. I am based
-        in Nashville, TN.
+        mobile apps.
       </p>
     </Layout>
   );
