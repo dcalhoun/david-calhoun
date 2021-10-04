@@ -1,6 +1,6 @@
 import Head from "next/head";
 import PostList from "./post-list";
-import { DESCRIPTION } from "../components/layout";
+import { NAME, SITE_NAME, DESCRIPTION } from "../components/layout";
 import { useRouter } from "next/router";
 
 const siteOrigin =
@@ -10,16 +10,17 @@ const siteOrigin =
 
 export default function LayoutNextra({
   meta: {
-    description = `David Calhoun is a ${DESCRIPTION}`,
+    description = `${NAME} is a ${DESCRIPTION}`,
     image = siteOrigin + "/public/david.jpg",
-    imageAlt = "Portrait of David Calhoun",
+    imageAlt = `Portrait of ${NAME}.`,
     imageHeight = 630,
     imageWidth = 1200,
-    title = "David Calhoun, Software Engineer",
+    title,
     type,
   },
   pageMap,
 }) {
+  title = title ? `${title} | ${NAME}` : SITE_NAME;
   return function LayoutBlog({ children }) {
     const { asPath } = useRouter();
     return (
@@ -41,7 +42,7 @@ export default function LayoutNextra({
           <meta
             key="og:site_name"
             property="og:site_name"
-            content="David Calhoun, Software Engineer"
+            content={SITE_NAME}
           />
           <meta key="og:image" property="og:image" content={image} />
           <meta

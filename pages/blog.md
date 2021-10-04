@@ -1,7 +1,7 @@
 ---
 type: "posts"
 title: "Blog"
-description: "David’s thoughts on software development."
+description: "David Calhoun’s thoughts on software development."
 ---
 
 # Blog
