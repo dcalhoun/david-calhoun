@@ -56,11 +56,7 @@ export default function LayoutNextra({
             property="og:image:width"
             content={imageWidth}
           />
-          <meta
-            key="og:image:alt"
-            property="og:image:width"
-            content={imageAlt}
-          />
+          <meta key="og:image:alt" property="og:image:alt" content={imageAlt} />
           <meta key="og:type" property="og:type" content="website" />
           <meta key="og:url" property="og:url" content={siteOrigin + asPath} />
           <meta
