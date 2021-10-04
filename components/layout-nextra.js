@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import PostList from "./post-list";
 import { NAME, SITE_NAME, DESCRIPTION } from "../components/layout";
 import { useRouter } from "next/router";
@@ -81,6 +82,17 @@ export default function LayoutNextra({
         </Head>
         <div className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16">
           {children}
+          {asPath.startsWith("/blog/") && (
+            <>
+              <hr />
+              <p className="text-center italic">
+                <Link href="/blog">
+                  <a>Read more</a>
+                </Link>{" "}
+                posts by {NAME}.
+              </p>
+            </>
+          )}
         </div>
         {type === "posts" && (
           <PostList
