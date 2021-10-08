@@ -6,7 +6,6 @@ export default function PostList({ posts }) {
     return (
       <article
         className="mb-4 lg:mb-8"
-        role="listitem"
         key={route}
         itemScope
         itemType="http://schema.org/BlogPosting"
