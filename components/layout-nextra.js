@@ -26,6 +26,8 @@ export default function LayoutNextra({
   const pageTitle = title ? `${title} | ${NAME}` : SITE_NAME;
   return function LayoutBlog({ children }) {
     const { asPath } = useRouter();
+    const isBlogPost = asPath.startsWith("/blog/");
+
     return (
       <div className="animate-fade-up">
         <Head>
@@ -78,30 +80,29 @@ export default function LayoutNextra({
             content={description}
           />
         </Head>
-        <article
-          className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16"
-          itemScope
-          itemType="http://schema.org/BlogPosting"
-        >
-          <header>
-            <h1 itemProp="headline">{title}</h1>
-            {type === "article" && (
+
+        {isBlogPost ? (
+          <article
+            className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16"
+            itemScope
+            itemType="http://schema.org/BlogPosting"
+          >
+            <header>
+              <h1 itemProp="headline">{title}</h1>
               <p
                 className="text-xl md:text-2xl lg:text-3xl mb-0 italic text-gray-500"
                 itemProp="description"
               >
                 {description}
               </p>
-            )}
-            {!!published && (
               <FormattedDate
                 className="text-sm md:text-base"
                 dateString={published}
               />
-            )}
-          </header>
-          <div itemProp="articleBody">{children}</div>
-          {asPath.startsWith("/blog/") && (
+            </header>
+
+            <div itemProp="articleBody">{children}</div>
+
             <footer>
               <hr />
               <p className="text-center italic">
@@ -119,12 +120,20 @@ export default function LayoutNextra({
                 .
               </p>
             </footer>
-          )}
-        </article>
-        {type === "posts" && (
-          <PostList
-            posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}
-          />
+          </article>
+        ) : (
+          <>
+            <div className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16">
+              {!!title && <h1>{title}</h1>}
+              {children}
+            </div>
+
+            {type === "posts" && (
+              <PostList
+                posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}
+              />
+            )}
+          </>
         )}
       </div>
     );
