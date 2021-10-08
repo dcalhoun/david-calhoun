@@ -3,6 +3,7 @@ import Link from "next/link";
 import PostList from "./post-list";
 import { NAME, SITE_NAME, DESCRIPTION } from "../components/layout";
 import { useRouter } from "next/router";
+import FormattedDate from "./formatted-date";
 
 const siteOrigin =
   process.env.NODE_ENV === "production"
@@ -16,12 +17,13 @@ export default function LayoutNextra({
     imageAlt = `Portrait of ${NAME}.`,
     imageHeight = 630,
     imageWidth = 1200,
+    published,
     title,
     type,
   },
   pageMap,
 }) {
-  title = title ? `${title} | ${NAME}` : SITE_NAME;
+  const pageTitle = title ? `${title} | ${NAME}` : SITE_NAME;
   return function LayoutBlog({ children }) {
     const { asPath } = useRouter();
     return (
@@ -32,9 +34,9 @@ export default function LayoutNextra({
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <title key="title">{title}</title>
+          <title key="title">{pageTitle}</title>
           <meta key="description" name="description" content={description} />
-          <meta key="og:title" property="og:title" content={title} />
+          <meta key="og:title" property="og:title" content={pageTitle} />
           <meta
             key="og:description"
             property="og:description"
@@ -69,27 +71,56 @@ export default function LayoutNextra({
             name="twitter:site"
             content="@david_calhoun"
           />
-          <meta key="twitter:title" name="twitter:title" content={title} />
+          <meta key="twitter:title" name="twitter:title" content={pageTitle} />
           <meta
             key="twitter:description"
             name="twitter:description"
             content={description}
           />
         </Head>
-        <div className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16">
-          {children}
+        <article
+          className="prose md:prose-lg lg:prose-2xl dark:prose-light mb-8 lg:mb-16"
+          itemScope
+          itemType="http://schema.org/BlogPosting"
+        >
+          <header>
+            <h1 itemProp="headline">{title}</h1>
+            {type === "article" && (
+              <p
+                className="text-xl md:text-2xl lg:text-3xl mb-0 italic text-gray-500"
+                itemProp="description"
+              >
+                {description}
+              </p>
+            )}
+            {!!published && (
+              <FormattedDate
+                className="text-sm md:text-base"
+                dateString={published}
+              />
+            )}
+          </header>
+          <div itemProp="articleBody">{children}</div>
           {asPath.startsWith("/blog/") && (
-            <>
+            <footer>
               <hr />
               <p className="text-center italic">
                 <Link href="/blog">
                   <a>Read more</a>
                 </Link>{" "}
-                posts by {NAME}.
+                posts by{" "}
+                <span
+                  itemProp="author"
+                  itemScope
+                  itemType="http://schema.org/Person"
+                >
+                  <span itemProp="name">{NAME}</span>
+                </span>
+                .
               </p>
-            </>
+            </footer>
           )}
-        </div>
+        </article>
         {type === "posts" && (
           <PostList
             posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}

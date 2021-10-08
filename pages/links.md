@@ -3,8 +3,6 @@ description: "Links about David Calhoun."
 title: "Links"
 ---
 
-# Links
-
 ## Social
 
 Aside from GitHub, I am not all that active, but you can find me on the following sites.

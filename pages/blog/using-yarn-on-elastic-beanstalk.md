@@ -2,9 +2,8 @@
 description: "A brief overview of setting up Yarn on Elastic Beanstalk."
 published: "2018-04-15"
 title: "Using Yarn on Elastic Beanstalk"
+type: "article"
 ---
-
-# Using Yarn on Elastic Beanstalk
 
 At GoNoodle, our team uses [Yarn](https://yarnpkg.com/) to manage our packages. We moved to Yarn from npm for improved install speeds and the deterministic benefits of its lock file.
 We recently moved from serving our web applications from static files on S3 to server rendering with Node instances on Elastic Beanstalk. That posed a problem as AWS support stated that support for Yarn is not provided on Elastic Beanstalk. The good news is that it is fairly simple to setup yourself.
