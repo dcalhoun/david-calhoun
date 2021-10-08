@@ -24,7 +24,7 @@ export default function FormattedDate({
     <time
       aria-hidden={ariaHidden}
       className={`text-gray-700 dark:text-gray-400 ${className}`}
-      itemProp="dateCreated pubdate datePublished"
+      itemProp="dateCreated datePublished"
       dateTime={dateString}
     >
       {`${day} ${MONTHS[month - 1]} ${year}`}
