@@ -13,7 +13,11 @@ const MONTHS = [
   "December",
 ];
 
-export default function FormattedDate({ ariaHidden, className, dateString }) {
+export default function FormattedDate({
+  ariaHidden,
+  className = "",
+  dateString,
+}) {
   const [year, month, day] = dateString.split("-");
 
   return (
