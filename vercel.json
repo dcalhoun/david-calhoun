@@ -10,17 +10,22 @@
     },
     {
       "source": "(/\\d{4}/\\d{2}/\\d{2}/)([^/]+)(/?)",
-      "destination": "/writing/$2",
+      "destination": "/blog/$2",
       "statusCode": 301
     },
     {
       "source": "/writing/(write|writing)-code-together",
-      "destination": "/writing/building-software-together",
+      "destination": "/blog/building-software-together",
       "statusCode": 301
     },
     {
       "source": "/writing/migration-to-jekyll-my-journey-to-understanding-yeoman",
-      "destination": "/writing/migration-to-jekyll-understanding-yeoman",
+      "destination": "/blog/migration-to-jekyll-understanding-yeoman",
+      "statusCode": 301
+    },
+    {
+      "source": "/writing($|/.*)",
+      "destination": "/blog$1",
       "statusCode": 301
     }
   ]

@@ -1,0 +1,16 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose a {
+	@apply text-blue-600;
+}
+
+.prose a:active {
+	@apply opacity-50;
+}
+
+.prose img {
+	@apply rounded-lg;
+}
