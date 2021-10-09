@@ -105,14 +105,16 @@ export default function LayoutNextra({
 
             <footer>
               <hr />
-              <p className="text-center italic">
+              <p className="italic">
                 Questions, comments, suggestions?{" "}
                 <a
                   href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${title}`}
                 >
-                  Open an issue
+                  Share them in a GitHub issue
                 </a>
-                .<br />
+                .{" "}
+              </p>
+              <p className="italic">
                 Enjoy this content? Please consider sharing it or{" "}
                 <Link href="/blog">
                   <a>reading more</a>
