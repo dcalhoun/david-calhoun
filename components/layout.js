@@ -20,17 +20,23 @@ export default function Layout({ children }) {
       </div>
       <div className="relative max-w-prose mx-auto">
         <nav className="fixed z-10 bottom-2 lg:bottom-auto lg:top-10 left-0 lg:left-1/2 lg:translate-x-[calc(-65ch/2-128px)] flex w-full lg:w-auto">
-          <div className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white dark:bg-gray-900 lg:bg-transparent bg-opacity-50 backdrop-filter backdrop-blur lg:backdrop-filter-none rounded-xl border border-gray-100 dark:border-gray-800 lg:border-none">
-            <Link href="/" passHref>
-              <NavLink>About</NavLink>
-            </Link>
-            <Link href="/blog" passHref>
-              <NavLink>Blog</NavLink>
-            </Link>
-            <Link href="/links" passHref>
-              <NavLink>Links</NavLink>
-            </Link>
-          </div>
+          <ul className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white dark:bg-gray-900 lg:bg-transparent bg-opacity-50 backdrop-filter backdrop-blur lg:backdrop-filter-none rounded-xl border border-gray-100 dark:border-gray-800 lg:border-none">
+            <li>
+              <Link href="/" passHref>
+                <NavLink>About</NavLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" passHref>
+                <NavLink>Blog</NavLink>
+              </Link>
+            </li>
+            <li>
+              <Link href="/links" passHref>
+                <NavLink>Links</NavLink>
+              </Link>
+            </li>
+          </ul>
         </nav>
         <main
           className="max-w-prose mx-auto mt-10 mb-28 md:mb-40 lg:mb-10"
