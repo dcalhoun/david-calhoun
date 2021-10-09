@@ -13,7 +13,7 @@ const siteOrigin =
 export default function LayoutNextra({
   meta: {
     description = `${NAME} is a ${DESCRIPTION}`,
-    image = siteOrigin + "/public/david.jpg",
+    image = siteOrigin + "/david.jpg",
     imageAlt = `Portrait of ${NAME}.`,
     imageHeight = 630,
     imageWidth = 1200,
