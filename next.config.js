@@ -1,6 +1,8 @@
 const nextra = require("nextra");
 
-module.exports = nextra("./components/layout-nextra.js")({
-  reactStrictMode: true,
+const withNextra = nextra({
+  theme: "./components/layout-nextra.js",
   unstable_staticImage: true,
 });
+
+module.exports = withNextra({ reactStrictMode: true });
