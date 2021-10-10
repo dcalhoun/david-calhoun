@@ -23,7 +23,7 @@ export default function LayoutNextra({
   },
   pageMap,
 }) {
-  const pageTitle = title ? `${title} | ${NAME}` : SITE_NAME;
+  const pageTitle = title ? `${title} - ${NAME}` : SITE_NAME;
   return function LayoutBlog({ children }) {
     const { asPath } = useRouter();
     const isBlogPost = asPath.startsWith("/blog/");
