@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FormattedDate from "./formatted-date";
+import FormattedDate, { formatDateString } from "./formatted-date";
 
 export default function PostList({ posts }) {
   return (
@@ -16,7 +16,7 @@ export default function PostList({ posts }) {
             <Link href={route}>
               <a
                 className="block"
-                title={`${title} - Published on ${published}`}
+                title={`${title} - Published on ${formatDateString(published)}`}
               >
                 <h2
                   aria-hidden

@@ -13,6 +13,11 @@ const MONTHS = [
   "December",
 ];
 
+export function formatDateString(dateString) {
+  const [year, month, day] = dateString.split("-");
+  return `${day} ${MONTHS[month - 1]} ${year}`;
+}
+
 export default function FormattedDate({
   ariaHidden,
   className = "",
@@ -27,7 +32,7 @@ export default function FormattedDate({
       itemProp="dateCreated datePublished"
       dateTime={dateString}
     >
-      {`${day} ${MONTHS[month - 1]} ${year}`}
+      {formatDateString(dateString)}
     </time>
   );
 }
