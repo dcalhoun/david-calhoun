@@ -88,6 +88,10 @@ export default function LayoutNextra({
             itemType="http://schema.org/BlogPosting"
           >
             <header>
+              <FormattedDate
+                className="text-sm md:text-base"
+                dateString={published}
+              />
               <h1 itemProp="headline">{title}</h1>
               <p
                 className="text-xl md:text-2xl lg:text-3xl mb-0 italic text-gray-500"
@@ -95,10 +99,6 @@ export default function LayoutNextra({
               >
                 {description}
               </p>
-              <FormattedDate
-                className="text-sm md:text-base"
-                dateString={published}
-              />
             </header>
 
             <div itemProp="articleBody">{children}</div>
