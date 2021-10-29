@@ -117,9 +117,9 @@ export default function LayoutNextra({
               <p className="italic">
                 Enjoy this content? Please consider sharing it or{" "}
                 <Link href="/blog">
-                  <a>reading more</a>
+                  <a>reading more posts</a>
                 </Link>{" "}
-                posts by{" "}
+                by{" "}
                 <span
                   itemProp="author"
                   itemScope
