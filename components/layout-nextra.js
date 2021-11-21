@@ -29,7 +29,7 @@ export default function LayoutNextra({
     const isBlogPost = asPath.startsWith("/blog/");
 
     return (
-      <div className="animate-fade-up">
+      <div className="motion-safe:animate-fade-up">
         <Head>
           <meta
             key="viewport"
