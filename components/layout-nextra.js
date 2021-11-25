@@ -13,12 +13,12 @@ const siteOrigin =
 
 export default function LayoutNextra({
   meta: {
+    date,
     description = `${NAME} is a ${DESCRIPTION}`,
     image = siteOrigin + "/david.jpg",
     imageAlt = `Portrait of ${NAME}.`,
     imageHeight = 630,
     imageWidth = 1200,
-    published,
     title,
     type,
   },
@@ -91,7 +91,7 @@ export default function LayoutNextra({
             <header>
               <FormattedDate
                 className="text-sm md:text-base"
-                dateString={published}
+                dateString={date}
               />
               <h1 itemProp="headline">{title}</h1>
               <p
