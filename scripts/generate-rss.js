@@ -3,12 +3,13 @@ const path = require("path");
 const RSS = require("rss");
 const matter = require("gray-matter");
 const { sortByPostPublishDateString } = require("../lib/post.js");
+const { NAME, SITE_URL } = require("../lib/constants");
 
 async function generate() {
   const feed = new RSS({
-    title: "David Calhoun",
-    site_url: "https://davidcalhoun.me",
-    feed_url: "https://davidcalhoun.me/feed.xml",
+    title: NAME,
+    site_url: SITE_URL,
+    feed_url: `${SITE_URL}/feed.xml`,
   });
 
   const postSlugs = await fs.readdir(
@@ -29,7 +30,7 @@ async function generate() {
         url: "/blog/" + name.replace(/\.mdx?/, ""),
         date: frontMatter.data.date,
         description: frontMatter.data.date,
-        author: "David Calhoun",
+        author: NAME,
       };
     })
   );

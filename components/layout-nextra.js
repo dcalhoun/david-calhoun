@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import PostList from "./post-list";
-import { NAME, SITE_NAME, DESCRIPTION } from "../components/layout";
+import { NAME, SITE_NAME, DESCRIPTION } from "../lib/constants";
 import { useRouter } from "next/router";
 import FormattedDate from "./formatted-date";
 import { sortByPostPublishDateString } from "../lib/post";
