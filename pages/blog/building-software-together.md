@@ -1,6 +1,6 @@
 ---
 description: "A practical guide to code review."
-published: "2019-12-27"
+date: "2019-12-27"
 title: "Building Software Together"
 ---
 
