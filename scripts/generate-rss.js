@@ -29,7 +29,7 @@ async function generate() {
         title: frontMatter.data.title,
         url: "/blog/" + name.replace(/\.mdx?/, ""),
         date: frontMatter.data.date,
-        description: frontMatter.data.date,
+        description: frontMatter.content,
         author: NAME,
       };
     })
