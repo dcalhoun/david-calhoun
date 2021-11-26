@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import PostList from "./post-list";
-import { NAME, SITE_NAME, DESCRIPTION } from "../components/layout";
+import { NAME, SITE_NAME, DESCRIPTION } from "../lib/constants";
 import { useRouter } from "next/router";
 import FormattedDate from "./formatted-date";
+import { sortByPostPublishDateString } from "../lib/post";
 
 const siteOrigin =
   process.env.NODE_ENV === "production"
@@ -12,12 +13,12 @@ const siteOrigin =
 
 export default function LayoutNextra({
   meta: {
+    date,
     description = `${NAME} is a ${DESCRIPTION}`,
     image = siteOrigin + "/david.jpg",
     imageAlt = `Portrait of ${NAME}.`,
     imageHeight = 630,
     imageWidth = 1200,
-    published,
     title,
     type,
   },
@@ -90,7 +91,7 @@ export default function LayoutNextra({
             <header>
               <FormattedDate
                 className="text-sm md:text-base"
-                dateString={published}
+                dateString={date}
               />
               <h1 itemProp="headline">{title}</h1>
               <p
@@ -140,7 +141,9 @@ export default function LayoutNextra({
 
             {type === "posts" && (
               <PostList
-                posts={pageMap[0]?.children.sort(sortByPostPublishDateString)}
+                posts={pageMap[0]?.children
+                  .map(({ route, frontMatter }) => ({ route, ...frontMatter }))
+                  .sort(sortByPostPublishDateString)}
               />
             )}
           </>
@@ -148,15 +151,4 @@ export default function LayoutNextra({
       </div>
     );
   };
-}
-
-function sortByPostPublishDateString(a, b) {
-  return (
-    parseDate(b.frontMatter.published) - parseDate(a.frontMatter.published)
-  );
-}
-
-function parseDate(dateString) {
-  const [year, month, day] = dateString.split("-");
-  return new Date(year, month - 1, day);
 }

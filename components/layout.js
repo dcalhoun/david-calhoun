@@ -2,11 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { forwardRef } from "react";
 
-export const NAME = "David Calhoun";
-export const SITE_NAME = `${NAME}, Software Engineer`;
-export const DESCRIPTION =
-  "software engineer with a passion for building high-quality, accessible websites and apps";
-
 export default function Layout({ children }) {
   return (
     <>

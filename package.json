@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:rss && next build",
+    "build:rss": "node ./scripts/generate-rss.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,6 +21,9 @@
     "autoprefixer": "^10.3.6",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
-    "postcss": "^8.3.8"
+    "gray-matter": "^4.0.3",
+    "micromark": "^2.11.4",
+    "postcss": "^8.3.8",
+    "rss": "^1.2.2"
   }
 }

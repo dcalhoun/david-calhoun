@@ -4,7 +4,7 @@ import FormattedDate, { formatDateString } from "./formatted-date";
 export default function PostList({ posts }) {
   return (
     <ul role="list">
-      {posts.map(({ route, frontMatter: { title, published } }) => {
+      {posts.map(({ route, title, date }) => {
         return (
           <li
             className="mb-4 lg:mb-8"
@@ -16,7 +16,7 @@ export default function PostList({ posts }) {
             <Link href={route}>
               <a
                 className="block"
-                title={`${title} - Published on ${formatDateString(published)}`}
+                title={`${title} - Published on ${formatDateString(date)}`}
               >
                 <h2
                   aria-hidden
@@ -25,7 +25,7 @@ export default function PostList({ posts }) {
                 >
                   {title}
                 </h2>
-                <FormattedDate ariaHidden dateString={published} />
+                <FormattedDate ariaHidden dateString={date} />
               </a>
             </Link>
           </li>
