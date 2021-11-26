@@ -6,6 +6,8 @@ title: "Migration to Jekyll: Understanding Yeoman"
 
 I&rsquo;ve been wanting to wrap my head around [Yeoman](http://yeoman.io/) for a while now. It seemed every time I found a moment of free time to dive into understanding Yeoman, my brain was already fried from that day&rsquo;s job-related development work. I continued to spin-up a generic &ldquo;webapp&rdquo; generator & failed to understand the seemingly complex ideas behind Yeoman. This process continued until now, when I decided to move my personal site to GitHub pages & Jekyll. I wanted to share my experience and provide a brief overview/tutorial of using Yeoman.
 
+<span id="end-excerpt" class="hidden" aria-hidden="true"></span>
+
 It seems that in order for me to finally understand the beauty of Yeoman, all I needed was an end goal: a Jekyll site. It turns out this is exactly why Yeoman was created — to help you quickly achieve your goal by generating a lot of the initial boilerplate code for you.
 
 ```bash

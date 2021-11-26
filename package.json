@@ -22,6 +22,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "gray-matter": "^4.0.3",
+    "micromark": "^2.11.4",
     "postcss": "^8.3.8",
     "rss": "^1.2.2"
   }

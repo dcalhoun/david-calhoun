@@ -8,6 +8,8 @@ Writing code with other people is hard. Thankfully, companies like GitHub have b
 
 Even with great tooling like this, however, it can still be challenging avoid miscommunication that can sometimes create resentment between team members. Here are a few tactics I’ve learned over the years to foster community.
 
+<span id="end-excerpt" class="hidden" aria-hidden="true"></span>
+
 1. Author your comments from the perspective of the team when possible by using plural pronouns (e.g. we, our, us) to convey that all code contributed is a team effort.
 1. Provide an explanation for the “why” behind your requested changes (e.g. outline the pros and cons of both the current and proposed approach to a problem) to avoid the perception of arbitrary demands.
 1. When providing a personal opinion or preference, leave opportunity for feedback on the topic (e.g. “What are your thoughts on what I have proposed?”) to promote collaboration.
