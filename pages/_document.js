@@ -1,4 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import { SITE_URL } from "../lib/constants";
 
 class Document extends NextDocument {
   static async getInitialProps(ctx) {
@@ -10,6 +11,12 @@ class Document extends NextDocument {
     return (
       <Html>
         <Head>
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="David Calhoun RSS feed"
+            href={`${SITE_URL}/feed.xml`}
+          />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="57x57"
