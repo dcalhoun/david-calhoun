@@ -34,7 +34,7 @@ async function generate() {
 
       return {
         title: frontMatter.data.title,
-        url: "/blog/" + name.replace(/\.mdx?/, ""),
+        url: SITE_URL + "/blog/" + name.replace(/\.mdx?/, ""),
         date: frontMatter.data.date,
         description: micromark(frontMatter.excerpt),
         author: NAME,
