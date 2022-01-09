@@ -9,7 +9,7 @@ const HightlightContext = React.createContext({});
 const Pre = ({ children, ...props }) => {
   return (
     <HightlightContext.Provider value={props}>
-      <pre>{children}</pre>
+      <pre tabIndex="0">{children}</pre>
     </HightlightContext.Provider>
   );
 };
