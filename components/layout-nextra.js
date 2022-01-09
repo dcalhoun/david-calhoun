@@ -5,6 +5,7 @@ import { NAME, SITE_NAME, DESCRIPTION } from "../lib/constants";
 import { useRouter } from "next/router";
 import FormattedDate from "./formatted-date";
 import { sortByPostPublishDateString } from "../lib/post";
+import MDXTheme from "../components/mdx-theme";
 
 const siteOrigin =
   process.env.NODE_ENV === "production"
@@ -102,7 +103,9 @@ export default function LayoutNextra({
               </p>
             </header>
 
-            <div itemProp="articleBody">{children}</div>
+            <div itemProp="articleBody">
+              <MDXTheme>{children}</MDXTheme>
+            </div>
 
             <footer>
               <hr />
