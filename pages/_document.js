@@ -9,7 +9,7 @@ class Document extends NextDocument {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link
             rel="alternate"
