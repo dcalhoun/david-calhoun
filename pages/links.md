@@ -22,5 +22,5 @@ Below are a few projects to which I actively contribute.
 - [soutar/hyperterm-summon](https://github.com/soutar/hyperterm-summon)
 
 <section aria-label="footnotes">
-  <ol className="italic text-sm"><li id="1">I am compenstated for contributions to this project.</li></ol>
+  <ol className="italic text-sm"><li id="1">My employer sponsors my contributions to this project.</li></ol>
 </section>
