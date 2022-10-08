@@ -2,30 +2,7 @@
   "name": "david-calhoun",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "npm run build:rss && next build",
-    "build:rss": "node ./scripts/generate-rss.js",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
-    "next": "12.1.0",
-    "nextra": "^1.1.0",
-    "prism-react-renderer": "^1.2.1",
-    "prismjs": "^1.27.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "tailwindcss": "^2.2.16"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.6",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "gray-matter": "^4.0.3",
-    "micromark": "^2.11.4",
-    "postcss": "^8.3.8",
-    "rss": "^1.2.2"
-  }
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
 }
