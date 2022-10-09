@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "format": "prettier -w .",
     "wp-env": "wp-env"
   },
   "devDependencies": {
-    "@wordpress/env": "^5.4.0"
+    "@prettier/plugin-php": "^0.19.1",
+    "@wordpress/env": "^5.4.0",
+    "prettier": "^2.7.1"
   }
 }
