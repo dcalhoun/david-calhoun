@@ -42,5 +42,12 @@
       "fontFamily": "var(--wp--preset--font-family--body)",
       "fontSize": "var(--wp--preset--font-size--base)"
     }
-  }
+  },
+  "templateParts": [
+    {
+      "area": "header",
+      "name": "header",
+      "title": "Header"
+    }
+  ]
 }
