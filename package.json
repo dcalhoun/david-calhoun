@@ -2,7 +2,10 @@
   "name": "david-calhoun",
   "version": "0.1.0",
   "private": true,
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "wp-env": "wp-env"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^5.4.0"
+  }
 }
