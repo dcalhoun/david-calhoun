@@ -15,3 +15,27 @@ Text Domain: davidcalhoun
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+.navigation-primary {
+  bottom: 0.5rem;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation-primary {
+    bottom: auto;
+    left: 50%;
+    top: 2.5rem;
+    transform: translateX(calc(-40rem / 2 - 128px));
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .navigation-primary .wp-block-navigation__container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
