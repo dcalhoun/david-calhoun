@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "davidcalhoun.me",
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
   "redirects": [
     {
       "source": "(/.*)+/",
