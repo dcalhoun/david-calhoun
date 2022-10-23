@@ -12,7 +12,7 @@ const A = ({ children, ...props }) => {
 
   if (isExternal) {
     return (
-      <a target="_blank" rel="noreferrer" {...props}>
+      <a rel="noreferrer" {...props}>
         {children}
       </a>
     );
