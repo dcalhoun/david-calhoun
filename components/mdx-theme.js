@@ -3,8 +3,29 @@ import { MDXProvider } from "@mdx-js/react";
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/oceanicNext";
+import Link from "next/link";
 
 const HightlightContext = React.createContext({});
+
+const A = ({ children, ...props }) => {
+  const isExternal = props.href && props.href.startsWith("https://");
+
+  if (isExternal) {
+    return (
+      <a target="_blank" rel="noreferrer" {...props}>
+        {children}
+      </a>
+    );
+  }
+
+  return props.href ? (
+    <Link href={props.href}>
+      <a {...props}>{children}</a>
+    </Link>
+  ) : (
+    <></>
+  );
+};
 
 const Pre = ({ children, ...props }) => {
   return (
@@ -71,6 +92,7 @@ const Code = ({ children, className, ...props }) => {
 };
 
 const components = {
+  a: A,
   pre: Pre,
   code: Code,
 };
