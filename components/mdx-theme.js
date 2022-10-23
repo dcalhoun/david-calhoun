@@ -8,7 +8,7 @@ import Link from "next/link";
 const HightlightContext = React.createContext({});
 
 const A = ({ children, ...props }) => {
-  const isExternal = props.href && props.href.startsWith("https://");
+  const isExternal = props.href && /https?:\/\//.test(props.href);
 
   if (isExternal) {
     return (
