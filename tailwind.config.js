@@ -21,6 +21,13 @@ module.exports = {
         cyan: colors.cyan,
       },
       typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              color: theme("colors.blue.600"),
+            },
+          },
+        },
         light: {
           css: [
             {
