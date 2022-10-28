@@ -20,17 +20,17 @@ export default function Layout({ children }) {
         >
           <ul className="mx-auto flex lg:flex-col justify-around lg:items-start bg-white/50 dark:bg-gray-900/50 lg:bg-transparent backdrop-blur lg:backdrop-blur-none rounded-xl border border-gray-100 dark:border-gray-800 lg:border-none">
             <li>
-              <Link href="/" passHref>
+              <Link href="/" passHref legacyBehavior>
                 <NavLink>About</NavLink>
               </Link>
             </li>
             <li>
-              <Link href="/blog" passHref>
+              <Link href="/blog" passHref legacyBehavior>
                 <NavLink>Blog</NavLink>
               </Link>
             </li>
             <li>
-              <Link href="/links" passHref>
+              <Link href="/links" passHref legacyBehavior>
                 <NavLink>Links</NavLink>
               </Link>
             </li>

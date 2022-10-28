@@ -120,10 +120,7 @@ export default function LayoutNextra({
               </p>
               <p className="italic">
                 Enjoy this content? Please consider sharing it or{" "}
-                <Link href="/blog">
-                  <a>reading more posts</a>
-                </Link>{" "}
-                by{" "}
+                <Link href="/blog">reading more posts</Link> by{" "}
                 <span
                   itemProp="author"
                   itemScope

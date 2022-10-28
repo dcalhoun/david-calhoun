@@ -13,20 +13,19 @@ export default function PostList({ posts }) {
             itemType="http://schema.org/BlogPosting"
             role="listitem"
           >
-            <Link href={route}>
-              <a
-                className="block"
-                title={`${title} - Published on ${formatDateString(date)}`}
+            <Link
+              href={route}
+              className="block"
+              title={`${title} - Published on ${formatDateString(date)}`}
+            >
+              <h2
+                aria-hidden
+                className="text-2xl lg:text-4xl font-semibold text-blue-600 dark:text-white underline"
+                itemProp="headline"
               >
-                <h2
-                  aria-hidden
-                  className="text-2xl lg:text-4xl font-semibold text-blue-600 dark:text-white underline"
-                  itemProp="headline"
-                >
-                  {title}
-                </h2>
-                <FormattedDate ariaHidden dateString={date} />
-              </a>
+                {title}
+              </h2>
+              <FormattedDate ariaHidden dateString={date} />
             </Link>
           </li>
         );
