@@ -16,11 +16,9 @@ Aside from GitHub, I am not all that active, but you can find me on the followin
 
 Below are a few projects to which I actively contribute.
 
-- [WordPress/gutenberg](https://github.com/WordPress/gutenberg)<sup><a aria-label="footnote 1" href="#1">1</a></sup>
-- [wordpress-mobile/WordPress-iOS](https://github.com/wordpress-mobile/WordPress-iOS)<sup><a aria-label="footnote 1" href="#1">1</a></sup>
-- [wordpress-mobile/WordPress-Android](https://github.com/wordpress-mobile/WordPress-Android)<sup><a aria-label="footnote 1" href="#1">1</a></sup>
+- [WordPress/gutenberg](https://github.com/WordPress/gutenberg)<sup>\*</sup>
+- [wordpress-mobile/WordPress-iOS](https://github.com/wordpress-mobile/WordPress-iOS)<sup>\*</sup>
+- [wordpress-mobile/WordPress-Android](https://github.com/wordpress-mobile/WordPress-Android)<sup>\*</sup>
 - [soutar/hyperterm-summon](https://github.com/soutar/hyperterm-summon)
 
-<section aria-label="footnotes">
-  <ol className="italic text-sm"><li id="1">My employer sponsors my contributions to this project.</li></ol>
-</section>
+\*My employer sponsors my contributions to this project.
