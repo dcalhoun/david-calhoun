@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "npm run build:rss && next build",
     "build:rss": "node ./scripts/generate-rss.js",
-    "format": "prettier --write .",
+    "format": "prettier --ignore-path .gitignore --write --list-different .",
     "start": "next start",
     "lint": "next lint"
   },
