@@ -10,3 +10,19 @@
 .prose img {
   @apply rounded-lg;
 }
+
+:root {
+  --shiki-color-text: #fff;
+  --shiki-color-background: transparent;
+  --shiki-token-constant: #65737e;
+  --shiki-token-string: #99c794;
+  --shiki-token-comment: #aaa;
+  --shiki-token-keyword: #c594c5;
+  --shiki-token-parameter: #f99157;
+  --shiki-token-function: #6699cc;
+  --shiki-token-string-expression: #99c794;
+  --shiki-token-punctuation: #65737e;
+  --shiki-token-link: #f2777a;
+  --nextra-shiki-deleted: #eb606b;
+  --nextra-shiki-inserted: #99c794;
+}
