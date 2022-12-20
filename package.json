@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:rss && next build",
-    "build:rss": "node ./scripts/generate-rss.js",
+    "build:rss": "node ./scripts/generate-rss.mjs",
     "format": "prettier --ignore-path .gitignore --write --list-different .",
     "start": "next start",
     "lint": "next lint"
@@ -25,7 +25,7 @@
     "eslint": "^8.30.0",
     "eslint-config-next": "^13.0.7",
     "gray-matter": "^4.0.3",
-    "micromark": "^2.11.4",
+    "micromark": "^3.1.0",
     "postcss": "^8.4.20",
     "prettier": "^2.7.1",
     "rss": "^1.2.2"

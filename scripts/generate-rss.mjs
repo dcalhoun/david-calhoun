@@ -1,10 +1,13 @@
-const { promises: fs } = require("fs");
-const path = require("path");
-const RSS = require("rss");
-const matter = require("gray-matter");
-const { sortByPostPublishDateString } = require("../lib/post.js");
-const { NAME, SITE_URL } = require("../lib/constants");
-const micromark = require("micromark");
+import { promises as fs } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import RSS from "rss";
+import matter from "gray-matter";
+import { sortByPostPublishDateString } from "../lib/post.js";
+import { NAME, SITE_URL } from "../lib/constants.mjs";
+import { micromark } from "micromark";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function generate() {
   const feed = new RSS({
@@ -13,16 +16,14 @@ async function generate() {
     feed_url: `${SITE_URL}/feed.xml`,
   });
 
-  const postSlugs = await fs.readdir(
-    path.join(__dirname, "..", "pages", "blog")
-  );
+  const postSlugs = await fs.readdir(join(__dirname, "..", "pages", "blog"));
 
   const posts = await Promise.all(
     postSlugs.map(async (name) => {
       if (name.startsWith("index.")) return;
 
       const content = await fs.readFile(
-        path.join(__dirname, "..", "pages", "blog", name)
+        join(__dirname, "..", "pages", "blog", name)
       );
       const frontMatter = matter(content, {
         excerpt: true,
