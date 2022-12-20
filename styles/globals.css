@@ -11,6 +11,10 @@
   @apply rounded-lg;
 }
 
+.footnotes {
+  @apply text-xs;
+}
+
 :root {
   --shiki-color-text: #fff;
   --shiki-color-background: transparent;

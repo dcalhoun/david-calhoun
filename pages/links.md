@@ -16,9 +16,9 @@ Aside from GitHub, I am not all that active, but you can find me on the followin
 
 Below are a few projects to which I actively contribute.
 
-- [WordPress/gutenberg](https://github.com/WordPress/gutenberg)<sup>\*</sup>
-- [wordpress-mobile/WordPress-iOS](https://github.com/wordpress-mobile/WordPress-iOS)<sup>\*</sup>
-- [wordpress-mobile/WordPress-Android](https://github.com/wordpress-mobile/WordPress-Android)<sup>\*</sup>
+- [WordPress/gutenberg](https://github.com/WordPress/gutenberg)[^1]
+- [wordpress-mobile/WordPress-iOS](https://github.com/wordpress-mobile/WordPress-iOS)[^1]
+- [wordpress-mobile/WordPress-Android](https://github.com/wordpress-mobile/WordPress-Android)[^1]
 - [soutar/hyperterm-summon](https://github.com/soutar/hyperterm-summon)
 
-\*My employer sponsors my contributions to this project.
+[^1]: My employer sponsors my contributions to this project.
