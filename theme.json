@@ -37,6 +37,11 @@
       ],
       "fontSizes": [
         {
+          "name": "Small",
+          "size": "0.75rem",
+          "slug": "small"
+        },
+        {
           "name": "Base",
           "size": "1rem",
           "slug": "base"
