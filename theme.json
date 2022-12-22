@@ -11,6 +11,17 @@
       "contentSize": "40rem",
       "wideSize": "64rem"
     },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        {
+          "slug": "primary",
+          "name": "Accent 1",
+          "color": "#2563eb"
+        }
+      ]
+    },
     "typography": {
       "fontFamilies": [
         {
@@ -53,6 +64,11 @@
           "margin": {
             "top": "0"
           }
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--primary)"
         }
       }
     },
