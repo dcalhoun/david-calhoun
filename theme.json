@@ -55,20 +55,16 @@
     }
   },
   "styles": {
-    "blocks": {
-      "core/post-title": {
-        "typography": {
-          "fontSize": "var(--wp--custom--font-size--huge)",
-          "fontFamily": "var(--wp--preset--font-family--heading)"
-        }
-      }
-    },
     "elements": {
       "h1": {
         "spacing": {
           "margin": {
             "top": "0"
           }
+        },
+        "typography": {
+          "fontSize": "var(--wp--custom--font-size--huge)",
+          "fontFamily": "var(--wp--preset--font-family--heading)"
         }
       },
       "link": {
@@ -82,6 +78,13 @@
       "fontSize": "clamp(var(--wp--preset--font-size--base), 10vw, var(--wp--preset--font-size--large))"
     }
   },
+  "customTemplates": [
+    {
+      "name": "page-no-title",
+      "title": "Page (No Title)",
+      "postTypes": ["page"]
+    }
+  ],
   "templateParts": [
     {
       "area": "header",
