@@ -19,3 +19,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @TODO: Configure with theme.json when possible */
+.wp-block-image.is-style-circle-mask img,
+.wp-block-image.is-style-rounded img,
+.wp-block-image .is-style-rounded img {
+  @apply rounded-lg;
+}
