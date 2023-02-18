@@ -21,7 +21,7 @@ if (!function_exists("davidcalhoun_setup")):
         add_theme_support("wp-block-styles");
 
         // Enqueue editor styles.
-        add_editor_style("style.css");
+        add_editor_style("dist/style.css");
 
         // Add support for Global Style settings.
         add_theme_support("appearance-tools");
@@ -45,7 +45,7 @@ if (!function_exists("davidcalhoun_styles")):
         // Register theme stylesheet.
         wp_register_style(
             "davidcalhoun-style",
-            get_template_directory_uri() . "/style.css",
+            get_template_directory_uri() . "/dist/style.css",
             [],
             $version_string,
         );
