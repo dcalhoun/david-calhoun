@@ -55,6 +55,21 @@
     }
   },
   "styles": {
+    "blocks": {
+      "core/site-title": {
+        "elements": {
+          "link": {
+            "typography": {
+              "textDecoration": "none"
+            }
+          }
+        },
+        "typography": {
+          "fontSize": "var(--wp--custom--font-size--small)",
+          "fontFamily": "var(--wp--preset--font-family--heading)"
+        }
+      }
+    },
     "elements": {
       "h1": {
         "spacing": {
