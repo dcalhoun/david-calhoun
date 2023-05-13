@@ -109,6 +109,11 @@
           "fontSize": "var(--wp--preset--font-size--base)"
         }
       },
+      "core/search": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--small)"
+        }
+      },
       "core/site-title": {
         "elements": {
           "link": {
