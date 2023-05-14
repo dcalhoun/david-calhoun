@@ -112,6 +112,10 @@ function inline_post_featured_image($post_type) {
                 "lock" => ["move" => "true"],
             ],
         ],
+        [
+            "core/post-excerpt",
+            ["fontSize" => "x-large", "lock" => ["move" => "true"]],
+        ],
         ["core/paragraph"],
     ];
 }
