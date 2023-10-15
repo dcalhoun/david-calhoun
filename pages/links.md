@@ -8,8 +8,9 @@ title: "Links"
 Aside from GitHub, I am not all that active, but you can find me on the following sites.
 
 - [GitHub](https://github.com/dcalhoun)
+- [Bluesky](https://bsky.app/profile/davidcalhoun.me)
+- [X](https://x.com/david_calhoun)
 - [LinkedIn](https://www.linkedin.com/in/davidpcalhoun/)
-- [Twitter](https://twitter.com/david_calhoun)
 - [Stack Overflow](https://stackoverflow.com/users/378228/david)
 
 ## Open-Source Projects
