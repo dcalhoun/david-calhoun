@@ -109,6 +109,13 @@ export default function LayoutNextra(props) {
           <footer>
             <hr />
             <p className="italic">
+              Follow me on{" "}
+              <a href="https://bsky.app/profile/davidcalhoun.me">Bluesky</a>,{" "}
+              <a href="https://x.com/david_calhoun">X</a>, or via{" "}
+              <a href="/feed.xml">RSS</a> to get notified when my next blog post
+              is published.{" "}
+            </p>
+            <p className="italic">
               Questions, comments, suggestions?{" "}
               <a
                 href={`https://github.com/dcalhoun/dcalhoun.github.io/issues/new?title=${title}`}
@@ -116,18 +123,6 @@ export default function LayoutNextra(props) {
                 Share them in a GitHub issue
               </a>
               .{" "}
-            </p>
-            <p className="italic">
-              Enjoy this content? Please consider sharing it or{" "}
-              <Link href="/blog">reading more posts</Link> by{" "}
-              <span
-                itemProp="author"
-                itemScope
-                itemType="http://schema.org/Person"
-              >
-                <span itemProp="name">{NAME}</span>
-              </span>
-              .
             </p>
           </footer>
         </article>
